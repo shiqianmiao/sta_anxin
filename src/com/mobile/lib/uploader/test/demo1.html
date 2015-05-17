@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <input type="file" id="uploader" multiple>;
+    </body>
+    <script src="http://sta.ganjistatic1.com/ng/com/mobile/g.js"></script>
+    <script src="../uploader.js"></script>
+    <script src="../photoCompress.js"></script>
+    <script>
+    G.use("com/mobile/lib/uploader/uploader.js", function (Uploader) {
+        var uploader = new Uploader({
+            url: 'http://image.ganji.com/upload.php',
+            maxCount: 15,
+            allowTypes: ['jpg', 'jpeg', 'bmp', 'gif', 'png']
+        });
+        uploader
+            .on('Upload::success', function (e, fileInfo) {
+                var $img = $('<img>');
+                $('body').append($img);
+                $img.attr('src', 'http://image.ganji.com/' + fileInfo.thumbUrl);
+            })
+            .on('Upload::error', function (e, fileInfo, msg) {
+                console.log(msg, fileInfo);
+            });
+
+        $('#uploader').on('change', function (e) {
+            var files = e.target.files;
+            [].some.call(files, function (file) {
+                window.console.log(file);
+                var _file = {};
+                return G.use('com/mobile/lib/uploader/photoCompress.js', function(compress){
+                    compress.getImageData(file, {
+                        width: 1000,
+                        maxW:1000
+                    }, function (error, data) {
+                        if (error) {
+                            window.console.log(error);
+                        }else{
+                            window.console.log(data);
+                            //mime type
+                            _file.name      = file.name;
+                            _file.type      = 'image/jpeg';
+                            _file.reference = data.base64;
+                            _file.params    = {
+                                height : data.height,
+                                width  : data.width
+                            };
+                            return uploader.upload( _file, true) === false;
+                        }
+                    });
+                });
+            });
+        });
+    });
+    </script>
+</html>

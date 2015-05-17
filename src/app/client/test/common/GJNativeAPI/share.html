@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<meta name="format-detection"content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>赶集网</title>
+<style>
+    button {
+        display: block;
+        height: 40px;
+        margin: 10px;
+    }
+</style>
+</head>
+<body>
+<form action="" id="form">
+    <input type="text" name="text" value="测试分享文本">
+    <input type="text" name="img" value="http://sta.ganjistatic1.com/att/2013/0725-logo.jpg">
+    <input type="text" name="url" value="http://3g.ganji.com">
+    <input type="button" value="分享" id='share-btn'>
+</form>
+
+<a href="javascript: void(0);" id="link">重新打开一个带搜索框和分享按钮的webview</a>
+
+<script src="http://sta.ganjistatic1.com/ng/app/client/common/g.js"></script>
+<script>
+G.use(['app/client/common/lib/native/native.js', '$'], function (NativeAPI, $) {
+    NativeAPI.registerHandler('share', share);
+
+    $('#share-btn').on('click', share);
+
+    $('#link').on('click', function () {
+        NativeAPI.invoke('createWebView', {
+            url: window.location.href,
+            control: {
+                type: 'title',
+                text: '测试标题'
+            },
+            controls: [
+                {type: 'title', text: '测试标题'},
+                {type: 'shareBtn'}
+            ]
+        });
+    });
+
+    function share () {
+        NativeAPI.invoke('showShareDialog', {
+            text: $('input[name="text"]').val(),
+            url: $('input[name="url"]').val(),
+            img: $('input[name="img"]').val()
+        }, function (err, result) {
+            if (err) {
+                window.alert('ERROR[' + err.code + ']:' + err.message);
+                return;
+            }
+            window.alert('分享结束:' + JSON.stringify(result));
+        });
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<meta name="format-detection"content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>赶集网</title>
+<style>
+    button {
+        display: block;
+        height: 40px;
+        margin: 10px;
+    }
+</style>
+</head>
+<body>
+
+<button
+    data-widget="app/client/test/common/GJNativeAPI/test.js#webViewCallback"
+    data-url="./callback.html"
+>webViewCallback</button>
+<script src="http://sta.ganjistatic1.com/ng/app/client/common/g.js"></script>
+<script>
+G.use('app/client/test/common/GJNativeAPI/test.js', function (Test) {
+    Test.run();
+});
+</script>
+</body>
+</html>

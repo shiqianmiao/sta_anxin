@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-title" content="赶集网">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon-precomposed" href="http://stacdn201.ganjistatic1.com/src/image/mobile/touch/guodong/add_favorite.png?v=1">
+    <title>赶集群组</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!--<link rel="stylesheet" href="http://sta.ganjistatic1.com/src/css/mobile/touch/project/group_chat/style.css"> -->
+    <script type="text/javascript" src="http://sta.ganji.com/cgi/ganji_sta.php?file=css/mobile/touch/project/group_chat/style.cmb.css&configDir=css/mobile/touch/project/group_chat"></script>
+    <script src="http://sta.ganji.com/ng/com/mobile/g.js"></script>
+    <script>
+    window.shareData = {
+    "imgUrl": "http://stacdn201.ganjistatic1.com/att/project/app/group_chat/images/share.png",
+    /*"imgUrl": "http://stacdn201.ganjistatic1.com/att/project/app/group_chat/images/share02.png",*/
+    "timeLineLink": "http://3g.ganji.com/misc/qunliao/",
+    "tTitle": "打动无数在外奋斗的人——我第52588个为老乡点赞！",
+    /*"tTitle": "赶集年度巨献，为在外拼搏的老乡点赞！我是第52588份力量！",*/
+    "tContent": "赶集群组"
+    };
+    document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+    WeixinJSBridge.invoke('sendAppMessage', {
+    "img_url": window.shareData.imgUrl,
+    "link": window.shareData.timeLineLink,
+    "desc": window.shareData.tContent,
+    "title": window.shareData.tTitle
+    }, function(res) {
+    dp_share();
+    })
+    });
+    WeixinJSBridge.on('menu:share:timeline', function(argv) {
+    WeixinJSBridge.invoke('shareTimeline', {
+    "img_url": window.shareData.imgUrl,
+    "img_width": "640",
+    "img_height": "640",
+    "link": window.shareData.timeLineLink,
+    "desc": window.shareData.tContent,
+    "title": window.shareData.tTitle
+    }, function(res) {
+    dp_share();
+    });
+    });
+    WeixinJSBridge.on('menu:share:weibo', function(argv) {
+    WeixinJSBridge.invoke('shareWeibo', {
+    "content": window.shareData.tContent,
+    "url": window.shareData.timeLineLink
+    }, function(res) {
+    dp_share();
+    });
+    });
+    window.WeixinJSBridge = WeixinJSBridge;
+    }, false)
+    </script>
+  </head>
+  <body>
+    <div class="loading">
+      <i class="zoom-in"></i>
+      <i class="zoom-out"></i>
+      <b class="percent">100%</b>
+    </div>
+    <div class="player active" data-widget="com/mobile/page/misc/qunliao/qunliao.js#audioSwitch">
+    <audio id="audio" src="http://sta.ganjistatic1.com/att/project/app/group_chat/images/bgm.mp3" loop="" preload="auto" autoplay="true"></audio>
+    <div class="play rotate"></div>
+  </div>
+  <div id="pages" class="pages" data-widget="com/mobile/page/misc/campus_recruitment/swiper.js#vertical" data-swipe="Y">
+    <section data-role="item" class="page page-index active" >
+      <div class="title animation fadeIn">乡聚</div>
+      <div class="ds">
+        <p class="animation fadeIn">老乡，是在外拼搏情感的寄托</p>
+        <p class="animation fadeIn">是寒天里一起干活儿黝黑的脸</p>
+        <p class="animation fadeIn">是漂泊路上一起回乡的期盼</p>
+        <p class="animation fadeIn">离乡背井注定孤独</p>
+        <p class="animation fadeIn">但庆幸，总有“老乡”在身边……</p>
+      </div>
+      <a data-role="scroll" href="javascript:void(0);" class="drop-up"><i class="icon-arrow dropUp"></i></a>
+    </section>
+    <section data-role="item" class="page page-vcard" >
+      <div class="vcard vcard-01">
+        <div class="img"></div>
+        <h2 class="title animation fadeIn">淼淼，服务员</h2>
+        <div class="pos animation fadeIn">江西赣州人</div>
+        <div class="ds animation fadeIn">现在在外面多学一点经验，将来自己也要开个小饭馆，图个自由！</div>
+        <div class="chat animation fadeIn">
+          <div class="logo animation jumpUp"></div>
+          <i class="num animation jumpUp">80</i>
+          <div class="dialog-box animation speedInLeft">
+            <div class="dialog-head">赣州姐妹花</div>
+            <div class="dialog-body"></div>
+          </div>
+        </div>
+      </div>
+      <a data-role="scroll" href="javascript:void(0);" class="drop-up"><i class="icon-arrow dropUp"></i></a>
+    </section>
+    <section data-role="item" class="page page-vcard">
+      <div class="vcard vcard-02">
+        <div class="img"></div>
+        <h2 class="title animation fadeIn">大航，快递员</h2>
+        <div class="pos animation fadeIn">安徽六安人</div>
+        <div class="ds animation fadeIn">干快递7年多，等赚够钱就带着老婆孩子回老家，住在城里！</div>
+        <div class="chat animation fadeIn">
+          <div class="logo animation jumpUp"></div>
+          <i class="num animation jumpUp">80</i>
+          <div class="dialog-box animation speedInLeft">
+            <div class="dialog-head">凉凉，您的快递！</div>
+            <div class="dialog-body"></div>
+          </div>
+        </div>
+      </div>
+      <a data-role="scroll" href="javascript:void(0);" class="drop-up"><i class="icon-arrow dropUp"></i></a>
+    </section>
+    <section data-role="item" class="page page-vcard">
+      <div class="vcard vcard-03">
+        <div class="img"></div>
+        <h2 class="title animation fadeIn">付军，洗车工</h2>
+        <div class="pos animation fadeIn">河北保定人</div>
+        <div class="ds animation fadeIn">想靠自己挣出一条路，将来回老家开洗车店当老板，再买套房子。</div>
+        <div class="chat animation fadeIn">
+          <div class="logo animation jumpUp"></div>
+          <i class="num animation jumpUp">6</i>
+          <div class="dialog-box animation speedInRight">
+            <div class="dialog-head">保定男女对对碰</div>
+            <div class="dialog-body"></div>
+          </div>
+        </div>
+      </div>
+      <a data-role="scroll" href="javascript:void(0);" class="drop-up"><i class="icon-arrow dropUp"></i></a>
+    </section>
+    <section data-role="item" class="page page-vcard">
+      <div class="vcard vcard-04">
+        <div class="img"></div>
+        <h2 class="title animation fadeIn">强民，技工</h2>
+        <div class="pos animation fadeIn">山西霍州人</div>
+        <div class="ds animation fadeIn">短期目标：把徒弟带好，年底多争取奖金好回家过年！</div>
+        <div class="chat animation fadeIn">
+          <div class="logo animation jumpUp"></div>
+          <i class="num animation jumpUp">82</i>
+          <div class="dialog-box animation speedInLeft">
+            <div class="dialog-head">无聊就要唱一唱</div>
+            <div class="dialog-body"></div>
+          </div>
+        </div>
+      </div>
+      <a data-role="scroll" href="javascript:void(0);" class="drop-up"><i class="icon-arrow dropUp"></i></a>
+    </section>
+    <section data-role="item" class="page page-vcard">
+      <div class="vcard vcard-05">
+        <div class="img"></div>
+        <h2 class="title animation fadeIn">李岩，房产中介</h2>
+        <div class="pos animation fadeIn">四川成都人</div>
+        <div class="ds animation fadeIn">今年的目标是当上部门经理，为自己和爱人创造更好的生活条件。</div>
+        <div class="chat animation fadeIn">
+          <div class="logo animation jumpUp"></div>
+          <i class="num animation jumpUp">61</i>
+          <div class="dialog-box animation speedInLeft">
+            <div class="dialog-head">成都人卖房到北京</div>
+            <div class="dialog-body"></div>
+          </div>
+        </div>
+      </div>
+      <a data-role="scroll" href="javascript:void(0);" class="drop-up"><i class="icon-arrow dropUp"></i></a>
+    </section>
+    <section data-role="item" class="page page-vcard">
+      <div class="vcard vcard-06">
+        <div class="img"></div>
+        <h2 class="title animation fadeIn">卷卷，赶集运营</h2>
+        <div class="pos animation fadeIn">山西晋中人</div>
+        <div class="ds animation fadeIn">想通过自己的力量做一个有温度的产品，让漂泊的人不再孤单。</div>
+        <div data-role="switch" class="chat animation fadeIn">
+          <div class="logo animation jumpUp"></div>
+          <i class="num animation jumpUp">90</i>
+          <div class="dialog-box animation speedInLeft">
+            <div class="dialog-head">以群组的名义战斗</div>
+            <div class="dialog-body"></div>
+          </div>
+        </div>
+      </div>
+      <a data-role="scroll" href="javascript:void(0);" class="drop-up"><i class="icon-arrow dropUp"></i></a>
+    </section>
+    <section  data-role="item" class="page page-end">
+      <div data-widget="com/mobile/page/misc/qunliao/qunliao.js#unlock"
+          data-url="http://wap.ganji.com/wdnow.php?ignoreUA=0&pr=1&ca_name=wap_yunying_qunzu"
+          data-no-slider="true"
+          style="height: 100%; width: 100%;" >
+        <div data-role="lockContent" class="ds">
+          <p class="animation fadeIn">我们所做的不多</p>
+          <p class="animation fadeIn">只是一个个微小的群组</p>
+          <p class="animation fadeIn">我们所期盼的不多</p>
+          <p class="animation fadeIn">只是让心中的爱有个着落</p>
+        </div>
+        <div class="title animation bounceInDown">
+          <p>2015.01 赶集群组正式发布</p>
+          <p>找老乡，上赶集</p>
+        </div>
+        <div class="tips animation fadeIn">已凝聚<b id="num" data-widget="com/mobile/page/misc/qunliao/qunliao.js#loopQuery" data-auto-start="true" data-url="/misc/qunliao/?action=getsumnumber" data-type="get">5000</b>份乡情<a href="javascript:;" data-role="share">分享到朋友圈</a></div>
+        <a href="javascript:;" class="guide animation scale">
+          <b data-role="download" class="dropLeft">开启赶集群组之旅 &gt;</b>
+        </a>
+      </div>
+    </section>
+  </div>
+  <div id="shareDialog" class="share"></div>
+  <div class="tips-alert">
+    <div class="rotate-iphone"></div>
+    <p>建议竖屏浏览~</p>
+  </div>
+  <script>
+  G.use(['com/mobile/lib/widget/widget.js'], function (Widget) {
+  Widget.initWidgets();
+  });
+  </script>
+</body>
+</html>

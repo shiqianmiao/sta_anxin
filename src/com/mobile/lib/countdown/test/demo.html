@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    span {
+        margin: 10px;
+    }
+    </style>
+
+</head>
+<body>
+
+<div id="clock" data-widget="com/mobile/lib/countdown/test/widget.js#countdown"></div>
+
+<script>
+
+(function() {
+    var doc = document,
+        head = document.getElementsByTagName("head")[0];
+    var node = doc.createElement("script");
+    node.setAttribute("type", "text/javascript");
+    node.setAttribute("async", true);
+    node.onload = function() {
+        G.use("com/mobile/page/milan/index_page.js", function(page) {
+            if (page.init) {
+                page.init();
+            }
+        });
+    };
+    head.appendChild(node);
+    node.setAttribute("src", "http://sta.ganjistatic1.com/ng/com/mobile/g.__1410393600__.js");
+})();
+</script>
+</body>
+</html>

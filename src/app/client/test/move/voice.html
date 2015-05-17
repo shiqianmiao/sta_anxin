@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<meta name="format-detection"content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>搬家·VOICE</title>
+<style>
+button {
+    background-color: #852b99;
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#852b99),to(#852b99));
+    -webkit-background-clip: padding;
+    background-clip: padding;
+
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    margin: 10px;
+
+    color: white;
+    overflow: visible;
+    padding: 0 16px;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    min-width: 42px;
+    text-shadow: none;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: inherit;
+
+    position: absolute;
+    top: 30px;
+    left: 0;
+
+    transition: transform 0.5s ease-in-out 0.5s;
+    opacity: 0;
+}
+button:active {
+    box-shadow: inset 0 0 30px 0 #999999, 0 1px 0 0 white;
+}
+
+.view_port {
+  background-color:black;
+  height:25px;
+  width:100%;
+  overflow: hidden;
+}
+
+.cylon_eye {
+  display: none;
+  color:white;
+  height: 100%;
+  width: 20%;
+
+  background-color: red;
+  background-image: -webkit-linear-gradient(left, rgba( 0,0,0,0.9 ) 25%, rgba( 0,0,0,0.1 ) 50%, rgba( 0,0,0,0.9 ) 75%);
+  background-image:    -moz-linear-gradient(left, rgba( 0,0,0,0.9 ) 25%, rgba( 0,0,0,0.1 ) 50%, rgba( 0,0,0,0.9 ) 75%);
+  background-image:      -o-linear-gradient(left, rgba( 0,0,0,0.9 ) 25%, rgba( 0,0,0,0.1 ) 50%, rgba( 0,0,0,0.9 ) 75%);
+  background-image:         linear-gradient(to right, rgba( 0,0,0,0.9 ) 25%, rgba( 0,0,0,0.1 ) 50%, rgba( 0,0,0,0.9 ) 75%);
+
+  -webkit-animation: move_eye 1s linear 0s infinite alternate;
+     -moz-animation: move_eye 1s linear 0s infinite alternate;
+       -o-animation: move_eye 1s linear 0s infinite alternate;
+          animation: move_eye 1s linear 0s infinite alternate;
+}
+
+@-webkit-keyframes move_eye { from { margin-left:-20%; } to { margin-left:100%; }  }
+   @-moz-keyframes move_eye { from { margin-left:-20%; } to { margin-left:100%; }  }
+     @-o-keyframes move_eye { from { margin-left:-20%; } to { margin-left:100%; }  }
+        @keyframes move_eye { from { margin-left:-20%; } to { margin-left:100%; }  }
+</style>
+</head>
+<body>
+
+<div data-widget="app/client/test/move/js/voice.js#voice">
+    <div class="view_port">
+        <div data-role="recording" class="cylon_eye"></div>
+    </div>
+
+    <button data-role="test">查看录音动画</button>
+
+    <button data-role="record">startRecord</button>
+
+    <button data-role="cancelRecord">cancelRecord</button>
+
+    <button data-role="upload">upload</button>
+    
+    <button data-play-text="startPlay(record_id)" data-role="play" data-type="record_id">
+        startPlay(record_id)
+    </button>
+    
+    <button data-play-text="startPlay(url)" data-role="play" data-type="url">
+        startPlay(url)
+    </button>
+
+    <button data-play-text="getLength(record_id)" data-role="getLength" data-type="record_id">
+        getLength(record_id)
+    </button>
+
+    <button data-play-text="getLength(url)" data-role="getLength" data-type="url">
+        getLength(url)
+    </button>
+</div>
+
+<script src="http://sta.ganjistatic1.com/ng/app/client/common/g.js"></script>
+<script>
+G.use('app/client/test/move/js/voice.js', function (Test) {
+    Test.init();
+});
+</script>
+</body>
+</html>

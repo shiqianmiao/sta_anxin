@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh" manifest="index.appcache">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="format-detection"content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" href="http://sta.ganjistatic1.com/ng/app/client/common/style/global.css">
+<title>赶集网-微信</title>
+</head>
+<body class="loading">
+<section class="section loading-section">
+    <div class="page-status status-loading">
+        <div class="status-tips js-loading-tip">小驴正在努力为您加载, 请稍候~</div>
+    </div>
+</section>
+<section class="section nothing-section">
+    <div class="page-status status-nothing">
+        <div class="status-tips js-nothing-tip">没有相关信息，请重新筛选或搜索吧!</div>
+    </div>
+</section>
+<section class="section offline-section">
+    <div class="page-status status-offline">
+        <div class="status-tips js-offline-tip">当前无法访问网络，请稍后重试！</div>
+    </div>
+</section>
+<script>
+    if (window.navigator.userAgent.indexOf('Android') > -1) {
+        document.body.className = document.body.className + ' android';
+    } else {
+        document.body.className = document.body.className + ' ios';
+    }
+</script>
+<script src="http://sta.ganjistatic1.com/ng/app/client/common/g.js"></script>
+<script src="http://sta.ganjistatic1.com/ng/app/client/version.js"></script>
+<script>G.use('app/client/common/init.js').fail(function () {
+    document.body.classList.remove('loading');
+    document.body.classList.add('offline');
+});</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh" manifest="index.appcache">
+<head>
+    <meta charset="utf-8">
+    <script src="http://sta.ganji.com/ng/app/client/common/g.js"></script>
+</head>
+<body>
+<script>
+(function () {
+    var newVersion = parseInt(Date.now() / 1000, 10);
+    var lastVersion = (localStorage.getItem('FILE#version.js') || '').split('#__#')[0];
+    var version;
+    document.domain = 'ganji.com';
+
+    if (lastVersion.toString() !== parseInt(lastVersion).toString()) {
+        lastVersion = null;
+    } else {
+        lastVersion = parseInt(lastVersion, 10);
+    }
+
+    function onVersionJSReady () {
+        G.use('com/mobile/lib/rpc/rpc.js', function (RPC) {
+            var rpc = new RPC();
+
+            rpc.registerHandler('load', function (file, callback) {
+                G.use(file, function (client) {
+                    client.send = function (message) {
+                        rpc.send(message);
+                    };
+
+                    rpc.onMessage = function (message) {
+                        client.onMessage(message);
+                    }
+
+                    client.ready();
+
+                    callback(null);
+                })
+                .fail(function () {
+                    callback(new Error('load fail: ' + file));
+                });
+            });
+
+            rpc.send = function (message) {
+                window.parent.postMessage(message, '*');
+            };
+
+            window.addEventListener('message', function (e) {
+                rpc.onMessage(e.data);
+            });
+
+            window.parent.postMessage('ready', '*');
+            rpc.ready();
+        });
+    }
+
+    function onFail() {
+        window.parent.postMessage({
+            error: {
+                code: -32603,
+                message: 'Internal error'
+            }
+        }, '.ganji.com');
+    }
+
+    if (window.navigator.onLine === false && lastVersion) {
+        version = lastVersion;
+    } else {
+        version = newVersion;
+    }
+
+    G.config('version', {
+        'version.js': version
+    });
+
+    G.use('version.js')
+        .done(onVersionJSReady)
+        .fail(function () {
+            if (!lastVersion) {
+                onFail();
+                return;
+            }
+
+            G.config('version', {
+                'version.js': lastVersion
+            });
+
+            delete G.Module.cache['version.js'];
+
+            G.use('version.js')
+                .done(onVersionJSReady)
+                .fail(onFail);
+        });
+})();
+</script>
+</body>
+</html>

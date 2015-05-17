@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-title" content="赶集网">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no"/>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>北京赶集网-生活分类信息</title>
+<link href="http://sta.ganjistatic1.com/src/css/mobile/milan/global.css" rel="stylesheet" type="text/css" />
+<link href="http://sta.ganjistatic1.com/src/css/mobile/milan/list/filtrate.css" rel="stylesheet">
+<link href="http://sta.ganjistatic1.com/src/css/mobile/milan/house/house_price.css" type="text/css" rel="stylesheet">
+<!-- <script src="http://sta.ganji.com/cgi/ganji_sta.php?file=css/mobile/milan/house/house_price.cmb.css&configDir=css/mobile/milan/house"></script> -->
+</head>
+<body>
+<!-- start outer-wrapper -->
+<div class="outer-wrapper">
+    <!-- start inner-wrapper -->
+    <div class="inner-wrapper">
+
+        <header id="header" class="gj-header">
+            <div class="gj-logo clear btmbr">
+                <a href="/bj/" class="logo fl"></a>
+                <a href="/bj?a=c&amp;ifid=shouye_chengshi" class="city-change fl">
+                    <span data-widget="com/mobile/page/milan/index_page.js#cityInfo" data-current-city="bj">北京</span><i class="d-arrow"></i>
+                </a>
+                <nav class="site-nav fr"><a href="/bj_user/center/?ifid=new_shouye_cpusercenter">
+                    <i class="ucenter-online"></i>
+                        <p class="tp">我</p>
+                    </a><a href="/bj_down/?"><i class="down"></i>
+                    <p class="tp">下载</p>
+                </a><a href="/bj_pub/index/?ifid=new_shouye_pub"><i class="publish"></i>
+                    <p class="tp">发布</p>
+                </a></nav>
+            </div>
+            <div class="bgfff"></div>
+
+            <div style="display:none" class="im-msg" data-widget="com/mobile/page/milan/index_page.js#imMsgCount">
+                <span class="msg-txt" onclick="location.href='/wapim/getTalks'">
+                    您有<span style="color:#ef3f02" data-role="count"></span>条新消息点击查看
+                </span>
+                <i id="imjs-newmsg-tip-close" class="im-close" data-role="close"></i>
+            </div>
+        </header>
+
+        <div class="gj-crumbs">
+            <a href="/bj" class="a-blue">首页</a><span class="where-arr"></span><span class="w-last">北京房产</span><span class="where-arr"></span><span class="w-last">北京房价</span>
+        </div>
+
+        <div class="filtate-outter">
+            <div class="list-filtrate" data-widget="com/mobile/page/milan/list_page.js#listFilter">
+                <section class="filtrate-nav">
+                    <ul>
+                        <li data-role="filterItem" data-id="filter-area"><a href="javascript:void(0);">
+                            全北京
+                            <i class="filt-arrow"></i></a>
+                        </li>
+                    </ul>
+                </section>
+                <div class="filt-container">
+                    <!-- 区域选择 -->
+                    <div class="filt-open js-sigle nbrt" id="filter-area" data-reject="[&quot;distance&quot;,&quot;lat&quot;,&quot;lng&quot;]" data-url="/ajax/?module=geo_getStreetsByDistrictScV2&dir=geo&a=json&version=4&domain={{domain}}&district={district}&needlimit=1">
+                        <div class="warpper box-flex1 bg-white" data-key="district" style="height: 410px;">
+                            <ul class="">
+                                <li class="active" data-value="-1"><a>全北京</a></li>
+                                <li data-ajax="0"><a>海淀</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="1"><a>朝阳</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="2"><a>东城</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="3"><a>西城</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="4"><a>崇文</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="5"><a>宣武</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="6"><a>丰台</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="7"><a>石景山</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="12"><a>昌平</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="10"><a>通州</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="9"><a>大兴</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="11"><a>顺义</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="8"><a>房山</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="13"><a>密云</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="17"><a>门头沟</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="14"><a>怀柔</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="16"><a>平谷</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="15"><a>延庆</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="18"><a>燕郊</a><i class="filt-arrow"></i></li>
+                                <li data-ajax="19"><a>北京周边</a><i class="filt-arrow"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /区域选择 -->
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-box">
+            <p class="average"><span>北京</span>二手房本月均价</p>
+            <p class="trend"><span class="price">23100</span><em>元/㎡</em> <span class="vs">（环比上月 <i class="icon-point down">20%</i>）</span></p>
+            <div class="charts"
+                style="width:95%; box-sizing: border-box; overflow-x: scroll; overflow-y: hidden"
+                data-widget="app/client/app/fang/misc/price/house_price.js#chart"
+                data-canvas-width="660"
+                data-sets='{"labels":["1","February","March","April","May","June","June","June","June","June","June","June"],"datasets":[{"fillColor":"rgba(85,187,34,0)","strokeColor":"rgba(85,187,34,1)","pointColor":"rgba(85,187,34,1)","pointStrokeColor":"rgba(255,255,255,1)","data":[28,28,48,40,19,96,27,40,19,96,27,100]}]}'>
+                <!-- 图表 -->
+            </div>
+        </div>
+        <div class="blank"></div>
+
+        <!-- 涨跌幅 -->
+        <div class="increase-box" data-widget="app/client/app/fang/misc/price/house_price.js#toggleMore">
+            <p class="tit">各区县均价及涨跌幅</p>
+            <ul class="amount-list">
+                <li>
+                    <span class="addr">海淀</span>
+                    <span class="data"><i class="icon-point down">2%</i></span>
+                    <div class="incre">
+                        <div class="increase" style="width:50%"></div>
+                        <i>51384元/㎡</i>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">昌平</span>
+                    <span class="data"><i class="icon-point up">5%</i></span>
+                    <div class="incre">
+                        <div class="increase" style="width:12%"></div>
+                        <i>51384元/㎡</i>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">丰台</span>
+                    <span class="data"><i class="icon-point up">13%</i></span>
+                    <div class="incre">
+                        <div class="increase" style="width:100%"></div>
+                        <i>51384元/㎡</i>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">丰台</span>
+                    <span class="data"><i class="icon-point up">13%</i></span>
+                    <div class="incre">
+                        <div class="increase" style="width:100%"></div>
+                        <i>51384元/㎡</i>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">丰台</span>
+                    <span class="data"><i class="icon-point up">13%</i></span>
+                    <div class="incre">
+                        <div class="increase" style="width:100%"></div>
+                        <i>51384元/㎡</i>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">丰台</span>
+                    <span class="data"><i class="icon-point up">13%</i></span>
+                    <div class="incre">
+                        <div class="increase" style="width:100%"></div>
+                        <i>51384元/㎡</i>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">丰台</span>
+                    <span class="data"><i class="icon-point up">13%</i></span>
+                    <div class="incre">
+                        <div class="increase" style="width:100%"></div>
+                        <i>51384元/㎡</i>
+                    </div>
+                </li>
+            </ul>
+            <a href="javascript: void(0);" class="more-btn" data-role="toggleMoreBtn">展开全部</a>
+        </div>
+        <!-- /涨跌幅 -->
+        <div class="blank"></div>
+
+        <!-- 小区按均价分布 -->
+        <div class="increase-box commity-box active">
+            <p class="tit">小区按均价分布</p>
+            <ul class="amount-list">
+                <li>
+                    <span class="addr">8000元以下</span>
+                    <div class="incre">
+                        <div class="increase" style="width:50%"></div>
+                        <span>514<i>个小区</i></span>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">8000 - 1万</span>
+                    <div class="incre">
+                        <div class="increase" style="width:12%"></div>
+                        <span>51384<i>个小区</i></span>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">1 - 1.5万</span>
+                    <div class="incre">
+                        <div class="increase" style="width:36%"></div>
+                        <span>51384<i>个小区</i></span>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">1 - 1.5万</span>
+                    <div class="incre">
+                        <div class="increase" style="width:40%"></div>
+                        <span>51384<i>个小区</i></span>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">1.5 - 2万</span>
+                    <div class="incre">
+                        <div class="increase" style="width:50%"></div>
+                        <span>51384<i>个小区</i></span>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">2 - 2.5万</span>
+                    <div class="incre">
+                        <div class="increase" style="width:6%"></div>
+                        <span>51384<i>个小区</i></span>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">2.5 - 3万</span>
+                    <div class="incre">
+                        <div class="increase" style="width:70%"></div>
+                        <span>51384<i>个小区</i></span>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">3 - 4万</span>
+                    <div class="incre">
+                        <div class="increase" style="width:80%"></div>
+                        <span>51384<i>个小区</i></span>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">4 - 5万</span>
+                    <div class="incre">
+                        <div class="increase" style="width:100%"></div>
+                        <span>51384<i>个小区</i></span>
+                    </div>
+                </li>
+                <li>
+                    <span class="addr">5万以上</span>
+                    <div class="incre">
+                        <div class="increase" style="width:100%"></div>
+                        <span>384<i>个小区</i></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- /小区按均价分布 -->
+
+        <div class="blank"></div>
+
+        <!--start other-search-->
+        <div class="other-search">
+            <p class="js-touch-state active">热门城市房价</p>
+            <div class="search-lists">
+                <a href="#">万科拎包入住</a><a href="#">圆明园附近租房 </a>
+                <a href="#">蒲黄榆附近租房</a><a href="#">蒲黄榆附近租房蒲黄榆附近租房 </a>
+                <a href="#">万科拎包入住</a><a href="#">圆明园附近租房 </a>
+                <a href="#">蒲黄榆附近租房</a><a href="#">蒲黄榆附近租房 </a>
+            </div>
+        </div>
+        <!--end other-search-->
+
+        <!--start other-search-->
+        <div class="other-search">
+            <p class="js-touch-state active">热门区县房价</p>
+            <div class="search-lists active">
+                <a href="#">万科拎包入住</a><a href="#">圆明园附近租房 </a>
+                <a href="#">蒲黄榆附近租房</a><a href="#">蒲黄榆附近租房蒲黄榆附近租房 </a>
+                <a href="#">万科拎包入住</a><a href="#">圆明园附近租房 </a>
+                <a href="#">蒲黄榆附近租房</a><a href="#">蒲黄榆附近租房 </a>
+            </div>
+        </div>
+        <!--end other-search-->
+
+        <div class="blank"></div>
+    </div>
+    <!-- end inner-wrapper -->
+</div>
+<!-- end outer-wrapper -->
+
+<!-- footer -->
+<footer class="footer">
+    <div class="feedback-links"><a href="/bj_jianyi/?ifid=shouye_yijian" class="fd-link">意见反馈</a><span class="s"></span><a href="/bj_post/sup/?ifid=shouye_shanchu" class="upset-link">手机号被冒用</a><span class="s"></span><a href="/bj_post/sup/?ifid=shouye_shanchu" class="fd-edit">修改/删除信息</a></div>
+    <div class="footer-choose"><a href="/change_version.php?vvcc=2.0&amp;redirecturl=http%3A%2F%2Fwap.ganji.com%2Fbj%2F%3Fvvcc%3D2.0%26googleUid%3D633551474c474c6d6a506a7a307041434236326465342f506174365375683533%26ssid%3DqMbsvhrqR5rfn0ojqMzLNvje%26ifid%3Dshouye_jisu" class="f-btn-gray">极速版</a><a href="#" class="f-btn-green">触屏版</a><a href="http://www.ganji.com/wap2web.php?domain=bj" class="f-btn-gray">电脑版</a><span class="s"></span><a href="/bj_down/?loc=1&amp;ifid=ganji_chuping_appiphone" class="f-btn-gray">客户端下载</a></div>
+    <div class="copyright"><span>赶集网&nbsp;-&nbsp;最全的生活分类信息网</span><br>
+        <!--<span class="f10">©2014 Ganji 京A1-20090028</span>--></div>
+</footer>
+<div class="mask" id="maskEl"></div>
+<script src="http://sta.ganji.com/cgi/ng_sta.php?page=com/mobile/page/milan/base_page.js"></script>
+
+<!-- /footer -->
+</body>
+</html>

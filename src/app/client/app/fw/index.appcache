@@ -1,0 +1,6 @@
+{
+    "baseUrl": "http://sta.ganjistatic1.com/ng/",
+    "cache": [
+        "app/client/common/index.html"
+    ]
+}

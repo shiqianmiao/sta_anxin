@@ -1,0 +1,6 @@
+{
+    "baseUrl": "http://sta.ganji.com/ng/",
+    "cache": [
+        "app/client/common/index.html"
+    ]
+}

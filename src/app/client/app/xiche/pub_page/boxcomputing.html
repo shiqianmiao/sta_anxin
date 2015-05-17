@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh" manifest="../../../common/index.appcache">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="format-detection"content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>赶集网</title>
+<style media="screen">
+html,
+body {
+    min-height: 100%;
+}
+body {
+    background-color: #f2f2f2;
+    color: #404040;
+    font: 16px/1.5 tahoma, arial, sans-serif;
+}
+.page-status .status-tips::before {
+    background: url(http://sta.ganji.com/ng/app/client/common/image/icon-status.png) no-repeat;
+    -webkit-background-size: 120px auto;
+    -ms-background-size: 120px auto;
+    background-size: 120px auto;
+}
+.page-status {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.page-status .status-tips {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    color: #808080;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+.page-status .status-tips::before {
+    content: "";
+    display: block;
+    margin: 0 auto 20px;
+}
+.page-status.status-loading .status-tips {
+    margin-top: -88px;
+}
+.page-status.status-loading .status-tips::before {
+    background: url(http://sta.ganji.com/ng/app/client/common/image/loading.gif) no-repeat;
+    position: relative;
+    background-position: -18px -15px;
+    display: block;
+    margin: 0 auto;
+}
+body.android .page-status.status-loading .status-tips::before {
+    width: 130px;
+    height: 166px;
+    -webkit-background-size: 166px auto;
+    background-size: 166px auto;
+
+}
+body.ios .page-status.status-loading .status-tips::before {
+    width: 100px;
+    height: 150px;
+    -webkit-background-size: 150px auto;
+    background-size: 150px auto;
+}
+.page-status.status-offline .status-tips {
+    margin-top: -83px;
+}
+.page-status.status-offline .status-tips::before {
+    position: relative;
+    left: 16px;
+    width: 105px;
+    height: 130px;
+    background-position: 0 -227px;
+}
+.page-status.status-nothing .status-tips {
+    margin-top: -89px;
+}
+.page-status.status-nothing .status-tips::before {
+    position: relative;
+    left: -4px;
+    width: 86px;
+    height: 136px;
+    background-position: 0 -357px;
+}
+.loading-section,
+.offline-section,
+.nothing-section {
+    display: none;
+}
+.loading .loading-section,
+.offline .offline-section,
+.nothing .nothing-section {
+    display: block;
+}
+</style>
+<script src="http://sta.ganji.com/ng/app/client/common/g.js"></script>
+</head>
+<body class="loading">
+<script>
+    if (window.navigator.userAgent.indexOf('Android') > -1) {
+        document.body.className = document.body.className + ' android';
+    } else {
+        document.body.className = document.body.className + ' ios';
+    }
+    window.GJ_START_TIMESTAMP = Date.now();
+</script>
+<section class="section nothing-section">
+    <div class="page-status status-nothing">
+        <div class="status-tips js-nothing-tip">没有相关信息，请重新筛选或搜索吧!</div>
+    </div>
+</section>
+<section class="section offline-section">
+    <div class="page-status status-offline">
+        <div class="status-tips js-offline-tip">当前无法访问网络，请稍后重试！</div>
+    </div>
+</section>
+<script>
+(function () {
+    var newVersion = parseInt(Date.now() / 1000, 10);
+    var lastVersion = (localStorage.getItem('FILE#version.js') || '').split('#__#')[0];
+    var version;
+
+    if (lastVersion.toString() !== parseInt(lastVersion).toString()) {
+        lastVersion = null;
+    } else {
+        lastVersion = parseInt(lastVersion, 10);
+    }
+
+    function onVersionJSReady () {
+        G.use(['app/client/common/init.js', 'app/client/common/style/global.jcss'])
+            .fail(onFail);
+    }
+
+    function onFail() {
+        document.body.classList.remove('loading');
+        document.body.classList.add('offline');
+    }
+
+    if (window.navigator.onLine === false && lastVersion) {
+        version = lastVersion;
+    } else {
+        version = newVersion;
+    }
+
+    G.config('version', {
+        'version.js': version
+    });
+
+    G.use('version.js')
+        .done(onVersionJSReady)
+        .fail(function () {
+            if (!lastVersion) {
+                onFail();
+                return;
+            }
+
+            G.config('version', {
+                'version.js': lastVersion
+            });
+
+            delete G.Module.cache['version.js'];
+
+            G.use('version.js')
+                .done(onVersionJSReady)
+                .fail(onFail);
+        });
+})();
+</script>
+</body>
+</html>

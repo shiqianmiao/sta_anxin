@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://sta.ganji.com/ng/com/mobile/g.js"></script>
+    </head>
+    <body>
+        <form action="" data-widget="com/mobile/widget/form/form.js" id="form">
+            <input type="text" data-role="field" name="text1"
+                data-rules='[["required", true, "required"], ["min", 6, "min 6"], ["max", 10, "max 10"]]'
+                data-widget="com/mobile/widget/form/field.js"
+            >
+            <input type="text" data-role="field" name="text2"
+                data-rules='[["min", 6, "min 6"], ["max", 10, "max 10"]]'
+                data-widget="com/mobile/widget/form/field.js"
+            >
+
+            <input type="submit" value="validate">
+        </form>
+        <script>
+        G.use('com/mobile/lib/widget/widget.js', function (Widget) {
+            Widget.initWidgets();
+            Widget.ready('#form', function (form) {
+                form.config.$el
+                    .on('valid', function () {
+                        console.log('valid');
+                    })
+                    .on('error', function (e, errors) {
+                        console.log(errors);
+                    })
+                    .on('submit', function (e) {
+                        e.preventDefault();
+                    });
+            });
+        });
+        </script>
+    </body>
+</html>

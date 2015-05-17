@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="http://sta.ganji.com/ng/com/mobile/g.js"></script>
+    <title>滚动一排数字 - 赶集网</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        section {
+            box-sizing: border-box;
+            margin: 10px 10px 0 10px;
+        }
+        .bounce {
+            background: #FF8A00;
+        }
+        .outer {
+            padding: 40px;
+        }
+        .container {
+            width: 16px;
+            height: 27px;
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+            overflow: hidden;
+        }
+        .container div {
+            width: 16px;
+            background: #000000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            word-break: break-all;
+        }
+        .container b {
+            width: 16px;
+            height: 27px;
+            line-height: 27px;
+            display: inline-block;
+            color: #fff;
+            text-align: center;
+            vertical-align: bottom;
+            font-size: 14px;
+        }
+        .active-btn {
+            width: 100px;
+            height: 40px;
+            position: absolute;
+            top: 44px;
+            right: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <section class="bounce" 
+        data-widget="com/mobile/widget/bounce/test/test.js#normal"
+        data-item-width="16"
+        data-item-height="27"
+        data-duration="1234"
+    >
+        <div class="outer">
+            <div data-role="board" class="container">
+                <b>0</b>
+                <!--
+                <div data-role="entry">
+                    <b>6</b>
+                    <b>5</b>
+                    <b>4</b>
+                    <b>3</b>
+                    <b>2</b>
+                    <b>1</b>
+                    <b>0</b>
+                </div>
+                -->
+            </div>
+        </div>
+        <button class="active-btn" data-role="button" type="button">开始动画</button>
+    </section>
+    <script>
+        G.use('com/mobile/lib/widget/widget.js', function (Widget) {
+            Widget.initWidgets();
+        });
+    </script>
+</body>
+</html>

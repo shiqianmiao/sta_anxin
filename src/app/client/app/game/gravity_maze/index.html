@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <style>
+.garden {
+  position: relative;
+  width : 320px;
+  height: 370px;
+  background-size: 320px 370px;
+}
+.canvas {
+    background: url(./image/maze.jpg);
+    background-size: 320px 370px;
+}
+.ball {
+  width : 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: url(./image/ball.png);
+  background-size: 20px 20px;
+}
+
+.canvas {
+    width: 320px;
+    height: 369px;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+        </style>
+</head>
+<body>
+    <div class="" data-widget="app/client/app/game/gravity_maze/maze.js"
+        data-width="320"
+        data-height="370"
+        data-pits='[]'>
+        <canvas data-role="canvas" class="canvas"></canvas>
+        <button data-role="start">start</button>
+        <button data-role="stop">stop</button>
+        <div data-role="output"></div>
+    </div>
+    <a href="javascript: window.location.reload()" class="href">reload</a>
+    <div id="debug"></div>
+
+    <script src="http://sta.ganji.com/ng/app/client/common/g.js"></script>
+    <script>
+    G.use('com/mobile/lib/widget/widget.js', function (Widget) {
+      Widget.initWidgets();
+    });
+    </script>
+</html>

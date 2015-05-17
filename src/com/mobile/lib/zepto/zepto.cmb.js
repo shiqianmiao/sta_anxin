@@ -1,0 +1,13 @@
+com/mobile/lib/zepto/core.js
+com/mobile/lib/zepto/event.js
+com/mobile/lib/zepto/ajax.js
+com/mobile/lib/zepto/form.js
+com/mobile/lib/zepto/ie.js
+com/mobile/lib/zepto/data.js
+com/mobile/lib/zepto/callbacks.js
+com/mobile/lib/zepto/deferred.js
+com/mobile/lib/zepto/stack.js
+com/mobile/lib/zepto/touch.js
+com/mobile/lib/zepto/fx.js
+com/mobile/lib/zepto/selector.js
+com/mobile/lib/zepto/detect.js

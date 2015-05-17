@@ -1,0 +1,14 @@
+{
+  "name": "anxin_sta",
+  "dependencies": {
+    "g-builder": ">=0.4.0",
+    "grunt": "*",
+    "minimatch": "*",
+    "async": "*",
+    "dox": "https://github.com/visionmedia/dox/tarball/master",
+    "ejs": ">= 0.7.2",
+    "mkdirp": "~0.3.5",
+    "underscore": "~1.7.0"
+  },
+  "keywords": []
+}

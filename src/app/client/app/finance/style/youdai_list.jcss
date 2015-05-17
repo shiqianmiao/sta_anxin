@@ -1,0 +1,107 @@
+.order {
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 100%;
+    background-color: #fff;
+    padding: 44px 0 0;
+}
+.order .heading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+    height: 44px;
+    background-color: #8bc815;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 44px;
+    text-align: center;
+}
+.order-item {
+    position: relative;
+    border-bottom: 1px solid #e4e4e4;
+    margin: 0 13px;
+    padding: 8px 73px 8px 0;
+}
+.order-title, .order-value {
+    color: #000;
+    font-size: 14px;
+    line-height: 24px;
+    overflow: hidden;
+}
+.order-title span, .order-value span {
+    float: left;
+    margin-right: 10px;
+}
+.order-value span {
+    margin-right: 8px;
+}
+.order-title b {
+    color: #ff7800;
+    font-weight: 500;
+}
+.order-value, .order-info {
+    color: #c9c9c9;
+    font-size: 12px;
+    line-height: 22px;
+}
+.order-state {
+    color: #333;
+    font-size: 14px;
+    line-height: 24px;
+}
+.order-box {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    bottom: 8px;
+    width: 72px;
+    text-align: center;
+}
+.order-box::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 0;
+    bottom: 2px;
+    width: 1px;
+    background-color: #e4e4e4;
+}
+.page {
+    font-size: 0;
+    line-height: 0;
+    text-align: center;
+    margin: 13px;
+    overflow: hidden;
+}
+.page-item {
+    display: inline-block;
+    height: 24px;
+    background-clip: padding-box;
+    border: 1px solid #c8c6c4;
+    border-radius: 3px;
+    color: #333;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    padding: 0 6px;
+    margin: 0 6px;
+}
+.page-item.touch {
+    border-radius: 3px;
+}
+.page-prev, .page-next {
+    width: 80px;
+    padding: 0;
+}
+.page-prev {
+    float: left;
+    margin-left: 0;
+}
+.page-next {
+    float: right;
+    margin-right: 0;
+}

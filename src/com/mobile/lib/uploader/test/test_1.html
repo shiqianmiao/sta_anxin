@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html data-gjch="wap3g//index">
+<head data-caInfo='{"ca_name":"-","ca_source":"-","ca_id":"-","ca_kw":"-"}' data-gjch="///index@mobile=3g">
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta name="apple-mobile-web-app-title" content="赶集网">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no"/>
+  <link rel="apple-touch-icon-precomposed" href="http://stacdn201.ganjistatic1.com/src/image/mobile/touch/guodong/add_favorite.png?v=1">
+  <title>北京赶集网-生活分类信息</title>
+  <link href="http://sta.ganjistatic1.com/src/css/mobile/milan/global.css" rel="stylesheet" type="text/css" />
+  <link href="http://sta.ganjistatic1.com/src/css/mobile/milan/pub.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <header class="gj-header">
+    <div class="gj-logo clear btmbr">
+      <a href="/bj/" class="logo fl"></a>
+      <a href="/bj?a=c&ifid=shouye_chengshi" class="city-change fl">
+        乌鲁木齐 <i class="d-arrow"></i>
+      </a>
+      <nav class="site-nav fr">
+        <a href="/bj_user/index/?ifid=new_shouye_cpdenglu"> <i class="ucenter-online"></i>
+          <p class="tp">我</p>
+        </a>
+        <a href="/bj_down/?loc=1&ifid=new_shouye_cpdown">
+          <i class="down"></i>
+          <p class="tp">下载</p>
+        </a>
+        <a href="/bj_pub/index/?ifid=new_shouye_pub">
+          <i class="publish"></i>
+          <p class="tp">发布</p>
+        </a>
+      </nav>
+    </div>
+    <div id="imjs-newmsg-tip" style="display:none" class="im-msg">
+      <span class="msg-txt" onclick="location.href='/wapim/getTalks/'">
+        您有
+        <span id="imjs-msg-count" style="color:#ef3f02"></span>
+        条新消息点击查看
+      </span>
+      <i id="imjs-newmsg-tip-close" class="im-close"></i>
+    </div>
+  </header>
+  <!--body s-->
+  <div data-widget="com/mobile/page/milan/widget/upload.js" data-width="64" data-height="64" >
+    <div class="f12 lh40 plr10">
+      还可上传
+      <span data-role="remain" class="f14 fc-green">6</span>
+      张图片（已上传
+      <span class="f14 fc-green" data-role="img_count">6</span>
+      张）
+    </div>
+    <div class="UpdateImg" >
+      <input type="hidden" name="images" data-role="imgSerializer" data-value-index="1" class="input_upload_image" value="">
+      <ul data-role="img_container">
+        <li data-role="initAdd">
+          <input type="file" data-role="uploader" data-width="64" data-height="64" accept="image/jpeg,image/png,image/gif,image/bmp" class="fileInput" multiline="multiline"></li>
+        <li data-role="img">
+          <img height="64" width="64" src="http://stacdn201.ganjistatic1.com/src/image/mobile/touch/milan/pub/nopic.png"></li>
+        <li>
+          <img height="64" width="64" src="http://img0.bdstatic.com/img/image/shouye/dengni5.jpg">
+          <i data-role="remove" class="img-close"></i>
+        </li>
+        <li>
+          <img height="64" width="64" src="http://img0.bdstatic.com/img/image/shouye/dengni5.jpg">
+          <i class="img-close"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="lh40 tc">
+      查看剩余
+      <span class="fc-green">3</span>
+      张图片
+      <i class="arrow01"></i>
+      <i class="arrow02"></i>
+    </div>
+  </div>
+  <!--body e -->
+  <footer class="footer">
+    <div class="feedback-links">
+      <a href="/bj_jianyi/?ifid=shouye_yijian" class="fd-link">意见反馈</a>
+      <span class="s"></span>
+      <a href="/bj_post/sup/?ifid=shouye_shanchu" class="upset-link">手机号被冒用</a>
+      <span class="s"></span>
+      <a href="/bj_jianyi/?ifid=shouye_yijian" class="fd-edit">修改/删除信息</a>
+    </div>
+    <div class="footer-choose">
+      <a href="#" class="f-btn-gray">极速版</a>
+      <a href="#" class="f-btn-green">触屏版</a>
+      <a href="#" class="plr10">电脑版</a>
+      <span class="s"></span>
+      <a href="#" class="plr10">客户端下载</a>
+    </div>
+    <div class="copyright">
+      <span>赶集网—最全的生活分类信息网</span>
+    </div>
+  </footer>
+  <div class="gj-go-top" id="gjGoTop">
+    <i></i>
+  </div>
+
+  <script src="http://sta.ganjistatic1.com/ng/com/mobile/g.js"></script>
+  <script>
+    G.use("com/mobile/page/milan/base_page.js", function (Page) {
+        Page.init();
+    });
+    </script>
+</body>
+</html>

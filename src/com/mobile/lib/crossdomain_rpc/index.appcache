@@ -1,0 +1,12 @@
+{
+    "baseUrl": "http://sta.ganji.com/ng/",
+    "deps": [
+        "com/mobile/lib/crossdomain_rpc/index.html"
+    ],
+    "cache": [
+        "app/client/common/g.js"
+    ],
+    "network": [
+        "*"
+    ]
+}

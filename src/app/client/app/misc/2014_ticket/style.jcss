@@ -1,0 +1,874 @@
+@charset "utf-8";
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+body,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+body,
+button,
+input,
+select,
+textarea {
+    color: #333;
+    font: 1em/1.5em tahoma, arial, sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 1em;
+}
+a {
+    text-decoration: none;
+}
+a:active {
+    outline: 0 none;
+}
+small,
+cite,
+code,
+em,
+th,
+i,
+b {
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 500;
+}
+input,
+select,
+textarea,
+button {
+    font-size: 1em;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+button,
+input[type=button],
+input[type=submit] {
+    cursor: pointer;
+}
+button[disabled],
+input[disabled] {
+    cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0 none;
+    padding: 0;
+}
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+input[type=text]:focus,
+textarea:focus {
+    outline: 0 none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+fieldset,
+img,
+iframe {
+    border: 0 none;
+}
+img {
+    display: inline-block;
+    vertical-align: top;
+    -ms-interpolation-mode: bicubic;
+}
+iframe {
+    display: block;
+}
+ul,
+ol {
+    list-style: none;
+}
+q:before,
+q:after {
+    content: "";
+}
+
+/* common
+---------------------------------- */
+body {
+    background-color: #e22f2f;
+    color: #e22f2f;
+    font: 14px/2em arial, microsoft yahei, sans-serif;
+}
+a {
+    color: #ffd323;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.none {
+    display: none;
+}
+.block {
+    display: block;
+}
+
+/* css sprites */
+header{
+    /*	background: url(http://stacdn201.ganjistatic1.com/att/project/app/ticket/img/top_bg.png) no-repeat;
+    background-size: 100% 143px;
+    height: 123px;
+    padding-top: 20px;
+*/}
+.date-box{
+    width: 93.75%;
+    margin: 0 auto;
+    background-color: #fbf2d0;
+    border-radius: 8px;
+    padding: 10px 0;
+}
+.now-date ,.part-box .tit:before{
+    background: url(http://sta.ganjistatic1.com/att/project/app/ticket/img/icon.__123123123__.png) no-repeat;
+    background-size: 93px auto;
+}
+.now-date{
+    padding-top: 10px;
+    height: 78px;
+    width: 93px;
+    background-position: 0 -17px;
+    margin:7px 0 0 10px;
+}
+.now-date p ,.now-date span{
+    color: #e22f2f;
+    text-align: center;
+}
+.now-date p{
+    font-weight: bold;
+    font-size: 18px;
+}
+.now-date span{
+    font-size: 12px;
+    display: block;
+    line-height: 20px;
+}
+.now-date ,.buy-date{
+    display: inline-block;
+    vertical-align: top;
+}
+.buy-date{
+    width: 170px;
+    margin:7px 0 0 10px;
+}
+.buy-date p{
+    margin-top: 6px;
+}
+.buy-date p span{
+    display: block;
+    color: #4c4c4c;
+    font-weight: bold;
+}
+.buy-date p .s1{
+    font-size: 12px;
+    color: #e22f2f;
+    font-weight: normal;
+    line-height: 12px;
+}
+.part-box .tit{
+    position: relative;
+    background-color: #ffd323;
+    height: 27px;
+    line-height: 27px;
+    font-size: 16px;
+    color: #e22f2f;
+    width: 115px;
+    margin: 20px 0 10px;
+    text-indent: 30px;
+}
+.buy-ticket .tit{
+    width: 85px;
+}
+.part-box .tit:before{
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    width: 16px;
+    height: 16px;
+}
+.calendar .tit:before{
+    background-position: 0 0;
+}
+.hot-time .tit:before{
+    background-position: -18px  0;
+}
+.buy-ticket .tit:before{
+    background-position: -35px 3px;
+}
+.order-plan .tit:before{
+    background-position: -52px 1px;
+}
+.part-box .tit:after{
+    content: "";
+    position: absolute;
+    right: -18px;
+    top: 0;
+    width: 27px;
+    height: 27px;
+    background-color: #e22f2f;
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.c-img{
+    padding: 0 10px;
+}
+.c-img img{
+    width: 100%;
+}
+.part-bg{
+    margin: 0 10px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.part-bg ul{
+    width: 210px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+.part-bg li{
+    height: 28px;
+}
+.part-bg li span{
+    display: inline-block;
+    background-color: #ffe991;
+    height: 20px;
+    line-height: 20px;
+    width: 60px;
+    border-radius: 3px;
+    text-indent: 5px;
+    margin-right: 10px;
+
+}
+.part-bg li em{
+    padding:  0 10px;
+}
+.traffic{
+    width: 300px;
+    margin: 0 auto;
+}
+.traffic li{
+    border: 1px solid #ffa525;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 4px 8px;
+    width: 281px;
+    margin-bottom: 10px;
+}
+.traffic li a{
+    display: block;
+    width: 281px;
+    height: 62px;
+    background-image: url(http://sta.ganjistatic1.com/att/project/app/ticket/img/goby.png);
+    background-size: 281px auto;
+}
+.by-train{
+    background-position: 0 0;
+}
+.by-plane{
+    background-position: 0 -62px;
+}
+.by-other{
+    background-position: 0 -124px;
+}
+.order-plan{
+    padding-bottom: 20px;
+}
+.order-plan ul{
+    padding: 0 58px 0 3%;
+}
+.order-plan li {
+    position: relative;
+    text-indent: 12px;
+    margin-bottom: 10px;
+}
+.order-plan li:before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #ffd323;
+    border-radius: 2px;
+}
+.order-plan li a{
+    display: block;
+    text-indent: 0;
+    margin-left: 16px;
+    line-height: 16px;
+}
+.order-plan li i{
+    padding-left: 5px;
+}
+/*ue-5517*/
+.winner-wrap{
+    height:25px;
+    overflow:hidden;
+    background:#ffe04f;
+    color:#884103;
+    font:normal 12px/25px microsoft yahei, arial, verdana, helvetica, sans-serif;
+}
+.h-banner{
+    width:100%;
+}
+.tit-wrap{
+    width:70%;
+    height:30px;
+    background:#ffa200;
+    -moz-transform:skewX(-8deg);
+    -o-transform:skewX(-8deg);
+    -webkit-transform:skewX(-8deg);
+    transform:skewX(-8deg);
+    position:relative;
+    margin:0 auto;
+}
+.tit-wrap h2{
+    width:83%;
+    height:30px;
+    text-align:center;
+    font-size:16px;
+    line-height:30px;
+    margin:0 auto;
+    background:#ffd323;
+    -moz-transform:skewX(-2deg);
+    -o-transform:skewX(-2deg);
+    -webkit-transform:skewX(-2deg);
+    transform:skewX(-2deg);
+    position:relative;
+    top:-4px;
+}
+.tit-wrap h2:after{
+    display:block;
+    content:"";
+    height:4px;
+    width:95%;
+    background:#e22f2f;
+    position:absolute;
+    left:2.5%;
+    bottom:-4px;
+}
+.tit-wrap h2::first-line{
+    -moz-transform:skewX(8deg);
+    -o-transform:skewX(8deg);
+    -webkit-transform:skewX(8deg);
+    transform:skewX(8deg);
+}
+.tit-wrap:before{
+    display: block;
+    content: "";
+    width: 28px;
+    height: 40px;
+    background: #e22f2f;
+    position: absolute;
+    left: -24px;
+    top: -10px;
+    -moz-transform: rotate(-50deg);
+    -o-transform: rotate(-50deg);
+    -webkit-transform: rotate(-50deg);
+    transform: rotate(-50deg);
+}
+.tit-wrap:after{
+    display: block;
+    content: "";
+    width: 28px;
+    height: 40px;
+    background: #e22f2f;
+    position: absolute;
+    right: -24px;
+    top: -1px;
+    -moz-transform: rotate(-50deg);
+    -o-transform: rotate(-50deg);
+    -webkit-transform: rotate(-50deg);
+    transform: rotate(-50deg);
+}
+.carpool-info{
+    width:93.75%;
+    background:#fbf2d0;
+    margin:15px auto;
+    position:relative;
+    border-radius:4px;
+    text-align:center;
+    color:#484848;
+    padding-bottom:10px;
+}
+.carpool-info:before{
+    background-size:320px;
+    display:block;
+    content:"";
+    position:absolute;
+    left:-3px;
+    top:0;
+    width: 10px;
+    height: 100%;
+    background-color:transparent;
+    background-image: radial-gradient(#e22f2f 3px, transparent 0px), radial-gradient(#e22f2f 4px, transparent 0px);
+    background-size: 26px 26px;
+    background-position: 0 0, 19px 4px;
+}
+.carpool-info:after{
+    display:block;
+    content:"";
+    position:absolute;
+    right:-1px;
+    top:0;
+    width: 10px;
+    height: 100%;
+    background-color:transparent;
+    background-image: radial-gradient(#e22f2f 3px, transparent 0px), radial-gradient(#e22f2f 4px, transparent 0px);
+    background-size: 26px 26px;
+    background-position: 0 0, 19px 4px;
+
+}
+.carpool-txt,.carpool-txt b{
+    font:bold 17px  microsoft yahei, arial, verdana, helvetica, sans-serif;
+    color:#484848;
+    line-height:60px;
+}
+.carpool-txt2{
+    font-size:16px;
+}
+.carpool-txt b{
+    color:#e22f2f;
+}
+.bt-carpool{
+    width:89%;
+    display:block;
+    height:42px;
+    background:#ffd323;
+    color:#e22f2f;
+    border-radius:8px;
+    margin:0 auto;
+    font-size:16px;
+    line-height:42px;
+    -moz-box-shadow:0px -1px 1px #ffa200 inset;
+    -webkit-box-shadow:0px -1px 1px #ffa200 inset;
+    box-shadow:0px -1px 1px #ffa200 inset;
+    border:none;
+    text-align:center;
+}
+.bt-invite{
+    width:93.75%;
+    height:42px;
+    text-align:center;
+    display:block;
+    background:#fbf2d0;
+    color:#e22f2f;
+    border-radius:8px;
+    margin:0 auto;
+    font-size:16px;
+    line-height:42px;
+    -moz-box-shadow:0px -1px 1px #888 inset;
+    -webkit-box-shadow:0px -1px 1px #888 inset;
+    box-shadow:0px -1px 1px #888 inset;
+    border:none;
+}
+.rob-wrap{
+    margin:25px auto 15px;
+}
+.remind-wrap{
+    margin-top:15px;
+    padding-top:15px;
+    border-top:1px dashed #fcdfa4;
+    text-align:center;
+}
+.remind-wrap span{
+    color:#484848;
+    font-size:12px;
+    padding:10px 0;
+    display:block;
+}
+.kalendar{
+    width:93.75%;
+    margin:20px auto;
+    background:#ffa200;
+    border-radius:8px;
+}
+.kalendar td {
+    width: 14.28%;
+}
+.kalendar-tab{
+    background:#fff;
+    border-bottom-left-radius:8px;
+    border-bottom-right-radius:8px;
+    text-align:center;
+}
+.kalendar-tab caption{
+    height:55px;
+    font:normal 19px/55px microsoft yahei, arial, verdana, helvetica, sans-serif;
+    color:#fff;
+}
+.kalendar-tab td{
+    color:#484848;
+    font-size:16px;
+    line-height:19px;
+    padding:9px 0;
+}
+.kalendar-tab td span{
+    display:block;
+    font-size:10px;
+}
+.kalendar-tab td.new-year span{
+    color:#ffa200;
+}
+.kalendar-tab td.disabled, .kalendar-tab td.disabled span{
+    color:#999;
+}
+.kalendar-tab td.active{
+    background:#ffd323;
+}
+.kalendar-tab th{
+    font-size:12px;
+    color:#ffa200;
+    line-height:40px;
+}
+.kalendar-tab td,.kalendar-tab th{
+    border:1px solid #ececec;
+}
+.kalendar-tab tr:last-child td{
+    border-bottom:none;
+}
+.kalendar-tab tr td:first-child{
+    border-left:none;
+}
+.kalendar-tab tr td:last-child{
+    border-right:none;
+}
+.ticket-type li{
+    width:93.75%;
+    border-radius:4px;
+    margin:10px auto 0;
+    position:relative;
+}
+.ticket-type li:after{
+    background:url(http://sta.ganjistatic1.com/att/project/app/ticket/img/icon2.png) no-repeat ;
+    background-position:0 -40px;
+    background-size:320px;
+    width:54px;
+    height:52px;
+    display:block;
+    content:"";
+    position:absolute;
+    right:-2px;
+    top:-3px;
+}
+.ticket-type li.type-plain:after{
+    display:none;
+}
+.ticket-type li a{
+    display:block;
+    width:100%;
+    background:url(http://sta.ganjistatic1.com/att/project/app/ticket/img/lit_bg.png) repeat-x;
+    background-size:contain;
+    height:73px;
+    text-align:-webkit-center;
+}
+.ticket-type li a:after{
+    width:10px;
+    display:block;
+    height:64px;
+    content:"";
+    position:absolute;
+    top:5px;
+    right:0;
+    background:#fff;
+}
+.ticket-type li a:before{
+    background:url(http://sta.ganjistatic1.com/att/project/app/ticket/img/goby.png) no-repeat;
+    background-size:278px;
+    width:76px;
+    display:block;
+    height:64px;
+    content:"";
+    position:absolute;
+    top:5px;
+    left:0;
+    border-left:10px solid #fff;
+}
+.ticket-type li.type-train a:before{
+    background-position:0px 0px;
+}
+.ticket-type li.type-vehicle a:before{
+    background-position:0px -121px;
+}
+.ticket-type li.type-plain a:before{
+    background-position:0px -60px;
+}
+.ticket-type li.type-train{
+    background:#ffe5c6;
+    border:1px solid #ffcf8c;
+}
+.ticket-type li.type-vehicle{
+    background:#c9e6ff;
+    border:1px solid #e3f2ff;
+}
+.ticket-type li.type-plain{
+    background:#d6fab0;
+    border:1px solid #dfffc2;
+}
+.ticket-type li i{
+    /*background:url(http://stacdn201.ganjistatic1.com/att/project/app/ticket/img/goby.png) no-repeat;*/
+    background-size:278px;
+    /*width:106px;*/
+    display:inline-block;
+    height:24px;
+    margin-top:24px;
+    /*margin-left:150px;*/
+    font:bold 21px microsoft yahei, arial, verdana, helvetica, sans-serif;
+    padding-left:25px;
+}
+.ticket-type li i.icon-t-train{
+    background-position:-129px -22px;
+    color:#f78001;
+}
+.ticket-type li i.icon-t-vehicle{
+    background-position:-129px -144px;
+    color:#1e8ff5;
+}
+.ticket-type li i.icon-t-plain{
+    background-position:-129px -80px;
+    color:#25ae00;
+}
+.bt-share{
+    margin-bottom:20px;
+}
+.sect-rop{
+    padding-bottom:25px;
+}
+/*share page*/
+.sect-rop-carpool{
+    padding-bottom:8px;
+}
+.carpool-share{
+}
+.carpool-share:before, .carpool-share:after{
+    height:100%;
+}
+.bt-carpool-share{
+    font-size:14px;
+    color:#e22f2f;
+    margin-top:10px;
+    display:block;
+    text-decoration:underline;
+}
+.bt-free{
+    text-decoration:underline;
+    color:#e22f2f;
+    display:block;
+    text-align:center;
+    font-size:14px;
+}
+.bt-free:after{
+    background:url(http://sta.ganjistatic1.com/att/project/app/ticket/img/icon2.png) no-repeat;
+    background-size:320px;
+    background-position:0px -256px;
+    display:block;
+    content:"";
+    width:11px;
+    height:15px;
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:4px;
+}
+.date-box-share{
+    padding:10px 0;
+}
+.bt-go-q{
+    text-align:center;
+    color:#ffd323;
+    font-size:14px;
+    display:block;
+    text-decoration:underline;
+}
+.ganji-logo{
+    background:url(http://sta.ganjistatic1.com/att/project/app/ticket/img/icon2.png) no-repeat;
+    background-size:320px;
+    background-position:0 0;
+    display:block;
+    width:110px;
+    height:28px;
+    margin:26px auto;
+}
+/*pop*/
+.pop-wrap{
+    width:100%;
+    height:100%;
+    position:fixed;
+    left:0;
+    top:0;
+    background:rgba(0,0,0,0.8);
+    display: none;
+}
+.pop-wrap.active {
+    display: block;
+}
+.pop-tab{
+    position:relative;
+}
+.pop-tab caption{
+    text-align:center;
+    font:bold 19px/55px microsoft yahei, arial, verdana, helvetica, sans-serif;
+}
+.pop-tab caption span{
+    font-size:14px;
+    font-weight:norma;
+    margin-right:10px;
+}
+.pop-tab caption b{
+    font-size:12px;
+    font-weight:norma;
+    margin-left:10px;
+}
+.bt-close{
+    background:url(http://sta.ganjistatic1.com/att/project/app/ticket/img/icon2.png) no-repeat;
+    background-size:320px;
+    background-position:0px -276px;
+    display:block;
+    width:25px;
+    height:25px;
+    position:absolute;
+    right:-2px;
+    top:0;
+}
+.kalendar-share{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -47%;
+    margin-top: -190px;
+}
+.remind-ok{
+    width:246px;
+    height:206px;
+    background:#fbf2d0;
+    border-radius:8px;
+    position:fixed;
+    left:50%;
+    top:50%;
+    margin-left:-123px;
+    margin-top:-103px;
+}
+.remind-ok-tit{
+    font:bold 16px/44px microsoft yahei, arial, verdana, helvetica, sans-serif;
+    background:#ffa200;
+    text-align:center;
+    border-top-left-radius:8px;
+    border-top-right-radius:8px;
+    color:#fff;
+}
+.remind-ok-txt{
+    background:url(http://sta.ganjistatic1.com/att/project/app/ticket/img/icon2.png) no-repeat;
+    background-size:320px;
+    background-position:-30px -228px;
+    width:244px;
+    height:80px;
+    padding-top:20px;
+    text-align:center;
+    line-height:26px;
+}
+.share-guide{
+    background:url(http://sta.ganjistatic1.com/att/project/app/ticket/img/icon2.png) no-repeat;
+    background-size:320px;
+    background-position:-60px -47px;
+    width:223px;
+    height:178px;
+    position:fixed;
+    right:10px;
+    top:60px;
+}
+/*scroll*/
+.winner-wrap{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+}
+.winner-con{
+    height:25px;
+    line-height:25px;
+    overflow:hidden;
+    white-space:nowrap;
+    position:absolute;
+    top:0;
+    -moz-animation: swing 26s infinite linear;
+    -o-animation: swing 26s infinite linear;
+    -webkit-animation: swing 26s infinite linear;
+}
+@-webkit-keyframes swing {
+    0% {
+        left:0;
+    }
+    100% {
+        left:-1326px;
+    }
+}

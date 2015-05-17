@@ -1,0 +1,16 @@
+{
+    "baseUrl": "http://sta.ganji.com/ng/",
+    "deps": [
+        "app/client/common/index.html"
+    ],
+    "cache": [
+        "app/client/common/g.js",
+        "app/client/common/image/icon-status.png",
+        "app/client/common/image/loading.gif",
+        "app/client/common/image/icon.png",
+        "app/client/common/image/loading2.gif"
+    ],
+    "network": [
+        "*"
+    ]
+}

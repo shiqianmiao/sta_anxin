@@ -1,0 +1,691 @@
+@charset "UTF-8";
+html,body,h1,h2,h3,p,span,a,div,ol,ul,li,dl,dt,dd,table,tbody,tfoot,thead,tr,th,td,input,textarea,form,section{
+	margin:0;
+	padding:0;
+	font:14px/2em 'Microsoft Yahei',Arial,Verdana,Helvetica,sans-serif;
+	color:#404040;
+}
+body{
+	background: url(http://stacdn201.ganjistatic1.com/att/project/touch/group_car_sharing/img/bg.png) repeat #e7e9f5;
+	background-size: 137px auto;
+	color: #000;
+	-webkit-text-size-adjust:none;
+	min-width:320px;
+}
+ul,li{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+em,i{
+	font-style: normal;
+}
+.fr{
+	float: right;
+}
+.fl{
+	float: left;
+}
+img{
+	display: block;
+}
+header{
+	width: 100%;
+}
+header img{
+	width: 100%;
+	display: block;
+}
+input:focus,textarea:focus{
+	outline:none;
+}
+footer{
+	background-color: #83a8e1;
+	height: 44px;
+	line-height: 44px;
+	font-size: 12px;
+	text-align: center;
+	color: #d4e1f5;
+}
+.no-bg:before{
+	height: 0;
+}
+.part-bg{
+	width: 300px;
+	margin: 0 auto;
+	background-color: rgba(255,255,255,.6);
+	border-radius: 10px;
+	border: 1px solid #fff;
+	background-clip: padding-box;
+	padding: 15px 0 20px;
+}
+.all-people{
+	background-color: rgba(255,255,255,.6);
+	width: auto;
+	padding: 0 8px;
+	height: 26px;
+	line-height: 26px;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	position: absolute;
+	right: 10px;
+	top: 0;
+}
+.all-people em{
+	font-weight: bold;
+}
+.go-where{
+	background: url(http://stacdn201.ganjistatic1.com/att/project/touch/group_car_sharing/img/bg1.jpg) no-repeat;
+	background-size: 100% 104px;
+	position: relative;
+	padding-top: 40px;
+}
+.addr{
+	margin-bottom: 12px;
+	text-indent: 20px;
+}
+.addr span{
+	font-size: 15px;
+	padding-right: 5px;
+}
+.site-text{
+	border: 1px solid #c4d5ed;
+	height: 38px;
+	line-height: 38px;
+	border-radius: 6px;
+	background-color: #fff;
+	display: inline-block;
+	vertical-align: middle;
+	background-clip: padding-box;
+	width: 150px;
+	padding: 0 30px 0 5px;
+	position: relative;
+	text-indent: 0;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+}
+.site-text:after{
+	content: "";
+	position: absolute;
+	right: 10px;
+	top: 15px;
+	width: 8px;
+	height: 8px;
+	border-bottom: 2px solid #98b3d9;
+	border-right: 2px solid #98b3d9;
+	-webkit-transform:rotate(-45deg);
+}
+.btn{
+	display: block;
+	color: #fff;
+	width: 250px;
+	margin: 0 auto;
+	font-size: 15px;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	background-color: #ff3600;
+	border-radius: 5px;
+	background-clip: padding-box;
+	border-bottom: 2px solid #d20200;
+	letter-spacing: 2px;
+}
+.tit{
+	font-size: 18px;
+	color: #772d00;
+	font-weight: bold;
+	text-align: center;
+	height: 36px;
+}
+.sharing-car{
+	width: 300px;
+	margin: 15px auto 15px;
+	position: relative;
+	z-index: 3;
+}
+.sharing-car > p{
+	line-height: 18px;
+}
+.sharing-car > p span{
+	color: #d20000;
+}
+.sharing-car > p em{
+	color: #008dcf;
+}
+.sharing-car .scroll-wrap{
+	height: 104px;
+	margin-top: 15px;
+	width: 286px;
+	padding: 10px 0 6px 14px;
+	overflow: hidden;
+	background-color: #f7f8fc;
+	border:1px solid #c4d5ed;
+	border-radius: 15px;
+	background-clip: padding-box;
+}
+.sharing-car .scroll-box{
+	width: 275px;
+	overflow: hidden;
+	height: 104px;	
+}
+.sharing-car ul{
+	width: 2000px;
+	height: 108px;
+}
+.sharing-car ul li{
+	float: left;
+	margin-right: 10px;
+}
+.sharing-car li div{
+	background-color: #e4e8f5;
+	border:1px solid #cfd6ec;
+	padding: 0 3px;
+	width: 76px;
+	height: 76px;
+}
+.sharing-car li  p{
+	font-size: 12px;
+	padding-top: 3px;
+}
+.sharing-car ul li img{
+	width: 70px;
+	margin: 3px;
+	display: block;
+}
+.car-camera{
+	margin-bottom: 15px;
+	position: relative;
+	z-index: 5;
+}
+.car-camera .part-bg{
+	position: relative;
+	z-index: 10;
+}
+body:before{
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 660px;
+	background: url(http://stacdn201.ganjistatic1.com/att/project/touch/group_car_sharing/img/bg2.png) no-repeat;
+	background-size: 100% auto;
+	width: 100%;
+	height: 298px;
+}
+.pic-ul{
+	overflow: hidden;
+	padding-left: 3px;
+	border-bottom: 1px solid #bfd1ec;
+	padding-bottom: 19px;
+	margin-bottom: 8px;
+}
+.pic-ul li{
+	float: left;
+	width: 90px;
+	margin:10px 0 0 6px;
+}
+.pic-ul li a{
+	display: block;
+}
+.pic-ul li img{
+	width: 90px;
+}
+.people-box{
+	margin: 0 3px 0;
+}
+/*.people-box .tit{
+	padding: 8px 0 0;
+}*/
+.people-box  p{
+	overflow: hidden;
+	padding: 0 10px;
+	text-indent: 10px;
+}
+.people-box  p a{
+	display: block;
+	width: 50%;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	text-decoration: underline;
+}
+.more-car-share{
+	margin-bottom: 25px;
+	position: relative;
+	z-index: 1;
+}
+.more-car-share p{
+	color: #772d00;
+	line-height: 20px;
+	padding: 0 20px;
+}
+.more-car-share .btn{
+	margin-top: 10px;
+	background-color: #6f9bdd;
+	border-color: #406dc7;
+}
+/*弹层*/
+.relative{
+	position: relative;
+	z-index: 100000;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.5);
+}
+.float-bg{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0,.5);
+	z-index: 100;
+	display: none;
+}
+.float-bg.active{
+	display: block;
+}
+.popup{
+	background-color: #eaeff7;
+	padding: 0 15px 20px;
+	width: 290px;
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	margin:0 0 0 -160px;
+	display: block;
+}
+.close-btn{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: -26px;
+	right: 2px;
+	z-index: 10;
+}
+.popup:before{
+	content: "";
+	position: absolute;
+	background: url(http://stacdn201.ganjistatic1.com/att/project/touch/group_car_sharing/img/pop_top.png) no-repeat;
+	background-size: 320px auto;
+	top: -34px;
+	left: 0;
+	height: 36px;
+	width: 320px;
+}
+.tit2{
+	font-size: 15px;
+	text-align: center;
+}
+.rule-pop p{
+	font-size: 12px;
+	line-height: 19px;
+	margin-bottom: 5px;
+}
+.group-box{
+	width: 100%;
+	background-color: #fff;
+}
+.group-box > p{
+	width: 100%;
+	box-sizing:border-box;
+	color: #8d8d8d;
+	background-color: #f3f3f3;
+	line-height: 18px;
+	padding: 7px 15px;
+	font-size: 12px;
+	border-bottom: 1px solid #dcdcdc;
+}
+.group-box ul{
+	height: 323px;
+	overflow: auto;
+}
+.group-box ul li{
+	position: relative;
+	height: 80px;
+	border-bottom: 1px solid #d9d9d9;
+}
+.group-box ul li:last-child{
+	border-bottom: 0;
+}
+.group-box  li a{
+	display: block;
+	height: 65px;
+	padding: 5px 0;
+	overflow: hidden;
+}
+.group-box  .head-img{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: 10px;
+	top: 10px;
+}
+.group-box .head-img img{
+	width:50px;
+	height: 50px;
+	border-radius: 50%;
+}
+.group-box .con{
+	padding:2px 0 0 70px;
+}
+.group-box .con p{
+	position: relative;
+	line-height: 20px;
+}
+.group-box .distance{
+	position: absolute;
+	font-size: 12px;
+	color: #adadad;
+	right: 10px; 
+	top: 3px;
+}
+.group-box .level{
+	display: inline-block;
+	text-align: center;
+	font-size: 10px;
+	background:url(http://stacdn201.ganjistatic1.com/att/project/touch/group_car_sharing/img/icon.png) no-repeat;
+	background-size: 36px auto;
+	background-position: -21px -1px;
+	color: #fff;
+	padding: 0px 0 2px;
+	height: 14px;
+	width: 14px;
+	border-radius: 3px;
+	background-clip: padding-box;
+}
+.group-box .le-data{
+	font-size: 12px;
+	color: #828282;
+}
+.group-box .con-name{
+	line-height: 18px;
+	padding-bottom: 2px;
+}
+.group-box .des{
+	font-size: 12px;
+	color: #bdbdbd;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+}
+.area-pop{
+	width: 320px; 
+	padding: 0;	
+}
+.center-pop{
+	width: 100%;
+}
+.filter-group{
+	-webkit-transform: translate3d(0px, 0px, 0px);
+	transform: translate3d(0px, 0px, 0px);
+	background-color: #eaeff7;
+	margin-top: 10px;
+}
+.filter-group .filter-title {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 44px;
+	text-align: center;
+	background-color:#579b00;
+}
+.filter-group .filter-body {
+	border-top: 1px solid #6f9bdd;
+	display: -webkit-box;
+	display: -ms-box;
+	display: box;
+}
+.filter-body .filter-wrap:nth-child(2){
+	background-color: #cfdaec;
+}
+.filter-group .filter-wrap {
+	display: none;
+	-webkit-box-flex: 1;
+	-ms-box-flex: 1;
+	box-flex: 1;
+	position: relative;
+	height: 204px;
+	width: 1px;
+	overflow: hidden;
+}
+.filter-group .filter-wrap.active{
+	display: block;
+}
+.filter-group .filter-wrap:first-child{
+	border-right: 1px solid #6f9bdd;
+}
+.filter-body .filter-wrap:first-child li:before{
+	content: "";
+	position: absolute;
+	right: 10px;
+	top:17px;
+	border-style:solid;
+	border-color: transparent transparent transparent #6f9bdd ;
+	border-width: 3px;
+}
+.filter-menu {
+	position: relative;
+	width: 100%;
+}
+.filter-menu li {
+	width:100%;
+	padding:0;
+	height: 40px;
+	border-bottom: 1px solid #e5e5e5;
+	color: #333;
+	font-size: 14px;
+	text-indent: 10px;
+	line-height: 40px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding-left: 2px;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	border-bottom: 1px solid #6f9bdd;
+	position: relative;
+}
+.filter-body .filter-wrap:first-child li.active:before{
+	border-color: transparent;
+}
+.filter-body .filter-wrap:first-child  li{
+	text-indent: 20px;
+}	
+.filter-menu li.active,
+.filter-menu li.touch {
+	position: relative;
+	background-color: transparent;
+	border-radius: 0;
+	color: #2b66c1;
+}
+.filter-menu li.active::after,
+.filter-menu li.touch::after {
+	content: '';
+	position: absolute;
+	top: -1px;
+	left: -13px;
+	width: 100%;
+	height: 100%;
+	background-color: #cfdaec;
+	padding: 1px 0 1px 13px;
+	z-index: -1;
+}
+.filter-menu li span {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	position: absolute;
+}
+.group-info{
+	width: 100%; 
+	background-color: #fff;
+}
+.group-base li{
+	height: 45px;
+	line-height: 45px;
+	padding: 0 10px;
+	color: #666;
+	border-bottom:1px solid #e7e7e7;
+	position: relative;
+}
+.group-base li span{
+	letter-spacing: 3px;
+	color: #808080;
+	padding-right: 10px;
+}
+.group-base  .level{
+	display: inline-block;
+	vertical-align: -1px;
+	color: #ff9900;
+	padding: 1px 5px;
+	border-radius:4px;
+	font-size: 11px;
+	height: 12px; 
+	line-height: 14px;
+	background-color: #fffbe8;
+	border:1px solid #ffb12d;
+}
+.group-base .address{
+	letter-spacing: 0;
+	color: #333;
+}
+.icon-addr{
+	position: absolute;
+	right:10px;
+	top:12px;
+	background: url(http://stacdn201.ganjistatic1.com/att/project/touch/group_car_sharing/img/icon.png) no-repeat;
+	background-size: 36px auto;
+	width: 17px; 
+	height: 20px;
+}
+.group-info .blank{
+	width: 100%;
+	background-color: #f5f5f5;
+	height: 10px;
+}
+.group-about{
+	border-top:1px solid #e7e7e7;
+}
+.group-about li{
+	overflow: hidden;
+	padding: 8px 10px;
+	border-bottom:1px solid #e7e7e7;
+}
+.group-about .information img{
+	width: 30px; 
+	height: 30px;
+	border-radius: 50%;
+	background-clip: padding-box;
+	display: inline-block;
+	vertical-align: middle;
+}
+.group-about li .main-group{
+	letter-spacing: 20px;
+	width: 68px;
+}
+.group-about .information em{
+	display: inline-block;
+	vertical-align: middle;
+	padding-left: 5px;
+}
+.group-about li span{
+	letter-spacing: 3px;
+	color: #808080;
+	display: inline-block;
+	width: 62px;
+	line-height: 31px;
+}
+.group-about  .groups {
+	height: 36px;
+	padding-bottom: 6px;
+}
+.group-about  .groups div{
+	float: right;
+	font-size: 0;
+	padding-right: 5px;
+}
+.groups img{
+	border-radius: 50%;
+	width: 36px; 
+	height: 36px;
+	display:inline-table;
+	margin-left: 5px;
+}
+.down-info{
+	width: 250px;
+	padding-bottom: 30px;
+	margin:15px auto 0;
+	display: none;
+}
+.down-info.active{
+	display: block;
+}
+.down-info .need{
+	font-size: 14px;
+	padding-bottom: 3px;
+}
+.down-info .need em{
+	font-size: 15px;
+}
+.how{
+	padding-top: 5px;
+	font-size: 14px;
+}
+.down-info .btn{
+	background-color: #6f9bdd;
+	border-color: #6f9bdd;
+	line-height: 42px;
+}
+.dowm-tip{
+	font-size: 12px;
+	line-height: 15px;
+}
+.scroll-pop{
+	position: absolute;
+}
+.scroll-pop .popup{
+	top:0;
+	margin-top: 36px;
+}
+.hot-chat{
+	border-radius: 4px; 
+	color:#fff;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 10px;
+	padding: 2px 5px;
+	height: 12px; 
+	line-height: 12px;
+	margin-left: 10px;
+	background-color: #f26135;
+}
+.pop-img{
+	padding: 20px 15px 10px;
+}
+.pop-img p{
+	padding: 5px 0 0;
+	line-height: 22px;
+	max-height: 49px;
+	overflow: hidden;
+}
+.pop-btn{
+	position: absolute;
+	width: 40px; 
+	height: 40px;
+	right:0; 
+	top:0;
+	background: rgba(255,255,255,.5);
+	border-radius: 50%;
+}
+.pop-btn::before {
+    content: "\00D7";
+    position: absolute;
+    left: 21%;
+    top: 10%;
+    color: #6f9bdd;
+    font-size: 30px;
+}
+.toast span{
+	color: #fff;
+}

@@ -1,0 +1,335 @@
+@charset "utf-8";
+/* !
+* ganji app push
+*
+* Author：liuyun2
+* */
+/* icon
+---------------------------------- */
+.icon {
+    width: 16px;
+    height: 16px;
+    background: url(../image/icon_fortune.png) no-repeat;
+    -webkit-background-size: 100px auto;
+    -ms-background-size: 100px auto;
+    background-size: 100px auto;
+}
+.icon::after {
+    display: none;
+}
+.icon-love {
+    background-position: -16px 0;
+}
+.icon-finance {
+    background-position: -32px 0;
+}
+.icon-bag {
+    background-position: -48px 0;
+}
+.icon-cross {
+    background-position: -64px 0;
+}
+.icon-sign {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    background: url(../image/icon_sign.png) no-repeat;
+    -webkit-background-size: 90px auto;
+    -ms-background-size: 90px auto;
+    background-size: 90px auto;
+}
+.icon-baiyang {
+    background-position: 0 0;
+}
+.icon-jinniu {
+    background-position: -45px 0;
+}
+.icon-shuangzi {
+    background-position: 0 -45px;
+}
+.icon-juxie {
+    background-position: -45px -45px;
+}
+.icon-shizi {
+    background-position: 0 -90px;
+}
+.icon-chunv {
+    background-position: -45px -90px;
+}
+.icon-tiancheng {
+    background-position: 0 -135px;
+}
+.icon-tianxie {
+    background-position: -45px -135px;
+}
+.icon-sheshou {
+    background-position: 0 -180px;
+}
+.icon-mojie {
+    background-position: -45px -180px;
+}
+.icon-shuiping {
+    background-position: 0 -225px;
+}
+.icon-shuangyu {
+    background-position: -45px -225px;
+}
+
+/* module
+---------------------------------- */
+.mod-rank,
+.mod-rank::after {
+    display: inline-block;
+    width: 95px;
+    height: 14px;
+    background: url(../image/icon_fortune.png) no-repeat 0 -16px;
+    -webkit-background-size: 100px auto;
+    -ms-background-size: 100px auto;
+    background-size: 100px auto;
+    vertical-align: middle;
+    overflow: hidden;
+}
+.mod-rank::after {
+    float: left;
+    content: "";
+    background-position: 0 -30px;
+}
+.rank-0::after {
+    width: 0;
+}
+.rank-1::after {
+    width: 20px;
+}
+.rank-2::after {
+    width: 40px;
+}
+.rank-3::after {
+    width: 60px;
+}
+.rank-4::after {
+    width: 80px;
+}
+.rank-5::after {
+    width: 95px;
+}
+.mod-bingo {
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+}
+.mod-bingo a {
+    display: block;
+    position: relative;
+    color: #333;
+    font-size: 14px;
+    line-height: 45px;
+    padding: 0 8px;
+}
+.mod-bingo a::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    width: 6px;
+    height: 11px;
+    background: url(../image/icon_fortune.png) no-repeat 0 -44px;
+    -webkit-background-size: 100px auto;
+    -ms-background-size: 100px auto;
+    background-size: 100px auto;
+    line-height: 999em;
+    margin: -6px 0 0 0;
+    overflow: hidden;
+}
+.mod-list {
+}
+.mod-list li {
+    border-bottom: 1px solid #d9d9d9;
+}
+.mod-list li:last-child {
+    border-bottom: 0;
+}
+.mod-list a {
+    display: block;
+    color: #333;
+    font-size: 14px;
+    line-height: 44px;
+    padding: 0 15px;
+    overflow: hidden;
+}
+.mod-list a.touch {
+    border-radius: 0;
+}
+.mod-list span {
+    color: #999;
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+/* layout
+---------------------------------- */
+html,
+body {
+    background-color: #f2f2f2;
+}
+.header {
+    position: relative;
+    height: 44px;
+    background-color: #5b2;
+    overflow: hidden;
+}
+.heading {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 44px;
+    text-align: center;
+    text-overflow: ellipsis;
+    margin: 0 56px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.header .return {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    line-height: 999em;
+    overflow: hidden;
+}
+.header .return::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border-top: solid 2px #fff;
+    border-right: solid 2px #fff;
+    -webkit-transform: rotate(-135deg);
+    margin: -7px 0 0 -7px;
+}
+.header .return.touch,
+.header .operate.touch {
+    background-color: transparent;
+    border-radius: 0;
+}
+.header .return.touch::after {
+    border-color: #ccc;
+}
+.header .operate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 44px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 44px;
+    padding: 0 12px;
+}
+.section {
+    background-color: #fff;
+}
+.info {
+    position: relative;
+    padding: 16px 12px;
+    overflow: hidden;
+}
+.info-pic {
+    float: left;
+    width: 45px;
+    height: 45px;
+    border-radius: 45px;
+    margin-right: 12px;
+}
+.info-title,
+.info-meta {
+    line-height: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.info-title {
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+}
+.info-meta {
+    color: #999;
+    font-size: 12px;
+}
+.info-opt {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    height: 28px;
+    font-size: 14px;
+    line-height: 28px;
+    margin-top: -14px;
+}
+.info-opt a {
+    position: relative;
+    display: inline-block;
+    color: #999;
+    padding: 0 16px 0 12px;
+}
+.info-opt .icon-arrow {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 6px;
+    height: 11px;
+    background: url(../image/icon_fortune.png) no-repeat 0 -44px;
+    -webkit-background-size: 100px auto;
+    -ms-background-size: 100px auto;
+    background-size: 100px auto;
+    line-height: 999em;
+    margin: -6px 0 0 0;
+    overflow: hidden;
+}
+.dlist {
+    border-top: 1px solid #d9d9d9;
+    padding: 8px 12px 0;
+}
+.dlist dt {
+    display: block;
+    color: #333;
+    font-size: 16px;
+    overflow: hidden;
+}
+.dlist dt .icon {
+    vertical-align: -2px;
+    margin-right: 8px;
+}
+.dlist dt .mod-rank {
+    vertical-align: -2px;
+    margin-left: 10px;
+}
+.dlist dd {
+    color: #999;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 4px 0 12px;
+}
+.dlist2 {
+    background-color: #f2f2f2;
+    padding: 8px 12px;
+    margin-top: 8px;
+}
+.dlist2 strong {
+    color: #333;
+    font-weight: 500;
+}
+.footer {
+    border-top: 1px solid #d9d9d9;
+    padding: 12px 12px 0;
+}
+.footer .copyright {
+    color: #999;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    padding: 10px 0 20px;
+}

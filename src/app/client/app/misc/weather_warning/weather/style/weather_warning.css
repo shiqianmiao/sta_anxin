@@ -1,0 +1,182 @@
+@charset "utf-8";
+/* !
+* ganji app push
+*
+* Author：liuyun2
+* */
+/* icon
+---------------------------------- */
+.icon-weather {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    background: url(../image/icon_weather.png) no-repeat;
+    background-size: 90px auto;
+    -webkit-background-size: 90px auto;
+    -ms-background-size: 90px auto;
+}
+.icon-taifeng {
+    background-position: 0 0;
+}
+.icon-baoyu {
+    background-position: -45px 0;
+}
+.icon-baoxue {
+    background-position: 0 -45px;
+}
+.icon-hanchao {
+    background-position: -45px -45px;
+}
+.icon-dafeng {
+    background-position: 0 -90px;
+}
+.icon-shachenbao {
+    background-position: -45px -90px;
+}
+.icon-gaowen {
+    background-position: 0 -135px;
+}
+.icon-ganhan {
+    background-position: -45px -135px;
+}
+.icon-leidian {
+    background-position: 0 -180px;
+}
+.icon-bingbao {
+    background-position: -45px -180px;
+}
+.icon-shuangdong {
+    background-position: 0 -225px;
+}
+.icon-dawu {
+    background-position: -45px -225px;
+}
+.icon-mai {
+    background-position: 0 -270px;
+}
+.icon-daolujiebing {
+    background-position: -45px -270px;
+}
+
+/* layout
+---------------------------------- */
+body {
+    background-color: #fff;
+}
+.header {
+    position: relative;
+    height: 44px;
+    background-color: #5b2;
+    overflow: hidden;
+}
+.heading {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 44px;
+    text-align: center;
+    text-overflow: ellipsis;
+    margin: 0 56px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.header .return {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    line-height: 999em;
+    overflow: hidden;
+}
+.header .return::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border-top: solid 2px #fff;
+    border-right: solid 2px #fff;
+    -webkit-transform: rotate(-135deg);
+    margin: -7px 0 0 -7px;
+}
+.header .return.touch,
+.header .operate.touch {
+    background-color: transparent;
+    border-radius: 0;
+}
+.header .return.touch::after {
+    border-color: #ccc;
+}
+.header .operate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 44px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 44px;
+    padding: 0 12px;
+}
+.list .list-item {
+    border-bottom: 1px solid #d9d9d9;
+    padding: 12px 0;
+    margin: 0 12px;
+}
+.list .list-head {
+    overflow: hidden;
+}
+.list .list-pic {
+    float: left;
+    width: 44px;
+    height: 44px;
+    border-radius: 2px;
+    margin-right: 12px;
+}
+.list .list-title,
+.list .list-info {
+    font-size: 12px;
+    line-height: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.list .list-title {
+    font-size: 16px;
+    font-weight: 500;
+}
+.list .list-info {
+    color: #999;
+}
+.list .list-body {
+    color: #333;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 8px 0 0;
+}
+.level-blue .list-pic {
+    background-color: #28c0ff;
+}
+.level-blue .list-title {
+    color: #28c0ff;
+}
+.level-yellow .list-pic {
+    background-color: #ffcf28;
+}
+.level-yellow .list-title {
+    color: #ffcf28;
+}
+.level-orange .list-pic {
+    background-color: #fd961d;
+}
+.level-orange .list-title {
+    color: #fd961d;
+}
+.level-red .list-pic {
+    background-color: #ff7474;
+}
+.level-red .list-title {
+    color: #ff7474;
+}
