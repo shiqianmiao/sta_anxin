@@ -7,11 +7,6 @@ builder.registerBuilder('**/*.cmb.js')
         .uglify()
         .write();
 
-builder.registerBuilder('**/*.cmb.css')
-        .read()
-        .pipe(require('g-builder/builders/amd').combine)
-        .write();
-
 builder.registerBuilder('com/g/*.js')
         .copy();
 
