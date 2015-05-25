@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>养老后台管理系统</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link href="http://s1.anxinsta.com/com/backend/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="http://s1.anxinsta.com/com/backend/css/ionicons.css" rel="stylesheet" type="text/css" />
+    <!-- Morris chart -->
+    <link href="http://s1.anxinsta.com/com/backend/css/morris/morris.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="http://s1.anxinsta.com/com/backend/css/admin_lte.css" rel="stylesheet" type="text/css" />
+    <link href="http://s1.anxinsta.com/com/backend/css/addstyle.css" rel="stylesheet" type="text/css" />
+
+    <link href="http://s1.anxinsta.com/com/backend/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://s1.anxinsta.com/com/pc/g.js"></script>
+    <!--
+    <script type="text/javascript" src="http://s1.anxinsta.com/com/backend/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://s1.anxinsta.com/com/backend/js/app.js"></script>
+    -->
+    <script type="text/javascript" src="http://s1.anxin365.com/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://s1.anxin365.com/app.js"></script>
+    <script type="text/javascript" src="http://s1.anxinsta.com/com/backend/js/widget/datagrid.js"></script>
+</head><style>
+    h1{
+        font-size:18px;
+    }
+</style>
+<body class="skin-blue">
+<!-- header logo: style can be found in header.less -->
+<header class="header">
+    <a href="/" class="logo">
+        <!-- Add the class icon to your logo image or logo icon to add the margining -->
+        <i class="fa fa-fw fa-home"></i>
+        安心客后台系统
+    </a>
+    
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button"> 
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+        
+        <div class="navbar-right">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown tasks-menu">
+                    <a href="/yanglao/orderList/default?status=1" >
+                        待派单
+                        <span data-widget="tongji" data-time="5000" data-url="/yanglao/orderList/ajaxMatchCount" data-rsync="#js-matchCn" class="label label-danger">0</span>
+                    </a>
+                </li>
+
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user"></i> <span>水肥肥 <i class="caret"></i></span> </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header bg-light-blue">
+                            <img src="http://sta.anxin365.com/app/lte/img/avatar3.png" class="img-circle" alt="User Image" />
+                            <p> 系统超级管理员<small>努力工作、再接再厉！</small> </p>
+                        </li>
+                        <!-- Menu Body -->
+                        <li class="user-body">
+                            <div class="col-xs-4 text-center" style="padding:0"> <a href="javascript:;">个人信息</a> </div>
+                            <div class="col-xs-4 text-center" style="padding:0"> <a href="javascript:;">修改密码</a> </div>
+                            <div class="col-xs-4 text-center"  style="padding:0"> <a href="javascript:;">修改头像</a> </div>
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-right"> <a href="http://bc.anxin365.com/sso/user/logout" class="btn btn-default btn-flat">退出</a> </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+    <!-- 后台左侧边栏总模板 -->
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="left-side sidebar-offcanvas">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                            
+            <li class="treeview ">
+                <a style="font-weight: bold;" href="javascript:;">
+                    <i class="fa fa-users"></i>
+                    <span>服务者管理</span>
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                
+                                    <ul class="treeview-menu" >
+                                            <li>
+                                                                                    
+                            <a href="/yanglao/worker/default" >
+                                <i class="fa fa-angle-double-right"></i>
+                                添加服务者                                                            </a>
+                        </li>
+                                            <li>
+                                                                                    
+                            <a href="/yanglao/workerList/default" >
+                                <i class="fa fa-angle-double-right"></i>
+                                服务者列表                                                            </a>
+                        </li>
+                                        </ul>
+                            </li>
+                                    
+            <li class="treeview ">
+                <a style="font-weight: bold;" href="javascript:;">
+                    <i class="fa fa-user"></i>
+                    <span>客户管理</span>
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                
+                                    <ul class="treeview-menu" >
+                                            <li>
+                                                                                    
+                            <a href="/yanglao/customer/default" >
+                                <i class="fa fa-angle-double-right"></i>
+                                客户列表                                                            </a>
+                        </li>
+                                        </ul>
+                            </li>
+                                    
+            <li class="treeview ">
+                <a style="font-weight: bold;" href="javascript:;">
+                    <i class="fa fa-list"></i>
+                    <span>订单管理</span>
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                
+                                    <ul class="treeview-menu" >
+                                            <li>
+                                                                                    
+                            <a href="/yanglao/orderList/default" >
+                                <i class="fa fa-angle-double-right"></i>
+                                订单列表                                                            </a>
+                        </li>
+                                            <li>
+                                                                                    
+                            <a href="/yanglao/orderList/match" >
+                                <i class="fa fa-angle-double-right"></i>
+                                待派订单                                                                    <small data-widget="tongji" data-time="60000" data-url="/yanglao/orderList/ajaxMatchCount" class="badge pull-right bg-red"
+                                        data-rsync="#js-matchCn"></small>
+                                                            </a>
+                        </li>
+                                            <li>
+                                                                                    
+                            <a href="/yanglao/orderList/delay" >
+                                <i class="fa fa-angle-double-right"></i>
+                                未按时服务的订单                                                                    <small data-widget="tongji" data-time="600000" data-url="/yanglao/orderList/ajaxDelayCount" class="badge pull-right bg-red"
+                                        data-rsync=""></small>
+                                                            </a>
+                        </li>
+                                            <li>
+                                                                                    
+                            <a href="/yanglao/orderCommon/addOrderOne/" >
+                                <i class="fa fa-angle-double-right"></i>
+                                下订单                                                            </a>
+                        </li>
+                                            <li>
+                                                    <li>
+                                                </ul>
+                            </li>
+                                    
+            <li class="treeview ">
+                <a style="font-weight: bold;" href="javascript:;">
+                    <i class="fa fa-sitemap"></i>
+                    <span>统计管理</span>
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                    </a>
+                
+                                    <ul class="treeview-menu" >
+                                            <li>
+                                                                                    
+                            <a href="/yanglao/WorkerTongji/default" >
+                                <i class="fa fa-angle-double-right"></i>
+                                服务者业绩统计                                                            </a>
+                        </li>
+                                        </ul>
+                            </li>
+                </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Content Header (Page header) -->
+        <!--
+<section class="content-header">
+    <h1> 总部后台 <small>开心工作每一天！</small> </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-home"></i> 首页</a></li>
+        <li class="active">总部后台首页</li>
+    </ol>
+</section>
+-->
+        <!-- Main content -->
+        <div style="margin-left:15px;">
+        <h1><font style="color:orange">水肥肥</font> 您好！欢迎来到养老后台系统</h1>
+        <h1>1.请于左侧菜单选择您要的操作事项。</h1>
+        <h1>2.如发现左侧事项没有您想要的，请联系管理员添加.</h1>
+        </div>
+        <!-- /.content -->
+    </aside>
+    <!-- /.right-side -->
+</div>
+<!-- ./wrapper -->
+<script type="text/javascript">
+    G.use(['com/backend/js/backend.js', 'jquery'], function (Backend, $) {
+        Backend.run();
+    });
+</script>
+</body>
+</html>
