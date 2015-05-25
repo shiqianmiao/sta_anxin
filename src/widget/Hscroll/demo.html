@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title></title>
+	<style>
+		body{
+			padding: 0;
+			margin: 0;
+		}
+		em{
+			font-style: normal;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/Hscroll.css">
+</head>
+<body>
+
+
+
+	<div id="Hwrap">
+		<div id="Hscroll">
+			<header class="Hs-header"><span class="pullDownIcon"></span><em>下拉刷新</em></header>
+
+			把你的代码内容放在这里
+			<script>
+			for(var i = 0; i < 100; i++){
+				document.writeln(i + "<br/>");
+			}
+
+			</script>
+
+
+			<footer class="Hs-footer"><span class="pullUpIcon"></span><em>上拉加载更多</em></footer>
+		</div>
+	</div>
+	
+
+
+	<script src="http://sta.anxin365.com/g.js"></script>
+	<script src="http://sta.anxin365.com/config.js"></script>
+	<script>
+	G.use(['widget/Hscroll/js/Hscroll.js'], function(Hscroll){
+		// 只实例化对象不传配置参数的时候，指示做了一个模拟滚动，可以用来修复移动端fixed定位bug
+		var hscroll = new Hscroll({
+			refreshCallback : function(self){
+				// 执行下拉刷新的操作
+
+				//self.refreshEnd();
+				setTimeout(function(){
+					self.refreshEnd();
+				},1000);
+			},
+			loadMoreCallback : function(self){
+				// 执行上拉加载更多的操作
+
+				setTimeout(function(){
+					self.loadMoreEnd();
+				},1000);
+				//self.loadMoreEnd();
+			},
+
+			// 选择您需要的加载类型【只要下拉刷新 - onlyTop 】【只要上拉加载更多 - onlyBottom 】【两个都要 - double 】【都不要 - none 】
+			opationType : 'double'
+
+		});
+		// types ->【只要下拉刷新 - onlyTop 】【只要上拉加载更多 - onlyBottom 】【两个都要 - double 】【都不要 - none 】
+		//hscroll.changeTypeTo('none');
+	});
+	
+	</script>
+
+	<div id="box"></div>
+</body>
+</html>

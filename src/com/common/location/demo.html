@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="http://sta.anxin365.com/g.js"></script>
+    <script src="http://sta.anxin365.com/config.js"></script>
+    <meta charset="utf-8" />
+</head>
+<body>
+<form>
+    <label><select class="js_location" data-type="province" data-group="1" data-default="请选择省份" data-post-value="12"></select></label>
+
+    <label><select class="js_location" data-type="city" data-group="1"data-default="请选择城市" data-post-value="1"></select></label>
+    <hr />
+</form>
+
+<script>
+G.use(['jquery', 'app/common/location/location.js'], function ($, Location) {
+    var lo = Location({
+        $el: '.js_location'
+    }).finish(function() {
+        console.log('finish');
+    });
+});
+</script>
+</body>
+</html>

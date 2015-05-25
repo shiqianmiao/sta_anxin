@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, initial-scale=1.0" />
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/Hselect.css">
+	<style type="text/css">
+	body{
+		height: 1000px;
+	}
+	</style>
+</head>
+<body>
+
+
+	<input type="text" id="sel" />
+	<input type="button" value="选择1" id="btn"/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<input type="text" id="sel2" />
+	<input type="button" value="选择2" id="btn2"/>
+
+
+
+	<div hidden id="k-box" data-hprevselect="-1">
+		<li class="H-effective">a</li>
+		<li class="H-effective">b</li>
+		<li class="H-effective">c</li>
+		<li class="H-effective">d</li>
+		<li class="H-effective">e</li>
+		<li class="H-effective">f</li>
+		<li class="H-effective">g</li>
+		<li class="H-effective">h</li>
+		<li class="H-effective">i</li>
+	</div>
+
+	<div hidden id="k-box2" data-hprevselect="-1">
+		<li class="H-effective">张飞</li>
+		<li class="H-effective">关于</li>
+		<li class="H-effective">赵云</li>
+		<li class="H-effective">曹操</li>
+		<li class="H-effective">詹姆斯</li>
+		<li class="H-effective">杜兰特</li>
+		<li class="H-effective">罗斯</li>
+		<li class="H-effective">库里</li>
+		<li class="H-effective">哈登</li>
+		<li class="H-effective">霍华德</li>
+		<li class="H-effective">欧文</li>
+		<li class="H-effective">韦德</li>
+		<li class="H-effective">艾弗森</li>
+	</div>
+
+	<script src="http://sta.anxin365.com/g.js"></script>
+	<script src="http://sta.anxin365.com/config.js"></script>
+	<script>
+	G.use(['widget/Hselect/js/Hselect.js'], function(Hselect){
+
+		$('#btn').click(function(){
+			var hse = new Hselect({
+				selectTplId : 'k-box',
+				defaultSelect : 0,	// 默认初始选项
+				completeFn : function($elem){
+					$('#sel').val($elem.html());
+				}
+			});
+		});
+
+
+
+		$('#btn2').click(function(){
+			var hse = new Hselect({
+				selectTplId : 'k-box2',
+				defaultSelect : 0,	// 默认初始选项
+				completeFn : function($elem){
+					$('#sel2').val($elem.html());
+				}
+			});
+		});
+
+
+	});
+	
+	</script>
+</body>
+</html>

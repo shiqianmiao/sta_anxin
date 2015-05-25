@@ -1,7 +1,21 @@
 var Builder = require('g-builder');
 var builder = module.exports = new Builder(require('./config'));
 
+builder.registerBuilder('**/*.cmb.js')
+        .read()
+        .pipe(require('g-builder/builders/amd').combine)
+        .uglify()
+        .write();
+
+builder.registerBuilder('**/*.cmb.css')
+        .read()
+        .pipe(require('g-builder/builders/amd').combine)
+        .write();
+
 builder.registerBuilder('com/g/*.js')
+        .copy();
+
+builder.registerBuilder('com/backend/css/fonts/*')
         .copy();
 
 builder.registerBuilder('com/mobile/g.js', 'app/client/common/g.js', 'com/pc/g.js')
@@ -40,15 +54,15 @@ builder.registerBuilder('version.js')
 
 builder.registerBuilder('**/*.js')
         .read()
-        .pipe(require('g-builder/builders/jshint')({
+        /*.pipe(require('g-builder/builders/jshint')({
             configFile: __dirname + '/.jshintrc',
             ignoreFiles: [
                 'com/mobile/lib/zepto/*.js'
             ]
-        }))
+        }))*/
         // .pipe(require('./builder/doc/index.js'))
         .pipe(require('g-builder/builders/amd'))
-        .uglify()
+        //.uglify()
         .write();
 
 builder.registerBuilder('**/*.tpl')

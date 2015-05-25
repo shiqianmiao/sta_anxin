@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="http://sta.anxin365.com/g.js"></script>
+    <script src="http://sta.anxin365.com/config.js"></script>
+    <meta charset="utf-8" />
+</head>
+<body>
+<form>
+    <label><select class="js_location" data-type="province" data-group="1" data-default="请选择省份" data-post-value="1"></select></label>
+
+    <label><select class="js_location" data-type="city" data-group="1"data-default="请选择城市" data-post-value="12"></select></label>
+
+    <label><select class="js_location" data-type="district" data-group="1" data-default="请选择地区"
+                   data-post-value="174"></select></label>
+    <label><select class="js_location" data-type="street" data-group="1" data-default="请选择街道"
+                   data-post-value="7143"></select></label>
+    <hr />
+</form>
+
+<script>
+G.use(['jquery', 'app/common/location/location2.js'], function ($, Location) {
+    var lo = Location({
+        $el: '.js_location',
+        //没有值时不隐藏表单,做disabled处理
+        hideMode: 'disabled'
+    }).finish(function() {
+        console.log('finish');
+    });
+});
+</script>
+</body>
+</html>
