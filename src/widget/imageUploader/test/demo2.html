@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>uploader test</title>
+    <meta charset="UTF-8" />
+    <script src="http://sta.anxin365.com/g.js"  charset="UTF-8"></script>
+    <script src="http://sta.anxin365.com/config.js"  charset="UTF-8"></script>
+    </head>
+<body>
+
+<div id="uploader"></div>
+
+<script type="text/javascript">
+
+
+    G.use(['jquery', 'widget/imageUploader/image_uploader.js'], function ($, Uploader) {
+        var uploaderPhoto = new Uploader({
+            el: '#uploader',
+            name: 'photo',
+            width: 106,
+            height: 36,
+            maxNum: 1,
+            type : 'jpg,jpeg,png,gif',
+            uploadedFiles : [],
+            button_image_url : "http://sta.anxin365.com/app/backend/img/up_btn/up_head.png",
+            editAble : false,
+            postParams : {
+                thumbWidth:120,
+                thumbHeight:90
+            },
+            url: 'http://upload.anxin365.com/uploader.php?pre=face'
+        });
+    });
+
+</script>
+</body>
+</html>
