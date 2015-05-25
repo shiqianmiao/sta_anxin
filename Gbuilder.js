@@ -62,7 +62,7 @@ builder.registerBuilder('**/*.js')
         }))*/
         // .pipe(require('./builder/doc/index.js'))
         .pipe(require('g-builder/builders/amd'))
-        //.uglify()
+        .uglify()
         .write();
 
 builder.registerBuilder('**/*.tpl')
