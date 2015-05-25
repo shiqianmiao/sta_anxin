@@ -9,8 +9,8 @@
  * Global variables. If you change any of these vars, don't forget 
  * to change the values in the less files!
  */
-// var jQuery = require('jquery'),
-//     $ = jQuery;
+var jQuery = require('jquery'),
+    $ = jQuery;
 var left_side_width = 220; //Sidebar width in pixels
 
 $(function() {
