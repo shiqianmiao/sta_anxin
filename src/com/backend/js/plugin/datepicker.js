@@ -491,7 +491,9 @@ Datepicker.prototype = {
                 date = this._local_to_utc(date);
             fromArgs = true;
         } else {
-            date = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
+            //date = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
+            //修改于2015-6-4 by 缪石乾
+            date = this.element.find('input').val() ? this.element.find('input').val() : this.element.data('date') || this.element.find('input').val();
             delete this.element.data().date;
         }
 
