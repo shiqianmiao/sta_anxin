@@ -50,6 +50,9 @@ var Tongji = Backbone.View.extend({
                 } else {
                     //成功
                     self.$el.html(result.data);
+                    if (self.rsyncDom != '' && $(self.rsyncDom).length > 0) {
+                        $(self.rsyncDom).html(result.data);
+                    }
                 }
             },
             error : function() {
