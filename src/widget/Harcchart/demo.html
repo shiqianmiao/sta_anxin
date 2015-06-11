@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>demo</title>
+</head>
+<body>
+
+	<div class="statistical borR-8 boxSha clear">
+		<header class="stati-top">demo</header>
+
+		<canvas id="arc-chart" height="200" width="200"></canvas>
+
+	</div>
+	
+
+
+
+	<script src="http://sta.anxin365.com/g.js"></script>
+    <script src="http://sta.anxin365.com/config.js"></script>
+    <script>
+    G.use(['widget/Harcchart/js/Harcchart.js'], function(Hchart){
+		var hc = new Hchart('#arc-chart', {
+			data : [
+				{title : '小便清理', color : '#88e2ff', number : 123},
+				{title : '餐食', color : '#c68fff', number : 23},
+				{title : '婴儿抚触', color : '#ff4470', number : 53},
+				{title : '颈肩按摩', color : '#96f973', number : 23},
+				{title : '温水泡脚', color : '#ff6a29', number : 33},
+				{title : '大便清理', color : '#ffbe40', number : 23}
+			],
+			centerText : '主要工作'
+		});
+
+	});
+    </script>
+</body>
+</html>
