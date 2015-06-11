@@ -8,7 +8,7 @@
 var $ = require('jquery');
 var cropper = require('widget/HimgCrop/js/cropper.js');
 
-var HimgCrop = function(opations){
+var HimgCropJquery = function(opations){
 	// 配置参数
 	this.settings = {
 		fileInput : '',
@@ -49,11 +49,11 @@ var HimgCrop = function(opations){
 	
 };
 
-var proto = HimgCrop.prototype;
+var proto = HimgCropJquery.prototype;
 
 $.extend(proto, {
 
-	constructor : HimgCrop,
+	constructor : HimgCropJquery,
 
 	init : function(){
 		this.bind();
@@ -136,7 +136,7 @@ $.extend(proto, {
 });
 // 暴露接口
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = HimgCrop;
+    module.exports = HimgCropJquery;
 } else {
-    window.HimgCrop = HimgCrop;
+    window.HimgCropJquery = HimgCropJquery;
 }
