@@ -1,0 +1,124 @@
+html{
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background: #fff;
+}
+body{
+	width: 100%;
+	padding-top: 20%;
+	height: 70%;
+}
+@media all and (orientation : landscape) { 
+	/* 横屏的时候 */
+	body{
+		padding-top: 10%;
+	}
+}
+@media all and (max-width: 330px){
+	body{
+		padding-top: 20%;
+	}
+}
+.top-statements{
+	font-size: 18px;
+	color: #2c2c2c;
+	text-align: center;
+	
+}
+
+#stars-list{
+	width: 250px;
+	margin: 58px auto;
+}
+@media all and (orientation : landscape){ 
+	/* 横屏的时候 */
+	#stars-list{
+		margin: 28px auto;
+	}
+} 
+@media all and (max-width: 330px){
+	#stars-list{
+		margin: 28px auto;
+	}
+}
+.per-stars{
+	float: left;
+	width: 50px;
+}
+.per-stars img{
+	display: block;
+	margin: 0 auto;
+	width: 36px;
+	height: 34px;
+}
+.user-text{
+	border: 1px solid #a3a3a3;
+	display: block;
+	width: 84%;
+	height: 130px;
+	margin: 0 auto;
+	padding: 5% 3%;
+	font-size: 15px;
+}
+@media all and (orientation : landscape) { 
+	/* 横屏的时候 */
+	.user-text{
+		height: 50px;
+		padding: 2% 3%;
+	}
+}
+.commit{
+	display: block;
+	border: none;
+	-webkit-appearance: none;
+	width: 90%;
+	background: #c8c8c8;
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+	margin: 40px auto 0;
+}
+.commit-true{
+	background: #ffad0f;
+}
+
+/* 提交成功弹窗 */
+.mark{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.4);
+	z-index: 2000;
+	display: none;
+}
+#success-win{
+	height: 90px;
+	width: 90%;
+	position: fixed;
+	top: 50%;
+	margin-top: -45px;
+	left: 5%;
+	background: #fff;
+	z-index: 3000;
+	display: none;
+}
+#success-win img{
+	position: absolute;
+	width: 31px;
+	height: 30px;
+	top: 30px;
+	left: 10%;
+}
+#success-win p{
+	font-size: 18px;
+	color: #2c2c2c;
+	margin-left: 30%;
+}
+#success-win p:nth-of-type(1){
+	margin-top: 20px;
+}

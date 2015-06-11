@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>服务列表</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="服务列表" />
+    <meta name="description" content="服务列表" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="服务列表">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/server_confirm.css" />
+</head>
+<body id="body">
+
+    <article id="content">
+        <div class="info-wrap boxSha">
+            <section class="error-output">
+                电话号码必填
+            </section>
+            <section class="info-area">
+                <p>联系人</p>
+                <p><input type="text" class="borR-8" value="李小姐" required/></p>
+            </section>
+            <section class="info-area error-target">
+                <p>联系电话</p>
+                <p><input type="text" class="borR-8" value="13520008223" required/></p>
+            </section>
+            <section class="sel-addr">
+                <h4>地址</h4>
+                <div class="addr-plug">
+                    <div class="addr-sel">
+                        <span class="province borR-8">北京市</span>
+                        <div class="city-wrap-div borR-8">
+                            <select class="city-area-sel">
+                                <option value="1">区域</option>
+                                <option value="2">朝阳区</option>
+                                <option value="3">朝晖区</option>
+                                <option value="4">石乾区</option>
+                                <option value="5">朝阳区</option>
+                                <option value="6">朝晖区</option>
+                                <option value="7">石乾区</option>
+                                <option value="8">朝阳区</option>
+                                <option value="9">朝晖区</option>
+                                <option value="10">石乾区</option>
+                            </select>
+                        </div>
+                        <div class="road-wrap-div borR-8">
+                            <select>
+                                <option value="1">街道</option>
+                                <option value="1">小屯路</option>
+                                <option value="1">中屯路</option>
+                                <option value="1">高屯的路</option>
+                                <option value="1">高屯路</option>
+                                <option value="1">高屯路</option>
+                                <option value="1">高屯路</option>
+                                <option value="1">高屯路</option>
+                                <option value="1">高屯路</option>
+                            </select>
+                         </div>
+                    </div>
+                    <div class="addr-fill">
+                        <input type="text" class="borR-8" placeholder="请输入您详细门牌号" required/>
+                    </div>
+                </div>
+            </section>
+            <section class="sel-time">
+                <div class="time-plug">
+                    <h4>时间</h4>
+                    <div class="time-wrap">
+                        <span data-today="2015-04-24" class="year borR-8">2015年04月24日</span>
+                        <span class="hours borR-8">09:00</span>
+                    </div>
+                </div>
+            </section>
+            <section class="sel-sex">
+                <div class="sex-wrap">
+                    <h4>性别</h4>
+                    <div class="sex-btn">
+                        <span class="borR-8 active">男</span>
+                        <span class="borR-8">女</span>
+                    </div>
+                </div>
+            </section>
+            <section class="info-area">
+                <p>备注</p>
+                <p><input type="text" id="note-input" class="borR-8" placeholder="(选填)如有问题请填写" required/></p>
+            </section>
+        </div>
+
+        <div class="server-wrap boxSha">
+            <ul class="server-list">
+                <li class="per-server clear" data-max="3" data-start="2" data-service_id="1" data-next_price="0.03">
+                    <div class="info-sec-next">
+                        <p>卧床清洁擦浴</p>
+                        <div>￥<em class="per-money">195</em><em class="line">/</em><em class="per-time">1</em><em class="line">h</em> ~ ￥0.02/1h</div>
+                        
+                    </div>
+                    <div class="btn-sec">
+                        <div class="btnc remove borR-50" data-type="remove">-</div>
+                        <em class="per-num">0</em>
+                        <div class="btnc add borR-50" data-type="add">+</div>
+                    </div>
+                    <span>(注：前2小时 ￥20/h，2小时之后 ￥15/h)</span>
+                </li>
+                <li class="per-server clear" data-max="4" data-start="3" data-service_id="2" data-next_price="0.03">
+                    <div class="info-sec">
+                        <p>卧床清洁擦浴</p>
+                        <div>￥<em class="per-money">195</em><em class="line">/</em><em class="per-time">2</em><em class="line">h</em></div>
+                    </div>
+                    <div class="btn-sec">
+                        <div class="btnc remove borR-50" data-type="remove">-</div>
+                        <em class="per-num">0</em>
+                        <div class="btnc add borR-50" data-type="add">+</div>
+                    </div>
+                </li>
+            </ul>
+            <div class="statistical">共计：<em class="all-num">0</em>项 <em class="all-hour">0</em>小时  <span class="c-hong">￥<em class="all-money">0</em></span></div>
+        </div>
+
+        <div class="break-box">
+            <div class="breaks-wrap">
+                <span class="breaks-name">活动减免</span>
+                <em class="breaks-color">￥<span class="breaks-money">100</span></em>
+            </div>
+            <div class="breaks-wrap">
+                <span class="breaks-name">活动减免</span>
+                <em class="breaks-color">￥<span class="breaks-money">200</span></em>
+            </div>
+            <footer class="toevaluate-foot clear">
+                <a href="javascript:void(0);" class="borR-8">去评价</a>
+            </footer>
+            <footer class="complete-foot clear">
+                <a href="javascript:void(0);" class="borR-8">已完成</a>
+            </footer>
+            <footer class="other-footer clear">
+                <a href="javascript:void(0);" class="borR-8">待派单</a>
+            </footer>
+        </div>
+
+    </article>
+
+    <footer id="sel-true" data-first_order="0">
+        <div class="cart">
+            合计 ￥<em class="money">0</em> （共<em class="num">0</em>件）
+        </div>
+        <div class="button-wrap">
+            <a href="#">选好了</a>
+        </div>
+    </footer>
+    <footer id="sel-false">
+        还没选好哦
+    </footer>
+
+    <!-- 遮罩 -->
+    <div id="mark"></div>
+    
+    <!-- 选择日期的弹窗 -->
+    <div id="time-win" class="borR-8">
+        <header class="time-win-title">请选择日期</header>
+        <ul class="time-list">
+            <li data-time="2015-04-24">2015年4月24日</li>
+            <li data-time="2015-04-25">2015年4月25日</li>
+            <li data-time="2015-04-26">2015年4月26日</li>
+            <li data-time="2015-04-27">2015年4月27日</li>
+            <li data-time="2015-04-28">2015年4月28日</li>
+            <li data-time="2015-04-29">2015年4月29日</li>
+            <li data-time="2015-04-30">2015年4月30日</li>
+        </ul>
+    </div>
+    <!-- 选择日期的弹窗 -->
+    <div id="hour-win" class="borR-8">
+        <header class="time-win-title">请选择时间</header>
+        <ul class="time-list hour-list">
+        <!-- js动态生成 -->
+        </ul>
+    </div>
+
+    <script src="http://sta.anxin365.com/g.js"></script>
+    <script src="http://sta.anxin365.com/config.js"></script>
+    <script>
+    G.use(['app/yanglao/weixin/js/DateSelect.js','widget/Halert/js/Halert.js'], function(DateS, Halert){
+
+        var $ = DateS.$;
+        // 给按钮加点击事件
+        $('.btnc').on('touchend', function(){
+
+            if(parseFloat($(this).parents('.per-server').find('.per-num').html()) >= $(this).parents('.per-server').data('max') && $(this).data('type') == 'add'){
+                //alert(allCount);
+                var halert = new Halert({
+                    title : '提示',
+                    content : '该项服务最多选择' + $(this).parents('.per-server').data('max') + '个',
+                    contentAlign : 'left',
+                    titleAlign : 'left'
+                });
+
+                halert.show();
+
+                return false;
+            }
+
+            var _this = $(this);
+            DateS.addCart(_this, true);
+
+
+        });
+
+        var service = JSON.parse( localStorage.getItem('service') ) || {};
+        //获取用户选取的服务
+        var getService = function (label) {
+            var label = !!label;
+            $(".add").each(function () {
+                var times = $(this).parent().find('.per-num').html();
+                var id = $(this).parent().find('#server-id').val();
+                service[id] = times;
+            });
+            if(label){
+                localStorage.setItem('service', JSON.stringify(service));
+            }
+            
+            return service;
+        }
+
+        // 点击选择区域时
+        $('.city-area').on('click', function(){
+
+            // 阻止页面滚动
+            DateS.noScroll();
+            // 显示弹窗
+            $('#mark').show();
+            $('#area-win').show();
+            $('#mark').on('click', function(){
+                $('#mark').hide();
+                $('#area-win').hide();
+                DateS.toScroll();
+            });
+        });
+
+        // 点击选择日期时
+        $('.year').click(function(){
+            $('#mark').show();
+            $('#time-win').show();
+            // 修正弹窗位置
+            $('#time-win').css({marginTop: -($('#time-win').height() / 2) + 'px', marginLeft: -($('#time-win').width() / 2) + 'px'});
+            $('#mark').click(function(){
+                $('#mark').hide();
+                $('#time-win').hide();
+            });
+        });
+
+        var todayMark = true;
+        DateS.createHour(todayMark);
+
+
+        $('.time-list li').click(function(){
+            todayMark = false;
+            $('.year').html( $(this).html() );
+            $('#mark').hide();
+            $('#time-win').hide();
+            // 检测点击的是否是今天
+            if($(this).data('time') == $('.year').data('today')){
+                todayMark = true;
+            }
+
+            DateS.createHour(todayMark);
+
+        });
+        // 点击选择时间时
+        $('.hours').click(function(){
+            $('#mark').show();
+            $('#hour-win').show();
+            // 修正弹窗位置
+            $('#hour-win').css({marginTop: -($('#hour-win').height() / 2) + 'px', marginLeft: -($('#hour-win').width() / 2) + 'px'});
+            $('#mark').click(function(){
+                $('#mark').hide();
+                $('#hour-win').hide();
+            });
+            
+
+        });
+
+        // 点击男、女的时候切换性别。
+        $('.sex-btn span').on('click', function(){
+            $('.sex-btn span').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        // 选择地址
+        $('.city-area-sel').on('change', function(){
+            cityId = $(this).val(); // 城市id
+            // 发送ajax请求，回调getRoad()方法创建街道信息
+            var jsonStr = '{"1":"大图路1","2":"大图路2","3":"大图路3","4":"大图路4","5":"大图路5","6":"大图路6","7":"大图路7"}';
+            getRoad(jsonStr);
+        });
+
+        /**
+         *  @desc 创建街道信息
+         *  @param  (String-json) roadJson
+         */
+        function getRoad(roadJson){
+            var roadObj = JSON.parse(roadJson);
+            var innerhtml = '';
+            for(k in roadObj){
+                innerhtml += '<option value="' + k + '">' + roadObj[k] + '</option>';
+            }
+            $('.area-road-sel').html(innerhtml);
+        }
+    });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>错误</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="错误" />
+    <meta name="description" content="错误" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="错误">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/error.css" />
+</head>
+<body>
+    
+    <header id="header-top" class="c-huan boxSha">
+        <a href="#" class="c-huan">返回</a>
+        今天
+    </header>
+    <div class="imgwrap">
+        <img class="errimg" src="imgs/error.png">
+        <a href="javascript:;" class="refresh borR-8">刷新</a>
+    </div>
+
+    <script src="js/jquery-2.0.3.js"></script>
+    <script>
+        $(function(){
+            $('.refresh').on('touchend', function(){
+                window.location.reload();
+            });
+        });
+    </script>
+
+</body>
+</html>

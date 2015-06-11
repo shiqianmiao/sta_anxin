@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>预约陪诊</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="预约陪诊" />
+    <meta name="description" content="预约陪诊" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="预约陪诊">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/accompanying.css" />
+</head>
+<body id="body">
+    <header id="top">
+        <h1 class="boxSha">预约陪诊</h1>
+        <a href="#" class="tel"></a>
+    </header>
+    <article id="content">
+        <h2 class="waring-title">请填写您的基本信息，小安随后会和您联系</h2>
+        <input class="input-txt borR-8" type="text" placeholder="客户姓名/最多6个字符" maxlength="6" require/>
+        <input class="input-txt borR-8" type="tel" placeholder="手机号" maxlength="11" minlength="11" require/>
+        <section class="clear yy-sec">
+            <div class="title">产检医院：</div>
+            <select class="yy-list borR-8 yiyuan">
+                <option>北京市妇产医院(东院)</option>
+                <option>北京市妇产医院(西院)</option>
+                <option>海淀区妇幼保健医院(总院)</option>
+                <option>和协医院</option>
+                <option>北医三院</option>
+                <option>东四妇产医院</option>
+                <option>同仁医院</option>
+                <option>北京医院</option>
+                <option>北大妇儿</option>
+            </select>
+        </section>
+        <section class="clear yy-sec">
+            <div class="title">本次产检日期：</div>
+            <select class="yy-list borR-8 date">
+                <option value="2015-4-27">2015年4月27日</option>
+                <option value="2015-4-28">2015年4月28日</option>
+                <option value="2015-4-29">2015年4月29日</option>
+                <option value="2015-4-27">2015年4月27日</option>
+                <option value="2015-4-27">2015年4月27日</option>
+                <option value="2015-4-27">2015年4月27日</option>
+                <option value="2015-4-27">2015年4月27日</option>
+            </select>
+        </section>
+        <section class="clear type-sec">
+            <div class="title">选择服务种类：</div>
+            <ul class="type-list">
+                <li class="active"><em class="borR-50"></em>上午08:00 - 12:00<mark>198元整</mark></li>
+                <li><em class="borR-50"></em>全天08:00 - 17:00<mark>298元整</mark></li>
+            </ul>
+        </section>
+    </article>
+
+    <footer><a href="#" class="commit borR-8">提交</a></footer>
+
+    <script src="http://sta.anxin365.com/g.js"></script>
+    <script src="http://sta.anxin365.com/config.js"></script>
+    <script>
+    G.use(['jquery'], function($){
+        $('.type-list li').click(function(){
+            $('.type-list li').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        // 获取用户选择的时间
+        $('.date').on('change', function(){
+            alert($(this).val());
+        });
+        // 获取用户选择的医院
+        $('.yiyuan').on('change', function(){
+            alert($(this).val());
+        });
+    });
+    </script>
+</body>
+</html>

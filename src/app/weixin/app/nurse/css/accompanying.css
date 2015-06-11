@@ -1,0 +1,112 @@
+html{background: #fff;}
+mark{
+	background: #fff;
+}
+#top{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 48px;
+	background: #fff;
+	z-index: 10;
+}
+#top h1{
+	line-height: 48px;
+	font-size: 20px;
+	text-align: center;
+	color: #ffad0f;
+	font-weight: normal;
+}
+#top .tel{
+	position: absolute;
+	right: 10px;
+	top: 0;
+	height: 48px;
+	width: 48px;
+	background: url(../imgs/tel.png) no-repeat 22px center;
+	background-size: 18px 21px;
+}
+#content{
+	padding-top: 50px;
+	width: 90%;
+	margin: 0 auto;
+}
+.waring-title{
+	height: 40px;
+	line-height: 40px;
+	color: #ffad0f;
+	font-size: 14px;
+}
+.input-txt{
+	display: block;
+	width: 96%;
+	padding-left: 4%;
+	height: 40px;
+	border: 1px solid #999;
+	margin-top: 8%;
+	font-size: 16px;
+}
+.yy-sec{
+	line-height: 30px;
+	margin-top: 8%;
+}
+.title{
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	width: 35%;
+	font-size: 14px;
+}
+.yy-list{
+	display: block;
+	float: left;
+	height: 40px;
+	width: 63%;
+	border: 1px solid #999;
+	font-size: 14px;
+}
+.type-sec{
+	margin-top: 8%;
+}
+.type-list{
+	display: block;
+	float: left;
+	width: 48%;
+	padding-left: 15%;
+	position: relative;
+}
+.type-list li{
+	position: relative;
+	line-height: 30px;
+	margin-bottom: 8%;
+}
+.type-list li.active em{
+	background: #ffad0f;
+}
+.type-list li em{
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border: 2px solid #fff;
+	top: 8px;
+	box-shadow: 0 0 2px 0 #ffad0f;
+	left: -15%;
+}
+.type-list mark{
+	position: absolute;
+	height: 100%;
+	right: 0;
+	color: red;
+}
+.commit{
+	display: block;
+	margin: 20px auto;
+	height: 40px;
+	width: 90%;
+	background: #ffad0f;
+	line-height: 40px;
+	font-size: 16px;
+	text-align: center;
+	color: #000;
+}

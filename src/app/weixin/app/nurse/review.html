@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>点评</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="点评" />
+    <meta name="description" content="点评" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="点评">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/review.css" />
+</head>
+<body>
+    
+    <p class="top-statements">服务还满意嘛，给个星星嘛~</p>
+    <ul id="stars-list" class="clear">
+        <li class="per-stars"><img src="imgs/stars.png"></li>
+        <li class="per-stars"><img src="imgs/stars.png"></li>
+        <li class="per-stars"><img src="imgs/stars.png"></li>
+        <li class="per-stars"><img src="imgs/stars.png"></li>
+        <li class="per-stars"><img src="imgs/stars.png"></li>
+    </ul>
+
+    <textarea class="user-text borR-8" placeholder="您还有什么需要表白或者吐槽的吗？"></textarea>
+
+    <input type="button" class="commit borR-8" disabled=true value="确认提交"/>
+
+    <!-- 提交成功弹窗 -->
+    <div class="mark"></div>
+    <div id="success-win" class="borR-8">
+        <img src="imgs/yes.png">
+        <p>提交成功啦~</p>
+        <p>小安随时等待召唤~~</p>
+    </div>
+    <img src="" class="s1">
+    <img src="" class="s2">
+
+    <script src="http://sta.anxin365.com/g.js"></script>
+    <script src="http://sta.anxin365.com/config.js"></script>
+    <script>
+    
+    G.use(['jquery','app/yanglao/weixin/js/review.js'], function($, Comment){
+        $('.s1').css({width:0, height:0, position:'absolute'}).attr('src', 'http://sta.anxin365.com/app/yanglao/weixin/imgs/stars.png');
+        $('.s2').css({width:0, height:0, position:'absolute'}).attr('src', 'http://sta.anxin365.com/app/yanglao/weixin/imgs/stars_ing.png');
+        Comment.init();
+
+    });
+    </script>
+
+</body>
+</html>

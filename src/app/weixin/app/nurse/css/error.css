@@ -1,0 +1,89 @@
+html{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+body{
+	width: 100%;
+	height: 100%;
+	
+}
+#header-top{
+	height: 48px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	line-height: 48px;
+	text-align: center;
+	font-size: 20px;
+	background: #fff;
+	z-index: 1000;
+}
+#header-top a{
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	left: 15px;
+}
+.imgwrap{
+	width: 176px;
+	position: absolute;
+	bottom: 30%;
+	left: 50%;
+	margin-left: -88px;
+}
+@media all and (orientation : landscape) { 
+	/* 横屏的时候 */
+	.imgwrap{
+		width: 176px;
+		position: absolute;
+		bottom: 10%;
+		left: 50%;
+		margin-left: -88px;
+	}
+} 
+.errimg{
+	width: 176px;
+}
+.refresh{
+	display: block;
+	width: 94%;
+	height: 48px;
+	margin: 37px auto 0;
+	border: 1px solid #999999;
+	text-align: center;
+	line-height: 48px;
+	color: #999999;
+	font-size: 18px;
+}
+/* success page */
+.success-body{
+	background: url(../imgs/bg.jpg) no-repeat;
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-o-background-size: 100% 100%;
+	-ms-background-size: 100% 100%;
+	background-size: 100% 100%;
+}
+.success-title{
+	font-size: 30px;
+	text-align: center;
+	padding-top: 50%;
+	color: #333333;
+}
+.success-intr{
+	width: 70%;
+	margin: 0 auto;
+	font-size: 20px;
+	margin-top: 10%;
+	color: #333333;
+}
+@media all and (max-width: 330px){
+	.success-title{
+		font-size: 28px;
+	}
+	.success-intr{
+		width: 80%;
+	}
+}
