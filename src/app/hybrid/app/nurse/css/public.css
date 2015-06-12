@@ -1,0 +1,164 @@
+/* hcy  */
+@charset "utf-8";
+/* reset */
+html{
+	background: #ebebeb;
+	-webkit-text-size-adjust:none;
+	-moz-text-size-adjust:none;
+	-o-text-size-adjust:none;
+	-ms-text-size-adjust:none;
+	text-size-adjust:none;
+	-webkit-touch-callout: none;	/* 禁止ios 长按时不触发系统的菜单，禁止ios&android长按时下载图片 */
+	-webkit-user-select:none;	/* 禁止ios和android用户选中文字 */
+}
+body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,pre,form,input,textarea,th,td,select,time{margin:0; padding:0; font-weight: normal;text-indent: 0;}
+em{font-style:normal}
+li{list-style:none}
+a{text-decoration:none;}
+img{border:none; vertical-align:top;}
+table{border-collapse:collapse;}
+input,textarea{outline:none;}
+textarea{ resize:none; overflow:auto;}
+body{font-size:12px;  font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Medium;}
+/* end reset */
+.clear { zoom:1; }
+.clear:after { content:''; display:block; clear:both; }
+/* 强制换行 */
+.toWrap{
+	word-break: break-all;       /* 只对英文起作用，以字母作为换行依据。 */
+
+	word-wrap: break-word;   	/* 只对英文起作用，以单词作为换行依据。*/
+
+	white-space: pre-wrap;     /* 只对中文起作用，强制换行。*/
+}
+/* 禁止换行 */
+.noWrap{
+	white-space:nowrap;
+}
+/* 禁止换行,超出省略号 */
+.noWrapEllipsis{
+	 white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.boxSha{
+	-webkit-box-shadow: 0 1px 2px #d3d3d3;
+	-moz-box-shadow: 0 1px 2px #d3d3d3;
+	-o-box-shadow: 0 1px 2px #d3d3d3;
+	-ms-box-shadow: 0 1px 2px #d3d3d3;
+	box-shadow: 0 1px 2px #d3d3d3;
+}
+.borR-3{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-ms-border-radius: 3px;
+	border-radius: 3px;
+}
+.borR-50{
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	-ms-border-radius: 50%;
+	border-radius: 50%;
+}
+
+/* 注册页面 找回密码 公共样式 */
+.reg-body{
+	background: #f1f1f1;
+}
+.reg-top{
+	height: 44px;
+	box-shadow: 0 0 2px #d8d7d8;
+	background: #fff;
+	text-align: center;
+	color: #ffad0f;
+	font-size: 18px;
+	line-height: 44px;
+	position: relative;
+}
+.back{
+	position: absolute;
+	width: 44px;
+	height: 44px;
+	left: 0;
+	top: 0;
+	background: url(../imgs/return.png) no-repeat 15px center;
+	background-size: 9px 17px;
+}
+.reg-form-list{
+	padding: 0 4%;
+	margin-top: 16px;
+	background: #fff;
+}
+.reg-per-input-wrap{
+	border-bottom: 1px solid #efefef;
+	height: 50px;
+	line-height: 50px;
+}
+.reg-per-input-wrap:last-of-type{
+	border: none;
+}
+.reg-per-input-wrap h4{
+	float: left;
+	font-weight: normal;
+	font-size: 15px;
+	color: #999999;
+	width: 20%;
+}
+.addWidth h4{
+	width: 30%;
+}
+.reg-per-input-wrap input{
+	float: left;
+	width: 80%;
+	height: 50px;
+	border: none;
+	font-size: 15px;
+}
+.addWidth input{
+	width: 70%;
+}
+@media all and (max-width: 320px){
+	.reg-per-input-wrap h4{
+		width: 22%
+	}
+	.reg-per-input-wrap input{
+		width: 78%;
+	}
+	.addWidth h4{
+		width: 32%;
+	}
+	.addWidth input{
+		width: 68%;
+	}
+}
+.reg-per-input-wrap input.reg-code{
+	width: 40%;
+}
+.getCode{
+	width: 30%;
+	float: right;
+	height: 32px;
+	margin-top: 9px;
+	background: #ffad0f;
+	color: #fff;
+	font-size: 13px;
+	line-height: 32px;
+	text-align: center;
+}
+.getCodeing{
+	background: no-repeat;
+	border: 1px solid #ffad0f;
+	color: #ffad0f;
+}
+.reg-btn{
+	display: block;
+	height: 44px;
+	background: #ffad0f;
+	color: #fff;
+	font-size: 17px;
+	line-height: 44px;
+	text-align: center;
+	width: 92%;
+	margin: 17px auto 0;
+}
+/* 注册页面 找回密码 公共样式 结束 */
