@@ -47,13 +47,14 @@ Comment.init = function() {
 	});
 	// 点击提交按钮获取选择星星数量
 	$('.commit').on('touchend', function(){
+		console.log('abc');
 		var score = Comment.checkStars(),
 			content = $("#content").val(),
 			orderId= $("#order_id").val();
 		$.ajax({
             type : 'POST',
             url  : '/comment/add',
-            data : {score : score, content : content, order_id : orderId, weixin_id: ANXIN.weixinId},
+            data : {score : score, content : content, order_id : orderId, yl_weixin_id: YL.ylWeixinId},
             dataType : 'json',
             success:function(data){
                 if (data.status > 0) {

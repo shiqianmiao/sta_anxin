@@ -1,8 +1,8 @@
 (function () {
     var config = {
         alias: {
-            'zepto': 'com/mobile/lib/zepto/zepto.cmb.js',
-            '$': 'com/mobile/lib/zepto/zepto.cmb.js',
+            'zepto': 'lib/zepto/zepto-1.0.js',
+            '$': 'lib/zepto/zepto-1.0.js',
             'underscore': 'com/mobile/lib/underscore/underscore.js'
         }
     };
@@ -13,7 +13,7 @@
 
     G.config(config);
 
-    if (/\.ganji\.com$/.test(window.location.host)) {
-        document.domain = 'ganji.com';
+    if (/\.anxinsta\.com$/.test(window.location.host)) {
+        document.domain = 'anxinsta.com';
     }
 })();
