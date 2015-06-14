@@ -1,0 +1,96 @@
+html, body{background: #e9e9e9;}
+.order-nav{
+	height: 52px;
+	overflow: hidden;
+}
+.order-nav ul{
+	width: 92%;
+	height: 29px;
+	margin: 11px auto 0;
+	border: 1px solid #ffad0f;
+}
+.order-nav ul li{
+	float: left;
+	width: 33.333333333%;
+	border-right: 1px solid #ffad0f;
+	height: 100%;
+	line-height: 29px;
+	text-align: center;
+	color: #ffad0f;
+	font-size: 15px;
+}
+.order-nav ul li.active{
+	background: #ffad0f;
+	color: #fff;
+}
+.order-nav ul li:last-of-type{
+	border: none;
+}
+.null-sec{
+	margin-top: 97px;
+}
+.null-sun{
+	width: 101px;
+	height: 101px;
+	display: block;
+	margin: 0 auto 17px;
+}
+.null-sec p{
+	font-size: 15px;
+	color: #999999;
+	text-align: center;
+}
+.null-sec a{
+	display: block;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	background: #ffad0f;
+	color: #fff;
+	font-size: 17px;
+	width: 92%;
+	margin: 34px auto 0;
+}
+/* 已完成 已取消订单样式 */
+
+.per-order{
+	padding: 8px 4% 14px;
+	background: url(../imgs/order-bottom.png) no-repeat left bottom, #fff;
+	background-size: 100% 6px;
+	margin-bottom: 15px;
+}
+.order-pro{
+	min-height: 32px;
+	line-height: 32px;
+}
+.pro-title{
+	float: left;
+	width: 26.9565%;
+	height: 100%;
+	font-size: 15px;
+	color: #999999;
+}
+.pro-p{
+	float: left;
+	width: 73.0435%;
+	height: 100%;
+	font-size: 15px;
+	color: #333333;
+}
+.pro-p.red{
+	color: #ff6744;
+}
+.letter-span{
+	letter-spacing: 6px;
+}
+.addr-icon{
+	display: inline-block;
+	width: 15px;
+	height: 19px;
+	background: url(../imgs/addr.jpg) no-repeat;
+	background-size: 15px 19px;
+	position: relative;
+	top: 2px;
+	left: 14px;
+}
+/* 已完成 已取消订单样式  结束 */

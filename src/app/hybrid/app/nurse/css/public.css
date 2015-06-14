@@ -2,7 +2,6 @@
 @charset "utf-8";
 /* reset */
 html{
-	background: #ebebeb;
 	-webkit-text-size-adjust:none;
 	-moz-text-size-adjust:none;
 	-o-text-size-adjust:none;
@@ -10,6 +9,11 @@ html{
 	text-size-adjust:none;
 	-webkit-touch-callout: none;	/* 禁止ios 长按时不触发系统的菜单，禁止ios&android长按时下载图片 */
 	-webkit-user-select:none;	/* 禁止ios和android用户选中文字 */
+	min-height: 100%;
+}
+body{min-height: 100%;}
+body.ccc-body{
+	background: #f1f1f1;
 }
 body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,pre,form,input,textarea,th,td,select,time{margin:0; padding:0; font-weight: normal;text-indent: 0;}
 em{font-style:normal}
@@ -60,7 +64,44 @@ body{font-size:12px;  font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Med
 	-ms-border-radius: 50%;
 	border-radius: 50%;
 }
+.boxSiz{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.pd-b-50{
+	padding-bottom: 50px;
+}
+.alert-mark{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	background: rgba(0,0,0,0.5);
+}
+.flex-center{
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -o-box;
+	display: box;
 
+	-webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -o-box-pack: center;
+    box-pack: center;
+
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -o-box-align: center;
+    box-align: center;
+}
 /* 注册页面 找回密码 公共样式 */
 .reg-body{
 	background: #f1f1f1;
@@ -74,6 +115,15 @@ body{font-size:12px;  font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Med
 	font-size: 18px;
 	line-height: 44px;
 	position: relative;
+}
+.phone-call{
+	width: 45px;
+	height: 44px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: url(../imgs/tel.png) no-repeat center center;
+	background-size: 15px 18px;
 }
 .back{
 	position: absolute;
@@ -161,4 +211,257 @@ body{font-size:12px;  font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Med
 	width: 92%;
 	margin: 17px auto 0;
 }
+.tel-change-list{
+	margin-top: 0;
+}
+.reg-tip{
+	height: 49px;
+	line-height: 49px;
+	font-size: 13px;
+	color: #999999;
+	text-indent: 4%;
+}
 /* 注册页面 找回密码 公共样式 结束 */
+
+/* 错误提示模态框 */
+#Hmodel{
+	position: fixed;
+	height: 40px;
+	line-height: 40px;
+	background: rgba(0,0,0,0.8);
+	padding: 0 17px;
+	font-size: 14px;
+	color: #fff;
+
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-o-border-radius: 6px;
+	-ms-border-radius: 6px;
+	border-radius: 6px;
+
+	display: none;
+
+	top: 50%;
+	left: 50%;
+
+}
+
+.show {
+	-webkit-animation: show .7s ease both;
+	animation: show .7s ease both;
+}
+.hide {
+	-webkit-animation: hide .7s ease both;
+	animation: hide .7s ease both;
+}
+@-webkit-keyframes hide {
+	from { }
+	to { opacity: 0; }
+}
+@keyframes hide {
+	from { }
+	to { opacity: 0; }
+}
+
+@-webkit-keyframes show {
+	from {  opacity: 0; }
+	to {}
+}
+@keyframes show {
+	from {  opacity: 0; }
+	to {}
+}
+/* 错误提示模态框 结束 */
+
+/* 底部导航 */
+.footer-nav{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 48px;
+	border-top: 1px solid #b5b5b5;
+	width: 100%;
+	background: #fff;
+}
+.footernav-list{
+	height: 100%;
+}
+.footernav-list li{
+	float: left;
+	width: 33.333333%;
+	height: 100%;
+	position: relative;
+}
+.footernav-list li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.footernav-list li:nth-of-type(1):after, .footernav-list li:nth-of-type(2):after{
+	content: "";
+	display: block;
+	position: absolute;
+	height: 15px;
+	width: 1px;
+	background: #e1e1e1;
+	right: 0;
+	top: 17px;
+}
+.footernav-list li:nth-of-type(1) a{
+	background: url(../imgs/footer-btn.png) no-repeat center 12px;
+}
+.footernav-list li:nth-of-type(1) a.active{
+	background: url(../imgs/footer-btn.png) no-repeat center -36px;
+}
+.footernav-list li:nth-of-type(2) a{
+	background: url(../imgs/footer-btn.png) no-repeat center -84px;
+}
+.footernav-list li:nth-of-type(2) a.active{
+	background: url(../imgs/footer-btn.png) no-repeat center -131px;
+}
+.footernav-list li:nth-of-type(3) a{
+	background: url(../imgs/footer-btn.png) no-repeat center -181px;
+}
+.footernav-list li:nth-of-type(3) a.active{
+	background: url(../imgs/footer-btn.png) no-repeat center -229px;
+}
+/* 底部导航 结束 */
+
+/* 点击加载更多 */
+.load-more{ 
+	height: 35px; 
+	text-align: center; 
+	color: #999999; 
+	background: #fff; 
+	line-height: 35px;  
+	border-top: 1px solid #e1e1e1;
+	border-bottom: 1px solid #e1e1e1;
+}
+.load-more img{ 
+	width: 23px; 
+	height: 23px; 
+	display: inline-block; 
+	position: relative; 
+	top: 6px; 
+	display: none;
+}
+/* 点击加载更多 结束 */
+
+/* 意见反馈的css很少，写在这里 */
+.fb-textarea{
+	display: block;
+	width: 88%;
+	margin: 15px auto 0;
+	height: 200px;
+	border: 1px solid #bdbdbd;
+	padding: 2%;
+}
+.fd-body{
+	background: #fff;
+}
+.fb-btn{
+	margin-top: 23px;
+}
+/* 意见反馈的css 结束 */
+
+/* 个人中心 个人信息中 长条按钮的公共样式 */
+.strip-sec{
+	margin-top: 16px;
+	padding: 0 4%;
+	background: #fff;
+}
+.per-stripbtn{
+	height: 50px;
+	border-bottom: 1px solid #e1e1e1;
+	line-height: 50px;
+	font-size: 15px;
+	color: #333333;
+	position: relative;
+	/*background: url(../imgs/strip.png) no-repeat;*/
+}
+.per-stripbtn a{
+	display: block;
+	color: #333333;
+}
+.per-stripbtn em{
+	position: absolute;
+	font-style: 13px;
+	color: #b0b0b0;
+	right: 26px;
+}
+.per-stripbtn em.no{
+	color: #b0b0b0
+}
+.per-stripbtn em.yes{
+	color: #ffb72c
+}
+.per-stripbtn span{
+	position: absolute;
+	width: 9px;
+	height: 17px;
+	background: url(../imgs/strip.png) no-repeat;
+	background-size: 9px 17px;
+	right: 8px;
+	top: 17px;
+}
+.per-stripbtn:last-of-type{
+	border: none;
+}
+/* 个人中心 个人信息中 长条按钮的公共样式 结束 */
+
+/* 服务条款页面 */
+.terms-title{
+	font-size: 15px;
+	height: 15px;
+	line-height: 15px;
+	color: #333333;
+	text-align: center;
+	font-weight: bold;
+	margin: 20px 0 16px 0;
+}
+.terms-text{
+	display: block;
+	width: 84%;
+	padding: 4%;
+	margin: 0 auto;
+	border: 1px solid #bdbdbd;
+	color: #333333;
+	font-size: 15px;
+	line-height: 24px;
+	max-height: 367px;
+	overflow: auto;
+}
+@media all and (max-width: 320px){
+	.terms-text{
+		max-height: 270px;
+	}
+}
+@media all and (max-width: 320px) and (max-height: 480px){
+	.terms-text{
+		max-height: 180px;
+	}
+}
+.radio-read{
+	height: 55px;
+	line-height: 55px;
+	font-size: 15px;
+	color: #333333;
+	padding: 0 4%;
+}
+.radio-read span{
+	float: left;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #383838;
+	margin-top: 17px;
+	margin-right: 7px;
+}
+.radio-read.active span{
+	border: 1px solid #fff;
+	background: url(../imgs/selection.png) no-repeat;
+	background-size: 20px 20px;
+}
+.terms-btn{
+	margin: 0 auto 21px;
+}
+/* 服务条款页面 结束 */

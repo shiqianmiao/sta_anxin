@@ -1,0 +1,49 @@
+body, html{
+	background: #f1f1f1;
+}
+.content{
+	padding: 0 4% 22px;
+	background: #fff;
+	margin-top: 15px;
+}
+.pro-title{
+	height: 55px;
+	line-height: 55px;
+	border-bottom: 1px solid #e1e1e1;
+	font-size: 15px;
+	color: #999999;
+}
+.per-pro{
+	width: 28.9855%;
+	height: 39px;
+	float: left;
+	margin-right: 6.52175%;
+	margin-top: 20px;
+	text-align: center;
+	line-height: 39px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 15px;
+}
+.per-pro:nth-of-type(3n){
+	margin-right: 0;
+}
+.optional{
+	border: 1px solid #ffad0f;
+	color: #ffad0f;
+}
+.not-choose{
+	border: 1px solid #999999;
+	color: #999999;
+}
+.selected{
+	border: 1px solid #ffad0f;
+	background: #ffad0f;
+	color: #fff;
+}
+.sp-btn{
+	margin-top: 27px;
+}

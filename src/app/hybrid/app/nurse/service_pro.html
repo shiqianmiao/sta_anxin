@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>服务项目</title>
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/service_pro.css">
+</head>
+<body class="pd-b-50">
+	
+	<header class="reg-top"><a class="back" href="#"></a>服务项目<a class="phone-call" href="tel:110"></a></header>
+
+	<section class="content">
+		<h2 class="pro-title">请选择您能独立完成的服务项目</h2>
+		<ul class="pro-list clear">
+			<li class="per-pro borR-3 optional">静脉输液</li>
+			<li class="per-pro borR-3 not-choose">静脉输液</li>
+			<li class="per-pro borR-3 optional selected">静脉输液</li>
+			<li class="per-pro borR-3 optional">静脉输液</li>
+			<li class="per-pro borR-3 optional">静脉输液</li>
+			<li class="per-pro borR-3 optional">静脉输液</li>
+		</ul>
+	</section>
+
+	<a href="#" class="reg-btn sp-btn borR-3">完成</a>
+
+	<footer class="footer-nav">
+		<ul class="footernav-list">
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#" class="active"></a></li>
+		</ul>
+	</footer>
+	
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    	G.use(['zepto'], function($){
+    		
+    		// 点击可选择的服务项目
+    		$('.optional').on('tap', function(){
+    			$(this).toggleClass('selected');
+    		});
+
+		});
+    </script>
+</body>
+</html>

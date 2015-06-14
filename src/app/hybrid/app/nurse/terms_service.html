@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>服务条款</title>
+	<link rel="stylesheet" href="css/public.css">
+</head>
+<body class="pd-b-50">
+	
+	<header class="reg-top"><a class="back" href="#"></a>服务条款<a class="phone-call" href="tel:110"></a></header>
+
+	<h1 class="terms-title">安心客护士平台服务条款</h1>
+
+	<div class="terms-text borR-3">平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介务规则介绍，平台服务规平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介绍，平台服务规则介务规则介绍，平台服务规</div>
+
+	<section class="radio-read active">
+		<span class="borR-50"></span>
+		<em>已阅读</em>
+	</section>
+
+	<a href="#" class="reg-btn terms-btn borR-3">已阅读</a>
+
+	<footer class="footer-nav">
+		<ul class="footernav-list">
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#" class="active"></a></li>
+		</ul>
+	</footer>
+	
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    	G.use(['zepto', 'com/mobile/widget/Hmodel/js/Hmodel.js'], function($, Hmodel){
+    		var Hmodel = new Hmodel({
+				showTime : 2000
+			});
+			
+			// 点击已阅读单选按钮
+			$('.radio-read').on('tap', function(){
+				$(this).toggleClass('active');
+			})
+			// 点击已阅读btn
+			$('.terms-btn').on('tap', function(){
+				// 没有点击已阅读单选按钮
+				if(!$('.radio-read').hasClass('active')){
+					Hmodel.show('请点击已阅读单选按钮');
+				}
+			});
+
+		});
+    </script>
+</body>
+</html>

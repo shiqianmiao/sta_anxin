@@ -1,0 +1,25 @@
+.msg-wrap{
+	padding-bottom: 58px;
+}
+.msg-list{
+	margin: 0 auto;
+	padding: 0 3.7%;
+	background: #fff;
+}
+.per-msg{
+	padding: 15px 0;
+	border-bottom: 1px solid #e1e1e1;
+}
+.per-msg:last-of-type{
+	border: none;
+}
+.per-msg p{
+	font-size: 15px;
+	color: #333333;
+	margin-bottom: 13px;
+	line-height: 24px;
+}
+.per-msg time{
+	font-size: 13px;
+	color: #999999;	
+}

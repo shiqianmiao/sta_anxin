@@ -1,4 +1,17 @@
+******************************************
 register.html : 注册页面
 signin.html : 登录页面
 zhpwd1.html : 找回密码1
 zhpwd2.html : 找回密码2
+tel_change.html : 手机号变更
+update_pwd.html : 修改登录密码
+myMessage.html : 我的消息
+feedback.html : 意见反馈
+center.html : 个人中心
+myInfo.html : 个人信息
+baseInfo.html : 基本资料
+terms_service.html : 服务条款
+service_pro.html : 服务条款
+rob_order.html : 抢单
+order_null.html : 订单-空订单
+order_completed.html : 订单-已完成 / 订单-已取消 
