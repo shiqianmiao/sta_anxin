@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>登陆</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="登陆" />
+    <meta name="description" content="登陆" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="登陆">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/login.css" />
+</head>
+<body>
+	<header id="header-top" class="c-huan boxSha">
+        手机验证
+    </header>
+
+    <section id="login-content">
+    	<p class="tip c-huan">验证手机，小安才能找到您的专属信息哦！~</p>
+
+    	<form id="login-form" action="#" method="post">
+    		<div class="tel-wrap borR-2">
+    			<h3>手机号</h3>
+    			<input name="" class="tel-number" type="tel" placeholder="您的11位手机号码" />
+    		</div>
+    		<div class="input-wrap">
+    			<h3>验证码</h3>
+    			<div class="yzm-wrap">
+    				<input input="text" class="code" name="" placeholder="6位数字" />
+    				<span class="getCode">获取验证码</span>
+    			</div>
+    		</div>
+    		<input type="button" id="loginSubmit" type="button" value="注 册">
+    	</form>
+    </section>
+	
+	<script src="http://sta.anxin365.com/g.js"></script>
+    <script src="http://sta.anxin365.com/config.js"></script>
+	<script>
+	G.use(['zepto'], function($){
+        // 当表单获得焦点时样式的修改
+        $('.tel-number').on('focus', function(){
+            numberFocus('验证手机，小安才能找到您的专属信息哦！~');
+        });
+
+        $('.code').on('focus', function(){
+            codeFocus('验证手机，小安才能找到您的专属信息哦！~');
+        });
+
+        // 当表单失去焦点是样式的修改
+        $('.tel-number').on('blur', function(){
+            numberBlur('验证手机，小安才能找到您的专属信息哦！~')
+        });
+        $('.code').on('blur', function(){
+            codeBlur('验证手机，小安才能找到您的专属信息哦！~')
+        });
+
+
+		// 点击提交按钮时
+		$('#loginSubmit').on('tap', function(){
+			
+            // 检测表单
+            if(checkForm(true)){
+                // ajax 提交表单
+                alert('提交啦');
+            }
+
+		});
+
+        // 获取验证码
+        $('.getCode').on('tap', getCodeFn);
+        function getCodeFn(){
+
+            var self = $('.getCode'),
+                oTimer = null;
+            // 检查表单，但不检查验证码
+            if(checkForm(false)){
+                var num = 60;
+                self.html('60 秒');
+                oTimer = setInterval(function(){
+                    if(num == 0){
+
+                        clearInterval(oTimer);
+                        self.html('重获验证码');
+                        $('.getCode').on('tap', getCodeFn);
+
+                    }else{
+
+                        num--;
+                        self.html(num + ' 秒');
+
+                    }
+
+                }, 1000);
+            }
+            
+            // 获取验证码的ajax操作
+            
+
+
+            $('.getCode').off('tap');
+
+        }
+
+        // 检测表单填写是否通过
+        // codeTag(Boolean) : 是否检查验证码
+        function checkForm(codeTag){
+            // 检测值是否为空
+            // 检测手机号码是否为空
+            if($.trim( $('.tel-number').val() ) == ''){
+                numberError('请输入您的手机号码！');
+                return false;
+            }else if(checkTelephone($('.tel-number').val())){
+                // 检测手机号
+                numberError('您输入的手机号码不正确!');
+                return false;
+            }
+
+            if(codeTag){
+                if($.trim( $('.code').val() ) == ''){
+                    // 检测验证码是否为空
+                    codeError('请输入您的验证码!');
+                    return false;
+                }
+            }
+            
+
+            return true;
+        }
+
+        // 手机号验证函数
+        function checkTelephone(obj) {
+            var reg = /^[1][358]\d{9}$/; //验证手机号码
+            if (!reg.test(obj)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        // 手机号码错误提示样式
+        function numberError(tipStr){
+            var $tip = $('.tip');
+            $('.tel-wrap').css({border: '1px solid #e30010'});
+            $('.tel-wrap h3').css({borderRight: '1px solid #e30010', color: '#e30010'});
+            $tip.html(tipStr).addClass('errorColor');
+        }
+        // 验证码错误提示样式
+        function codeError(tipStr){
+            var $tip = $('.tip');
+            $('.input-wrap h3').css({color: '#e30010', border: '1px solid #e30010'});
+            $('.code').css({border: '1px solid #e30010', borderLeft: 'none'});
+            $tip.html(tipStr).addClass('errorColor');
+        }
+        // 手机号码获得焦点时的样式
+        function numberFocus(tipStr){
+            var $tip = $('.tip');
+            $('.tel-wrap').css({border: '1px solid #ffad0f'});
+            $('.tel-wrap h3').css({borderRight: '1px solid #ffad0f', color: '#ffad0f'});
+            $tip.html(tipStr).removeClass('errorColor');
+        }
+        // 验证码错误提示样式
+        function codeFocus(tipStr){
+            var $tip = $('.tip');
+            $('.input-wrap h3').css({color: '#ffad0f', border: '1px solid #ffad0f'});
+            $tip.html(tipStr).removeClass('errorColor');
+            $('.code').css({border: '1px solid #ffad0f', borderLeft: 'none'});
+        }
+        // 手机号码获得焦点时的样式
+        function numberBlur(tipStr){
+            var $tip = $('.tip');
+            $('.tel-wrap').css({border: '1px solid #d3d3d3'});
+            $('.tel-wrap h3').css({borderRight: '1px solid #d3d3d3', color: '#666666'});
+            $tip.html(tipStr).removeClass('errorColor');
+        }
+        // 验证码错误提示样式
+        function codeBlur(tipStr){
+            var $tip = $('.tip');
+            $('.input-wrap h3').css({color: '#666666', border: '1px solid #d3d3d3'});
+            $tip.html(tipStr).removeClass('errorColor');
+            $('.code').css({border: '1px solid #d3d3d3', borderLeft: 'none'});
+        }
+        
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title></title>
+	<style>
+		html{
+			min-height: 100%;
+		}
+		body,h6{
+			padding: 0;
+			margin: 0;
+		}
+		em{
+			font-style: normal;
+		}
+		.cancel-list, li{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		.cancel-list li{
+			line-height: 30px;
+			position: relative;
+			padding-left: 15%;
+		}
+		.cancel-list li span{
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			border: 2px solid #fff;
+			border-radius: 50%;
+			left: 5%;
+			top: 8px;
+			background: #fff;
+			box-shadow: 0 0 2px 0px #ffad0f;
+		}
+		.cancel-list li.checked span{
+			background: #ffad0f;
+		}
+		.tip{
+			color: red;
+			font-weight: normal;
+			font-size: 14px;
+			padding-left: 15%;
+			position: relative;
+			margin-top: 10px;
+		}
+		.tip em{
+			color: red;
+			position: absolute;
+			left: 5%;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+
+
+
+	<script src="http://sta.anxin365.com/g.js"></script>
+	<script src="http://sta.anxin365.com/config.js"></script>
+	<script>
+	G.use(['widget/Halert/js/Halert.js'], function(Halert){
+
+
+		// ================================================================
+		// 配置参数
+		// 	width : '90%',	----------------------------> 弹窗宽
+		// 	title : '弹窗',	----------------------------> 弹窗的标题
+		// 	content : '这是一个弹窗组件', ----------------------------> 弹窗的内容
+		// 	confirmBtnContent : '确定', ----------------------------> 按钮的文字
+		// 	cancelBtnContent : '取消', ----------------------------> 按钮的文字
+		// 	skin : '#ffad0f', ----------------------------> 皮肤的颜色
+		// 	contentAlign : 'center', ----------------------------> 弹窗的内容 的文字对齐方式（left/center/right）
+	// 	titleAlign : 'left', ----------------------------> 弹窗的标题 的文字对齐方式（left/center/right）
+		// 	fontColor : '#333', ----------------------------> 字体颜色
+		// 	confirmBtnCallback : function(self){ ----------------------------> 点击confirmBtn按钮的回调函数
+		// 		self.hide();
+		// 	},
+		// 	cancelBtnCallback : function(self){ ----------------------------> 点击cancelBtn按钮的回调函数
+		// 		self.hide();
+		// 	}
+		// ================================================================
+		// 方法
+		// show() -------------->显示
+		// hide() -------------->移除
+
+
+		var str = '<ul class="cancel-list">'
++				  '<li><span></span>客人没在家or没时间</li>'
++				  '<li><span></span>客人下错单了</li>'
++				  '<li><span></span>客人中途XXX了</li>'
++				  '<li><span></span>客人被陈朝阳打进医院了，客人被陈朝阳打进医院了</li>'
++				  '</ul>'
++				  '<h6 class="tip"><em>*</em>如果是您没有时间，请联系客服换人，不要取消订单！！！</h6>';
+
+
+
+		var halert = new Halert({
+			content : str,
+			contentAlign : 'left',
+			titleAlign : 'center',
+			confirmBtnCallback : function(self){
+				alert($('.cancel-list li.checked').html());
+			}
+		});
+
+		halert.show();
+
+		$('.cancel-list li').click(function(){
+			$('.cancel-list li').removeClass('checked');
+			$(this).addClass('checked');
+		});
+
+		// setTimeout(function(){
+		// 	halert.hide();
+		// }, 2000);
+
+	});
+	
+	</script>
+</body>
+</html>

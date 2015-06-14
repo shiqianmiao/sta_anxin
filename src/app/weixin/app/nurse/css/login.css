@@ -1,0 +1,121 @@
+body, html{
+	background: #fff;
+}
+#header-top{
+	height: 48px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	line-height: 48px;
+	text-align: center;
+	font-size: 20px;
+	background: #fff;
+	z-index: 1000;
+}
+#header-top a{
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	left: 15px;
+}
+.tip{
+	font-size: 16px;
+	color: #ffad0f;
+	line-height: 50px;
+	margin-bottom: 2px;
+}
+@media all and (max-width: 320px){
+	.tip{
+		font-size: 14px;
+	}
+}
+#login-content{
+	width: 92%;
+	margin: 50px auto;
+}
+.tel-wrap{
+	height: 50px;
+	border: 1px solid #d3d3d3;
+}
+.tel-wrap h3,.input-wrap h3{
+	float: left;
+	font-weight: normal;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	width: 24%;
+	border-right: 1px solid #d3d3d3;
+	box-sizing: border-box;
+	font-size: 16px;
+	color: #666666;
+}
+.input-wrap h3{
+	border: 1px solid #d3d3d3;
+	border-radius: 2px 0 0 2px;
+}
+.tel-wrap input{
+	float: left;
+	border: none;
+	font-size: 16px;
+	text-indent: 10px;
+	color: #666666;
+	width: 76%;
+	height: 50px;
+	box-sizing: border-box;
+}
+.input-wrap{
+	height: 50px;
+	margin-top: 24px;
+}
+.yzm-wrap{
+	float: left;
+	width: 76%;
+	height: 50px;
+}
+.yzm-wrap input{
+	float: left;
+	height: 50px;
+	box-sizing: border-box;
+	width: 43%;
+	border: none;
+	font-size: 16px;
+	text-indent: 10px;
+	color: #666666;
+	border: 1px solid #d3d3d3;
+	border-left: none;
+	border-radius: 0 2px 2px 0;
+}
+.getCode{
+	float: right;
+	height: 50px;
+	width: 52%;
+	border-radius: 2px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 16px;
+	background: #ffad0f;
+	color: #fff;
+}
+#loginSubmit{
+	display: block;
+	border: none;
+	width: 100%;
+	height: 50px;
+	color: #fff;
+	line-height: 50px;
+	text-align: center;
+	background: #ffad0f;
+	border-radius: 2px;
+	margin-top: 24px;
+	font-size: 20px;
+}
+#loginSubmit:active, .getCode:active{
+	background: #de9406;
+}
+.errorColor{
+	color: #e30010;
+}
+.touch-bor-color,.input-wrap h3.touch-bor-color{
+	border: 1px solid #ffad0f;
+}
