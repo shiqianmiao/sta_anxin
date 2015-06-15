@@ -94,3 +94,176 @@ html, body{background: #e9e9e9;}
 	left: 14px;
 }
 /* 已完成 已取消订单样式  结束 */
+/* 未完成 */
+.order-time-title{
+	height: 41px;
+	line-height: 41px;
+	color: #ffad0f;
+	text-align: center;
+	font-size: 15px;
+	border-bottom: 1px dotted #eeeeee;
+	margin-bottom: 5px;
+}
+.order-btn-foot{
+	height: 52px;
+	border-top: 1px dotted #eeeeee;
+	margin-top: 5px;
+	text-align: center;
+}
+.order-btn-foot a{
+	display: inline-block;
+	width: 111px;
+	height: 38px;
+	text-align: center;
+	line-height: 38px;
+	font-size: 16px;
+	color: #fff;
+	margin-top: 11px;
+}
+.go-btn{
+	background: #ffad0f;
+	margin-right: 11px;
+}
+.cancle-btn{
+	background: #b0b0b0;
+}
+/* 未完成 结束 */
+/* 取消订单原因弹窗 */
+.cancle-win{
+	width: 87%;
+	background: #fff;
+}
+.canwin-title{
+	font-size: 15px;
+	font-weight: bold;
+	color: #333333;
+	line-height: 50px;
+	height: 50px;
+	text-align: center;
+	border-bottom: 1px solid #e1e1e1;
+}
+.why-list{
+	padding: 24px 4.9535% 0;
+}
+.per-why{
+	font-size: 15px;
+	color: #333;
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 21px;
+}
+.per-why:last-of-type{
+	margin-bottom: 11px;
+}
+.per-why span{
+	display: inline-block;
+	vertical-align: middle;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #cfcfcf;
+	position: relative;
+	top: -2px;
+	margin-right: 10px;
+}
+.per-why.active span{
+	border: none;
+	background: url(../imgs/selection.png) no-repeat;
+	background-size: 21px 21px;
+}
+.why-text{
+	width: 83%;
+	display: block;
+	margin: 0 auto;
+	padding: 3%;
+	height: 50px;
+	border: 1px solid #adadad;
+}
+.why-tip{
+	padding: 0 5%;
+	height: 36px;
+	line-height: 38px;
+	color: #999999;
+	font-size: 13px;
+	text-indent: 18px;
+	background: url(../imgs/audit.png) no-repeat 5% center;
+	background-size: 15px 15px;
+}
+@media all and (max-width: 320px){
+	.cancle-win{
+		width: 90%;
+	}
+	.why-tip{
+		padding: 0 2%;
+		font-size: 12px;
+		text-indent: 15px;
+		background: url(../imgs/audit.png) no-repeat 2% center;
+		background-size: 15px 15px;
+	}
+}
+.why-foot{
+	height: 47px;
+	border-top: 1px solid #999999;
+}
+.why-foot a{
+	width: 50%;
+	float: left;
+	height: 100%;
+	text-align: center;
+	line-height: 47px;
+	font-size: 15px;
+	color: #ffad0f;
+}
+.why-foot a:first-of-type{
+	border-right: 1px solid #999999;
+}
+.hide-win{
+	display: none;
+}
+/* 取消订单原因弹窗 结束 */
+/* 支付弹窗 */
+.pay-win{
+	width: 275px;
+	background: #fff;
+}
+.pay-win h2{
+	font-size: 15px;
+	color: #333;
+	line-height: 50px;
+	height: 50px;
+	text-align: center;
+	font-weight: bold;
+}
+.pay-win li{
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	color: #333;
+	font-size: 15px;
+	border-top: 1px solid #e1e1e1;
+}
+.pay-win li.active{
+	color: #ff8900;
+}
+.pay-win footer{
+	height: 61px;
+	border-top: 1px solid #e1e1e1;
+	text-align: center;
+}
+.pay-win footer a{
+	display: inline-block;
+	width: 111px;
+	height: 38px;
+	margin-top: 11px;
+	color: #fff;
+	line-height: 38px;
+	text-align: center;
+	font-size: 15px;
+}
+.pay-win footer a:first-of-type{
+	background: #ff8900;
+	margin-right: 13px;
+}
+.pay-win footer a:last-of-type{
+	background: #b0b0b0;
+}
+/* 支付弹窗 结束 */
