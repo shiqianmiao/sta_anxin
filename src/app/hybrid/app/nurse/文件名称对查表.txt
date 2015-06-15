@@ -10,8 +10,11 @@ feedback.html : 意见反馈
 center.html : 个人中心
 myInfo.html : 个人信息
 baseInfo.html : 基本资料
+identity_info.html : 身份信息
 terms_service.html : 服务条款
 service_pro.html : 服务条款
 rob_order.html : 抢单
 order_null.html : 订单-空订单
 order_completed.html : 订单-已完成 / 订单-已取消 
+-------------------order_unfinished.html : 订单-未完成 
+

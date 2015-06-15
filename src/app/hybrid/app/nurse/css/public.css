@@ -465,3 +465,25 @@ body{font-size:12px;  font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Med
 	margin: 0 auto 21px;
 }
 /* 服务条款页面 结束 */
+
+/* 上传图片的label公共样式 */
+.label-input{
+	display: block;
+	padding: 0 4%;
+	height: 60px;
+	background: #fff;
+	line-height: 60px;
+	overflow: hidden;
+	font-size: 15px;
+	color: #999999;
+	position: relative;
+}
+.label-input input{
+	position: absolute;
+	left: 1000px;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	z-index: -1;
+}
+/* 上传图片的label公共样式 结束 */

@@ -1,0 +1,62 @@
+.head-label{
+	margin-top: 15px;
+}
+.show-img{
+	float: right;
+	border: none;
+	width: 44px;
+	height: 44px;
+	margin-top: 8px;
+}
+.error-tip{
+	height: 40px;
+	line-height: 40px;
+	padding: 0 4%;
+	font-size: 13px;
+	color: #ffad0f;
+	text-indent: 20px;
+	background: url(../imgs/baseinfo_tip.png) no-repeat 4% center;
+	background-size: 14px 14px;
+}
+.id-card-sec{
+	background: #fff;
+	padding: 0 4%;
+}
+.id-card-num{
+	height: 50px;
+	border-bottom: 1px solid #e1e1e1;
+}
+.id-card-num h3{
+	float: left;
+	width: 53.33333333%;
+	height: 50px;
+	line-height: 50px;
+	font-size: 15px;
+	color: #999999;
+}
+.id-card-num input{
+	float: left;
+	border: none;
+	height: 50px;
+	width: 46.66666667%;
+	line-height: 50px;
+	color: #333333;
+	font-size: 15px;
+}
+@media all and (max-width: 320px){
+	.id-card-num h3{
+		width: 43.33333333%;
+	}
+	.id-card-num input{
+		width: 56.66666667%;
+	}
+}
+.id-card-label{
+	padding: 0;
+}
+.sec2{
+	margin-top: 15px;
+}
+.ready-btn{
+	margin: 27px auto 20px;
+}
