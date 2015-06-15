@@ -3,3 +3,268 @@
 	background: #ff8900;
 	position: relative;
 }
+.amount-title{
+	font-size: 15px;
+	color: #fff;
+	height: 15px;
+	line-height: 15px;
+	position: absolute;
+	top: 23px;
+	left: 15px;
+}
+.amount-num{
+	position: absolute;
+	font-size: 40px;
+	color: #fff;
+	font-weight: bold;
+	left: 13px;
+	bottom: 26px;
+	height: 40px;
+	line-height: 40px;
+}
+.amount-num em{
+	font-size: 15px;
+}
+.round-btn{
+	width: 83px;
+	height: 83px;
+	position: absolute;
+	background: url(../imgs/round.png) no-repeat;
+	background-size: 83px 83px;
+	right: 23px;
+	top: 17px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #ffad0f;
+	text-align: center;
+	line-height: 83px;
+}
+.round-btn:active{
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1);
+}
+.bank-card-list{
+	padding: 0 4%;
+	margin: 15px 0;
+	background: #fff;
+}
+.per-bank{
+	height: 50px;
+	line-height: 50px;
+	color: #333333;
+	font-size: 15px;
+	position: relative;
+}
+.per-bank a{
+	display: block;
+	color: #333333;
+}
+.go-jiantou{
+	position: absolute;
+	height: 50px;
+	width: 9px;
+	background: url(../imgs/strip.png) no-repeat 0 center;
+	background-size: 9px 17px;
+	right: 22px;
+	top: 0;
+}
+.noadd-info{
+	position: absolute;
+	height: 50px;
+	line-height: 50px;
+	font-size: 13px;
+	color: #999999;
+	right: 40px;
+	top: 0;
+}
+.other-list-title{
+	height: 45px;
+	text-align: center;
+	line-height: 45px;
+	color: #333;
+	font-size: 15px;
+	font-weight: bold;
+	background: #fff;
+	border-bottom: 1px solid #e1e1e1;
+}
+.other-list-title em{
+	color: #ff4200;
+}
+.other-list{
+	background: #fff;
+	padding: 0 4%;
+}
+.per-other{
+	height: 50px;
+	position: relative;
+	line-height: 50px;
+	border-bottom: 1px solid #e1e1e1;
+}
+.per-other:last-of-type{
+	border: none;
+}
+.per-other a{
+	display: block;
+}
+.per-other h3{
+	float: left;
+	width: 30.434%;
+	height: 100%;
+	line-height: 50px;
+	font-size: 15px;
+	color: #333;
+}
+.per-other p{
+	font-size: 15px;
+	color: #999999;
+	float: left;
+	width: 49%;
+}
+.reg-btn{
+	background: #b0b0b0;
+	margin: 64px auto 20px;
+}
+@media all and (max-width: 320px){
+	.reg-btn{
+		margin: 20px auto 14px;
+	}
+}
+/* 账户中心-提现 的样式 */
+.show-money-num{
+	height: 50px;
+	line-height: 50px;
+	padding: 0 4%;
+	background: #fff;
+	margin: 15px 0;
+}
+.show-money-num h3{
+	width: 29%;
+}
+.show-money-num *{
+	float: left;
+	line-height: 50px;
+	color: #999999;
+	font-size: 15px;
+}
+.bank-info h2{
+	text-align: center;
+	line-height: 45px;
+	color: #333333;
+	font-weight: bold;
+	background: #fff;
+	border-bottom: 1px solid #e1e1e1;
+}
+.info-wrap{
+	padding: 0 4%;
+	background: #fff;
+}
+.info-wrap li{
+	height: 50px;
+	border-bottom: 1px solid #e1e1e1;
+	line-height: 50px;
+	font-size: 15px;
+	text-align: center;
+}
+.bank-pic{
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+	position: relative;
+	top: -2px;
+	margin-right: 6px;
+}
+.info-wrap li:last-of-type{
+	border: none;
+}
+.info-wrap li em{
+	color: #999;
+}
+.tx-btn{
+	margin: 40px auto 20px;
+	background: #ff8900;
+}
+.tx-tip{
+	font-size: 13px;
+	color: #999;
+	text-align: center;
+}
+@media all and (max-width: 320px){
+	.tx-btn{
+		margin: 20px auto 20px;
+	}
+}
+@media all and (max-width: 320px) and (max-height: 480px){
+	.tx-tip:last-of-type{
+		margin-bottom: 20px;
+	}
+}
+/* 账户中心-提现 的样式 结束 */
+/* 账户中心-银行卡 的样式 */
+.name-wrap{
+	background: #fff;
+	margin-top: 15px;
+	padding: 0 4%;
+}
+.name-wrap section{
+	height: 50px;
+	border-bottom: 1px solid #e1e1e1;
+	line-height: 50px;
+	font-size: 15px;
+	position: relative;
+}
+.name-wrap section:last-of-type{
+	border: none;
+}
+.name-wrap section h3{
+	float: left;
+	width: 19.42%;
+	color: #333;
+}
+.name-wrap section input, .id-wrap{
+	float: left;
+	width: 80.52%;
+	color: #999999;
+	border: none;
+	height: 50px;
+	font-size: 15px;
+}
+.go-right{
+	position: absolute;
+	height: 50px;
+	width: 9px;
+	background: url(../imgs/strip.png) no-repeat 0 center;
+	background-size: 9px 17px;
+	top: 0;
+	right: 8px;
+}
+.bank-wrap{
+	height: 50px;
+	background: #fff;
+	line-height: 50px;
+	font-size: 15px;
+	color: #333;
+	border-top: 1px solid #e1e1e1;
+	padding: 0 4%;
+}
+.bank-img{
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+	position: relative;
+	top: -2px;
+	margin-right: 8px;
+}
+.intr{
+	font-size: 13px;
+	color: #999;
+	line-height: 20px;
+	padding: 16px 4% 20px;
+}
+.add-btn{
+	background: #ff8900;
+	margin: 0 auto 20px;
+}
+/* 账户中心-提现 的样式 结束 */

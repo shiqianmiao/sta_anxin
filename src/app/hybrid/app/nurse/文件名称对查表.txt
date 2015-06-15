@@ -22,3 +22,5 @@ set_withdrawal_pwd1.html : 设置提现密码1
 withdrawal_det.html : 提现详情
 account_det.html : 账户明细
 account_center.html : 账户中心
+account_center_wd.html : 账户中心-提现
+account_center_bank.html : 账户中心-银行卡
