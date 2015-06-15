@@ -17,5 +17,8 @@ service_pro.html : 服务条款
 rob_order.html : 抢单
 order_null.html : 订单-空订单
 order_completed.html : 订单-已完成 / 订单-已取消 
-order_unfinished.html : 订单-未完成 
+order_unfinished.html : 订单-未完成
+set_withdrawal_pwd1.html : 设置提现密码1
+withdrawal_det.html : 提现详情
+account_det.html : 账户明细
 
