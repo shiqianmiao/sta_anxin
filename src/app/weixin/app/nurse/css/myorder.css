@@ -60,9 +60,9 @@ html{
 	color: #999999;
 	padding: 0 10px;
 }
-.opation a:nth-of-type(1){
+/*.opation a:nth-of-type(1){
 	border-right: 1px solid #b8b8b8;
-}
+}*/
 
 .order-details{
 	width: 89%;
