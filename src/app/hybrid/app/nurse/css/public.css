@@ -125,6 +125,13 @@ body{font-size:12px;  font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Med
 	background: url(../imgs/tel.png) no-repeat center center;
 	background-size: 15px 18px;
 }
+.a-text{
+	position: absolute;
+	font-size: 13px;
+	color: #ffad0f;
+	line-height: 44px;
+	right: 4%;
+}
 .back{
 	position: absolute;
 	width: 44px;

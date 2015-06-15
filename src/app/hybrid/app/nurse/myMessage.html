@@ -55,6 +55,17 @@
 	
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
-   	<script src="js/myMessage.js"></script>
+   	<script>
+   		G.use(['zepto'], function(){
+			// 加载更多
+			$('.load-more').on('touchend', function () {
+				$(this).find('img').show();
+				$(this).find('span').html('加载中...');
+				// 发送ajax请求
+				
+			});
+			
+		});
+   	</script>
 </body>
 </html>
