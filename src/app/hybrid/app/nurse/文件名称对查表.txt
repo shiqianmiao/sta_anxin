@@ -15,6 +15,7 @@ extension_info.html : 扩展信息
 terms_service.html : 服务条款
 service_pro.html : 服务条款
 rob_order.html : 抢单
+rob_order_det.html : 抢单-订单详情-未接订单 / 抢单-订单详情-已接订单
 order_null.html : 订单-空订单
 order_completed.html : 订单-已完成 / 订单-已取消 
 order_unfinished.html : 订单-未完成
@@ -22,3 +23,5 @@ set_withdrawal_pwd1.html : 设置提现密码1
 withdrawal_det.html : 提现详情
 account_det.html : 账户明细
 account_center.html : 账户中心
+account_center_wd.html : 账户中心-提现
+account_center_bank.html : 账户中心-银行卡

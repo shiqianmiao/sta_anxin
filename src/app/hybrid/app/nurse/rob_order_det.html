@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>接单</title>
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/rob_order_det.css">
+</head>
+<body class="pd-b-50">
+	
+	<header class="reg-top"><a class="back" href="#"></a>接单</header>
+
+	<div class="content borR-3">
+		<article class="rob-order-det-wrap">
+			<ul>
+				<li class="per-obj">
+					<h3>服务时间：</h3>
+					<p>6月8号 10：00</p>
+				</li>
+				<li class="per-obj">
+					<h3>服务项目：</h3>
+					<p>陪诊/3h</p>
+				</li>
+				<li class="per-obj">
+					<h3>服务金额：</h3>
+					<p>￥180</p>
+				</li>
+				<li class="per-obj">
+					<h3 class="letter-span">联系人：</h3>
+					<p class="red">程程</p>
+				</li>
+				<li class="per-obj">
+					<h3>联系电话：</h3>
+					<p>15012349876</p>
+				</li>
+				<li class="per-obj">
+					<h3>服务地址：</h3>
+					<p>朝阳区大屯路东金泉家园304号楼1203</p>
+				</li>
+			</ul>
+		</article>
+		<img src="" id="baidu-map-img">
+		<section class="remaining-time">
+			距离订单结束还剩：3小时28分46秒
+		</section>
+
+		<a href="#" class="reg-btn borR-3">接单</a>
+	</div>
+
+	<footer class="footer-nav">
+		<ul class="footernav-list">
+			<li><a href="#" class="active"></a></li>
+			<li><a href="#"></a></li>
+			<li><a href="#"></a></li>
+		</ul>
+	</footer>
+	
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+
+    G.use(['zepto'], function($){
+
+
+    	getMap(116.403874, 39.914889);
+
+    	function getMap(lng, lat){
+    		// 百度静态地图
+	    	var mapImg = document.getElementById('baidu-map-img');;
+	    	// 计算地图宽度
+	    	var wrapWidth = parseInt($('.rob-order-det-wrap').width());
+	    	var srcStr = 'http://api.map.baidu.com/staticimage?center=' + lng + ',' + lat + '&width=' + wrapWidth + '&height=154&zoom=18';
+	    	mapImg.src = srcStr;
+	    	mapImg.width = wrapWidth;
+	    	mapImg.height = 154;
+    	}
+
+
+    });
+    
+
+    </script>
+</body>
+</html>

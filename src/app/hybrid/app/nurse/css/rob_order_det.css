@@ -1,0 +1,61 @@
+html, body{background: #e9e9e9;}
+.content{
+	width: 86.6667%;
+	margin: 19px auto 0;
+}
+.rob-order-det-wrap{
+	background: #fff;
+	display: block;
+	padding: 12px 5.6431%;
+}
+.per-obj{
+	min-height: 33px;
+	line-height: 33px;
+}
+.per-obj h3{
+	float: left;
+	width: 28.7925%;
+	color: #999;
+	font-size: 15px;
+}
+.per-obj p{
+	margin-left: 28.7925%;
+	color: #333;
+	font-size: 15px;
+}
+
+.letter-span{
+	letter-spacing: 5px;
+}
+.per-obj .red{
+	color: #ff3000;
+}
+#baidu-map-img{
+	display: block;
+	margin: 0 auto;
+}
+.remaining-time{
+	margin: 0 auto;
+	height: 44px;
+	background: #3eb358;
+	font-size: 17px;
+	line-height: 44px;
+	color: #fff;
+	text-align: center;
+	position: relative;
+}
+.remaining-time:after{
+	content: "";
+	border-right: 8px solid transparent;
+	border-left: 8px solid transparent;
+	border-bottom: 14px solid transparent;
+	border-top: 14px solid #3eb358;
+	position: absolute;
+	bottom: -28px;
+	left: 50%;
+	margin-left: -8px;
+}
+.reg-btn{
+	width: 100%;
+	margin: 28px auto 0;
+}
