@@ -10,6 +10,8 @@
 	<title>身份信息</title>
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/identity_info.css">
+	<link rel="stylesheet" href="css/cropper.min.css">
+	<link rel="stylesheet" href="css/HimgCrop.css">
 </head>
 <body class="ccc-body pd-b-50">
 	
@@ -17,8 +19,8 @@
 
 	<label class="label-input head-label">
 		头像
-		<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img">
-		<input type="file" value=""/>
+		<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img head-img">
+		<input type="file" value="" id="head-file-input"/>
 	</label>
 
 	<p class="error-tip">身份证号码错误</p>
@@ -30,8 +32,8 @@
 		</div>
 		<label class="label-input id-card-label">
 			本人拿身份证照片
-			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img">
-			<input type="file" value=""/>
+			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img idcard-img">
+			<input type="file" value="" id="idcard-file-input"/>
 		</label>
 	</section>
 
@@ -42,8 +44,8 @@
 		</div>
 		<label class="label-input id-card-label">
 			护士资格证
-			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img">
-			<input type="file" value=""/>
+			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img zs-img">
+			<input type="file" value="" id="zs-file-input"/>
 		</label>
 	</section>
 
@@ -56,8 +58,66 @@
 			<li><a href="#" class="active"></a></li>
 		</ul>
 	</footer>
+
+	<!-- 头像裁剪 -->
+	<div id="HimgCropWrap">
+		<img src="imgs/rotate.jpg" class="rotate-ing" width="50" height="50" />
+		<div class="cropper-wrap">
+			<img src="" alt="Picture" id="picccc">
+		</div>
+		<footer class="Himg-footer">
+			<span class="Himg-cancel">取消</span>
+			图片裁剪
+			<span class="Himg-select">选取</span>
+		</footer>
+	</div>
 	
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery.js'], function($, HimgCropJquery){
+    	// $('.show-img').on('click', function(){
+    	// 	document.title = 3;
+    	// 	return false;
+    	// });
+   		
+
+    	// 裁剪头像
+   		var HimgCropJquery1 = new HimgCropJquery({
+			fileInput : ['#head-file-input', '#idcard-file-input', '#zs-file-input'],
+			rotateIngEvent : 'touchend',
+			cropperSetting : {
+				aspectRatio: 2 / 2,
+				autoCropArea: 0.65,
+				strict: false,
+				guides: false,
+				highlight: false,
+				dragCrop: true,
+				cropBoxMovable: true,
+				background: true, // 是否显示网格背景 true 是 false 不显示
+				cropBoxResizable: true,
+				guides: true
+			},
+			callback : function(canvasDom, inputId){
+				var imgSelector = '';
+				switch(inputId){
+					case 'head-file-input':
+						imgSelector = '.head-img';
+						break;
+					case 'idcard-file-input':
+						imgSelector = '.idcard-img';
+						break;
+					case 'zs-file-input':
+						imgSelector = '.zs-img';
+						break;
+				}
+
+				$(imgSelector).attr('src', canvasDom.toDataURL("image/png"));
+			}
+
+		});
+
+    });
+    </script>
 </body>
 </html>

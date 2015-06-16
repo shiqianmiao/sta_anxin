@@ -48,7 +48,7 @@
 
 
 	<div id="HimgCropWrap">
-		<img src="imgs/rotate.jpg" class="rotate-ing" width="50" height="50" />
+		<img src="rotate.jpg" class="rotate-ing" width="50" height="50" />
 		<div class="cropper-wrap">
 			<img src="" alt="Picture" id="picccc">
 		</div>
@@ -59,24 +59,27 @@
 		</footer>
 	</div>
 
-	<script src="http://sta.anxin365.com/g.js"></script>
-	<script src="http://sta.anxin365.com/config.js"></script>
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+	<script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
 	<script>
 	G.use(['widget/HimgCrop/js/HimgCropJquery.js'], function(HimgCropJquery){
 		
 		var HimgCropJquery = new HimgCropJquery({
-			fileInput : '#fileInput',
+			fileInput : ['#fileInput'],
 			rotateIngEvent : 'touchend',
+			callback : function(canvasDom){
+				alert(canvasDom.toDataURL("image/png"));
+			},
 			cropperSetting : {
 				aspectRatio: 2 / 2,
-				autoCropArea: 0.8,
+				autoCropArea: 0.65,
 				strict: false,
 				guides: false,
-				highlight: true,
+				highlight: false,
 				dragCrop: false,
 				cropBoxMovable: true,
-				cropBoxResizable: true,
 				background: true, // 是否显示网格背景 true 是 false 不显示
+				cropBoxResizable: false,
 				guides: true
 			}
 		});

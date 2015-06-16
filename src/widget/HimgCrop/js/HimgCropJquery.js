@@ -11,8 +11,9 @@ var cropper = require('widget/HimgCrop/js/cropper.js');
 var HimgCropJquery = function(opations){
 	// 配置参数
 	this.settings = {
-		fileInput : '',
+		fileInput : [],
 		rotateIngEvent : 'touchend',
+		callback : function(){},
 		cropperSetting : {
 			aspectRatio: 2 / 2,
 			autoCropArea: 0.65,
@@ -32,7 +33,6 @@ var HimgCropJquery = function(opations){
 	this.active = false;
 
 	this.HimgCropWrap = $('#HimgCropWrap');
-	this.fileInput = $(this.settings.fileInput);
 	this.picccc = $('#picccc');
 	this.cropperWrap = $('.cropper-wrap');
 	this.HimgFooter = $('.Himg-footer');
@@ -44,6 +44,8 @@ var HimgCropJquery = function(opations){
 	this.windowHeight = $(window).height();
 	this.windowWidth = $(window).width();
 	this.HimgFooterHeight = this.HimgFooter.height();
+
+	this.inputId = '';
 
 	this.init();
 	
@@ -65,45 +67,11 @@ $.extend(proto, {
 		var self = this;
 
 		// 表单的change事件
-		self.fileInput.on('change', function(){
-
-			self.HimgCropWrap.show();
-
-			var fs = this.files; // fs.length(文件个数)  fs[i].type(文件格式)
-			// 读取文件的对象
-			var fd = new FileReader();
-
-			if(fs.length = 1){
-
-				if(/image/.test(fs[0].type)){
-
-					fd.readAsDataURL(fs[0]); // 读文件，将文件对象传入
-
-					fd.onload = function(){ // 读文件成功的时候触发
-
-						self.picccc.attr('src', this.result);
-
-
-						if(self.active){
-
-							self.srcImg.cropper('replace', self.picccc.attr('src'));
-
-						}else{
-							self.srcImg.cropper(self.settings.cropperSetting);
-							self.active = true;
-
-						}
-
-						self.fileInput.val('');
-
-					}
-					
-				}else{
-					alert('您选择的不是一张图片');
-				}
-			}
-
-		});
+		for(var i = 0; i < self.settings.fileInput.length; i++){
+			$(self.settings.fileInput[i]).on('change', function(){
+				self.inputChangeFn(this);
+			});
+		}
 
 		// 点击旋转按钮
 		self.rotateIng.on(this.settings.rotateIngEvent, function(){
@@ -113,10 +81,12 @@ $.extend(proto, {
 		// 点击选取按钮
 		self.HimgSelect.on('click', function(){
 			var canvasDom = self.srcImg.cropper('getCroppedCanvas'); // canvas DOM 元素
-        	var newImg = $('<img/>');
-        	newImg.attr('src', canvasDom.toDataURL("image/png"));
+   //      	var newImg = $('<img/>');
+   //      	newImg.attr('src', canvasDom.toDataURL("image/png"));
 
-        	$('body').append($(newImg));
+   //      	$('body').append($(newImg));
+
+   			self.settings.callback(canvasDom, self.inputId);
 
         	self.HimgCropWrap.hide();
 		});
@@ -131,6 +101,50 @@ $.extend(proto, {
 	setSize : function(){
 		this.HimgCropWrap.css({height: this.windowHeight + 'px', width: this.windowWidth + 'px'});
 		this.cropperWrap.css({height: this.windowHeight - this.HimgFooterHeight + 'px', width: this.windowWidth + 'px'});
+	},
+
+	inputChangeFn : function(_this){
+		var self = this;
+		self.inputId = _this.id;
+		self.HimgCropWrap.show();
+
+		var fs = _this.files; // fs.length(文件个数)  fs[i].type(文件格式)
+		// 读取文件的对象
+		var fd = new FileReader();
+
+		if(fs.length == 1){
+
+			if(/image/.test(fs[0].type)){
+
+				fd.readAsDataURL(fs[0]); // 读文件，将文件对象传入
+
+				fd.onload = function(){ // 读文件成功的时候触发
+
+					self.picccc.attr('src', this.result);
+
+
+					if(self.active){
+
+						self.srcImg.cropper('replace', self.picccc.attr('src'));
+
+					}else{
+						self.srcImg.cropper(self.settings.cropperSetting);
+						self.active = true;
+
+					}
+
+					// self.fileInput.val('');
+					for(var i = 0; i < self.settings.fileInput.length; i++){
+						$(self.settings.fileInput[i]).val('');
+					}
+
+				}
+				
+			}else{
+				alert('您选择的不是一张图片');
+			}
+		}
+
 	}
 
 });

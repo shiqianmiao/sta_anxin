@@ -3,6 +3,7 @@
         alias: {
             'zepto': 'com/mobile/lib/zepto/zepto.cmb.js',
             '$': 'com/mobile/lib/zepto/zepto.cmb.js',
+            'jquery': 'com/mobile/lib/jquery/jquery-2.1.4.min.js',
             'underscore': 'com/mobile/lib/underscore/underscore.js'
         }
     };
