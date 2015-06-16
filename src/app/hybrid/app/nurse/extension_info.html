@@ -18,7 +18,7 @@
 	<ul class="exit-wrap">
 		<li>
 			<h3>从业时间</h3>
-			<section>2011年5月 <img class="se-img se-img-rotate" src="imgs/strip.png" alt="选择"></section>
+			<section><em>2011年5月</em> <img class="se-img" src="imgs/strip.png" alt="选择"></section>
 		</li>
 		<li>
 			<h3>毕业院校</h3>
@@ -26,7 +26,7 @@
 		</li>
 		<li>
 			<h3>就职医院</h3>
-			<section>北京协和医院 <img class="se-img se-img-rotate" src="imgs/strip.png" alt="选择"></section>
+			<section class="select-hospital"><em>北京协和医院</em> <img class="se-img" src="imgs/strip.png" alt="选择"></section>
 		</li>
 		<li>
 			<h3>科　　室</h3>
@@ -34,7 +34,7 @@
 		</li>
 		<li>
 			<h3>职　　称</h3>
-			<section>护士 <img class="se-img se-img-rotate" src="imgs/strip.png" alt="选择"></section>
+			<section class="select-position"><em>护士</em> <img class="se-img" src="imgs/strip.png" alt="选择"></section>
 		</li>
 	</ul>
 
@@ -58,8 +58,64 @@
 			<li><a href="#" class="active"></a></li>
 		</ul>
 	</footer>
+
+	<!-- 就职医院 -->
+	<div hidden id="hospital-box" data-hprevselect="-1">
+		<li class="H-effective">北京咖喱牛肉医院</li>
+		<li class="H-effective">北京妇产棒棒糖医院</li>
+		<li class="H-effective">北大附属自行车医院</li>
+		<li class="H-effective">协和黑社会医院</li>
+		<li class="H-effective">罗康男科医院</li>
+		<li class="H-effective">兽医院</li>
+	</div>
+	<!-- 职称 -->
+	<div hidden id="position-box" data-hprevselect="-1">
+		<li class="H-effective">法师</li>
+		<li class="H-effective">狂战士</li>
+		<li class="H-effective">神枪手</li>
+		<li class="H-effective">召唤师</li>
+		<li class="H-effective">铁匠</li>
+		<li class="H-effective">补给</li>
+	</div>
 	
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    	G.use(['widget/Hselect/js/Hselect.js'], function(Hselect){
+
+			$('.select-hospital').click(function(){
+				$(this).find('img').addClass('se-img-rotate');
+				var hse = new Hselect({
+					selectTplId : 'hospital-box',
+					defaultSelect : 0,	// 默认初始选项
+					completeFn : function($elem){
+						$('.select-hospital em').html($elem.html());
+						$('.select-hospital img').removeClass('se-img-rotate');
+					}
+				});
+			});
+
+			$('.select-position').click(function(){
+				$(this).find('img').addClass('se-img-rotate');
+				var hse = new Hselect({
+					selectTplId : 'position-box',
+					defaultSelect : 0,	// 默认初始选项
+					completeFn : function($elem){
+						$('.select-position em').html($elem.html());
+						$('.select-position img').removeClass('se-img-rotate');
+					}
+				});
+			});
+
+
+			// 点击叉叉移除证书
+			$('.remove-cert').on('tap', function(){
+				$(this).parent().detach();
+			});
+
+
+
+		});
+    </script>
 </body>
 </html>
