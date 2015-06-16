@@ -1,6 +1,13 @@
 var Builder = require('g-builder');
 var builder = module.exports = new Builder(require('./config'));
 
+builder.registerBuilder('com/mobile/lib/zepto/zepto.cmb.js')
+    .read()
+    .concat()
+    .pipe(require('g-builder/builders/amd'))
+    .uglify()
+    .write();
+
 builder.registerBuilder('**/*.cmb.js')
         .read()
         .pipe(require('g-builder/builders/amd').combine)
@@ -31,13 +38,6 @@ builder.registerBuilder('**/*.css')
         .read()
         .pipe(require('g-builder/builders/css'))
         .pipe(require('g-builder/builders/css').minify)
-        .write();
-
-builder.registerBuilder('com/mobile/lib/zepto/zepto.cmb.js')
-        .read()
-        .concat()
-        .pipe(require('g-builder/builders/amd'))
-        .uglify()
         .write();
 
 builder.registerBuilder('version.js')

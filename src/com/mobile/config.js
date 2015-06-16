@@ -1,8 +1,8 @@
 (function () {
     var config = {
         alias: {
-            'zepto': 'lib/zepto/zepto-1.0.js',
-            '$': 'lib/zepto/zepto-1.0.js',
+            'zepto': 'com/mobile/lib/zepto/zepto.cmb.js',
+            '$': 'com/mobile/lib/zepto/zepto.cmb.js',
             'underscore': 'com/mobile/lib/underscore/underscore.js'
         }
     };
