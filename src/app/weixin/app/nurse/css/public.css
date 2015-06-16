@@ -29,12 +29,12 @@ body{font-size:12px; font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Medi
 	-ms-box-shadow: 0 2px 2px #b8b1b1;
 	box-shadow: 0 2px 2px #b8b1b1;
 }
-.borR-8{
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	-o-border-radius: 8px;
-	-ms-border-radius: 8px;
-	border-radius: 8px;
+.borR-3{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-o-border-radius: 3px;
+	-ms-border-radius: 3px;
+	border-radius: 3px;
 }
 .borR-50{
 	-webkit-border-radius: 50%;

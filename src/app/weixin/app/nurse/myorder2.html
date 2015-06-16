@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>订单列表</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="订单列表" />
+    <meta name="description" content="订单列表" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="订单列表">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="css/myorder2.css" />
+</head>
+<body>
+	<div id="Hwrap">
+		<div id="Hscroll">
+			<header class="Hs-header"><span class="pullDownIcon"></span><em>下拉刷新</em></header>
+
+			<ul class="order2-list">
+				<li class="per-order2">
+					<h2 class="order2-title">等待接单（已有5人接单）</h2>
+					<div class="remaining-wrap">
+						<p class="order2-remaining-time">距离接单结束还剩：1小时30分28秒</p>
+					</div>
+					<ul class="order2-pro">
+						<li class="per-pro">
+							<h3>时间： </h3>
+							<p>今天10：30</p>
+						</li>
+						<li class="per-pro">
+							<h3>项目： </h3>
+							<p>陪诊</p>
+						</li>
+						<li class="per-pro">
+							<h3>地点： </h3>
+							<p>大屯里金泉家园304号楼2单元2103室</p>
+						</li>
+					</ul>
+					<footer class="order2-foot">
+						<a href="#" class="borR-3">去付款</a>
+					</footer>
+				</li>
+				<li class="per-order2">
+					<h2 class="order2-title">等待接单（已有5人接单）</h2>
+					<div class="remaining-wrap">
+						<p class="order2-remaining-time">距离接单结束还剩：1小时30分28秒</p>
+					</div>
+					<ul class="order2-pro">
+						<li class="per-pro">
+							<h3>时间： </h3>
+							<p>今天10：30</p>
+						</li>
+						<li class="per-pro">
+							<h3>项目： </h3>
+							<p>陪诊</p>
+						</li>
+						<li class="per-pro">
+							<h3>地点： </h3>
+							<p>大屯里金泉家园304号楼2单元2103室</p>
+						</li>
+					</ul>
+					<footer class="order2-foot">
+						<a href="#" class="borR-3">去付款</a>
+					</footer>
+				</li>
+				<li class="per-order2">
+					<h2 class="order2-title">等待接单（已有5人接单）</h2>
+					<div class="remaining-wrap">
+						<p class="order2-remaining-time">距离接单结束还剩：1小时30分28秒</p>
+					</div>
+					<ul class="order2-pro">
+						<li class="per-pro">
+							<h3>时间： </h3>
+							<p>今天10：30</p>
+						</li>
+						<li class="per-pro">
+							<h3>项目： </h3>
+							<p>陪诊</p>
+						</li>
+						<li class="per-pro">
+							<h3>地点： </h3>
+							<p>大屯里金泉家园304号楼2单元2103室</p>
+						</li>
+					</ul>
+					<footer class="order2-foot">
+						<a href="#" class="borR-3">去付款</a>
+					</footer>
+				</li>
+				
+			</ul>
+
+			<footer class="Hs-footer"><span class="pullUpIcon"></span><em>上拉加载更多</em></footer>
+		</div>
+	</div>
+
+	<script src="http://sta.anxin365.com/g.js"></script>
+    <script src="http://sta.anxin365.com/config.js"></script>
+	<script>
+	G.use(['widget/Hscroll/js/Hscroll.js'], function(Hscroll){
+		// 只实例化对象不传配置参数的时候，指示做了一个模拟滚动，可以用来修复移动端fixed定位bug
+		var hscroll = new Hscroll({
+			refreshCallback : function(self){
+				// 执行下拉刷新的操作
+
+				//self.refreshEnd();
+				setTimeout(function(){
+					self.refreshEnd();
+				},1000);
+			},
+			loadMoreCallback : function(self){
+				// 执行上拉加载更多的操作
+
+				setTimeout(function(){
+					self.loadMoreEnd();
+				},1000);
+				//self.loadMoreEnd();
+			},
+
+			// 选择您需要的加载类型【只要下拉刷新 - onlyTop 】【只要上拉加载更多 - onlyBottom 】【两个都要 - double 】【都不要 - none 】
+			opationType : 'double'
+
+		});
+		// types ->【只要下拉刷新 - onlyTop 】【只要上拉加载更多 - onlyBottom 】【两个都要 - double 】【都不要 - none 】
+		//hscroll.changeTypeTo('none');
+	});
+	</script>
+	
+</body>
+</html>
