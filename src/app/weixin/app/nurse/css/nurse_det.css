@@ -1,0 +1,122 @@
+.nurse-top{
+	height: 230px;
+	background: url(../imgs/perbg.png) no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+	position: relative;
+}
+.head-pic{
+	display: block;
+	width: 78px;
+	height: 78px;
+	border: none;
+	margin: 27px auto 0;
+}
+.nurse-name{
+	font-size: 18px;
+	text-align: center;
+	height: 18px;
+	line-height: 18px;
+	color: #fff;
+	margin-top: 11px;
+}
+.nurse-intr{
+	color: #fff;
+	font-size: 13px;
+	height: 13px;
+	line-height: 13px;
+	text-align: center;
+	margin-top: 9px;
+}
+.nurse-top-foot{
+	height: 37px;
+	position: absolute;
+	width: 100%;
+	bottom: 16px;
+	left: 0;
+}
+.nurse-top-foot div{
+	float: left;
+	width: 50%;
+	height: 100%;
+	text-align: center;
+}
+.nurse-top-foot div:first-of-type{
+	border-right: 1px solid #4b5d71;
+}
+.nurse-top-foot em{
+	font-size: 20px;
+	color: #ffad0f;
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	position: relative;
+	top: -2px;
+}
+.nurse-top-foot span{
+	font-size: 15px;
+	color: #fff;
+	display: block;
+	height: 15px;
+	line-height: 15px;
+	margin-top: 2px;
+}
+.service-amount{
+	height: 50px;
+	margin: 15px 0;
+	padding: 0 4%;
+	background: #fff;
+	line-height: 50px;
+	font-size: 15px;
+}
+.service-amount h3{
+	float: left;
+}
+.service-amount em{
+	float: right;
+	color: #ff4500;
+}
+.certification{
+	background: #fff;
+}
+.cert-title{
+	height: 44px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	color: #333;
+	line-height: 44px;
+	border-bottom: 1px solid #cbcbcb;
+}
+.zs-img-list{
+	padding: 16px 0 0;
+	text-align: center;
+}
+.zs-img-list li{
+	width: 145px;
+	height: 145px;
+	display: inline-block;
+	margin-bottom: 20px;
+}
+.zs-img-list li:nth-of-type(2n-1){
+	margin-right: 26px;
+}
+.zs-img-list li:last-of-type{
+	margin-right: 0;
+}
+.zs-img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.select-ta{
+	display: block;
+	width: 92%;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	color: #fff;
+	font-size: 17px;
+	background: #ffad0f;
+	margin: 32px auto;
+}

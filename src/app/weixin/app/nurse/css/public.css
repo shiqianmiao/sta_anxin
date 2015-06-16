@@ -23,11 +23,11 @@ body{font-size:12px; font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Medi
 .clear { zoom:1; }
 .clear:after { content:''; display:block; clear:both; }
 .boxSha{
-	-webkit-box-shadow: 0 2px 2px #b8b1b1;
-	-moz-box-shadow: 0 2px 2px #b8b1b1;
-	-o-box-shadow: 0 2px 2px #b8b1b1;
-	-ms-box-shadow: 0 2px 2px #b8b1b1;
-	box-shadow: 0 2px 2px #b8b1b1;
+	-webkit-box-shadow: 0 2px 2px #d1d1d1;
+	-moz-box-shadow: 0 2px 2px #d1d1d1;
+	-o-box-shadow: 0 2px 2px #d1d1d1;
+	-ms-box-shadow: 0 2px 2px #d1d1d1;
+	box-shadow: 0 2px 2px #d1d1d1;
 }
 .borR-3{
 	-webkit-border-radius: 3px;
@@ -42,6 +42,13 @@ body{font-size:12px; font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Medi
 	-o-border-radius: 50%;
 	-ms-border-radius: 50%;
 	border-radius: 50%;
+}
+.boxSiz{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
 }
 .c-like-red{color: #ff4500;}
 .c-huan{color: #ffad0f;}

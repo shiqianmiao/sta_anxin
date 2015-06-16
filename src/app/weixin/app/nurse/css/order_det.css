@@ -1,0 +1,154 @@
+.order-det-sec{
+	padding: 0 4% 20px;
+	background: #fff;
+}
+.order-det-title{
+	height: 47px;
+	border-bottom: 1px dotted #eeeeee;
+}
+.order-det-title h3{
+	float: left;
+	height: 100%;
+	color: #333;
+	font-size: 15px;
+	line-height: 47px;
+}
+.order-det-title a{
+	float: right;
+	width: 80px;
+	height: 27px;
+	margin-top: 10px;
+	border: 1px solid #eee;
+	line-height: 27px;
+	text-align: center;
+	font-size: 13px;
+	color: #999999;
+}
+.order-det-title a:active{
+	box-shadow: 0 0 2px #999;
+}
+.remaining{
+	text-align: center;
+	margin-top: 15px;
+}
+.remaining-time{
+	display: inline-block;
+	height: 22px;
+	padding: 0 13px;
+	-webkit-border-radius: 11px;
+	-moz-border-radius: 11px;
+	-ms-border-radius: 11px;
+	-o-border-radius: 11px;
+	border-radius: 11px;
+	border: 1px solid #ffad0f;
+	color: #ffad0f;
+	line-height: 22px;
+	text-align: center;
+}
+.order-pro{
+	margin-top: 11px;
+}
+.per-pro{
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+.per-pro h3{
+	float: left;
+	font-size: 15px;
+	color: #999;
+}
+.per-pro p{
+	float: left;
+	color: #333;
+	font-size: 15px;
+}
+.letter-span{
+	letter-spacing: 5px;
+}
+.nurse-list{
+	margin-top: 15px;
+	background: #fff;
+}
+.list-title{
+	height: 43px;
+	text-align: center;
+	line-height: 43px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #333;
+	border-bottom: 1px solid #e5e5e5;
+}
+.nurse-list-wrap{
+	padding: 0 4%;
+	margin-bottom: 15px;
+}
+.per-nurse{
+	height: 71px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.per-nurse:last-of-type{
+	border: none;
+}
+.nurse-intr{
+	float: left;
+	width: 72%;
+	height: 100%;
+}
+.head-pic{
+	float: left;
+	width: 55px;
+	height: 55px;
+	margin-top: 8px;
+	margin-left: 1px;
+}
+.intr-info{
+	margin-left: 28%;
+	height: 100%;
+}
+.intr-info p:first-of-type{
+	margin-top: 9px;
+}
+.intr-info p{
+	line-height: 25px;
+	font-size: 15px;
+}
+.intr-info p em{
+	color: #999;
+}
+.intr-info p span{
+	color: #ff3c00;
+}
+.select-btn{
+	width: 90px;
+	height: 40px;
+	background: #ffad0f;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	font-size: 15px;
+	float: right;
+	margin-top: 15px;
+}
+.phone-call{
+	float: right;
+	width: 70px;
+	border-left: 1px solid #e9e9e9;
+	background: url(../imgs/tel.png) no-repeat center center;
+	background-size: 20px 23px;
+	height: 100%;
+}
+.nurse-list-wrap2{
+	padding-right: 0;
+}
+.nurse-list-btn{
+	display: block;
+	width: 92%;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	color: #fff;
+	font-size: 15px;
+	margin: 38px auto;
+	background: #ffad0f;
+}
