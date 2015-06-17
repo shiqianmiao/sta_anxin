@@ -10,6 +10,8 @@
 	<title>添加信息</title>
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/add_info.css">
+	<link rel="stylesheet" href="css/cropper.min.css">
+	<link rel="stylesheet" href="css/HimgCrop.css">
 </head>
 <body class="reg-body">
 	
@@ -29,28 +31,28 @@
 	<ul class="info-wrap">
 		<li>
 			<h3>头像</h3>
-			<label class="label-input head-label borR-3">
-				<img src="imgs/def.jpg" alt="默认底图" class="borR-3 head-img">
+			<div class="label-input head-label borR-3">
+				<img src="imgs/def.jpg" alt="默认底图" class="borR-3 head-img show-img">
 				<input type="file" value="" id="head-file-input"/>
-			</label>
+			</div>
 		</li>
 		<li>
 			<h3>身份证</h3>
-			<label class="label-input reverse-label borR-3">
-				<img src="imgs/reverse.jpg" alt="默认底图" class="borR-3 reverse-img">
+			<div class="label-input reverse-label borR-3">
+				<img src="imgs/reverse.jpg" alt="默认底图" class="borR-3 reverse-img show-img">
 				<input type="file" value="" id="reverse-file-input"/>
-			</label>
-			<label class="label-input positive-label borR-3">
-				<img src="imgs/positive.jpg" alt="默认底图" class="borR-3 positive-img">
+			</div>
+			<div class="label-input positive-label borR-3">
+				<img src="imgs/positive.jpg" alt="默认底图" class="borR-3 positive-img show-img">
 				<input type="file" value="" id="positive-file-input"/>
-			</label>
+			</div>
 		</li>
 		<li>
 			<h3>资格证书</h3>
-			<label class="label-input certificate-label borR-3">
-				<img src="imgs/certificate.jpg" alt="默认底图" class="borR-3 certificate-img">
+			<div class="label-input certificate-label borR-3">
+				<img src="imgs/certificate.jpg" alt="默认底图" class="borR-3 certificate-img show-img">
 				<input type="file" value="" id="certificate-file-input"/>
-			</label>
+			</div>
 		</li>
 	</ul>
 
@@ -60,23 +62,136 @@
 
 	<a href="#" class="reg-btn borR-3">完成</a>
 
+	<!-- 头像裁剪 -->
+	<div id="HimgCropWrap">
+		<img src="imgs/rotate.jpg" class="rotate-ing" width="50" height="50" />
+		<div class="cropper-wrap">
+			<img src="" alt="Picture" id="picccc">
+		</div>
+		<footer class="Himg-footer">
+			<span class="Himg-cancel">取消</span>
+			图片裁剪
+			<span class="Himg-select">选取</span>
+		</footer>
+	</div>
+
 	<!-- 上传图片弹层 -->
 	<section class="upload-mark">
 		<div class="option-wrap">
 			<ul class="opa-list borR-3">
-				<li>查看大图</li>
-				<li>上传图片</li>
+				<li class="show-big">查看大图</li>
+				<li class="upload-yes">上传图片</li>
 			</ul>
 			<a href="javascript:;" class="close-upload-win borR-3">取消</a>
 		</div>
 	</section>
 
+	<!-- 查看大图的包裹层 -->
+	<div class="big-pic-wrap">
+		<span class="close-big-pic">×</span>
+		<img src="imgs/def.jpg" class="big-pic" />
+		
+	</div>
+
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    	G.use(['zepto'], function(){
-			
-		});
+    	G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery.js'], function($, HimgCropJquery){
+
+	    	var inputId = '';
+	    	// 点击图片
+	    	$('.show-img').on('click', function(){
+	    		inputId = $(this).parent().find('input').attr('id');
+	    		$('.upload-mark').show();
+	    		
+	    	});
+
+	    	// 点击上传图片按钮
+			$('.upload-yes').on('click', function(){
+				$('.upload-mark').hide();
+				$('#' + inputId).click();
+			});
+			// 点击查看大图
+	   		$('.show-big').on('click', function(){
+	   			
+	   			var src = $('#' + inputId).parent().find('img').attr('src');
+	   			//alert(src);
+	   			$('.big-pic').attr('src', src);
+	   			$('.big-pic').on('load', function(){
+	   				$('.big-pic-wrap').show();
+		   			$('.big-pic').cropper('replace', src);
+	   			});
+	   			
+	   		});
+
+	   		// 初始化大图
+	   		$('.big-pic').cropper({
+				aspectRatio: 2 / 2,
+				autoCropArea: 1,
+				strict: false,
+				guides: false,
+				autoCrop : false,
+				highlight: false,
+				dragCrop: true,
+				cropBoxMovable: true,
+				background: true, // 是否显示网格背景 true 是 false 不显示
+				cropBoxResizable: true,
+				guides: true
+			});
+
+	    	// 关闭查看大图
+	    	$('.close-big-pic').on('touchend', function(){
+	    		$('.big-pic-wrap').hide();
+	    	});
+
+	    	// 点击图片上传弹层的取消按钮
+	    	$('.close-upload-win').on('click', function(){
+	    		$('.upload-mark').hide();
+	    	});
+
+	    	
+	   		
+
+	    	// 裁剪头像
+	   		var HimgCropJquery1 = new HimgCropJquery({
+				fileInput : ['#head-file-input', '#reverse-file-input', '#positive-file-input', '#certificate-file-input'],
+				rotateIngEvent : 'touchend',
+				cropperSetting : {
+					aspectRatio: 2 / 2,
+					autoCropArea: 0.65,
+					strict: false,
+					guides: false,
+					highlight: false,
+					dragCrop: true,
+					cropBoxMovable: true,
+					background: true, // 是否显示网格背景 true 是 false 不显示
+					cropBoxResizable: true,
+					guides: true
+				},
+				callback : function(canvasDom, inputId){
+					var imgSelector = '';
+					switch(inputId){
+						case 'head-file-input':
+							imgSelector = '.head-img';
+							break;
+						case 'reverse-file-input':
+							imgSelector = '.reverse-img';
+							break;
+						case 'positive-file-input':
+							imgSelector = '.positive-img';
+							break;
+						case 'certificate-file-input':
+							imgSelector = '.certificate-img';
+							break;
+					}
+
+					$(imgSelector).attr('src', canvasDom.toDataURL("image/png"));
+				}
+
+			});
+
+
+	    });
     </script>
 </body>
 </html>

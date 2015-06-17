@@ -69,35 +69,77 @@
 	<section class="upload-mark">
 		<div class="option-wrap">
 			<ul class="opa-list borR-3">
-				<li>查看大图</li>
+				<li class="show-big">查看大图</li>
 				<li class="upload-yes">上传图片</li>
 			</ul>
 			<a href="javascript:;" class="close-upload-win borR-3">取消</a>
 		</div>
 	</section>
+
+	<!-- 查看大图的包裹层 -->
+	<div class="big-pic-wrap">
+		<span class="close-big-pic">×</span>
+		<img src="imgs/def.jpg" class="big-pic" />
+		
+	</div>
 	
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
     G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery.js'], function($, HimgCropJquery){
 
+    	var inputId = '';
     	// 点击图片
     	$('.show-img').on('click', function(){
-    		var inputId = $(this).parent().find('input').attr('id');
+    		inputId = $(this).parent().find('input').attr('id');
     		$('.upload-mark').show();
-    		// 点击上传图片按钮
-    		$('.upload-yes').on('click', function(){
-    			$('.upload-mark').hide();
-    			$('.upload-yes').off('click');
-    			$('#' + inputId).click();
-    		})
+    		
+    	});
+
+    	// 点击上传图片按钮
+		$('.upload-yes').on('click', function(){
+			$('.upload-mark').hide();
+			$('#' + inputId).click();
+		});
+		// 点击查看大图
+   		$('.show-big').on('click', function(){
+   			
+   			var src = $('#' + inputId).parent().find('img').attr('src');
+   			//alert(src);
+   			$('.big-pic').attr('src', src);
+   			$('.big-pic').on('load', function(){
+   				$('.big-pic-wrap').show();
+	   			$('.big-pic').cropper('replace', src);
+   			});
+   			
+   		});
+
+   		// 初始化大图
+   		$('.big-pic').cropper({
+			aspectRatio: 2 / 2,
+			autoCropArea: 1,
+			strict: false,
+			guides: false,
+			autoCrop : false,
+			highlight: false,
+			dragCrop: true,
+			cropBoxMovable: true,
+			background: true, // 是否显示网格背景 true 是 false 不显示
+			cropBoxResizable: true,
+			guides: true
+		});
+
+    	// 关闭查看大图
+    	$('.close-big-pic').on('touchend', function(){
+    		$('.big-pic-wrap').hide();
     	});
 
     	// 点击图片上传弹层的取消按钮
     	$('.close-upload-win').on('click', function(){
     		$('.upload-mark').hide();
-    		$('.upload-yes').off('click');
-    	})
+    	});
+
+    	
    		
 
     	// 裁剪头像
@@ -134,6 +176,7 @@
 			}
 
 		});
+
 
     });
     </script>
