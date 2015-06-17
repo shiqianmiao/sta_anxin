@@ -26,3 +26,4 @@ account_det.html : 账户明细
 account_center.html : 账户中心
 account_center_wd.html : 账户中心-提现
 account_center_bank.html : 账户中心-银行卡/输入提现密码组件
+select_addr.html : 选择地址

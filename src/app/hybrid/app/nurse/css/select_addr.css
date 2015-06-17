@@ -1,0 +1,44 @@
+.select-addr-top{
+	height: 44px;
+	background: #fff;
+	overflow: hidden;
+}
+.addr-input-wrap{
+	height: 32px;
+	background: #f2f2f2;
+	margin-top: 6px;
+	margin-left: 44px;
+	width: 85%;
+}
+.addr-img{
+	width: 13px;
+	height: 17px;
+	margin-top: 7px;
+	margin-left: 10px;
+}
+.addr-input{
+	margin-left: 8px;
+	height: 32px;
+	border: none;
+	background: #f2f2f2;
+	width: 80%;
+}
+.addr-list{
+	padding: 0 4%;
+	background: #fff;
+	margin-top: 1px;
+}
+.per-addr{
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #e1e1e1;
+}
+.per-addr a{
+	display: block;
+	height: 100%;
+	font-size: 15px;
+	color: #333;
+}
+.per-addr:last-of-type{
+	border: none;
+}
