@@ -17,11 +17,11 @@
 	
 	<header class="reg-top"><a class="back" href="#"></a>身份信息<a class="phone-call" href="tel:110"></a></header>
 
-	<label class="label-input head-label">
+	<div class="label-input head-label">
 		头像
 		<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img head-img">
 		<input type="file" value="" id="head-file-input"/>
-	</label>
+	</div>
 
 	<p class="error-tip">身份证号码错误</p>
 
@@ -30,11 +30,11 @@
 			<h3>身份证号</h3>
 			<input type="text" value="" />
 		</div>
-		<label class="label-input id-card-label">
+		<div class="label-input id-card-label">
 			本人拿身份证照片
 			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img idcard-img">
 			<input type="file" value="" id="idcard-file-input"/>
-		</label>
+		</div>
 	</section>
 
 	<section class="id-card-sec sec2">
@@ -42,11 +42,11 @@
 			<h3>护士证书编号</h3>
 			<input type="text" value="" />
 		</div>
-		<label class="label-input id-card-label">
+		<div class="label-input id-card-label">
 			护士资格证
 			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img zs-img">
 			<input type="file" value="" id="zs-file-input"/>
-		</label>
+		</div>
 	</section>
 
 	<a href="#" class="reg-btn ready-btn borR-3">完成</a>
@@ -64,15 +64,40 @@
 			<span class="Himg-select">选取</span>
 		</footer>
 	</div>
+
+	<!-- 上传图片弹层 -->
+	<section class="upload-mark">
+		<div class="option-wrap">
+			<ul class="opa-list borR-3">
+				<li>查看大图</li>
+				<li class="upload-yes">上传图片</li>
+			</ul>
+			<a href="javascript:;" class="close-upload-win borR-3">取消</a>
+		</div>
+	</section>
 	
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
     G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery.js'], function($, HimgCropJquery){
+
+    	// 点击图片
     	$('.show-img').on('click', function(){
-    		document.title = 3;
-    		return false;
+    		var inputId = $(this).parent().find('input').attr('id');
+    		$('.upload-mark').show();
+    		// 点击上传图片按钮
+    		$('.upload-yes').on('click', function(){
+    			$('.upload-mark').hide();
+    			$('.upload-yes').off('click');
+    			$('#' + inputId).click();
+    		})
     	});
+
+    	// 点击图片上传弹层的取消按钮
+    	$('.close-upload-win').on('click', function(){
+    		$('.upload-mark').hide();
+    		$('.upload-yes').off('click');
+    	})
    		
 
     	// 裁剪头像

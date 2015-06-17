@@ -661,3 +661,45 @@ body{font-size:12px;  font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Med
 	font-weight: bold;
 }
 /* Hselect样式 结束 */
+/* 上传图片弹层 */
+.upload-mark{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	display: none;
+}
+.option-wrap{
+	position: absolute;
+	width: 94%;
+	left: 3%;
+	bottom: 10px;
+}
+.opa-list{
+	background: #fff;
+	padding: 0 2%;
+}
+.opa-list li{
+	height: 52px;
+	border-bottom: 1px solid #efefef;
+	font-size: 17px;
+	line-height: 52px;
+	text-align: center;
+	color: #ffad0f;
+}
+.opa-list li:last-of-type{
+	border: none;
+}
+.close-upload-win{
+	display: block;
+	height: 52px;
+	line-height: 52px;
+	text-align: center;
+	color: #ffad0f;
+	font-size: 17px;
+	background: #fff;
+	margin-top: 10px;
+}
+/* 上传图片弹层 结束 */
