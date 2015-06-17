@@ -11,6 +11,7 @@ center.html : 个人中心
 myInfo.html : 个人信息
 baseInfo.html : 基本资料
 identity_info.html : 身份信息
+add_info.html : 添加信息
 extension_info.html : 扩展信息   （日期没做）
 terms_service.html : 服务条款
 service_pro.html : 服务条款

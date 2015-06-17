@@ -1,0 +1,87 @@
+html, body{
+	background: #f1f1f1;
+}
+.progress{
+	height: 50px;
+	overflow: hidden;
+}
+.progress-view{
+	margin-top: 8px;
+	margin-bottom: 13px;
+	height: 8px;
+	text-align: center;
+}
+.progress-view span{
+	display: inline-block;
+}
+.round{
+	width: 8px;
+	height: 8px;
+	background: #acacac;
+}
+.line{
+	width: 8px;
+	height: 1px;
+	background: #acacac;
+	vertical-align: middle;
+}
+.curround{
+	background: #ffad0f;
+}
+.cur-intr{
+	height: 12px;
+	text-align: center;
+	line-height: 12px;
+	color: #ffad0f;
+}
+.info-wrap{
+	background: #fff;
+	padding: 0 4%;
+}
+.info-wrap li{
+	height: 56px;
+	border-bottom: 1px solid #e1e1e1;
+}
+.info-wrap h3{
+	float: left;
+	height: 100%;
+	font-size: 15px;
+	color: #999;
+	line-height: 56px;
+}
+.label-input:first-of-type{
+	margin-right: 0;
+}
+.label-input{
+	position: relative;
+	float: right;
+	height: 44px;
+	width: 44px;
+	margin-top: 6px;
+	padding: 0;
+	margin-right: 8px;
+}
+.label-input img{
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.add-other{
+	height: 44px;
+	background: #fff;
+	text-align: center;
+}
+.add-other a{
+	display: inline-block;
+	padding: 0 6px;
+	height: 30px;
+	border: 1px solid #ffad0f;
+	color: #ffad0f;
+	line-height: 30px;
+	font-size: 12px;
+	text-align: center;
+	margin-top: 6px;
+}
+.reg-btn{
+	margin: 27px auto;
+}
