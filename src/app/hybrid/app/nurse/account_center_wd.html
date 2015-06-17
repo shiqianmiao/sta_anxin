@@ -33,10 +33,48 @@
 		</ul>
 	</section>
 
-	<a href="#" class="reg-btn tx-btn borR-3">提现</a>
+	<a href="javascript:;" class="reg-btn tx-btn borR-3">提现</a>
 
 	<p class="tx-tip">提现说明：到账时间为2-3个工作日，</p>
 	<p class="tx-tip">如有疑问请致电安心客服400-614-9398</p>
+
+	<section class="pay-window">
+		<div class="tx-info-sec borR-3">
+			<h2 class="pay-title"><span class="close-pay-win">×</span>提现密码</h2>
+			<p class="nobig-tip">提现</p>
+			<em class="pay-amount-num">￥1000.<span>00</span></em>
+			<div class="pay-pwd-wrap">
+				<ul class="pwd-list borR-3">
+					<li class="per-pwd boxSiz"><span class="borR-50"></span></li>
+					<li class="per-pwd boxSiz"><span class="borR-50"></span></li>
+					<li class="per-pwd boxSiz"><span class="borR-50"></span></li>
+					<li class="per-pwd boxSiz"><span class="borR-50"></span></li>
+					<li class="per-pwd boxSiz"><span class="borR-50"></span></li>
+					<li class="per-pwd boxSiz"><span class="borR-50"></span></li>
+				</ul>
+			</div>
+		</div>
+		<div class="keyboard">
+			<ul class="key-list boxSiz">
+				<li data-num="1">1</li>
+				<li data-num="4">4</li>
+				<li data-num="7">7</li>
+				<li class="reduction" data-num="404" data-btn='other'>×</li>
+			</ul>
+			<ul class="key-list boxSiz">
+				<li data-num="2">2</li>
+				<li data-num="5">5</li>
+				<li data-num="8">8</li>
+				<li data-num="0">0</li>
+			</ul>
+			<ul class="key-list boxSiz">
+				<li data-num="3">3</li>
+				<li data-num="6">6</li>
+				<li data-num="9">9</li>
+				<li class="wancheng" data-num="200" data-btn='other'>完成</li>
+			</ul>
+		</div>
+	</section>
 
 	<footer class="footer-nav">
 		<ul class="footernav-list">
@@ -45,6 +83,81 @@
 			<li><a href="#" class="active"></a></li>
 		</ul>
 	</footer>
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    	G.use(['zepto', 'com/mobile/widget/Hmodel/js/Hmodel.js'], function($, Hmodel){
+
+    		
+    		// 实例化提示模态框
+    		var Hmodel = new Hmodel({
+				showTime : 2000
+			});
+
+    		var pwd = [];
+
+    		// 点击提现按钮
+    		$('.tx-btn').on('tap', function(){
+    			// 显示输入提现密码弹层
+    			$('.pay-window').show();
+    		});
+
+    		// 点击关闭按钮
+    		$('.close-pay-win').on('tap', function(){
+    			$('.pay-window').hide();
+    			$('.pwd-list li').removeClass('fill');
+    			pwd = [];
+    		});
+			
+			// 点击键盘数字,样式改变
+			$('.key-list li').on('touchstart', function(){
+				$(this).css('background', '#e9edf3');
+			});
+			$('.key-list li').on('touchend', function(){
+				if($(this).data('btn') == 'other'){
+					$(this).css('background', '#d5d8db');
+				}else{
+					$(this).css('background', '#fff');
+				}
+				
+			});
+
+			// 点击键盘按钮，
+			$('.key-list li').on('tap', function(){
+				var targetLi = $('.pwd-list .fill').length;
+				var clickNum = $(this).html();
+				
+				
+				// 如果点击的是删除按钮
+				if($(this).data('num') == 404){
+					$('.pwd-list li').eq(targetLi - 1).removeClass('fill');
+					pwd.pop();
+				}else if($(this).data('num') == 200){
+					// 点击完成按钮
+					// 检查密码是否填写完毕
+					if(targetLi != 6){
+						Hmodel.show('密码不完整');
+					}else{
+						alert('做相应处理');
+					}
+					
+
+				}else{
+					if(targetLi != 6){	// 密码已满
+						// 点击的是数字键盘
+						pwd.push(clickNum);
+						$('.pwd-list li').eq(targetLi).addClass('fill');
+					}
+				}
+				console.log(pwd);
+				
+				
+			});
+
+
+		});
+    </script>
 	
 </body>
 </html>

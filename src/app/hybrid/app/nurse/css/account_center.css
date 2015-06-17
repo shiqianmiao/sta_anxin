@@ -268,3 +268,139 @@
 	margin: 0 auto 20px;
 }
 /* 账户中心-提现 的样式 结束 */
+/* 提现密码弹窗 */
+.pay-window{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	background: rgba(0,0,0,0.5);
+}
+.tx-info-sec{
+	width: 73.333333%;
+	margin: 80px auto;
+	background: #fff;
+	padding-bottom: 19px;
+}
+@media all and (max-width: 320px){
+	.tx-info-sec{
+		width: 83.333333%;
+		margin: 20px auto;
+	}
+}
+.pay-title{
+	height: 50px;
+	border-bottom: 1px solid #e1e1e1;
+	line-height: 50px;
+	text-align: center;
+	color: #333;
+	font-weight: bold;
+	position: relative;
+}
+.close-pay-win{
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	left: 0;
+	top: 0;
+	font-size: 24px;
+	color: #ffad0f;
+}
+.nobig-tip{
+	height: 13px;
+	line-height: 13px;
+	text-align: center;
+	color: #333;
+	font-style: 13px;
+	margin-top: 22px;
+
+}
+.pay-amount-num{
+	display: block;
+	font-size: 34px;
+	font-weight: bold;
+	color: #333;
+	text-align: center;
+	margin-top: 14px;
+}
+.pay-amount-num span{
+	font-size: 13px;
+}
+.pay-pwd-wrap{
+	text-align: center;
+	margin-top: 26px;
+}
+.pwd-list{
+	display: inline-block;
+	border: 1px solid #c9c9c9;
+}
+.per-pwd{
+	float: left;
+	width: 40px;
+	height: 40px;
+	border-right: 1px solid #c9c9c9;
+	position: relative;
+}
+.per-pwd span{
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	background: #000;
+	top: 50%;
+	margin-top: -400px;
+	left: 50%;
+	margin-left: -400px;
+}
+.per-pwd.fill span{
+	top: 50%;
+	margin-top: -4px;
+	left: 50%;
+	margin-left: -4px;
+}
+.per-pwd:last-of-type{
+	border: none;
+}
+.keyboard{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background: #fff;
+}
+.key-list{
+	float: left;
+	width: 33.33333333333%;
+	border-right: 1px solid #b9bec3;
+}
+.key-list:last-of-type{
+	border: none;
+}
+.key-list li{
+	height: 53px;
+	border-bottom: 1px solid #b9bec3;
+	text-align: center;
+	line-height: 53px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #000000;
+}
+@media all and (max-width: 320px){
+	.key-list li{
+		height: 43px;
+		line-height: 43px;
+	}
+}
+.key-list li.reduction{
+	font-size: 26px;
+	background: #d5d8db;
+}
+.wancheng{
+	background: #d5d8db;
+}
+.key-list li:active{
+	background: #e9edf3;
+}
+/* 提现密码弹窗 结束 */
