@@ -1,5 +1,8 @@
+body{
+	padding-bottom: 38px;
+}
 .order-det-sec{
-	padding: 0 4% 20px;
+	padding: 0 4% 15px;
 	background: #fff;
 }
 .order-det-title{
@@ -12,6 +15,15 @@
 	color: #333;
 	font-size: 15px;
 	line-height: 47px;
+	font-weight: bold;
+}
+.order-over{
+	height: 37px;
+}
+.order-over h3{
+	float: none;
+	text-align: center;
+	line-height: 37px;
 }
 .order-det-title a{
 	float: right;
@@ -149,6 +161,52 @@
 	text-align: center;
 	color: #fff;
 	font-size: 15px;
-	margin: 38px auto;
+	margin: 38px auto 0;
 	background: #ffad0f;
+}
+.det-pro-list{
+	margin-top: 15px;
+	border-top: 1px dotted #eeeeee;
+	border-bottom: 1px dotted #eeeeee;
+	padding: 10px 0 5px;
+}
+.per-det-pro{
+	height: 30px;
+	line-height: 30px;
+	color: #333333;
+}
+.per-det-pro h3{
+	float: left;
+	height: 30px;
+	font-size: 15px;
+}
+.per-det-pro p{
+	float: right;
+	font-size: 15px;
+}
+.per-det-pro p em, .total-of em{
+	color: #ff3c00;
+}
+.total-of{
+	height: 15px;
+	line-height: 15px;
+	font-size: 15px;
+	text-align: right;
+	margin-top: 15px;
+}
+.star-list{
+	height: 18px;
+}
+.star-wrap{
+	padding: 15px 4% 18px;
+}
+.star-list img{
+	width: 18px;
+	height: 18px;
+	margin-right: 9px;
+}
+.review-p{
+	font-size: 15px;
+	color: #333333;
+	margin-top: 14px;
 }

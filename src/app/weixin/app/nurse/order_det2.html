@@ -16,9 +16,8 @@
 <body>
 
 	<section class="order-det-sec boxSha">
-		<div class="order-det-title">
+		<div class="order-det-title order-over">
 			<h3>订单已结束</h3>
-			<a href="#" class="borR-3">取消订单</a>
 		</div>
 		<section class="remaining">
 			<p class="remaining-time">距离接单结束还剩：1小时30分28秒</p>
@@ -45,6 +44,18 @@
 				<p>金泉家园xxxxxxx</p>
 			</li>
 		</ul>
+
+		<ul class="det-pro-list">
+			<li class="per-det-pro">
+				<h3>肌肉注射</h3>
+				<p><em>￥60</em> *1</p>
+			</li>
+			<li class="per-det-pro">
+				<h3>肌肉注射</h3>
+				<p><em>￥60</em> *1</p>
+			</li>
+		</ul>
+		<div class="total-of">共计 <em>￥560</em></div>
 	</section>
 
 	<section class="nurse-list boxSha">
@@ -63,8 +74,48 @@
 		</ul>
 	</section>
 
+	<section class="nurse-list boxSha">
+		<h2 class="list-title">评价信息</h2>
+		<section class="star-wrap">
+			<div class="star-list">
+				<img src="imgs/starnull.jpg" data-num="1">
+				<img src="imgs/starnull.jpg" data-num="2">
+				<img src="imgs/starnull.jpg" data-num="3">
+				<img src="imgs/starnull.jpg" data-num="4">
+				<img src="imgs/starnull.jpg" data-num="5">
+			</div>
+			<p class="review-p">服务不错，手法专业，很好哦！</p>
+		</section>
+	</section>
+
 	<a href="#" class="nurse-list-btn borR-3">去评价</a>
 	
+	<script src="http://sta.anxin365.com/g.js"></script>
+    <script src="http://sta.anxin365.com/config.js"></script>
+	<script>
+	G.use(['zepto'], function($){
+
+		// 点击星星
+		var oldUrl = 'imgs/starnull.jpg',
+			clickUrl = 'imgs/star.jpg',
+			$starObjs = $('.star-list img'),
+			starNum = $starObjs.length;
+		$('.star-list img').on('tap', function(){
+			var clickId = $(this).data('num');
+			for(var i = 0; i < starNum; i++){
+				if($starObjs.eq(i).index() < clickId){
+					$starObjs.eq(i).attr('src', clickUrl);
+				}else{
+					$starObjs.eq(i).attr('src', oldUrl);
+				}
+			}
+		});
+
+
+
+
+	});
+	</script>
 	
 </body>
 </html>
