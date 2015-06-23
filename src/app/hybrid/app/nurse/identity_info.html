@@ -20,7 +20,7 @@
 	<div class="label-input head-label">
 		头像
 		<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img head-img">
-		<input type="file" value="" id="head-file-input"/>
+		<input class="file-input" type="file" value="" id="head-file-input"/>
 	</div>
 
 	<p class="error-tip">身份证号码错误</p>
@@ -33,7 +33,7 @@
 		<div class="label-input id-card-label">
 			本人拿身份证照片
 			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img idcard-img">
-			<input type="file" value="" id="idcard-file-input"/>
+			<input class="file-input" type="file" value="" id="idcard-file-input"/>
 		</div>
 	</section>
 
@@ -45,7 +45,7 @@
 		<div class="label-input id-card-label">
 			护士资格证
 			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img zs-img">
-			<input type="file" value="" id="zs-file-input"/>
+			<input class="file-input" type="file" value="" id="zs-file-input"/>
 		</div>
 	</section>
 
@@ -144,38 +144,64 @@
    		
 
     	// 裁剪头像
-   		var HimgCropJquery1 = new HimgCropJquery({
-			fileInput : ['#head-file-input', '#idcard-file-input', '#zs-file-input'],
-			rotateIngEvent : 'touchend',
-			cropperSetting : {
-				aspectRatio: 2 / 2,
-				autoCropArea: 0.65,
-				strict: false,
-				guides: false,
-				highlight: false,
-				dragCrop: true,
-				cropBoxMovable: true,
-				background: true, // 是否显示网格背景 true 是 false 不显示
-				cropBoxResizable: true,
-				guides: true
-			},
-			callback : function(canvasDom, inputId){
-				var imgSelector = '';
-				switch(inputId){
-					case 'head-file-input':
-						imgSelector = '.head-img';
-						break;
-					case 'idcard-file-input':
-						imgSelector = '.idcard-img';
-						break;
-					case 'zs-file-input':
-						imgSelector = '.zs-img';
-						break;
+  //  		var HimgCropJquery1 = new HimgCropJquery({
+		// 	fileInput : ['#head-file-input', '#idcard-file-input', '#zs-file-input'],
+		// 	rotateIngEvent : 'touchend',
+		// 	cropperSetting : {
+		// 		aspectRatio: 2 / 2,
+		// 		autoCropArea: 0.65,
+		// 		strict: false,
+		// 		guides: false,
+		// 		highlight: false,
+		// 		dragCrop: true,
+		// 		cropBoxMovable: true,
+		// 		background: true, // 是否显示网格背景 true 是 false 不显示
+		// 		cropBoxResizable: true,
+		// 		guides: true
+		// 	},
+		// 	callback : function(canvasDom, inputId){
+		// 		var imgSelector = '';
+		// 		switch(inputId){
+		// 			case 'head-file-input':
+		// 				imgSelector = '.head-img';
+		// 				break;
+		// 			case 'idcard-file-input':
+		// 				imgSelector = '.idcard-img';
+		// 				break;
+		// 			case 'zs-file-input':
+		// 				imgSelector = '.zs-img';
+		// 				break;
+		// 		}
+
+		// 		$(imgSelector).attr('src', canvasDom.toDataURL("image/png"));
+		// 	}
+
+		// });
+
+		$('.file-input').on('change', function(){
+			var self = this;
+			var fs = this.files; // fs.length(文件个数)  fs[i].type(文件格式)
+			// 读取文件的对象
+			var fd = new FileReader();
+
+			if(fs.length == 1){
+
+				if(/image/.test(fs[0].type)){
+
+					fd.readAsDataURL(fs[0]); // 读文件，将文件对象传入
+
+					fd.onload = function(){ // 读文件成功的时候触发
+
+						$(self).parent().find('img').attr('src', this.result);
+
+					}
+					
+				}else{
+					alert('您选择的不是图片');
 				}
-
-				$(imgSelector).attr('src', canvasDom.toDataURL("image/png"));
+			}else{
+				alert('您选择的不是一张图片');
 			}
-
 		});
 
 

@@ -33,25 +33,25 @@
 			<h3>头像</h3>
 			<div class="label-input head-label borR-3">
 				<img src="imgs/def.jpg" alt="默认底图" class="borR-3 head-img show-img">
-				<input type="file" value="" id="head-file-input"/>
+				<input class="file-input" type="file" value="" id="head-file-input"/>
 			</div>
 		</li>
 		<li>
 			<h3>身份证</h3>
 			<div class="label-input reverse-label borR-3">
 				<img src="imgs/reverse.jpg" alt="默认底图" class="borR-3 reverse-img show-img">
-				<input type="file" value="" id="reverse-file-input"/>
+				<input class="file-input" type="file" value="" id="reverse-file-input"/>
 			</div>
 			<div class="label-input positive-label borR-3">
 				<img src="imgs/positive.jpg" alt="默认底图" class="borR-3 positive-img show-img">
-				<input type="file" value="" id="positive-file-input"/>
+				<input class="file-input" type="file" value="" id="positive-file-input"/>
 			</div>
 		</li>
 		<li>
 			<h3>资格证书</h3>
 			<div class="label-input certificate-label borR-3">
 				<img src="imgs/certificate.jpg" alt="默认底图" class="borR-3 certificate-img show-img">
-				<input type="file" value="" id="certificate-file-input"/>
+				<input class="file-input" type="file" value="" id="certificate-file-input"/>
 			</div>
 		</li>
 	</ul>
@@ -156,42 +156,68 @@
 	    	
 	   		
 
-	    	// 裁剪头像
-	   		var HimgCropJquery1 = new HimgCropJquery({
-				fileInput : ['#head-file-input', '#reverse-file-input', '#positive-file-input', '#certificate-file-input'],
-				rotateIngEvent : 'touchend',
-				cropperSetting : {
-					aspectRatio: 2 / 2,
-					autoCropArea: 0.65,
-					strict: false,
-					guides: false,
-					highlight: false,
-					dragCrop: true,
-					cropBoxMovable: true,
-					background: true, // 是否显示网格背景 true 是 false 不显示
-					cropBoxResizable: true,
-					guides: true
-				},
-				callback : function(canvasDom, inputId){
-					var imgSelector = '';
-					switch(inputId){
-						case 'head-file-input':
-							imgSelector = '.head-img';
-							break;
-						case 'reverse-file-input':
-							imgSelector = '.reverse-img';
-							break;
-						case 'positive-file-input':
-							imgSelector = '.positive-img';
-							break;
-						case 'certificate-file-input':
-							imgSelector = '.certificate-img';
-							break;
+	  //   	// 裁剪头像
+	  //  		var HimgCropJquery1 = new HimgCropJquery({
+			// 	fileInput : ['#head-file-input', '#reverse-file-input', '#positive-file-input', '#certificate-file-input'],
+			// 	rotateIngEvent : 'touchend',
+			// 	cropperSetting : {
+			// 		aspectRatio: 2 / 2,
+			// 		autoCropArea: 0.65,
+			// 		strict: false,
+			// 		guides: false,
+			// 		highlight: false,
+			// 		dragCrop: true,
+			// 		cropBoxMovable: true,
+			// 		background: true, // 是否显示网格背景 true 是 false 不显示
+			// 		cropBoxResizable: true,
+			// 		guides: true
+			// 	},
+			// 	callback : function(canvasDom, inputId){
+			// 		var imgSelector = '';
+			// 		switch(inputId){
+			// 			case 'head-file-input':
+			// 				imgSelector = '.head-img';
+			// 				break;
+			// 			case 'reverse-file-input':
+			// 				imgSelector = '.reverse-img';
+			// 				break;
+			// 			case 'positive-file-input':
+			// 				imgSelector = '.positive-img';
+			// 				break;
+			// 			case 'certificate-file-input':
+			// 				imgSelector = '.certificate-img';
+			// 				break;
+			// 		}
+
+			// 		$(imgSelector).attr('src', canvasDom.toDataURL("image/png"));
+			// 	}
+
+			// });
+
+			$('.file-input').on('change', function(){
+				var self = this;
+				var fs = this.files; // fs.length(文件个数)  fs[i].type(文件格式)
+				// 读取文件的对象
+				var fd = new FileReader();
+
+				if(fs.length == 1){
+
+					if(/image/.test(fs[0].type)){
+
+						fd.readAsDataURL(fs[0]); // 读文件，将文件对象传入
+
+						fd.onload = function(){ // 读文件成功的时候触发
+
+							$(self).parent().find('img').attr('src', this.result);
+
+						}
+						
+					}else{
+						alert('您选择的不是图片');
 					}
-
-					$(imgSelector).attr('src', canvasDom.toDataURL("image/png"));
+				}else{
+					alert('您选择的不是一张图片');
 				}
-
 			});
 
 
