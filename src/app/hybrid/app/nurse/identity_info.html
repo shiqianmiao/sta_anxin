@@ -89,7 +89,6 @@
     G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery.js'], function($, HimgCropJquery){
 
     	var inputId = '';
-    	var bigPicLoad = false;
     	// 点击图片
     	$('.show-img').on('click', function(){
     		inputId = $(this).parent().find('input').attr('id');
@@ -108,7 +107,6 @@
    			var src = $('#' + inputId).parent().find('img').attr('src');
    			
    			$('.big-pic').on('load', function(){
-				bigPicLoad = true;
    				$('.big-pic-wrap').show();
 	   			$('.big-pic').cropper('replace', src);
    			});
