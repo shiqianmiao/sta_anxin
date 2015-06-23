@@ -89,6 +89,7 @@
     G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery.js'], function($, HimgCropJquery){
 
     	var inputId = '';
+    	var bigPicLoad = false;
     	// 点击图片
     	$('.show-img').on('click', function(){
     		inputId = $(this).parent().find('input').attr('id');
@@ -97,20 +98,22 @@
     	});
 
     	// 点击上传图片按钮
-		$('.upload-yes').on('click', function(){
+		$('.upload-yes').on('touchend', function(){
 			$('.upload-mark').hide();
 			$('#' + inputId).click();
 		});
 		// 点击查看大图
-   		$('.show-big').on('click', function(){
+   		$('.show-big').on('touchend', function(){
    			
    			var src = $('#' + inputId).parent().find('img').attr('src');
-   			//alert(src);
-   			$('.big-pic').attr('src', src);
+   			
    			$('.big-pic').on('load', function(){
+				bigPicLoad = true;
    				$('.big-pic-wrap').show();
 	   			$('.big-pic').cropper('replace', src);
    			});
+   			$('.big-pic-wrap').show();
+	   		$('.big-pic').cropper('replace', src);
    			
    		});
 
@@ -122,7 +125,7 @@
 			guides: false,
 			autoCrop : false,
 			highlight: false,
-			dragCrop: true,
+			dragCrop: false,
 			cropBoxMovable: true,
 			background: true, // 是否显示网格背景 true 是 false 不显示
 			cropBoxResizable: true,
@@ -135,7 +138,7 @@
     	});
 
     	// 点击图片上传弹层的取消按钮
-    	$('.close-upload-win').on('click', function(){
+    	$('.close-upload-win').on('touchend', function(){
     		$('.upload-mark').hide();
     	});
 
