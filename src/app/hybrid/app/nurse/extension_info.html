@@ -10,6 +10,8 @@
 	<title>扩展信息</title>
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/extension_info.css">
+	<link rel="stylesheet" href="css/cropper.min.css">
+	<link rel="stylesheet" href="css/HimgCrop.css">
 </head>
 <body class="ccc-body pd-b-50">
 	
@@ -41,12 +43,12 @@
 	<ul class="certificate">
 		<li class="per-cert">
 			<h3>资格证书</h3>
-			<img src="imgs/a.jpg"  />
+			<img src="imgs/a.jpg" class="zs-img" />
 			<span class="remove-cert"></span>
 		</li>
 	</ul>
-	<footer class="add-cert-wrap">
-		<a href="#" class="borR-3">+其他专项证书</a>
+	<footer class="add-cert-wrap" id="container">
+		<a href="javascript:;" class="borR-3" id="add-zs">+其他专项证书</a>
 	</footer>
 
 	<a href="#" class="reg-btn borR-3">完成</a>
@@ -70,11 +72,17 @@
 		<li class="H-effective">铁匠</li>
 		<li class="H-effective">补给</li>
 	</div>
+
+	<!-- 查看大图的包裹层 -->
+	<div class="big-pic-wrap">
+		<span class="close-big-pic">×</span>
+		<img src="imgs/def.jpg" class="big-pic" />
+	</div>
 	
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    	G.use(['widget/Hselect/js/Hselect.js'], function(Hselect){
+    	G.use(['jquery', 'widget/Hselect/js/Hselect.js', 'widget/HimgCrop/js/HimgCropJquery.js', 'lib/qiniu/qiniu.js'], function($, Hselect, HimgCropJquery, Qiniu){
 
 			$('.select-hospital').click(function(){
 				$(this).find('img').addClass('se-img-rotate');
@@ -102,9 +110,90 @@
 
 
 			// 点击叉叉移除证书
-			$('.remove-cert').on('tap', function(){
+			$('.remove-cert').on('click', removeCert);
+			function removeCert(){
 				$(this).parent().detach();
+			}
+
+			// 点击证书图片 查看大图
+	   		$('.zs-img').on('touchend', showBigImg);
+	   		function showBigImg(){
+	   			
+	   			var src = $(this).attr('src');
+	   			
+	   			$('.big-pic').on('load', function(){
+	   				$('.big-pic-wrap').show();
+		   			$('.big-pic').cropper('replace', src);
+	   			});
+	   			$('.big-pic-wrap').show();
+		   		$('.big-pic').cropper('replace', src);
+	   			
+	   		}
+	   		// 关闭查看大图
+	    	$('.close-big-pic').on('click', function(){
+	    		$('.big-pic-wrap').hide();
+	    	});
+	   		// 初始化大图
+	   		$('.big-pic').cropper({
+				aspectRatio: 2 / 2,
+				autoCropArea: 1,
+				strict: false,
+				guides: false,
+				autoCrop : false,
+				highlight: false,
+				dragCrop: false,
+				cropBoxMovable: true,
+				background: true, // 是否显示网格背景 true 是 false 不显示
+				cropBoxResizable: true,
+				guides: true
 			});
+
+
+
+			// 点击添加证书
+			var uploader = Qiniu.uploader({
+		        runtimes: 'html5,flash,html4',
+		        browse_button: 'add-zs',
+		        container: 'container',
+		        drop_element: 'container',
+		        max_file_size: '100mb',
+		        flash_swf_url: 'js/plupload/Moxie.swf',
+		        dragdrop: true,
+		        chunk_size: '4mb',
+		        //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
+		        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:JhMNT4KH8OB2k_8f6107yTCPI3o=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzUyMjMyODN9',
+		        domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
+		        auto_start: true,
+		        init: {
+		            'FileUploaded': function(up, file, info) {
+
+		                var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
+		                // 创建证书DOM
+		    			// <li class="per-cert">
+						// 	<h3>资格证书</h3>
+						// 	<img src="imgs/a.jpg" class="zs-img" />
+						// 	<span class="remove-cert"></span>
+						// </li>
+
+		                var oLi = document.createElement('li');
+		                oLi.className = 'per-cert';
+		                var oH3 = document.createElement('h3');
+		                oH3.innerHTML = '资格证书';
+		                var oImg = document.createElement('img');
+		                oImg.src = src;
+		                oImg.onclick = showBigImg;
+		                var oSpanClose = document.createElement('span');
+		                oSpanClose.className = 'remove-cert';
+		                oSpanClose.onclick = removeCert;
+
+		                oLi.appendChild(oH3);
+		                oLi.appendChild(oImg);
+		                oLi.appendChild(oSpanClose);
+
+		                $('.certificate').append($(oLi));
+		            }
+		        }
+		    });
 
 
 
