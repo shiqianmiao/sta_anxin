@@ -19,7 +19,7 @@
 
 	<div class="label-input head-label">
 		头像
-		<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img head-img" id="head-img">
+		<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img head-img" id="head-img" data-abled="true">
 		<input class="file-input" type="file" value="" id="head-file-input"/>
 	</div>
 
@@ -30,7 +30,7 @@
 		</div>
 		<div class="label-input id-card-label">
 			本人拿身份证照片
-			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img idcard-img" id="idcard-img">
+			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img idcard-img" id="idcard-img" data-abled="false">
 			<input class="file-input" type="file" value="" id="idcard-file-input"/>
 		</div>
 	</section>
@@ -42,7 +42,7 @@
 		</div>
 		<div class="label-input id-card-label">
 			护士资格证
-			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img zs-img" id="zs-img">
+			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img zs-img" id="zs-img" data-abled="true">
 			<input class="file-input" type="file" value="" id="zs-file-input"/>
 		</div>
 	</section>
@@ -91,13 +91,20 @@
     	// 点击图片
     	$('.show-img').on('click', function(){
     		inputId = $(this).parent().find('input').attr('id');
-    		$('.upload-mark').css({top: 0});
+    		var abled = $(this).data('abled');
+    		if(abled == true){
+    			$('.upload-mark').css({top: 0});
+    		}else{
+    			showBigImg();
+    		}
+    		
     		
     	});
 
     	
 		// 点击查看大图
-   		$('.show-big').on('touchend', function(){
+   		$('.show-big').on('touchend', showBigImg);
+   		function showBigImg(){
    			
    			var src = $('#' + inputId).parent().find('img').attr('src');
    			
@@ -108,7 +115,7 @@
    			$('.big-pic-wrap').show();
 	   		$('.big-pic').cropper('replace', src);
    			
-   		});
+   		}
 
    		// 初始化大图
    		$('.big-pic').cropper({
