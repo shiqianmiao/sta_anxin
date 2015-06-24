@@ -93,15 +93,11 @@
     	// 点击图片
     	$('.show-img').on('click', function(){
     		inputId = $(this).parent().find('input').attr('id');
-    		$('.upload-mark').show();
+    		$('.upload-mark').css({top: 0});
     		
     	});
 
-    	// 点击上传图片按钮
-		$('.upload-yes').on('click', function(){
-			$('.upload-mark').hide();
-
-		});
+    	
 		// 点击查看大图
    		$('.show-big').on('touchend', function(){
    			
@@ -138,7 +134,8 @@
 
     	// 点击图片上传弹层的取消按钮
     	$('.close-upload-win').on('touchend', function(){
-    		$('.upload-mark').hide();
+    		// 隐藏
+	        $('.upload-mark').css({top: '-100%'});
     	});
 
     	var uploader = Qiniu.uploader({
@@ -157,13 +154,13 @@
 	        init: {
 	            'FileUploaded': function(up, file, info) {
 
+	            	// 隐藏
+	            	$('.upload-mark').css({top: '-100%'});
+
 	                var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
-	                var img = new Image();
-	                img.src = src;
-	                img.onload = function(){
-	                    $('body').append($(img));
-	                };
 	                
+	                $('#' + inputId).data('src', src);
+	                $('#' + inputId).parent().find('img').attr('src', src);
 	            }
 	        }
 	    });
