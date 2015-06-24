@@ -68,9 +68,9 @@
 	<!-- 上传图片弹层 -->
 	<section class="upload-mark">
 		<div class="option-wrap">
-			<ul class="opa-list borR-3">
+			<ul class="opa-list borR-3" id="container">
 				<li class="show-big">查看大图</li>
-				<li class="upload-yes">上传图片</li>
+				<li class="upload-yes" id="pickfiles">上传图片</li>
 			</ul>
 			<a href="javascript:;" class="close-upload-win borR-3">取消</a>
 		</div>
@@ -85,8 +85,9 @@
 	
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+
     <script>
-    G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery.js'], function($, HimgCropJquery){
+    G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery.js', 'lib/qiniu/qiniu.js'], function($, HimgCropJquery, Qiniu){
 
     	var inputId = '';
     	// 点击图片
@@ -97,9 +98,9 @@
     	});
 
     	// 点击上传图片按钮
-		$('.upload-yes').on('touchend', function(){
+		$('.upload-yes').on('click', function(){
 			$('.upload-mark').hide();
-			$('#' + inputId).click();
+
 		});
 		// 点击查看大图
    		$('.show-big').on('touchend', function(){
@@ -140,69 +141,33 @@
     		$('.upload-mark').hide();
     	});
 
+    	var uploader = Qiniu.uploader({
+	        runtimes: 'html5,flash,html4',
+	        browse_button: 'pickfiles',
+	        container: 'container',
+	        drop_element: 'container',
+	        max_file_size: '100mb',
+	        flash_swf_url: 'js/plupload/Moxie.swf',
+	        dragdrop: true,
+	        chunk_size: '4mb',
+	        //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
+	        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:EWb5_Z-bIQ46JBQpm0jKEz9rb7Q=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzUyMTU5NTN9',
+	        domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
+	        auto_start: true,
+	        init: {
+	            'FileUploaded': function(up, file, info) {
+
+	                var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
+	                var img = new Image();
+	                img.src = src;
+	                img.onload = function(){
+	                    $('body').append($(img));
+	                };
+	                
+	            }
+	        }
+	    });
     	
-   		
-
-    	// 裁剪头像
-  //  		var HimgCropJquery1 = new HimgCropJquery({
-		// 	fileInput : ['#head-file-input', '#idcard-file-input', '#zs-file-input'],
-		// 	rotateIngEvent : 'touchend',
-		// 	cropperSetting : {
-		// 		aspectRatio: 2 / 2,
-		// 		autoCropArea: 0.65,
-		// 		strict: false,
-		// 		guides: false,
-		// 		highlight: false,
-		// 		dragCrop: true,
-		// 		cropBoxMovable: true,
-		// 		background: true, // 是否显示网格背景 true 是 false 不显示
-		// 		cropBoxResizable: true,
-		// 		guides: true
-		// 	},
-		// 	callback : function(canvasDom, inputId){
-		// 		var imgSelector = '';
-		// 		switch(inputId){
-		// 			case 'head-file-input':
-		// 				imgSelector = '.head-img';
-		// 				break;
-		// 			case 'idcard-file-input':
-		// 				imgSelector = '.idcard-img';
-		// 				break;
-		// 			case 'zs-file-input':
-		// 				imgSelector = '.zs-img';
-		// 				break;
-		// 		}
-
-		// 		$(imgSelector).attr('src', canvasDom.toDataURL("image/png"));
-		// 	}
-
-		// });
-
-		$('.file-input').on('change', function(){
-			var self = this;
-			var fs = this.files; // fs.length(文件个数)  fs[i].type(文件格式)
-			// 读取文件的对象
-			var fd = new FileReader();
-
-			if(fs.length == 1){
-
-				if(/image/.test(fs[0].type)){
-
-					fd.readAsDataURL(fs[0]); // 读文件，将文件对象传入
-
-					fd.onload = function(){ // 读文件成功的时候触发
-
-						$(self).parent().find('img').attr('src', this.result);
-
-					}
-					
-				}else{
-					alert('您选择的不是图片');
-				}
-			}else{
-				alert('您选择的不是一张图片');
-			}
-		});
 
 
     });

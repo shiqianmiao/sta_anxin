@@ -28,7 +28,7 @@
 }
 .id-card-num h3{
 	float: left;
-	width: 53.33333333%;
+	width: 33.33333333%;
 	height: 50px;
 	line-height: 50px;
 	font-size: 15px;
@@ -38,10 +38,11 @@
 	float: left;
 	border: none;
 	height: 50px;
-	width: 46.66666667%;
+	width: 66.66666667%;
 	line-height: 50px;
 	color: #333333;
 	font-size: 15px;
+	text-align: right;
 }
 @media all and (max-width: 320px){
 	.id-card-num h3{
