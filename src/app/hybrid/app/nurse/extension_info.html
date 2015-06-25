@@ -86,12 +86,12 @@
 			<section class="select-time-wrap">
 				<div>
 					<span class="time-add" data-type="year"></span>
-					<em>2011</em>
+					<em class="year-num">2011</em>
 					<span class="time-jian" data-type="year"></span>
 				</div>年
 				<div>
 					<span class="time-add" data-type="month"></span>
-					<em>4</em>
+					<em class="month-num">4</em>
 					<span class="time-jian" data-type="month"></span>
 				</div>月
 			</section>
@@ -259,6 +259,14 @@
 					}
 				}
 				$(this).parent().find('em').html(curNum);
+			});
+
+			$('.okya-time').on('click', function(){
+				var yearNum = $('.year-num').html();
+				var monthNum = $('.month-num').html();
+				var str = yearNum + '年' + monthNum + '月';
+				$('.select-time em').html(str);
+				$('#time-win').addClass('hide-time-win');
 			});
 
 
