@@ -20,7 +20,7 @@
 	<ul class="exit-wrap">
 		<li>
 			<h3>从业时间</h3>
-			<section><em>2011年5月</em> <img class="se-img" src="imgs/strip.png" alt="选择"></section>
+			<section class="select-time"><em>2011年5月</em> <img class="se-img" src="imgs/strip.png" alt="选择"></section>
 		</li>
 		<li>
 			<h3>毕业院校</h3>
@@ -79,6 +79,28 @@
 		<img src="imgs/def.jpg" class="big-pic" />
 	</div>
 	
+	<!-- 从业时间弹窗 -->
+	<div class="alert-mark flex-center hide-time-win" id="time-win">
+		<div class="time-win borR-3">
+			<h2 class="time-title">选择从业时间<span class="close-time">×</span></h2>
+			<section class="select-time-wrap">
+				<div>
+					<span class="time-add" data-type="year"></span>
+					<em>2011</em>
+					<span class="time-jian" data-type="year"></span>
+				</div>年
+				<div>
+					<span class="time-add" data-type="month"></span>
+					<em>4</em>
+					<span class="time-jian" data-type="month"></span>
+				</div>月
+			</section>
+			<footer class="time-foot">
+				<span class="okya-time borR-3">完成</span>
+			</footer>
+		</div>
+	</div>
+
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
@@ -194,6 +216,50 @@
 		            }
 		        }
 		    });
+
+
+			// 点击时间选择
+			$('.select-time').on('click', function(){
+				$('#time-win').removeClass('hide-time-win');
+			});
+
+			$('.close-time').on('click', function(){
+				$('#time-win').addClass('hide-time-win');
+			});
+
+			$('.time-add').on('touchend', function(){
+				var curNum = parseInt($(this).parent().find('em').html());
+				curNum++;
+				if($(this).data('type') == 'month'){
+					if(curNum >= 12){
+						curNum = 12;
+					}else if(curNum <= 0){
+						curNum = 0;
+					}
+				}else if($(this).data('type') == 'year'){
+					if(curNum <= 0){
+						curNum = 0;
+					}
+				}
+				$(this).parent().find('em').html(curNum);
+			});
+
+			$('.time-jian').on('touchend', function(){
+				var curNum = parseInt($(this).parent().find('em').html());
+				curNum--;
+				if($(this).data('type') == 'month'){
+					if(curNum >= 12){
+						curNum = 12;
+					}else if(curNum <= 0){
+						curNum = 0;
+					}
+				}else if($(this).data('type') == 'year'){
+					if(curNum <= 0){
+						curNum = 0;
+					}
+				}
+				$(this).parent().find('em').html(curNum);
+			});
 
 
 
