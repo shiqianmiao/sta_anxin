@@ -142,7 +142,7 @@
     		// 隐藏
 	        $('.upload-mark').css({top: '-100%'});
     	});
-
+alert(4);
     	var uploader = Qiniu.uploader({
 	        runtimes: 'html5,flash,html4',
 	        browse_button: 'pickfiles',
@@ -158,7 +158,7 @@
 	        auto_start: true,
 	        init: {
 	            'FileUploaded': function(up, file, info) {
-
+alert(3);
 	            	// 隐藏
 	            	$('.upload-mark').css({top: '-100%'});
 

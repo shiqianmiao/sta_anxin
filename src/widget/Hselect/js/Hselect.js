@@ -152,7 +152,7 @@ $.extend(proto, {
 
 		this.toBind();
 
-		this.completeBtn.tap(function(){
+		this.completeBtn.click(function(){
 			var $elem = self.getSelectEle();
 			if($elem){
 				self.settings.completeFn(self.SelectElement);
