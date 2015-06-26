@@ -42,18 +42,28 @@ html{
 	border-bottom: 1px dotted #eee;
 }
 .per-pro{
-	height: 30px;
+	min-height: 30px;
 	line-height: 30px;
 }
 .per-pro h3, .per-pro p{
-	display: inline-block;
+	float: left;
 	font-size: 15px;
 }
 .per-pro h3{
 	color: #999;
+	width: 14%;
 }
 .per-pro p{
+	width: 86%;
 	color: #333;
+}
+@media all and (max-width: 320px){
+	.per-pro h3{
+		width: 16%;
+	}
+	.per-pro p{
+		width: 84%;
+	}
 }
 .order2-foot{
 	height: 60px;
