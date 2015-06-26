@@ -80,7 +80,7 @@ $.extend(proto, {
 		var self = this;
 
 
-
+		self.rotateIng.off(this.settings.rotateIngEvent);
 		// 点击旋转按钮
 		self.rotateIng.on(this.settings.rotateIngEvent, function(){
 			self.srcImg.cropper("rotate", 90);
