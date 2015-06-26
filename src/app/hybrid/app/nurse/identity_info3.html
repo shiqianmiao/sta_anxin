@@ -54,13 +54,14 @@
 	<div id="HimgCropWrap">
 		<img src="imgs/rotate.jpg" class="rotate-ing" width="50" height="50"  />
 		<div class="cropper-wrap">
-			<img src="" alt="Picture" id="picccc">
+			<img src="" alt="Picture" id="picccc" data-active="false">
 		</div>
 		<footer class="Himg-footer">
 			<span class="Himg-cancel">取消</span>
 			图片裁剪
 			<span class="Himg-select">选取</span>
 		</footer>
+		<input type="hidden" value="imgs/def.jpg" class="srcDom" />
 	</div>
 
 	<!-- 上传图片弹层 -->
@@ -78,14 +79,13 @@
 	<div class="big-pic-wrap">
 		<span class="close-big-pic">×</span>
 		<img src="imgs/def.jpg" class="big-pic" />
-		
 	</div>
 	
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
 
     <script>
-    G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery.js', 'lib/qiniu/qiniu.js'], function($, HimgCropJquery, Qiniu){
+    G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery2.js', 'lib/qiniu/qiniu.js'], function($, HimgCropJquery, Qiniu){
 
     	var inputId = '';
     	// 点击图片
@@ -163,9 +163,52 @@
 	            	$('.upload-mark').css({top: '-100%'});
 
 	                var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
+	                $('.srcDom').val(src);
+	                // 判断如果是上传头像要裁剪
+	                if(inputId == 'head-file-input'){
+	                	var HimgCropJquery1 = new HimgCropJquery({
+							srcDom: $('.srcDom'),
+							rotateIngEvent : 'touchend',
+							callback : function(canvasDom, data){
+								
+								// 图片的缩放宽高
+								var imgWidth = Math.round(data.canvasData.width);
+								var imgHeight = Math.round(data.canvasData.height);
+								// 裁剪是的宽高
+								var cropWidth = Math.round(data.CropBoxData.width);
+								var cropHeight = Math.round(data.CropBoxData.height);
+								// 裁剪是的偏移
+								var cropOffsetLeft = Math.round(data.CropBoxData.left) - Math.round(data.canvasData.left);
+								var cropOffsetTop = Math.round(data.CropBoxData.top) - Math.round(data.canvasData.top);
+								// 旋转的角度
+								var rotate = data.imageData.rotate;
+
+								// 拼接七牛裁剪连接
+								src = src + '?imageMogr2/thumbnail/' + imgWidth + 'x' + imgHeight + '!/crop/!' + cropWidth + 'x' + cropHeight + 'a' + cropOffsetLeft + 'a' + cropOffsetTop + '/rotate/' + rotate;
+
+								$('#' + inputId).data('src', src);
+	                			$('#' + inputId).parent().find('img').attr('src', src);
+
+							},
+							cropperSetting : {
+								aspectRatio: 2 / 2,
+								autoCropArea: 0.65,
+								strict: true,
+								guides: false,
+								highlight: false,
+								dragCrop: false,
+								cropBoxMovable: true,
+								background: true, // 是否显示网格背景 true 是 false 不显示
+								cropBoxResizable: true,
+								guides: true
+							}
+						});
+	                	
+	                }else{
+	                	$('#' + inputId).data('src', src);
+	                	$('#' + inputId).parent().find('img').attr('src', src);
+	                }
 	                
-	                $('#' + inputId).data('src', src);
-	                $('#' + inputId).parent().find('img').attr('src', src);
 	            }
 	        }
 	    });

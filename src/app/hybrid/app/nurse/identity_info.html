@@ -143,40 +143,40 @@
     	
    		
 
-    	// 裁剪头像
-  //  		var HimgCropJquery1 = new HimgCropJquery({
-		// 	fileInput : ['#head-file-input', '#idcard-file-input', '#zs-file-input'],
-		// 	rotateIngEvent : 'touchend',
-		// 	cropperSetting : {
-		// 		aspectRatio: 2 / 2,
-		// 		autoCropArea: 0.65,
-		// 		strict: false,
-		// 		guides: false,
-		// 		highlight: false,
-		// 		dragCrop: true,
-		// 		cropBoxMovable: true,
-		// 		background: true, // 是否显示网格背景 true 是 false 不显示
-		// 		cropBoxResizable: true,
-		// 		guides: true
-		// 	},
-		// 	callback : function(canvasDom, inputId){
-		// 		var imgSelector = '';
-		// 		switch(inputId){
-		// 			case 'head-file-input':
-		// 				imgSelector = '.head-img';
-		// 				break;
-		// 			case 'idcard-file-input':
-		// 				imgSelector = '.idcard-img';
-		// 				break;
-		// 			case 'zs-file-input':
-		// 				imgSelector = '.zs-img';
-		// 				break;
-		// 		}
+    	//裁剪头像
+   		var HimgCropJquery1 = new HimgCropJquery({
+			fileInput : ['#head-file-input', '#idcard-file-input', '#zs-file-input'],
+			rotateIngEvent : 'touchend',
+			cropperSetting : {
+				aspectRatio: 2 / 2,
+				autoCropArea: 0.65,
+				strict: false,
+				guides: false,
+				highlight: false,
+				dragCrop: true,
+				cropBoxMovable: true,
+				background: true, // 是否显示网格背景 true 是 false 不显示
+				cropBoxResizable: true,
+				guides: true
+			},
+			callback : function(canvasDom, inputId){
+				var imgSelector = '';
+				switch(inputId){
+					case 'head-file-input':
+						imgSelector = '.head-img';
+						break;
+					case 'idcard-file-input':
+						imgSelector = '.idcard-img';
+						break;
+					case 'zs-file-input':
+						imgSelector = '.zs-img';
+						break;
+				}
 
-		// 		$(imgSelector).attr('src', canvasDom.toDataURL("image/png"));
-		// 	}
+				$(imgSelector).attr('src', canvasDom.toDataURL("image/png"));
+			}
 
-		// });
+		});
 
 		$('.file-input').on('change', function(){
 			var self = this;
