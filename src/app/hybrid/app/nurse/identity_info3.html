@@ -153,10 +153,17 @@
 	        dragdrop: true,
 	        chunk_size: '4mb',
 	        //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
-	        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:y0RruWhn1AZWpvgxbUx1Ju4p4ao=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzUzNzUwNTEsInNhdmVLZXkiOiAiJCh5ZWFyKSQobW9uKSQoZGF5KSQoaG91cikkKG1pbikkKHNlYykifQ==',
+	        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:H03uXS3XI_Hc5Vw5UE4aX6uXKIs=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzUzNzY2NDd9',
 	        domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
 	        auto_start: true,
 	        init: {
+	        	'Key': function(up, file) {
+                    // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
+                    // 该配置必须要在 unique_names: false , save_key: false 时才生效
+                    var key = inputId;
+                    var timestamp = new Date().getTime();
+                    return key + timestamp;
+                },
 	            'FileUploaded': function(up, file, info) {
 
 	            	// 隐藏
