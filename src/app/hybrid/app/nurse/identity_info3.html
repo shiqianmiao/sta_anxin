@@ -170,7 +170,7 @@
 							srcDom: $('.srcDom'),
 							rotateIngEvent : 'touchend',
 							callback : function(canvasDom, data){
-								
+
 								// 图片的缩放宽高
 								var imgWidth = Math.round(data.canvasData.width);
 								var imgHeight = Math.round(data.canvasData.height);
@@ -184,7 +184,7 @@
 								var rotate = data.imageData.rotate;
 
 								// 拼接七牛裁剪连接
-								src = src + '?imageMogr2/thumbnail/' + imgWidth + 'x' + imgHeight + '!/crop/!' + cropWidth + 'x' + cropHeight + 'a' + cropOffsetLeft + 'a' + cropOffsetTop + '/rotate/' + rotate;
+								src = src + '?imageMogr2/rotate/' + rotate + '/thumbnail/' + imgWidth + 'x' + imgHeight + '!/crop/!' + cropWidth + 'x' + cropHeight + 'a' + cropOffsetLeft + 'a' + cropOffsetTop;
 
 								$('#' + inputId).data('src', src);
 	                			$('#' + inputId).parent().find('img').attr('src', src);
