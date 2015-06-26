@@ -10,6 +10,8 @@
 	<title>扩展信息</title>
 	<link rel="stylesheet" href="css/public.css">
 	<link rel="stylesheet" href="css/extension_info.css">
+	<link rel="stylesheet" href="css/cropper.min.css">
+	<link rel="stylesheet" href="css/HimgCrop.css">
 </head>
 <body class="ccc-body pd-b-50">
 	
@@ -18,7 +20,7 @@
 	<ul class="exit-wrap">
 		<li>
 			<h3>从业时间</h3>
-			<section><em>2011年5月</em> <img class="se-img" src="imgs/strip.png" alt="选择"></section>
+			<section class="select-time"><em>2011年5月</em> <img class="se-img" src="imgs/strip.png" alt="选择"></section>
 		</li>
 		<li>
 			<h3>毕业院校</h3>
@@ -41,12 +43,12 @@
 	<ul class="certificate">
 		<li class="per-cert">
 			<h3>资格证书</h3>
-			<img src="imgs/a.jpg"  />
+			<img src="imgs/a.jpg" class="zs-img" />
 			<span class="remove-cert"></span>
 		</li>
 	</ul>
-	<footer class="add-cert-wrap">
-		<a href="#" class="borR-3">+其他专项证书</a>
+	<footer class="add-cert-wrap" id="container">
+		<a href="javascript:;" class="borR-3" id="add-zs">+其他专项证书</a>
 	</footer>
 
 	<a href="#" class="reg-btn borR-3">完成</a>
@@ -70,11 +72,39 @@
 		<li class="H-effective">铁匠</li>
 		<li class="H-effective">补给</li>
 	</div>
+
+	<!-- 查看大图的包裹层 -->
+	<div class="big-pic-wrap">
+		<span class="close-big-pic">×</span>
+		<img src="imgs/def.jpg" class="big-pic" />
+	</div>
 	
+	<!-- 从业时间弹窗 -->
+	<div class="alert-mark flex-center hide-time-win" id="time-win">
+		<div class="time-win borR-3">
+			<h2 class="time-title">选择从业时间<span class="close-time">×</span></h2>
+			<section class="select-time-wrap">
+				<div>
+					<span class="time-add" data-type="year"></span>
+					<em class="year-num">2011</em>
+					<span class="time-jian" data-type="year"></span>
+				</div>年
+				<div>
+					<span class="time-add" data-type="month"></span>
+					<em class="month-num">4</em>
+					<span class="time-jian" data-type="month"></span>
+				</div>月
+			</section>
+			<footer class="time-foot">
+				<span class="okya-time borR-3">完成</span>
+			</footer>
+		</div>
+	</div>
+
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    	G.use(['widget/Hselect/js/Hselect.js'], function(Hselect){
+    	G.use(['jquery', 'widget/Hselect/js/Hselect.js', 'widget/HimgCrop/js/HimgCropJquery.js', 'lib/qiniu/qiniu.js'], function($, Hselect, HimgCropJquery, Qiniu){
 
 			$('.select-hospital').click(function(){
 				$(this).find('img').addClass('se-img-rotate');
@@ -102,8 +132,141 @@
 
 
 			// 点击叉叉移除证书
-			$('.remove-cert').on('tap', function(){
+			$('.remove-cert').on('click', removeCert);
+			function removeCert(){
 				$(this).parent().detach();
+			}
+
+			// 点击证书图片 查看大图
+	   		$('.zs-img').on('click', showBigImg);
+	   		function showBigImg(){
+	   			
+	   			var src = $(this).attr('src');
+	   			
+	   			$('.big-pic').on('load', function(){
+	   				$('.big-pic-wrap').show();
+		   			$('.big-pic').cropper('replace', src);
+	   			});
+	   			$('.big-pic-wrap').show();
+		   		$('.big-pic').cropper('replace', src);
+	   			
+	   		}
+	   		// 关闭查看大图
+	    	$('.close-big-pic').on('click', function(){
+	    		$('.big-pic-wrap').hide();
+	    	});
+	   		// 初始化大图
+	   		$('.big-pic').cropper({
+				aspectRatio: 2 / 2,
+				autoCropArea: 1,
+				strict: false,
+				guides: false,
+				autoCrop : false,
+				highlight: false,
+				dragCrop: false,
+				cropBoxMovable: true,
+				background: true, // 是否显示网格背景 true 是 false 不显示
+				cropBoxResizable: true,
+				guides: true
+			});
+
+
+
+			// 点击添加证书
+			var uploader = Qiniu.uploader({
+		        runtimes: 'html5,flash,html4',
+		        browse_button: 'add-zs',
+		        container: 'container',
+		        drop_element: 'container',
+		        max_file_size: '100mb',
+		        flash_swf_url: 'js/plupload/Moxie.swf',
+		        dragdrop: true,
+		        chunk_size: '4mb',
+		        //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
+		        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:weTkNjdVeI6NGgnaxUY_ZUp2LLk=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzUzMDE5ODB9',
+		        domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
+		        auto_start: true,
+		        init: {
+		            'FileUploaded': function(up, file, info) {
+
+		                var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
+		                // 创建证书DOM
+		    			// <li class="per-cert">
+						// 	<h3>资格证书</h3>
+						// 	<img src="imgs/a.jpg" class="zs-img" />
+						// 	<span class="remove-cert"></span>
+						// </li>
+						alert(4);
+		                var oLi = document.createElement('li');
+		                oLi.className = 'per-cert';
+		                var oH3 = document.createElement('h3');
+		                oH3.innerHTML = '资格证书';
+		                var oImg = document.createElement('img');
+		                oImg.src = src;
+		                oImg.onclick = showBigImg;
+		                var oSpanClose = document.createElement('span');
+		                oSpanClose.className = 'remove-cert';
+		                oSpanClose.onclick = removeCert;
+
+		                oLi.appendChild(oH3);
+		                oLi.appendChild(oImg);
+		                oLi.appendChild(oSpanClose);
+
+		                $('.certificate').append($(oLi));
+		            }
+		        }
+		    });
+
+
+			// 点击时间选择
+			$('.select-time').on('click', function(){
+				$('#time-win').removeClass('hide-time-win');
+			});
+
+			$('.close-time').on('click', function(){
+				$('#time-win').addClass('hide-time-win');
+			});
+
+			$('.time-add').on('touchend', function(){
+				var curNum = parseInt($(this).parent().find('em').html());
+				curNum++;
+				if($(this).data('type') == 'month'){
+					if(curNum >= 12){
+						curNum = 12;
+					}else if(curNum <= 0){
+						curNum = 0;
+					}
+				}else if($(this).data('type') == 'year'){
+					if(curNum <= 0){
+						curNum = 0;
+					}
+				}
+				$(this).parent().find('em').html(curNum);
+			});
+
+			$('.time-jian').on('touchend', function(){
+				var curNum = parseInt($(this).parent().find('em').html());
+				curNum--;
+				if($(this).data('type') == 'month'){
+					if(curNum >= 12){
+						curNum = 12;
+					}else if(curNum <= 0){
+						curNum = 0;
+					}
+				}else if($(this).data('type') == 'year'){
+					if(curNum <= 0){
+						curNum = 0;
+					}
+				}
+				$(this).parent().find('em').html(curNum);
+			});
+
+			$('.okya-time').on('click', function(){
+				var yearNum = $('.year-num').html();
+				var monthNum = $('.month-num').html();
+				var str = yearNum + '年' + monthNum + '月';
+				$('.select-time em').html(str);
+				$('#time-win').addClass('hide-time-win');
 			});
 
 

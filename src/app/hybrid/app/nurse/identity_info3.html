@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="ccc-body">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>身份信息</title>
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/identity_info.css">
+	<link rel="stylesheet" href="css/cropper.min.css">
+	<link rel="stylesheet" href="css/HimgCrop.css">
+</head>
+<body class="ccc-body pd-b-50">
+	
+	<header class="reg-top"><a class="back" href="#"></a>身份信息<a class="phone-call" href="tel:110"></a></header>
+
+	<div class="label-input head-label">
+		头像
+		<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img head-img" id="head-img" data-abled="true">
+		<input class="file-input" type="file" value="" id="head-file-input"/>
+	</div>
+
+	<section class="id-card-sec">
+		<div class="id-card-num">
+			<h3>身份证号</h3>
+			<input type="text" value="" />
+		</div>
+		<div class="label-input id-card-label">
+			本人拿身份证照片
+			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img idcard-img" id="idcard-img" data-abled="false">
+			<input class="file-input" type="file" value="" id="idcard-file-input"/>
+		</div>
+	</section>
+
+	<section class="id-card-sec sec2">
+		<div class="id-card-num">
+			<h3>护士证书编号</h3>
+			<input type="text" value="" />
+		</div>
+		<div class="label-input id-card-label">
+			护士资格证
+			<img src="imgs/def.jpg" alt="默认底图" class="borR-3 show-img zs-img" id="zs-img" data-abled="true">
+			<input class="file-input" type="file" value="" id="zs-file-input"/>
+		</div>
+	</section>
+
+	<a href="#" class="reg-btn ready-btn borR-3">完成</a>
+
+
+	<!-- 头像裁剪 -->
+	<div id="HimgCropWrap">
+		<img src="imgs/rotate.jpg" class="rotate-ing" width="50" height="50"  />
+		<div class="cropper-wrap">
+			<img src="" alt="Picture" id="picccc" data-active="false">
+		</div>
+		<footer class="Himg-footer">
+			<span class="Himg-cancel">取消</span>
+			图片裁剪
+			<span class="Himg-select">选取</span>
+		</footer>
+		<input type="hidden" value="imgs/def.jpg" class="srcDom" />
+	</div>
+
+	<!-- 上传图片弹层 -->
+	<section class="upload-mark">
+		<div class="option-wrap">
+			<ul class="opa-list borR-3" id="container">
+				<li class="show-big">查看大图</li>
+				<li class="upload-yes" id="pickfiles">上传图片</li>
+			</ul>
+			<a href="javascript:;" class="close-upload-win borR-3">取消</a>
+		</div>
+	</section>
+
+	<!-- 查看大图的包裹层 -->
+	<div class="big-pic-wrap">
+		<span class="close-big-pic">×</span>
+		<img src="imgs/def.jpg" class="big-pic" />
+	</div>
+	
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+
+    <script>
+    G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery2.js', 'lib/qiniu/qiniu.js'], function($, HimgCropJquery, Qiniu){
+
+    	var inputId = '';
+    	// 点击图片
+    	$('.show-img').on('click', function(){
+    		inputId = $(this).parent().find('input').attr('id');
+    		var abled = $(this).data('abled');
+    		if(abled == true){
+    			$('.upload-mark').css({top: 0});
+    		}else{
+    			showBigImg();
+    		}
+    		
+    		
+    	});
+
+    	
+		// 点击查看大图
+   		$('.show-big').on('touchend', showBigImg);
+   		function showBigImg(){
+   			
+   			var src = $('#' + inputId).parent().find('img').attr('src');
+   			
+   			$('.big-pic').on('load', function(){
+   				$('.big-pic-wrap').show();
+	   			$('.big-pic').cropper('replace', src);
+   			});
+   			$('.big-pic-wrap').show();
+	   		$('.big-pic').cropper('replace', src);
+   			
+   		}
+
+   		// 初始化大图
+   		$('.big-pic').cropper({
+			aspectRatio: 2 / 2,
+			autoCropArea: 1,
+			strict: false,
+			guides: false,
+			autoCrop : false,
+			highlight: false,
+			dragCrop: false,
+			cropBoxMovable: true,
+			background: true, // 是否显示网格背景 true 是 false 不显示
+			cropBoxResizable: true,
+			guides: true
+		});
+
+    	// 关闭查看大图
+    	$('.close-big-pic').on('click', function(){
+    		$('.big-pic-wrap').hide();
+    	});
+
+    	// 点击图片上传弹层的取消按钮
+    	$('.close-upload-win').on('touchend', function(){
+    		// 隐藏
+	        $('.upload-mark').css({top: '-100%'});
+    	});
+
+    	var uploader = Qiniu.uploader({
+	        runtimes: 'html5,flash,html4',
+	        browse_button: 'pickfiles',
+	        container: 'container',
+	        drop_element: 'container',
+	        max_file_size: '100mb',
+	        flash_swf_url: 'js/plupload/Moxie.swf',
+	        dragdrop: true,
+	        chunk_size: '4mb',
+	        //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
+	        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:H03uXS3XI_Hc5Vw5UE4aX6uXKIs=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzUzNzY2NDd9',
+	        domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
+	        auto_start: true,
+	        init: {
+	        	'Key': function(up, file) {
+                    // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
+                    // 该配置必须要在 unique_names: false , save_key: false 时才生效
+                    var key = inputId;
+                    var timestamp = new Date().getTime();
+                    return key + timestamp;
+                },
+	            'FileUploaded': function(up, file, info) {
+
+	            	// 隐藏
+	            	$('.upload-mark').css({top: '-100%'});
+
+	                var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
+	                $('.srcDom').val(src);
+	                // 判断如果是上传头像要裁剪
+	                if(inputId == 'head-file-input'){
+	                	var HimgCropJquery1 = new HimgCropJquery({
+							srcDom: $('.srcDom'),
+							rotateIngEvent : 'touchend',
+							callback : function(canvasDom, data){
+
+								// 图片的缩放宽高
+								var imgWidth = Math.round(data.canvasData.width);
+								var imgHeight = Math.round(data.canvasData.height);
+								// 裁剪是的宽高
+								var cropWidth = Math.round(data.CropBoxData.width);
+								var cropHeight = Math.round(data.CropBoxData.height);
+								// 裁剪是的偏移
+								var cropOffsetLeft = Math.round(data.CropBoxData.left) - Math.round(data.canvasData.left);
+								var cropOffsetTop = Math.round(data.CropBoxData.top) - Math.round(data.canvasData.top);
+								// 旋转的角度
+								var rotate = data.imageData.rotate;
+
+								// 拼接七牛裁剪连接
+								src = src + '?imageMogr2/rotate/' + rotate + '/thumbnail/' + imgWidth + 'x' + imgHeight + '!/crop/!' + cropWidth + 'x' + cropHeight + 'a' + cropOffsetLeft + 'a' + cropOffsetTop;
+
+								$('#' + inputId).data('src', src);
+	                			$('#' + inputId).parent().find('img').attr('src', src);
+
+							},
+							cropperSetting : {
+								aspectRatio: 2 / 2,
+								autoCropArea: 0.65,
+								strict: true,
+								guides: false,
+								highlight: false,
+								dragCrop: false,
+								cropBoxMovable: true,
+								background: true, // 是否显示网格背景 true 是 false 不显示
+								cropBoxResizable: true,
+								guides: true
+							}
+						});
+	                	
+	                }else{
+	                	$('#' + inputId).data('src', src);
+	                	$('#' + inputId).parent().find('img').attr('src', src);
+	                }
+	                
+	            }
+	        }
+	    });
+    	
+
+
+    });
+    </script>
+</body>
+</html>

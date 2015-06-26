@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>添加信息</title>
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/add_info.css">
+	<link rel="stylesheet" href="css/cropper.min.css">
+	<link rel="stylesheet" href="css/HimgCrop.css">
+</head>
+<body class="reg-body">
+	
+	<header class="reg-top"><a class="back" href="#"></a>添加信息<a href="tel:110" class="phone-call"></a></header>
+
+	<section class="progress">
+		<div class="progress-view">
+			<span class="round borR-50"></span>
+			<span class="line"></span>
+			<span class="round borR-50"></span>
+			<span class="line"></span>
+			<span class="round borR-50 curround"></span>
+		</div>
+		<p class="cur-intr">上传照片</p>
+	</section>
+
+	<ul class="info-wrap">
+		<li>
+			<h3>头像</h3>
+			<div class="label-input head-label borR-3">
+				<img src="imgs/def.jpg" alt="默认底图" class="borR-3 head-img show-img" data-abled="true">
+				<input class="file-input" type="file" value="" id="head-file-input"/>
+			</div>
+		</li>
+		<li>
+			<h3>身份证</h3>
+			<div class="label-input reverse-label borR-3">
+				<img src="imgs/reverse.jpg" alt="默认底图" class="borR-3 reverse-img show-img" data-abled="true">
+				<input class="file-input" type="file" value="" id="reverse-file-input"/>
+			</div>
+			<div class="label-input positive-label borR-3">
+				<img src="imgs/positive.jpg" alt="默认底图" class="borR-3 positive-img show-img">
+				<input class="file-input" type="file" value="" id="positive-file-input"/>
+			</div>
+		</li>
+		<li>
+			<h3>资格证书</h3>
+			<div class="label-input certificate-label borR-3">
+				<img src="imgs/certificate.jpg" alt="默认底图" class="borR-3 certificate-img show-img">
+				<input class="file-input" type="file" value="" id="certificate-file-input"/>
+			</div>
+		</li>
+	</ul>
+
+	<section class="add-other">
+		<a href="#" class="borR-3">＋添加其他专项证书</a>
+	</section>
+
+	<a href="#" class="reg-btn borR-3">完成</a>
+
+	<!-- 头像裁剪 -->
+	<div id="HimgCropWrap">
+		<img src="imgs/rotate.jpg" class="rotate-ing" width="50" height="50" />
+		<div class="cropper-wrap">
+			<img src="" alt="Picture" id="picccc">
+		</div>
+		<footer class="Himg-footer">
+			<span class="Himg-cancel">取消</span>
+			图片裁剪
+			<span class="Himg-select">选取</span>
+		</footer>
+	</div>
+
+	<!-- 上传图片弹层 -->
+	<section class="upload-mark">
+		<div class="option-wrap">
+			<ul class="opa-list borR-3" id="container">
+				<li class="show-big">查看大图</li>
+				<li class="upload-yes" id="pickfiles">上传图片</li>
+			</ul>
+			<a href="javascript:;" class="close-upload-win borR-3">取消</a>
+		</div>
+	</section>
+
+	<!-- 查看大图的包裹层 -->
+	<div class="big-pic-wrap">
+		<span class="close-big-pic">×</span>
+		<img src="imgs/def.jpg" class="big-pic" />
+		
+	</div>
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    	G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery.js', 'lib/qiniu/qiniu.js'], function($, HimgCropJquery, Qiniu){
+
+	    	var inputId = '';
+	    	// 点击图片
+	    	$('.show-img').on('click', function(){
+	    		inputId = $(this).parent().find('input').attr('id');
+	    		$('.upload-mark').css({top: 0});
+	    		
+	    	});
+
+			// 点击查看大图
+	   		$('.show-big').on('touchend', function(){
+	   			
+	   			var src = $('#' + inputId).parent().find('img').attr('src');
+	   			//alert(src);
+	   			$('.big-pic').attr('src', src);
+
+	   			$('.big-pic').on('load', function(){
+	   				$('.big-pic-wrap').show();
+		   			$('.big-pic').cropper('replace', src);
+	   			});
+	   			$('.big-pic-wrap').show();
+		   		$('.big-pic').cropper('replace', src);
+	   			
+	   			
+	   		});
+
+	   		// 初始化大图
+	   		$('.big-pic').cropper({
+				aspectRatio: 2 / 2,
+				autoCropArea: 1,
+				strict: false,
+				guides: false,
+				autoCrop : false,
+				highlight: false,
+				dragCrop: false,
+				cropBoxMovable: true,
+				background: true, // 是否显示网格背景 true 是 false 不显示
+				cropBoxResizable: true,
+				guides: true
+			});
+
+	    	// 关闭查看大图
+	    	$('.close-big-pic').on('touchend', function(){
+	    		$('.big-pic-wrap').hide();
+	    	});
+
+	    	// 点击图片上传弹层的取消按钮
+	    	$('.close-upload-win').on('touchend', function(){
+	    		$('.upload-mark').css({top: '-100%'});
+	    	});
+
+	    	
+	   		var uploader = Qiniu.uploader({
+		        runtimes: 'html5,flash,html4',
+		        browse_button: 'pickfiles',
+		        container: 'container',
+		        drop_element: 'container',
+		        max_file_size: '100mb',
+		        flash_swf_url: 'js/plupload/Moxie.swf',
+		        dragdrop: true,
+		        chunk_size: '4mb',
+		        //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
+		        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:JhMNT4KH8OB2k_8f6107yTCPI3o=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzUyMjMyODN9',
+		        domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
+		        auto_start: true,
+		        init: {
+		            'FileUploaded': function(up, file, info) {
+
+		            	// 隐藏
+		            	$('.upload-mark').css({top: '-100%'});
+
+		                var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
+		                
+		                $('#' + inputId).data('src', src);
+		                $('#' + inputId).parent().find('img').attr('src', src);
+		            }
+		        }
+		    });
+
+
+	    });
+    </script>
+</body>
+</html>

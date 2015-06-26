@@ -102,3 +102,108 @@
 .reg-btn{
 	margin: 28px auto;
 }
+.big-pic-wrap{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.close-big-pic{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 40px;
+	height: 40px;
+	background: #fff;
+	line-height: 40px;
+	color: #000;
+	text-align: center;
+	font-size: 30px;
+	z-index: 10;
+	font-weight: bold;
+}
+.time-win{
+	width: 300px;
+	background: #fff;
+}
+.time-title{
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 15px;
+	color: #ffad0f;
+	border-bottom: 1px solid #eeeeee;
+	position: relative;
+}
+.close-time{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	font-size: 24px;
+	right: 0;
+	top: 0;
+	color: #333;
+}
+.select-time-wrap{
+	height: 100px;
+	position: relative;
+	text-align: center;
+	line-height: 100px;
+	font-size: 24px;
+	padding: 6px 0;
+}
+.select-time-wrap div{
+	display: inline-block;
+	position: relative;
+	margin: 0 20px;
+	color: #ffad0f;
+}
+.select-time-wrap div:first-of-type{
+	margin-left: 0;
+}
+.time-add{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	margin-left: -10px;
+	top: 4px;
+	background: url(../imgs/add.png) no-repeat center center;
+	background-size: 10px 10px;
+	border: 1px solid #b8b8b7;
+	border-radius: 30%;
+}
+.time-jian{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	margin-left: -10px;
+	bottom: 4px;
+	background: url(../imgs/jian.png) no-repeat center center;
+	border: 1px solid #b8b8b7;
+	border-radius: 30%;
+	background-size: 10px 10px;
+}
+.time-foot{
+	height: 50px;
+	border-top: 1px solid #eee;
+}
+.okya-time{
+	display: block;
+	width: 20%;
+	height: 30px;
+	margin: 10px auto;
+	background: #ffad0f;
+	color: #fff;
+	line-height: 30px;
+	text-align: center;
+	font-size: 15px;
+}
+.hide-time-win{
+	display: none;
+}

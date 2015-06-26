@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>aaa</title>
+	<style>
+		body{
+			padding: 0;
+			margin: 0;
+		}
+		em{
+			font-style: normal;
+		}
+		.block-label{
+			display: inline-block;
+			width: 140px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			position: relative;
+			border: 1px solid #000;
+			border-radius: 8px;
+			background: #ffad0f;
+		}
+		.block-label input{
+			position: absolute;
+			left: -10000px;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/cropper.css">
+	<link rel="stylesheet" type="text/css" href="css/HimgCrop.css">
+</head>
+<body>
+
+
+	<h1>选择图片</h1>
+	<label class="block-label">
+		<span>点击选择...</span>
+		<input type="file" id="fileInput" />
+	</label>
+	<br/>
+
+
+
+
+
+
+
+	<div id="HimgCropWrap">
+		<img src="rotate.jpg" class="rotate-ing" width="50" height="50" />
+		<div class="cropper-wrap">
+			<img src="" alt="Picture" id="picccc">
+		</div>
+		<footer class="Himg-footer">
+			<span class="Himg-cancel">取消</span>
+			图片裁剪
+			<span class="Himg-select">选取</span>
+		</footer>
+		<input type="hidden" value="rotate.jpg" class="srcDom" />
+	</div>
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+	<script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+	<script>
+	G.use(['widget/HimgCrop/js/HimgCropJquery2.js'], function(HimgCropJquery){
+		
+		var HimgCropJquery1 = new HimgCropJquery({
+			srcDom: $('.srcDom'),
+			rotateIngEvent : 'touchend',
+			callback : function(canvasDom){
+				alert(canvasDom.toDataURL("image/png"));
+			},
+			cropperSetting : {
+				aspectRatio: 2 / 2,
+				autoCropArea: 0.65,
+				strict: false,
+				guides: false,
+				highlight: false,
+				dragCrop: false,
+				cropBoxMovable: true,
+				background: true, // 是否显示网格背景 true 是 false 不显示
+				cropBoxResizable: true,
+				guides: true
+			}
+		});
+
+		// cropperSetting : {
+		// 设置裁剪框
+          // data: {
+          //   x: 420,
+          //   y: 60,
+          //   width: 640,
+          //   height: 360
+          // },
+          // strict: true, // 裁剪框可不可以到图片外面去true可以，false不可以
+          // responsive: true,  // 当窗口改变时，是否重新创建裁剪框true可以，false不可以
+          // checkImageOrigin: false, // 检查图片是否跨域
+
+          // modal: false, // 显示透明遮罩true显示，false不显示
+          // guides: false, // 是否显示裁剪框中的虚线，true显示，false不显示
+          // highlight: false, // 裁剪框是否高亮，true是false不
+          // background: false, // 是否显示网格背景 true 是 false 不显示
+
+          // autoCrop: false, // 是否自动初始化裁剪框
+          // autoCropArea: 0.8, // 0-1之间的一个数，定义裁剪框的面积
+          // dragCrop: false,
+          // movable: true, // 图片是否可以移动
+          // rotatable: false,
+          // zoomable: false,
+          // touchDragZoom: false,
+          // mouseWheelZoom: false,
+          // cropBoxMovable: false,
+          // cropBoxResizable: false,
+          // doubleClickToggle: false,
+
+          // minCanvasWidth: 320,
+          // minCanvasHeight: 180,
+          // minCropBoxWidth: 160,
+          // minCropBoxHeight: 90,
+          // minContainerWidth: 320,
+          // minContainerHeight: 180,
+
+          // build: null,
+          // built: null,
+          // dragstart: null,
+          // dragmove: null,
+          // dragend: null,
+          // zoomin: null,
+          // zoomout: null,
+
+        //   aspectRatio: 20 / 9,
+        //   preview: '.img-preview',
+        //   crop: function (data) {
+        //     $dataX.val(Math.round(data.x));
+        //     $dataY.val(Math.round(data.y));
+        //     $dataHeight.val(Math.round(data.height));
+        //     $dataWidth.val(Math.round(data.width));
+        //     $dataRotate.val(Math.round(data.rotate));
+        //   }
+        // }
+
+	});
+	
+	</script>
+
+</body>
+</html>
