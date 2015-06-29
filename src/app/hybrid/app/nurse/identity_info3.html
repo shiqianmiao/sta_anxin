@@ -153,7 +153,7 @@
 	        dragdrop: true,
 	        chunk_size: '4mb',
 	        //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
-	        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:H03uXS3XI_Hc5Vw5UE4aX6uXKIs=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzUzNzY2NDd9',
+	        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:WRjwjn-xRhGhJUzROzhBrlETCp0=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzU2Mjk3NDB9',
 	        domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
 	        auto_start: true,
 	        init: {
@@ -190,7 +190,7 @@
 								// 旋转的角度
 								var rotate = data.imageData.rotate;
 
-								// 拼接七牛裁剪连接
+								// 拼接七牛裁剪连接,注意裁剪顺序，先旋转
 								src = src + '?imageMogr2/rotate/' + rotate + '/thumbnail/' + imgWidth + 'x' + imgHeight + '!/crop/!' + cropWidth + 'x' + cropHeight + 'a' + cropOffsetLeft + 'a' + cropOffsetTop;
 
 								$('#' + inputId).data('src', src);

@@ -21,9 +21,19 @@ body, html{
 	color: #333;
 	font-size: 17px;
 	font-weight: normal;
+	width: 55%;
+	white-space:nowrap; 
+	overflow:hidden; 
+	text-overflow:ellipsis;
+}
+@media all and (max-width: 320px){
+	.order-name{
+		width: 50%;
+	}
 }
 .order-time{
 	display: inline-block;
+	float: right;
 	height: 24px;
 	line-height: 24px;
 	text-align: center;
@@ -35,7 +45,7 @@ body, html{
 	border: 1px solid #ffad0f;
 	color: #ffad0f;
 	font-size: 15px;
-	width: 119px;
+	padding: 0 10px;
 	margin-left: 11px;
 	-webkit-border-radius: 12px;
 	-moz-border-radius: 12px;
