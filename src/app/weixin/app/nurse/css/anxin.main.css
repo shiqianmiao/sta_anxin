@@ -32,7 +32,7 @@ body.gary{ background:#eeeeee;}
 body.blue1{ background:#f4fff9;}
 body.yellow{ background:#ffad0f;}
 article,figure,section,time{ display:block;}
-header .tel,nav li em,.taskList li em,.prev_m,.next_m,.prev_y,.next_y,.arrow,.amountInstr em,.reviewList a em,.noOrder em,.reviTit em,.skilTit em,.introMiddle li em,.skilList li,.noOrder-my em{ background:url(../images/anxin_pic.png) no-repeat;}
+header .tel,nav li em,.taskList li em,.prev_m,.next_m,.prev_y,.next_y,.arrow,.amountInstr em,.reviewList a em,.noOrder em,.reviTit em,.skilTit em,.introMiddle li em,.skilList li,.noOrder-my em{ background:url(../imgs/anxin_pic.png) no-repeat;}
 .allBut{ display:block; height:97px; line-height:97px; border-radius:5px; border:none; text-align:center; font-size:36px; width:100%; cursor:pointer;outline:none;-moz-outline:none;webkit-tap-highlight-color:rgba(0,0,0,0);text-decoration:none;}
 .yellowBut{ background:#ffad0f; color:#FFF;}
 .yellowBut.touch,.yellowBut:active{background-color:#de9406}
