@@ -61,7 +61,7 @@ Comment.init = function() {
                     $('.commit').attr('disabled', true);
                     $('.commit').removeClass('commit-true');
                     setTimeout(function() {
-            			window.location.href = '/order/my';
+            			window.location.href = '/order/list';
         			}, 1000);
                 } else {
                 	alert(data.msg);

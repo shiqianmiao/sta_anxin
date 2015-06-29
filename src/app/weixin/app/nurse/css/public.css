@@ -178,9 +178,53 @@ body{font-size:12px; font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Medi
 	background: #ffad0f;
 }
 
+/*
+Hmodel 样式
+*/
+#Hmodel{
+	position: fixed;
+	height: 40px;
+	line-height: 40px;
+	background: rgba(0,0,0,0.5);
+	padding: 0 17px;
+	font-size: 14px;
+	color: #fff;
 
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-o-border-radius: 6px;
+	-ms-border-radius: 6px;
+	border-radius: 6px;
 
+	display: none;
 
+	top: 50%;
+	left: 50%;
 
+}
 
+.show {
+	-webkit-animation: show .7s ease both;
+	animation: show .7s ease both;
+}
+.hide {
+	-webkit-animation: hide .7s ease both;
+	animation: hide .7s ease both;
+}
+@-webkit-keyframes hide {
+	from { }
+	to { opacity: 0; }
+}
+@keyframes hide {
+	from { }
+	to { opacity: 0; }
+}
 
+@-webkit-keyframes show {
+	from {  opacity: 0; }
+	to {}
+}
+@keyframes show {
+	from {  opacity: 0; }
+	to {}
+}
