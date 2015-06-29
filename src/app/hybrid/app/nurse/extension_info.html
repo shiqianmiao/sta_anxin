@@ -47,7 +47,7 @@
 			<span class="remove-cert"></span>
 		</li>
 	</ul>
-	<footer class="add-cert-wrap" id="container">
+	<footer class="add-cert-wrap">
 		<a href="javascript:;" class="borR-3" id="add-zs">+其他专项证书</a>
 	</footer>
 
@@ -71,6 +71,19 @@
 		<li class="H-effective">召唤师</li>
 		<li class="H-effective">铁匠</li>
 		<li class="H-effective">补给</li>
+	</div>
+	<!-- 职称 -->
+	<div hidden id="zs-box" data-hprevselect="-1">
+		<li class="H-effective">专业护理证书</li>
+		<li class="H-effective">糖尿病护士</li>
+		<li class="H-effective">透析护士</li>
+		<li class="H-effective">ICU护士</li>
+		<li class="H-effective">急诊护士</li>
+		<li class="H-effective">手术室护士</li>
+		<li class="H-effective">造口护士</li>
+		<li class="H-effective">PICC护士</li>
+		<li class="H-effective">产科护士</li>
+		<li class="H-effective">供应室护士</li>
 	</div>
 
 	<!-- 查看大图的包裹层 -->
@@ -109,6 +122,7 @@
 			$('.select-hospital').click(function(){
 				$(this).find('img').addClass('se-img-rotate');
 				var hse = new Hselect({
+					title : '选择医院',
 					selectTplId : 'hospital-box',
 					defaultSelect : 0,	// 默认初始选项
 					completeFn : function($elem){
@@ -121,6 +135,7 @@
 			$('.select-position').click(function(){
 				$(this).find('img').addClass('se-img-rotate');
 				var hse = new Hselect({
+					title : '选择职称',
 					selectTplId : 'position-box',
 					defaultSelect : 0,	// 默认初始选项
 					completeFn : function($elem){
@@ -171,49 +186,68 @@
 			});
 
 			// 点击添加证书
-			var uploader = Qiniu.uploader({
-		        runtimes: 'html5,flash,html4',
-		        browse_button: 'add-zs',
-		        container: 'container',
-		        drop_element: 'container',
-		        max_file_size: '100mb',
-		        flash_swf_url: 'js/plupload/Moxie.swf',
-		        dragdrop: true,
-		        chunk_size: '4mb',
-		        //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
-		        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:WRjwjn-xRhGhJUzROzhBrlETCp0=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzU2Mjk3NDB9',
-		        domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
-		        auto_start: true,
-		        init: {
-		            'FileUploaded': function(up, file, info) {
+			$('#add-zs').click(function(){
+				var hse = new Hselect({
+					title : '请选择其他专项证书',
+					selectTplId : 'zs-box',
+					defaultSelect : 0,	// 默认初始选项
+					initFn : function($Hwrapbox){
+						$Hwrapbox.find('.H-head').attr('id', 'container');
+						$Hwrapbox.find('.H-complete').attr('id', 'add-zs-btn');
+						
+						var uploader = Qiniu.uploader({
+					        runtimes: 'html5,flash,html4',
+					        browse_button: 'add-zs-btn',
+					        container: 'container',
+					        drop_element: 'container',
+					        max_file_size: '100mb',
+					        flash_swf_url: 'js/plupload/Moxie.swf',
+					        dragdrop: true,
+					        chunk_size: '4mb',
+					        //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
+					        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:WRjwjn-xRhGhJUzROzhBrlETCp0=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzU2Mjk3NDB9',
+					        domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
+					        auto_start: true,
+					        init: {
+					            'FileUploaded': function(up, file, info) {
+					            	// 获取证书类型名称
+									var zsTypeName = $('#H-list .select-true').html();
+					            	// 移除select组件
+					            	$Hwrapbox.detach();
 
-		                var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
-		                // 创建证书DOM
-		    			// <li class="per-cert">
-						// 	<h3>资格证书</h3>
-						// 	<img src="imgs/a.jpg" class="zs-img" />
-						// 	<span class="remove-cert"></span>
-						// </li>
-						alert(4);
-		                var oLi = document.createElement('li');
-		                oLi.className = 'per-cert';
-		                var oH3 = document.createElement('h3');
-		                oH3.innerHTML = '资格证书';
-		                var oImg = document.createElement('img');
-		                oImg.src = src;
-		                oImg.onclick = showBigImg;
-		                var oSpanClose = document.createElement('span');
-		                oSpanClose.className = 'remove-cert';
-		                oSpanClose.onclick = removeCert;
+					                var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
+					                // 创建证书DOM
+					    			// <li class="per-cert">
+									// 	<h3>资格证书</h3>
+									// 	<img src="imgs/a.jpg" class="zs-img" />
+									// 	<span class="remove-cert"></span>
+									// </li>
+					                var oLi = document.createElement('li');
+					                oLi.className = 'per-cert';
+					                var oH3 = document.createElement('h3');
+					                oH3.innerHTML = zsTypeName;
+					                var oImg = document.createElement('img');
+					                oImg.src = src;
+					                oImg.onclick = showBigImg;
+					                var oSpanClose = document.createElement('span');
+					                oSpanClose.className = 'remove-cert';
+					                oSpanClose.onclick = removeCert;
 
-		                oLi.appendChild(oH3);
-		                oLi.appendChild(oImg);
-		                oLi.appendChild(oSpanClose);
+					                oLi.appendChild(oH3);
+					                oLi.appendChild(oImg);
+					                oLi.appendChild(oSpanClose);
 
-		                $('.certificate').append($(oLi));
-		            }
-		        }
-		    });
+					                $('.certificate').append($(oLi));
+					            }
+					        }
+					    });
+
+					}
+
+				});
+				
+			});
+			
 
 			// 点击时间选择
 			$('.select-time').on('click', function(){
@@ -267,6 +301,11 @@
 			});
 
 
+			$(document).on('touchend', function(){
+				$('#H-wrap-box').detach();
+				$('.select-hospital img').removeClass('se-img-rotate');
+				$('.select-position img').removeClass('se-img-rotate');
+			});
 
 		});
     </script>

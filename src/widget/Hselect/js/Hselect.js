@@ -21,7 +21,11 @@ var Hselect = function(opations){
 		// 点击完成按钮的回调函数
 		completeFn : function(){},
 
-		selectTplId : ''
+		selectTplId : '',
+
+		title : '',
+
+		initFn : function(){}
 	};
 
 	$.extend(this.settings, opations);
@@ -49,7 +53,7 @@ var Hselect = function(opations){
 
 	// tpl
 	this.tpl = '<div id="H-wrap-box">'
-+		'<header class="H-head"><a href="javascript:;" class="H-complete">完成</a></header>'
++		'<header class="H-head"><em></em><a href="javascript:;" class="H-complete">完成</a></header>'
 +		'<div id="H-box">'
 +			'<div id="Hwrap">'
 +				'<div id="Hscroll">'
@@ -91,6 +95,9 @@ $.extend(proto, {
 		$('#H-wrap-box').detach();
 
 		$('body').append($(this.tpl));
+
+		// 初始化title
+		$('#H-wrap-box .H-head em').html(this.settings.title);
 
 		// 包裹层
 		this.Hwrap = document.getElementById('Hwrap');
@@ -152,12 +159,25 @@ $.extend(proto, {
 
 		this.toBind();
 
-		this.completeBtn.click(function(){
+		this.completeBtn.click(function(ev){
+			var ev = ev || window.event;
 			var $elem = self.getSelectEle();
 			if($elem){
 				self.settings.completeFn(self.SelectElement);
 				self.tplElem.data('hprevselect', $elem.index() - 2);
 				self.hide();
+			}
+
+		});
+
+		this.settings.initFn($('#H-wrap-box'));
+
+		$('#H-wrap-box').on('touchend', function(ev){
+			var ev = ev || window.event;
+			if(ev.stopPropagation){
+				ev.stopPropagation();
+			}else{
+				ev.cancelBubble = true;
 			}
 		});
 
@@ -177,18 +197,36 @@ $.extend(proto, {
 			var ev = ev || window.event;
 
 			self._touchstartFn(ev);
+
+			if(ev.stopPropagation){
+				ev.stopPropagation();
+			}else{
+				ev.cancelBubble = true;
+			}
 		});
 		this._addHandler(this.Hwrap, 'touchmove', function(ev){
 			var ev = ev || window.event;
 			self._preventDefault(ev);
 
 			self._touchmoveFn(ev);
+
+			if(ev.stopPropagation){
+				ev.stopPropagation();
+			}else{
+				ev.cancelBubble = true;
+			}
 		});
 
 		this._addHandler(this.Hwrap, 'touchend', function(ev){
 			var ev = ev || window.event;
 
 			self._touchendFn(ev);
+
+			if(ev.stopPropagation){
+				ev.stopPropagation();
+			}else{
+				ev.cancelBubble = true;
+			}
 		});
 
 		// 当input[type="text"] 或者 textarea元素获得焦点的时候，也要删除组件
@@ -476,17 +514,22 @@ $.extend(proto, {
 	 */
 	setSelectEle : function (cond){
 		var index;
+		$('#H-list .H-effective').removeClass('select-true');
+
 		if(typeof cond == 'number'){
 			index = Math.abs(cond / 40);
 			this.SelectElement = $('#H-list .H-effective').eq(index);
+			$('#H-list .H-effective').eq(index).addClass('select-true');
 			this.getSelectEleMark = true;
 		}
 		if(typeof cond == 'string'){
 			if(cond == 'first'){
 				this.SelectElement = $('#H-list .H-effective').eq(0);
+				$('#H-list .H-effective').eq(0).addClass('select-true');
 				this.getSelectEleMark = true;
 			}else if(cond == 'last'){
 				this.SelectElement = $('#H-list .H-effective').eq($('#H-list .H-effective').length - 1);
+				$('#H-list .H-effective').eq($('#H-list .H-effective').length - 1).addClass('select-true');
 				this.getSelectEleMark = true;
 			}
 		}

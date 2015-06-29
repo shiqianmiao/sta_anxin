@@ -643,22 +643,27 @@ body{font-size:12px;  font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Med
 	top: -40px;
 	height: 40px;
 	width: 100%;
-	background: #f7f7f7;
-	border-top: 1px solid #c5c5c5;
+	background: #ffa800;
 }
 .H-head a{
 	position: absolute;
-	right: 15px;
+	right: 1%;
 	height: 30px;
 	top: 5px;
 	padding: 0 10px;
 	line-height: 30px;
-	color: #003ac3;
+	color: #ffffff;
 	text-decoration: none;
 	text-align: center;
 	border-radius: 8px;
-	background: #d3d3d3;
-	font-weight: bold;
+	background: #ffa800;
+	font-size: 15px;
+}
+.H-head em{
+	line-height: 40px;
+	color: #fff;
+	font-size: 15px;
+	margin-left: 3%;
 }
 /* Hselect样式 结束 */
 /* 上传图片弹层 */
