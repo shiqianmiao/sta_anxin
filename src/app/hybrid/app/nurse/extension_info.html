@@ -12,6 +12,34 @@
 	<link rel="stylesheet" href="css/extension_info.css">
 	<link rel="stylesheet" href="css/cropper.min.css">
 	<link rel="stylesheet" href="css/HimgCrop.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<style>
+		.swiper-container {
+	        width: 60px;
+	        height: 100px;
+
+	    }
+	    .swiper-slide {
+	        text-align: center;
+	        font-size: 24px;
+	        background: #fff;
+	        box-shadow: 0 2px 2px #ccc inset, 0 -2px 2px #ccc inset;
+
+	        /* Center slide text vertically */
+	        /*display: -webkit-box;
+	        display: -ms-flexbox;
+	        display: -webkit-flex;
+	        display: flex;
+	        -webkit-box-pack: center;
+	        -ms-flex-pack: center;
+	        -webkit-justify-content: center;
+	        justify-content: center;
+	        -webkit-box-align: center;
+	        -ms-flex-align: center;
+	        -webkit-align-items: center;
+	        align-items: center;*/
+	    }
+	</style>
 </head>
 <body class="ccc-body pd-b-50">
 
@@ -95,17 +123,47 @@
 	<!-- 从业时间弹窗 -->
 	<div class="alert-mark flex-center hide-time-win" id="time-win">
 		<div class="time-win borR-3">
-			<h2 class="time-title">选择从业时间<span class="close-time">×</span></h2>
+			<h2 class="time-title">滑动选择从业时间<span class="close-time">×</span></h2>
 			<section class="select-time-wrap">
-				<div>
-					<span class="time-add" data-type="year"></span>
-					<em class="year-num">2011</em>
-					<span class="time-jian" data-type="year"></span>
+				<div class="my-div">
+					<!-- <span class="time-add" data-type="year"></span> -->
+					<!-- <em class="year-num">2011</em> -->
+					<!-- <span class="time-jian" data-type="year"></span> -->
+					<div class="swiper-container year-swiper">
+				        <div class="swiper-wrapper">
+				            <div class="swiper-slide">1990</div>
+				            <div class="swiper-slide">1991</div>
+				            <div class="swiper-slide">1992</div>
+				            <div class="swiper-slide">1993</div>
+				            <div class="swiper-slide">1994</div>
+				            <div class="swiper-slide">1995</div>
+				            <div class="swiper-slide">1996</div>
+				            <div class="swiper-slide">1997</div>
+				            <div class="swiper-slide">1998</div>
+				            <div class="swiper-slide">1999</div>
+				        </div>
+				    </div>
 				</div>年
-				<div>
-					<span class="time-add" data-type="month"></span>
-					<em class="month-num">4</em>
-					<span class="time-jian" data-type="month"></span>
+				<div class="my-div">
+					<!-- <span class="time-add" data-type="month"></span> -->
+					<!-- <em class="month-num">4</em> -->
+					<!-- <span class="time-jian" data-type="month"></span> -->
+					<div class="swiper-container month-swiper">
+				        <div class="swiper-wrapper">
+				            <div class="swiper-slide">01</div>
+				            <div class="swiper-slide">02</div>
+				            <div class="swiper-slide">03</div>
+				            <div class="swiper-slide">04</div>
+				            <div class="swiper-slide">05</div>
+				            <div class="swiper-slide">06</div>
+				            <div class="swiper-slide">07</div>
+				            <div class="swiper-slide">08</div>
+				            <div class="swiper-slide">09</div>
+				            <div class="swiper-slide">10</div>
+				            <div class="swiper-slide">11</div>
+				            <div class="swiper-slide">12</div>
+				        </div>
+				    </div>
 				</div>月
 			</section>
 			<footer class="time-foot">
@@ -114,10 +172,11 @@
 		</div>
 	</div>
 
+
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    	G.use(['jquery', 'widget/Hselect/js/Hselect.js', 'widget/HimgCrop/js/HimgCropJquery.js', 'lib/qiniu/qiniu.js'], function($, Hselect, HimgCropJquery, Qiniu){
+    	G.use(['jquery', 'widget/Hselect/js/Hselect.js', 'widget/HimgCrop/js/HimgCropJquery.js', 'lib/qiniu/qiniu.js', 'com/mobile/widget/swiper.min.js'], function($, Hselect, HimgCropJquery, Qiniu, Swiper){
 
 			$('.select-hospital').click(function(){
 				$(this).find('img').addClass('se-img-rotate');
@@ -258,50 +317,24 @@
 				$('#time-win').addClass('hide-time-win');
 			});
 
-			$('.time-add').on('touchend', function(){
-				var curNum = parseInt($(this).parent().find('em').html());
-				curNum++;
-				if($(this).data('type') == 'month'){
-					if(curNum >= 12){
-						curNum = 12;
-					}else if(curNum <= 0){
-						curNum = 0;
-					}
-				}else if($(this).data('type') == 'year'){
-					if(curNum <= 0){
-						curNum = 0;
-					}
-				}
-				$(this).parent().find('em').html(curNum);
-			});
-
-			$('.time-jian').on('touchend', function(){
-				var curNum = parseInt($(this).parent().find('em').html());
-				curNum--;
-				if($(this).data('type') == 'month'){
-					if(curNum >= 12){
-						curNum = 12;
-					}else if(curNum <= 0){
-						curNum = 0;
-					}
-				}else if($(this).data('type') == 'year'){
-					if(curNum <= 0){
-						curNum = 0;
-					}
-				}
-				$(this).parent().find('em').html(curNum);
-			});
 
 			$('.okya-time').on('click', function(){
-				var yearNum = $('.year-num').html();
-				var monthNum = $('.month-num').html();
+				var yearNum = $('.year-swiper .swiper-slide-active').html();
+				var monthNum = $('.month-swiper .swiper-slide-active').html();
 				var str = yearNum + '年' + monthNum + '月';
 				$('.select-time em').html(str);
 				$('#time-win').addClass('hide-time-win');
 			});
 
+			var swiper = new Swiper('.swiper-container', {
+		        pagination: '.swiper-pagination',
+		        paginationClickable: true,
+		        direction: 'vertical',
+		        initialSlide: 6
+		    });
 
-			$(document).on('touchend', function(){
+		    // 隐藏选择组件
+		    $(document).on('touchend', function(){
 				$('#H-wrap-box').detach();
 				$('.select-hospital img').removeClass('se-img-rotate');
 				$('.select-position img').removeClass('se-img-rotate');

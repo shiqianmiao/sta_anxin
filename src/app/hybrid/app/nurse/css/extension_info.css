@@ -149,20 +149,23 @@
 	color: #333;
 }
 .select-time-wrap{
-	height: 100px;
 	position: relative;
 	text-align: center;
 	line-height: 100px;
 	font-size: 24px;
 	padding: 6px 0;
 }
-.select-time-wrap div{
+.select-time-wrap .my-div{
 	display: inline-block;
 	position: relative;
-	margin: 0 20px;
+	width: 60px;
+	height: 100px;
 	color: #ffad0f;
+	vertical-align: middle;
+	margin: 0 10px;
+
 }
-.select-time-wrap div:first-of-type{
+.select-time-wrap .my-div:first-of-type{
 	margin-left: 0;
 }
 .time-add{
@@ -205,5 +208,5 @@
 	font-size: 15px;
 }
 .hide-time-win{
-	display: none;
+	top: -100%;
 }
