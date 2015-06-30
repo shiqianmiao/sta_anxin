@@ -53,8 +53,8 @@
 		<li class="H-effective">艾弗森</li>
 	</div>
 
-	<script src="http://sta.anxin365.com/g.js"></script>
-	<script src="http://sta.anxin365.com/config.js"></script>
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
 	<script>
 	G.use(['widget/Hselect/js/Hselect.js'], function(Hselect){
 
@@ -65,11 +65,14 @@
 				defaultSelect : 0,	// 默认初始选项
 				completeFn : function($elem){
 					$('#sel').val($elem.html());
+				},
+				initFn : function($Hwrapbox){
+					// 初始化组件时执行的函数
+					// 参数是组件的最外层包裹div的jQuery DOM元素
+					alert(4);
 				}
 			});
 		});
-
-
 
 		$('#btn2').click(function(){
 			var hse = new Hselect({

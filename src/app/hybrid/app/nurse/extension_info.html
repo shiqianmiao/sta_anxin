@@ -21,7 +21,9 @@
 	<ul class="exit-wrap">
 		<li>
 			<h3>从业时间</h3>
-			<section class="select-time"><em>2011年5月</em> <img class="se-img" src="imgs/strip.png" alt="选择"></section>
+			<label class="select-time" for="month-input"><em>2011年5月</em> <img class="se-img" src="imgs/strip.png" alt="选择">
+				<input type="month" value="" id="month-input" />
+			</label>
 		</li>
 		<li>
 			<h3>毕业院校</h3>
@@ -149,7 +151,7 @@
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    	G.use(['jquery', 'widget/Hselect/js/Hselect.js', 'widget/HimgCrop/js/HimgCropJquery.js', 'lib/qiniu/qiniu.js', 'com/mobile/widget/swiper.min.js'], function($, Hselect, HimgCropJquery, Qiniu, Swiper){
+    	G.use(['jquery', 'widget/Hselect/js/Hselect.js', 'widget/HimgCrop/js/HimgCropJquery.js', 'lib/qiniu/qiniu.js'], function($, Hselect, HimgCropJquery, Qiniu){
 
 			$('.select-hospital').click(function(){
 				$(this).find('img').addClass('se-img-rotate');
@@ -237,7 +239,7 @@
 					        dragdrop: true,
 					        chunk_size: '4mb',
 					        //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
-					        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:WRjwjn-xRhGhJUzROzhBrlETCp0=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzU2Mjk3NDB9',
+					        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:NljbkeIdf-2d_pyxDUiLYbvinN8=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzU3MTYyMzh9',
 					        domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
 					        auto_start: true,
 					        init: {
@@ -282,29 +284,12 @@
 			
 
 			// 点击时间选择
-			$('.select-time').on('click', function(){
-				$('#time-win').removeClass('hide-time-win');
+			$('#month-input').on('change', function(){
+				var dataStr = $(this).val();
+				var dataArr = dataStr.split('-');
+				var showStr = dataArr[0] + '年' + dataArr[1] + '月';
+				$('.select-time em').html(showStr);
 			});
-
-			$('.close-time').on('click', function(){
-				$('#time-win').addClass('hide-time-win');
-			});
-
-
-			$('.okya-time').on('click', function(){
-				var yearNum = $('.year-swiper .swiper-slide-active').html();
-				var monthNum = $('.month-swiper .swiper-slide-active').html();
-				var str = yearNum + '年' + monthNum + '月';
-				$('.select-time em').html(str);
-				$('#time-win').addClass('hide-time-win');
-			});
-
-			var swiper = new Swiper('.swiper-container', {
-		        pagination: '.swiper-pagination',
-		        paginationClickable: true,
-		        direction: 'vertical',
-		        initialSlide: 6
-		    });
 
 		    // 隐藏选择组件
 		    $(document).on('touchend', function(){

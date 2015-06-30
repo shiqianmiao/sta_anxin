@@ -24,7 +24,7 @@ var Hselect = function(opations){
 		selectTplId : '',
 
 		title : '',
-
+		// 初始化组件过程中执行的函数
 		initFn : function(){}
 	};
 
@@ -143,7 +143,7 @@ $.extend(proto, {
 		if(!this.Hscroll){
 			throw new Error('未定义Hscroll元素');
 		}
-		
+
 		if(!this.Hsheader || !this.Hsfooter){
 			throw new Error('未定义Hs-header 或 Hs-footer 元素');
 		}
@@ -172,6 +172,7 @@ $.extend(proto, {
 
 		this.settings.initFn($('#H-wrap-box'));
 
+		// 阻止事件冒泡
 		$('#H-wrap-box').on('touchend', function(ev){
 			var ev = ev || window.event;
 			if(ev.stopPropagation){

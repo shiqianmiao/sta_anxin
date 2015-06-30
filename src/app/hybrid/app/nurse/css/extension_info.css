@@ -18,7 +18,7 @@
 	font-size: 15px;
 	color: #999999;
 }
-.exit-wrap li section,.exit-wrap li input{
+.exit-wrap li section,.exit-wrap li label,.exit-wrap li input{
 	float: left;
 	height: 50px;
 	font-size: 15px;
@@ -168,29 +168,16 @@
 .select-time-wrap .my-div:first-of-type{
 	margin-left: 0;
 }
-.time-add{
-	width: 20px;
-	height: 20px;
-	position: absolute;
-	left: 50%;
-	margin-left: -10px;
-	top: 4px;
-	background: url(../imgs/add.png) no-repeat center center;
-	background-size: 10px 10px;
-	border: 1px solid #b8b8b7;
-	border-radius: 30%;
+.select-time{
+	overflow: hidden;
 }
-.time-jian{
-	width: 20px;
-	height: 20px;
+.select-time input#month-input{
 	position: absolute;
-	left: 50%;
-	margin-left: -10px;
-	bottom: 4px;
-	background: url(../imgs/jian.png) no-repeat center center;
-	border: 1px solid #b8b8b7;
-	border-radius: 30%;
-	background-size: 10px 10px;
+	right: 0;
+	top: 0;
+	opacity: 0;
+	width: 1px;
+	height: 1px;
 }
 .time-foot{
 	height: 50px;
