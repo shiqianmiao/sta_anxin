@@ -96,14 +96,11 @@
 	</div>
 	
 	<!-- 从业时间弹窗 -->
-	<div class="alert-mark flex-center hide-time-win" id="time-win">
+	<!-- <div class="alert-mark flex-center hide-time-win" id="time-win">
 		<div class="time-win borR-3">
 			<h2 class="time-title">滑动选择从业时间<span class="close-time">×</span></h2>
 			<section class="select-time-wrap">
 				<div class="my-div">
-					<!-- <span class="time-add" data-type="year"></span> -->
-					<!-- <em class="year-num">2011</em> -->
-					<!-- <span class="time-jian" data-type="year"></span> -->
 					<div class="swiper-container year-swiper">
 				        <div class="swiper-wrapper">
 				            <div class="swiper-slide">1990</div>
@@ -120,9 +117,6 @@
 				    </div>
 				</div>年
 				<div class="my-div">
-					<!-- <span class="time-add" data-type="month"></span> -->
-					<!-- <em class="month-num">4</em> -->
-					<!-- <span class="time-jian" data-type="month"></span> -->
 					<div class="swiper-container month-swiper">
 				        <div class="swiper-wrapper">
 				            <div class="swiper-slide">01</div>
@@ -145,7 +139,7 @@
 				<span class="okya-time borR-3">完成</span>
 			</footer>
 		</div>
-	</div>
+	</div> -->
 
 
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
@@ -228,6 +222,7 @@
 					initFn : function($Hwrapbox){
 						$Hwrapbox.find('.H-head').attr('id', 'container');
 						$Hwrapbox.find('.H-complete').attr('id', 'add-zs-btn');
+						$('#H-list .H-effective').eq(0).addClass('select-true');
 						
 						var uploader = Qiniu.uploader({
 					        runtimes: 'html5,flash,html4',
@@ -239,7 +234,7 @@
 					        dragdrop: true,
 					        chunk_size: '4mb',
 					        //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
-					        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:NljbkeIdf-2d_pyxDUiLYbvinN8=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzU3MTYyMzh9',
+					        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:B3Wh1nTgADu4geNydkcbwvNEmhU=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzU4MDMwMzl9',
 					        domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
 					        auto_start: true,
 					        init: {
