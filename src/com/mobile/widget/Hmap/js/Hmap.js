@@ -38,6 +38,10 @@ var Hmap = function(opations){
 
 	this.showTip = false; // 是否显示我的地址以及当前地址的tip提示
 
+	// 当前经纬度
+	this.longitude = 0;
+	this.latitude = 0;
+
 	this.init();
 
 	
@@ -101,6 +105,10 @@ $.extend(proto, {
 		// 实例化定位
 		var Geolocation = new BMap.Geolocation();
 		this.Geolocation = Geolocation;
+		this.Geolocation.getCurrentPosition(function(res){
+			self.longitude = res.longitude;
+			self.latitude = res.latitude;
+		});
 
 		// 实例化地图 自动完成api
 		var ac = new BMap.Autocomplete({
@@ -219,15 +227,13 @@ $.extend(proto, {
 			// });
 
 			// 定位
-			// this.Geocoder.getLocation(new BMap.Point(lng,lat), function(GeocoderResult){
+			this.Geocoder.getLocation(new BMap.Point(lng,lat), function(GeocoderResult){
                 
-   //              	console.log(GeocoderResult);
+                	alert(JSON.stringify(GeocoderResult));
 
-   //          });
+            });
 			
-			this.Geolocation.getCurrentPosition(function(res){
-				alert(res.address.street_number);
-			});
+
 			
 		}
 
