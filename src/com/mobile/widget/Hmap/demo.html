@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>移动端 选择地址 组件</title>
+	<style>
+	/* hcy  */
+		@charset "utf-8";
+		/* reset */
+		html{
+		-webkit-text-size-adjust:none;
+		-moz-text-size-adjust:none;
+		-o-text-size-adjust:none;
+		-ms-text-size-adjust:none;
+		text-size-adjust:none;
+		-webkit-touch-callout: none;	/* 禁止ios 长按时不触发系统的菜单，禁止ios&android长按时下载图片 */
+		-webkit-user-select:none;	/* 禁止ios和android用户选中文字 */
+		min-height: 100%;
+		}
+		body{min-height: 100%;}
+		body.ccc-body{
+		background: #f1f1f1;
+		}
+		body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,pre,form,input,textarea,th,td,select,time{margin:0; padding:0; font-weight: normal;text-indent: 0;}
+		em{font-style:normal}
+		li{list-style:none}
+		a{text-decoration:none;}
+		img{border:none; vertical-align:top;}
+		table{border-collapse:collapse;}
+		input,textarea{outline:none;}
+		textarea{ resize:none; overflow:auto;}
+		body{font-size:12px;  font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Medium;}
+		/* end reset */
+		.clear { zoom:1; }
+		.clear:after { content:''; display:block; clear:both; }
+		#txt{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			background: red;
+			color: #fff;
+			font-size: 20px;
+			text-align: center;
+			line-height: 100px;
+		}
+	</style>
+
+	<link rel="stylesheet" href="css/Hmap.css">
+
+</head>
+<body class="reg-body">
+	
+	<div id="txt">地址</div>
+	
+
+	
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    	G.use(['zepto', 'com/mobile/widget/Hmap/js/Hmap.js'], function($, Hmap){
+			
+    		var hmap = new Hmap({
+    			perAddrOnclick: function(liObj, longitude, latitude, business, results){
+    				console.log(latitude);
+    				console.log(longitude);
+    				console.log(business);
+    				console.log(results);
+
+    				hmap.hide();
+    			}
+    		});
+
+    		$('#txt').on('tap', function(){
+    			hmap.show('金泉');
+    		});
+
+		});
+    </script>
+</body>
+</html>
