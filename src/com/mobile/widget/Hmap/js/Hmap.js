@@ -122,7 +122,7 @@ $.extend(proto, {
 					oLi.className = 'my-addr-tip';
 					oLi.innerHTML = '我的地址';
 					self.addrList.append($(oLi));
-					self.showTip = false;
+					
 				}
 
 				console.log(ac.getResults());
@@ -188,6 +188,7 @@ $.extend(proto, {
 							}
 
 		            });
+					self.showTip = false;
 				}
 				
 
