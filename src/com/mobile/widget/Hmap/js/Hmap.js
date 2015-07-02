@@ -125,7 +125,7 @@ $.extend(proto, {
 					
 				}
 
-				console.log(ac.getResults());
+				// console.log(ac.getResults());
 				var resultsArr = ac.getResults().Nq,
 					len = resultsArr.length;
 
@@ -157,7 +157,7 @@ $.extend(proto, {
 										oLi.className = 'my-addr-tip';
 										oLi.innerHTML = '当前位置';
 										self.addrList.append($(oLi));
-					                	//alert(JSON.stringify(GeocoderResult));
+					                	alert(JSON.stringify(GeocoderResult));
 					                	var resultsArr = GeocoderResult.surroundingPois;
 					                	var len = GeocoderResult.surroundingPois.length;
 
