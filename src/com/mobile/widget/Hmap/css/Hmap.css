@@ -68,6 +68,14 @@
 	font-weight: normal;
 	margin-top: 8px;
 }
+#mobile-addr-mark h3.business2{
+	font-size: 15px;
+	height: 15px;
+	line-height: 15px;
+	color: #333;
+	font-weight: normal;
+	margin-top: 17px;
+}
 #mobile-addr-mark p.ccc-addr{
 	color: #bdbdbd;
 	font-size: 12px;

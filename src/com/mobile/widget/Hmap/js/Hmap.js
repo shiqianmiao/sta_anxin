@@ -117,14 +117,6 @@ $.extend(proto, {
 				// 清空列表
 				self.removeList();
 
-				if(self.showTip){
-					var oLi = document.createElement('li')
-					oLi.className = 'my-addr-tip';
-					oLi.innerHTML = '我的地址';
-					self.addrList.append($(oLi));
-					
-				}
-
 				// console.log(ac.getResults());
 				var resultsArr = ac.getResults().Nq,
 					len = resultsArr.length;
@@ -149,55 +141,12 @@ $.extend(proto, {
 								self.addrList.append($(oLi));
 			                }
 
-			                if(self.showTip){
-					
-								// 定位
-								self.Geocoder.getLocation(new BMap.Point(self.longitude,self.latitude), function(GeocoderResult){
-					                	var oLi = document.createElement('li')
-										oLi.className = 'my-addr-tip';
-										oLi.innerHTML = '当前位置';
-										self.addrList.append($(oLi));
-					                	//alert(JSON.stringify(GeocoderResult));
-					                	var resultsArr = GeocoderResult.surroundingPois;
-					                	var len = GeocoderResult.surroundingPois.length;
-
-					                	for(var i = 0; i < len; i++){
-
-											(function(i){
-
-												var details = resultsArr[i].address;
-												var oLi = document.createElement('li');
-												oLi.className = 'per-addr';
-												oLi.innerHTML = '<h3 class="business">' + resultsArr[i].title + '</h3><p class="ccc-addr">' + details + '</p>';
-
-							                    oLi.setAttribute('longitude', resultsArr[i].point.lng);
-												oLi.setAttribute('latitude', resultsArr[i].point.lat);
-							                    $(oLi).on('tap', function(){
-									            	self.settings.perAddrOnclick(this, oLi.getAttribute('longitude'),  oLi.getAttribute('latitude'), resultsArr[i].title, resultsArr[i]);
-									            });
-
-												self.addrList.append($(oLi));
-
-
-											})(i);
-											
-										}
-
-					            });
-								self.showTip = false;
-							}
-
 			            }, resultsArr[i].city);
 
 
 					})(i);
 					
 				}
-
-
-				
-				
-
 
 			}
 
@@ -216,8 +165,8 @@ $.extend(proto, {
 	 * @desc 显示
 	 *
 	 */
-	show : function(addrStr, lng, lat){
-		this.getList(addrStr, lng, lat);
+	show : function(addrStr){
+		this.getList(addrStr);
 		
 		this.mobileAddrMark.css({left: 0});
 	},
@@ -239,17 +188,85 @@ $.extend(proto, {
 	 * @desc 获取列表
 	 *
 	 */
-	getList : function(addrStr, lng, lat){
+	getList : function(addrStr){
 		var ac = this.Autocomplete;
 		var addrStr = $.trim(addrStr);
 		var self = this;
 
 		if(addrStr){
-			this.showTip = true;
-			ac.search(addrStr);
+			this.myLocation(addrStr);
+			this.getLocation();
+		}else{
+			// 没有我的地址，那就直接定位
+			this.getLocation();
 		}
 
+	},
+	/**
+	 * @desc 定位当前地址的方法
+	 *
+	 */
+	getLocation : function(){
+		var self = this;
+		// 定位
+		this.Geocoder.getLocation(new BMap.Point(this.longitude,this.latitude), function(GeocoderResult){
+            	var oLi = document.createElement('li')
+				oLi.className = 'my-addr-tip';
+				oLi.innerHTML = '当前位置';
+				self.addrList.append($(oLi));
+            	//alert(JSON.stringify(GeocoderResult));
+            	var resultsArr = GeocoderResult.surroundingPois;
+            	var len = GeocoderResult.surroundingPois.length;
+
+            	for(var i = 0; i < len; i++){
+
+					(function(i){
+
+						var details = resultsArr[i].address;
+						var oLi = document.createElement('li');
+						oLi.className = 'per-addr';
+						oLi.innerHTML = '<h3 class="business">' + resultsArr[i].title + '</h3><p class="ccc-addr">' + details + '</p>';
+
+	                    oLi.setAttribute('longitude', resultsArr[i].point.lng);
+						oLi.setAttribute('latitude', resultsArr[i].point.lat);
+	                    $(oLi).on('tap', function(){
+			            	self.settings.perAddrOnclick(this, oLi.getAttribute('longitude'),  oLi.getAttribute('latitude'), resultsArr[i].title, resultsArr[i]);
+			            });
+
+						self.addrList.append($(oLi));
+
+
+					})(i);
+					
+				}
+
+        });
+	},
+	/**
+	 * @desc 我的位置
+	 *
+	 */
+	myLocation : function(locationStr){
+		var self = this;
+		// 清空列表
+		self.removeList();
+		
+		var oLi = document.createElement('li')
+		oLi.className = 'my-addr-tip';
+		oLi.innerHTML = '我的地址';
+		self.addrList.append($(oLi));
+
+		var oLi2 = document.createElement('li');
+		oLi2.className = 'per-addr';
+		oLi2.innerHTML = '<h3 class="business business2">' + locationStr + '</h3>';
+
+		$(oLi2).on('tap', function(){
+        	self.hide();
+        });
+
+		this.addrList.append($(oLi2));
 	}
+
 
 });
 
