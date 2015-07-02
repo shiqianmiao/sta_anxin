@@ -157,7 +157,7 @@ $.extend(proto, {
 										oLi.className = 'my-addr-tip';
 										oLi.innerHTML = '当前位置';
 										self.addrList.append($(oLi));
-					                	alert(JSON.stringify(GeocoderResult));
+					                	//alert(JSON.stringify(GeocoderResult));
 					                	var resultsArr = GeocoderResult.surroundingPois;
 					                	var len = GeocoderResult.surroundingPois.length;
 
@@ -173,7 +173,7 @@ $.extend(proto, {
 							                    oLi.setAttribute('longitude', resultsArr[i].point.lng);
 												oLi.setAttribute('latitude', resultsArr[i].point.lat);
 							                    $(oLi).on('tap', function(){
-									            	self.settings.perAddrOnclick(this, oLi.getAttribute('longitude'),  oLi.getAttribute('latitude'), resultsArr[i].business, resultsArr[i]);
+									            	self.settings.perAddrOnclick(this, oLi.getAttribute('longitude'),  oLi.getAttribute('latitude'), resultsArr[i].title, resultsArr[i]);
 									            });
 
 												self.addrList.append($(oLi));
@@ -247,32 +247,6 @@ $.extend(proto, {
 		if(addrStr){
 			this.showTip = true;
 			ac.search(addrStr);
-			//this.addrInput.val(addrStr);
-
-			// 获取当前经纬度
-			// navigator.geolocation.getCurrentPosition(function(position){
-			// 	var lat = position.coords.latitude;
-   //      		var lng = position.coords.longitude;
-   //      		alert(lat + ',' + lng);
-        		
-			// }, function getPositionError(error) {
-			//     switch (error.code) {
-			//         case error.TIMEOUT:
-			//             alert("连接超时，请重试");
-			//             break;
-			//         case error.PERMISSION_DENIED:
-			//             alert("您拒绝了使用位置共享服务，查询已取消");
-			//             break;
-			//         case error.POSITION_UNAVAILABLE:
-			//             alert("获取位置信息失败");
-			//             break;
-			//     }
-			// });
-
-
-			
-
-			
 		}
 
 	}
