@@ -138,7 +138,7 @@ $.extend(proto, {
 						oLi.className = 'per-addr';
 						oLi.innerHTML = '<h3 class="business">' + resultsArr[i].business + '</h3><p class="ccc-addr">' + details + '</p>';
 
-						myGeo.getPoint(details, function(point){
+						myGeo.getPoint(resultsArr[i].business, function(point){
 			                if(point) {
 			                    oLi.setAttribute('latitude', point.lat);
 			                    oLi.setAttribute('longitude', point.lng);
@@ -227,7 +227,7 @@ $.extend(proto, {
 			// });
 
 			// 定位
-			this.Geocoder.getLocation(new BMap.Point(this.longitude,this.latitude), function(GeocoderResult){
+			this.Geocoder.getLocation(new BMap.Point(116.42049,40.038085), function(GeocoderResult){
                 
                 	alert(JSON.stringify(GeocoderResult));
 
