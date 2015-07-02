@@ -227,7 +227,7 @@ $.extend(proto, {
 			// });
 
 			// 定位
-			this.Geocoder.getLocation(new BMap.Point(lng,lat), function(GeocoderResult){
+			this.Geocoder.getLocation(new BMap.Point(this.longitude,this.latitude), function(GeocoderResult){
                 
                 	alert(JSON.stringify(GeocoderResult));
 
