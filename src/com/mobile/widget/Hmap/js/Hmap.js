@@ -226,7 +226,7 @@ $.extend(proto, {
    //          });
 			
 			this.Geolocation.getCurrentPosition(function(res){
-				alert(res.address.streetNumber);
+				alert(res.address.street_number);
 			});
 			
 		}
