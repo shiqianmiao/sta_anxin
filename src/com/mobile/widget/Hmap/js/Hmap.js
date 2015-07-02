@@ -21,7 +21,7 @@ var Hmap = function(opations){
 +			'<header class="select-addr-top boxSha">'
 +				'<a class="back" href="#"></a>'
 +				'<section class="addr-input-wrap borR-3">'
-+					'<img src="imgs/addr.jpg" class="addr-img">'
++					'<img src="imgs/addr.png" class="addr-img">'
 +					'<input type="text" placeholder="请输入您的常驻地址" class="addr-input" id="addr-input" />'
 +				'</section>'
 +			'</header>'
@@ -158,13 +158,13 @@ $.extend(proto, {
 
 
 				if(self.showTip){
-					var oLi = document.createElement('li')
-					oLi.className = 'my-addr-tip';
-					oLi.innerHTML = '当前位置';
-					self.addrList.append($(oLi));
+					
 					// 定位
 					self.Geocoder.getLocation(new BMap.Point(self.longitude,self.latitude), function(GeocoderResult){
-		                
+		                	var oLi = document.createElement('li')
+							oLi.className = 'my-addr-tip';
+							oLi.innerHTML = '当前位置';
+							self.addrList.append($(oLi));
 		                	//alert(JSON.stringify(GeocoderResult));
 		                	var resultsArr = GeocoderResult.surroundingPois;
 		                	var len = GeocoderResult.surroundingPois.length;
