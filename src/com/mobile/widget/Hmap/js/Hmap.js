@@ -94,7 +94,7 @@ $.extend(proto, {
 	bind : function(){
 		var self = this;
 		// 点击返回按钮
-		this.backBtn.on('touchend', function(){
+		this.backBtn.on('tap', function(){
 			self.hide();
 		});
 
