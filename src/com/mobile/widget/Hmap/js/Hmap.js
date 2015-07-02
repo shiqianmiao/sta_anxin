@@ -135,7 +135,7 @@ $.extend(proto, {
 			                    oLi.setAttribute('latitude', point.lat);
 			                    oLi.setAttribute('longitude', point.lng);
 			                    $(oLi).on('tap', function(){
-					            	self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].business, details);
+					            	self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].business, resultsArr[i]);
 					            });
 
 								self.addrList.append($(oLi));
@@ -226,7 +226,7 @@ $.extend(proto, {
    //          });
 			
 			this.Geolocation.getCurrentPosition(function(res){
-				alert(res.address.street);
+				alert(res.address.streetNumber);
 			});
 			
 		}
