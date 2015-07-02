@@ -38,6 +38,16 @@
 		/* end reset */
 		.clear { zoom:1; }
 		.clear:after { content:''; display:block; clear:both; }
+		#txt{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			background: red;
+			color: #fff;
+			font-size: 20px;
+			text-align: center;
+			line-height: 100px;
+		}
 	</style>
 
 	<link rel="stylesheet" href="css/Hmap.css">
@@ -45,7 +55,7 @@
 </head>
 <body class="reg-body">
 	
-	<input type="text" value="" id="txt" />
+	<div id="txt">地址</div>
 	
 
 	
@@ -65,7 +75,7 @@
     			}
     		});
 
-    		$('#txt').on('focus', function(){
+    		$('#txt').on('tap', function(){
     			hmap.show('金泉美食宫(大屯北路)', 116.521695, 39.958953);
     		});
 
