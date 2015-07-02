@@ -156,6 +156,42 @@ $.extend(proto, {
 					
 				}
 
+
+				if(self.showTip){
+					// 定位
+					self.Geocoder.getLocation(new BMap.Point(self.longitude,self.latitude), function(GeocoderResult){
+		                
+		                	//alert(JSON.stringify(GeocoderResult));
+		                	var resultsArr = GeocoderResult.surroundingPois;
+		                	var len = GeocoderResult.surroundingPois.length;
+
+		                	for(var i = 0; i < len; i++){
+
+								(function(i){
+
+									var details = resultsArr[i].address;
+									var oLi = document.createElement('li');
+									oLi.className = 'per-addr';
+									oLi.innerHTML = '<h3 class="business">' + resultsArr[i].title + '</h3><p class="ccc-addr">' + details + '</p>';
+
+				                    oLi.setAttribute('longitude', resultsArr[i].point.lng);
+									oLi.setAttribute('latitude', resultsArr[i].point.lat);
+				                    $(oLi).on('tap', function(){
+						            	self.settings.perAddrOnclick(this, oLi.getAttribute('longitude'),  oLi.getAttribute('latitude'), resultsArr[i].business, resultsArr[i]);
+						            });
+
+									self.addrList.append($(oLi));
+
+
+								})(i);
+								
+							}
+
+		            });
+				}
+				
+
+
 			}
 
 		});
@@ -226,12 +262,7 @@ $.extend(proto, {
 			//     }
 			// });
 
-			// 定位
-			this.Geocoder.getLocation(new BMap.Point(116.42049,40.038085), function(GeocoderResult){
-                
-                	alert(JSON.stringify(GeocoderResult));
 
-            });
 			
 
 			
