@@ -34,6 +34,7 @@ var Hmap = function(opations){
 
 	this.Geocoder = null;
 	this.Autocomplete = null;
+	this.Geolocation = null;
 
 	this.showTip = false; // 是否显示我的地址以及当前地址的tip提示
 
@@ -96,6 +97,10 @@ $.extend(proto, {
 		// 实例化地址解析实例
 		var myGeo = new BMap.Geocoder();
 		this.Geocoder = myGeo;
+
+		// 实例化定位
+		var Geolocation = new BMap.Geolocation();
+		this.Geolocation = Geolocation;
 
 		// 实例化地图 自动完成api
 		var ac = new BMap.Autocomplete({
@@ -160,8 +165,8 @@ $.extend(proto, {
 	 * @desc 显示
 	 *
 	 */
-	show : function(addrStr){
-		this.getList(addrStr);
+	show : function(addrStr, lng, lat){
+		this.getList(addrStr, lng, lat);
 		
 		this.mobileAddrMark.css({left: 0});
 	},
@@ -183,7 +188,7 @@ $.extend(proto, {
 	 * @desc 获取列表
 	 *
 	 */
-	getList : function(addrStr){
+	getList : function(addrStr, lng, lat){
 		var ac = this.Autocomplete;
 		var addrStr = $.trim(addrStr);
 		var self = this;
@@ -194,15 +199,34 @@ $.extend(proto, {
 			//this.addrInput.val(addrStr);
 
 			// 获取当前经纬度
-			navigator.geolocation.getCurrentPosition(function(position){
-				var lat = position.coords.latitude;
-        		var lng = position.coords.longitude;
-        		// 定位
-				self.Geocoder.getLocation(new BMap.Point(lat,lng), function(GeocoderResult){
-	                
-	                	console.log(GeocoderResult);
+			// navigator.geolocation.getCurrentPosition(function(position){
+			// 	var lat = position.coords.latitude;
+   //      		var lng = position.coords.longitude;
+   //      		alert(lat + ',' + lng);
+        		
+			// }, function getPositionError(error) {
+			//     switch (error.code) {
+			//         case error.TIMEOUT:
+			//             alert("连接超时，请重试");
+			//             break;
+			//         case error.PERMISSION_DENIED:
+			//             alert("您拒绝了使用位置共享服务，查询已取消");
+			//             break;
+			//         case error.POSITION_UNAVAILABLE:
+			//             alert("获取位置信息失败");
+			//             break;
+			//     }
+			// });
 
-	            });
+			// 定位
+			// this.Geocoder.getLocation(new BMap.Point(lng,lat), function(GeocoderResult){
+                
+   //              	console.log(GeocoderResult);
+
+   //          });
+			
+			this.Geolocation.getCurrentPosition(function(res){
+				alert(res.address.district);
 			});
 			
 		}
