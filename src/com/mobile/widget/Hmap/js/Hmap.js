@@ -158,6 +158,10 @@ $.extend(proto, {
 
 
 				if(self.showTip){
+					var oLi = document.createElement('li')
+					oLi.className = 'my-addr-tip';
+					oLi.innerHTML = '当前位置';
+					self.addrList.append($(oLi));
 					// 定位
 					self.Geocoder.getLocation(new BMap.Point(self.longitude,self.latitude), function(GeocoderResult){
 		                
