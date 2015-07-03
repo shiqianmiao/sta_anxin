@@ -211,6 +211,7 @@ $.extend(proto, {
 	 */
 	hide : function(){
 		this.mobileAddrMark.css({left: '100%'});
+		this.addrInput.val('');
 		this.removeList();
 	},
 	/**
