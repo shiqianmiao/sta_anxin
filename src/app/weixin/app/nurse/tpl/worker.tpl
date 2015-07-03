@@ -1,4 +1,4 @@
-<li class="per-nurse">
+<li class="per-nurse" id="server-nurse_<%= worker_info.worker_id%>">
     <div class="nurse-intr">
         <img src="<%= worker_info.head_url %>" class="head-pic">
         <div class="intr-info">

@@ -28,17 +28,17 @@ DateSel.addCart = function(obj, label){
 	var _this = obj;
 	// 获取用户操作的父级元素
 	var parent = $(_this).parents('.per-server');
-	
+
 	// 获取用户点击服务的价钱
-	var clickMoney = parseFloat($(parent).find('.per-money').html()).toFixed(2); 
-	var clickMoneyNext = parseFloat($(parent).data('next_price')).toFixed(2); 
+	var clickMoney = parseFloat($(parent).find('.per-money').html()).toFixed(2);
+	var clickMoneyNext = parseFloat($(parent).data('next_price')).toFixed(2);
 	// 获取用户点击服务用时
-	var clickTime = parseFloat($(parent).find('.per-time').html()); 
+	var clickTime = parseFloat($(parent).find('.per-time').html());
 
 	// 获取用户点击服务的当前所选数量
 	var clickServNum = parseFloat($(parent).find('.per-num').html());
 	// 第一次点击加号的初始数量，在业务中代表服务的起订数量
-	var dataStart = parseFloat($(parent).data('start')); 
+	var dataStart = parseFloat($(parent).data('start'));
 
 	if(type == 'remove' && clickServNum <= 0){
 		return false;
@@ -52,7 +52,7 @@ DateSel.addCart = function(obj, label){
 	// 服务总数量累加
 	type == 'add' ? (firstBool ? serverAllNum += dataStart : serverAllNum++) : (secBool ? serverAllNum -= dataStart : serverAllNum--);
 	$('.all-num').html(serverAllNum);	// 赋值
-	
+
 	//结算车总数量累加
 	type == 'add' ? (firstBool ? cartAllNum += dataStart : cartAllNum++) : (secBool ? cartAllNum -= dataStart : cartAllNum--);
 	$('.num').html(cartAllNum);	// 赋值
@@ -62,16 +62,16 @@ DateSel.addCart = function(obj, label){
 	$('.all-hour').html(serverAllTime);	// 赋值
 
 	// 服务总价钱累加
-	type == 'add' ? (firstBool ? serverAllMoney = parseFloat(DateSel.accAdd(serverAllMoney,clickMoney * dataStart)).toFixed(2) 
-							   : serverAllMoney = parseFloat(DateSel.accAdd(serverAllMoney,clickMoneyNext)).toFixed(2)) 
-				  : (secBool ? serverAllMoney = parseFloat(DateSel.accSub(clickMoney * dataStart, serverAllMoney)).toFixed(2) 
+	type == 'add' ? (firstBool ? serverAllMoney = parseFloat(DateSel.accAdd(serverAllMoney,clickMoney * dataStart)).toFixed(2)
+							   : serverAllMoney = parseFloat(DateSel.accAdd(serverAllMoney,clickMoneyNext)).toFixed(2))
+				  : (secBool ? serverAllMoney = parseFloat(DateSel.accSub(clickMoney * dataStart, serverAllMoney)).toFixed(2)
 				  			 : serverAllMoney = parseFloat(DateSel.accSub(clickMoneyNext, serverAllMoney)).toFixed(2));
 
 	// 如果是首单，不修改价格
 	if(!firstOrder){
 		$('.all-money').html(serverAllMoney);
 	}
-	
+
 	if(label){
 		// 结算车的总价钱计算 = serverAllMoney - 减免费用
 		// 获取减免费用总额
@@ -104,7 +104,7 @@ DateSel.addCart = function(obj, label){
 	}
 
 	breaksMoney = 0; // 减免清零,很重要，不清零的减免每次都会累加
-	
+
 	if(clickServNum <= 0){
 		$(parent).find('.remove').css({color:'#999999'});
 	}else{
@@ -196,7 +196,7 @@ DateSel.selectDate = function(type, clickBtn, callBack){
 		var curHours = myDate.getHours();
 		// 今分
 		var curMins = myDate.getMinutes();
-		
+
 
 		// 获取点击的是谁，年？月？日？小时？
 		var who = $(_this).parent().attr('class');
@@ -204,7 +204,7 @@ DateSel.selectDate = function(type, clickBtn, callBack){
 		$('.' + who + ' li').removeClass('active');
 		$(_this).addClass('active');
 		// 缩短年份选择框
-		
+
 		// 伸长下一个选择框
 		// 获取下一个
 		var next = '';
@@ -238,7 +238,7 @@ DateSel.selectDate = function(type, clickBtn, callBack){
 						monthStr += '<li class="yes">' + (m + 1) + '</li>'
 					}
 				}
-				
+
 			}else{
 				// 不是点击当前年份，那么就正常创建12个月份
 				for(var m = 0; m < 12; m++){
@@ -288,7 +288,7 @@ DateSel.selectDate = function(type, clickBtn, callBack){
 								dayStr += '<li class="yes">0' + (i + 1) + '</li>';
 							}
 						}
-						
+
 					}else{
 						if(i < curDay){
 							dayStr += '<li class="no">' + (i + 1) + '</li>';
@@ -300,7 +300,7 @@ DateSel.selectDate = function(type, clickBtn, callBack){
 							}
 						}
 					}
-					
+
 				}
 			}else{
 				// 正常创建天
@@ -310,10 +310,10 @@ DateSel.selectDate = function(type, clickBtn, callBack){
 					}else{
 						dayStr += '<li class="yes">' + (i + 1) + '</li>';
 					}
-					
+
 				}
 			}
-			
+
 			$(next).append($(dayStr));
 			// 回调
 			$(next + ' li.yes').on('click', function(){
@@ -353,13 +353,13 @@ DateSel.selectDate = function(type, clickBtn, callBack){
 					}else{
 						hoursStr += '<li class="yes">' + DateSel.mintoHours(30 * h + 480) + '</li>';
 					}
-					
+
 				}
 			}else{
 				// 正常创建小时
 				for(var h = 0; h < 25; h++){
 					hoursStr += '<li class="yes">' + DateSel.mintoHours(30 * h + 480) + '</li>';
-					
+
 				}
 			}
 			$(next).append($(hoursStr));
@@ -379,7 +379,7 @@ DateSel.selectDate = function(type, clickBtn, callBack){
 				$('.' + who).css({width:"25%",borderRight:"1px solid #b9babb"});
 			}
 		}
-		
+
 	}
 }
 
@@ -389,7 +389,7 @@ DateSel.getDateReturn = function(){
 	DateSel.closeTimeWin();
 	// $('.year').html($('.year-list .active').html());
 	// $('.month').html($('.month-list .active').html());
-	// $('.day').html($('.day-list .active').html()); 
+	// $('.day').html($('.day-list .active').html());
 	// $('.hours').html($('.hours-list .active').html());
 	return {
 		year : $('.year-list .active').html(),
@@ -406,7 +406,7 @@ DateSel.mintoHours = function(mins){
 	}else{
 		return (mins/60>>0)+":"+(mins%60);
 	}
-	
+
 }
 
 // 关闭时间弹窗的方法、
@@ -418,17 +418,17 @@ DateSel.closeTimeWin = function(){
 }
 
 // 根据年月获取本月天数的函数
-DateSel.getDaysInMonth = function(year,month){ 
-	month = parseInt(month,10); 
-	var temp = new Date(year,month,0); 
-	return temp.getDate(); 
+DateSel.getDaysInMonth = function(year,month){
+	month = parseInt(month,10);
+	var temp = new Date(year,month,0);
+	return temp.getDate();
 }
 
 // 创建小时的方法
 DateSel.createHour = function(todayMark, initHourMark){
     $('.hour-list').empty();
     var oDate = new Date();
-    var cur_hour = oDate.getHours() + 1; // 0-23 // 业务规定1小时后
+    var cur_hour = oDate.getHours() + 2; // 0-23 // 业务规定1小时后
     var cur_min = oDate.getMinutes(); // 0-59
     var cur_all_min = cur_hour * 60 + cur_min;
     var hour_str = '';
@@ -446,7 +446,7 @@ DateSel.createHour = function(todayMark, initHourMark){
                 }else{
                     hour_str += '<li class="yes" data-time="' + hour + '">' + '0' + hour + ':' + min + '</li>';
                 }
-                
+
             }else{
                 if(i <= cur_all_min){
                     hour_str += '<li class="no" data-time="' + hour + '">' + hour + ':' + min + '</li>';
@@ -454,7 +454,7 @@ DateSel.createHour = function(todayMark, initHourMark){
                     hour_str += '<li class="yes" data-time="' + hour + '">' + hour + ':' + min + '</li>';
                 }
             }
-            
+
         }
         if(!initHourMark){
         	// 如果选择的是今天，将时间初始化为最近可用时间
@@ -475,7 +475,7 @@ DateSel.createHour = function(todayMark, initHourMark){
 	            }
 	        }
         }
-        
+
     }else{
         // 非今天
         for(var i = 480; i <= 1200; i += 30){
@@ -489,7 +489,7 @@ DateSel.createHour = function(todayMark, initHourMark){
             }else{
                 hour_str += '<li class="yes" data-time="' + hour + '">' + hour + ':' + min + '</li>';
             }
-            
+
         }
         if(!initHourMark){
 	        // 初始化时间为08:00
@@ -506,4 +506,3 @@ DateSel.createHour = function(todayMark, initHourMark){
         $('.hours').html($(this).html());
     });
 }
-
