@@ -100,7 +100,7 @@ $.extend(proto, {
 	bind : function(){
 		var self = this;
 		// 点击返回按钮
-		this.backBtn.on('tap', function(){
+		this.backBtn.on('click', function(){
 			self.hide();
 		});
 
