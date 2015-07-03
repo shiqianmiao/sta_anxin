@@ -121,13 +121,13 @@ $.extend(proto, {
 
 		// 监听表单的keyup事件
 		setInterval(function(){
-			if($.trim(this.addrInput.val()) == ''){
+			if($.trim(self.addrInput.val()) == ''){
 				// 当地址输入表单为空的时候
 				self.removeList();
 			}else{
 				//alert($(this).val());
 				
-				var k = $(this).val();
+				var k = self.addrInput.val();
 				$.get('http://nurse.weixin.anxin365.com/location/getBDSuggest?keyword=' + k, function(res){
 					self.removeList();
 					//console.log(typeof res);
