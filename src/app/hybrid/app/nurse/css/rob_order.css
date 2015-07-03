@@ -216,5 +216,42 @@ body, html{
 	font-size: 13px;
 	margin-right: 8px;
 }
+.yes-mark, .no-mark{
+	float: right;
+	font-size: 13px;
+	margin-right: 20px;
+	background: none;
+}
+.yes-mark{
+	color: #ffb72c;
+}
+.no-mark{
+	color: #b0b0b0;
+}
 /* 完善资料弹窗 结束 */
 .window-hide{display: none;}
+.null-sec{
+	margin-top: 97px;
+}
+.null-sun{
+	width: 101px;
+	height: 101px;
+	display: block;
+	margin: 0 auto 17px;
+}
+.null-sec p{
+	font-size: 15px;
+	color: #999999;
+	text-align: center;
+}
+.null-sec a{
+	display: block;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	background: #ffad0f;
+	color: #fff;
+	font-size: 17px;
+	width: 92%;
+	margin: 34px auto 0;
+}
