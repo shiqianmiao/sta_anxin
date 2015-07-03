@@ -120,8 +120,8 @@ $.extend(proto, {
 		this.Autocomplete = ac;
 
 		// 监听表单的keyup事件
-		this.addrInput.on('change', function(){
-			if($.trim($(this).val()) == ''){
+		setInterval(function(){
+			if($.trim(this.addrInput.val()) == ''){
 				// 当地址输入表单为空的时候
 				self.removeList();
 			}else{
@@ -183,7 +183,7 @@ $.extend(proto, {
 				});
 				
 			}
-		});
+		}, 200);
 
 	},
 	/**
