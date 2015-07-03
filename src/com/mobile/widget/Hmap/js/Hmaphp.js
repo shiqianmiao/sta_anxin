@@ -70,11 +70,11 @@ $.extend(proto, {
 	createDom : function(){
 		var self = this;
 
-		// window.BMap_loadScriptTime = (new Date).getTime();
-		// // 加载百度地图API script
-		// var mapApiScript = document.createElement('script');
-		// mapApiScript.src = 'http://api.map.baidu.com/api?v=2.0&ak=SYx6kkaDqpde5gXR06zyEc7t';
-		// $('head').append($(mapApiScript));
+		window.BMap_loadScriptTime = (new Date).getTime();
+		// 加载百度地图API script
+		var mapApiScript = document.createElement('script');
+		mapApiScript.src = 'http://api.map.baidu.com/getscript?v=2.0&ak=SYx6kkaDqpde5gXR06zyEc7t&services=&t=20150624121059';
+		$('head').append($(mapApiScript));
 
 		$('body').append($(this.tpl));
 
@@ -83,7 +83,10 @@ $.extend(proto, {
 		this.addrList = $('#mobile-addr-mark .addr-list');
 		this.addrInput = $('#mobile-addr-mark .addr-input');
 
-		self.bind();
+		mapApiScript.onload = function(){
+			self.bind();
+		};
+		
 		
 	},
 	/**
@@ -112,51 +115,73 @@ $.extend(proto, {
 		// 实例化地图 自动完成api
 		var ac = new BMap.Autocomplete({
 			"input" : "addr-input",
-			"location" : "北京市",
-			onSearchComplete : function(){
-				// 清空列表
-				self.removeList();
-
-				 console.log(ac.getResults());
-				var resultsArr = ac.getResults().Nq,
-					len = resultsArr.length;
-
-				for(var i = 0; i < len; i++){
-
-					(function(i){
-
-						var details = resultsArr[i].province + resultsArr[i].city + resultsArr[i].district + resultsArr[i].street + resultsArr[i].streetNumber;
-						var oLi = document.createElement('li');
-						oLi.className = 'per-addr';
-						oLi.innerHTML = '<h3 class="business">' + resultsArr[i].business + '</h3><p class="ccc-addr">' + details + '</p>';
-
-						myGeo.getPoint(resultsArr[i].business, function(point){
-			                if(point) {
-			                    oLi.setAttribute('latitude', point.lat);
-			                    oLi.setAttribute('longitude', point.lng);
-			                    $(oLi).on('tap', function(){
-					            	self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].business, resultsArr[i]);
-					            });
-
-								self.addrList.append($(oLi));
-			                }
-
-			            }, "北京市");
-
-
-					})(i);
-					
-				}
-
-			}
-
+			"location" : "北京市"
 		});
 		this.Autocomplete = ac;
 
-		// 当地址输入表单为空的时候
+		// 监听表单的keyup事件
 		this.addrInput.on('keyup', function(){
 			if($.trim($(this).val()) == ''){
+				// 当地址输入表单为空的时候
 				self.removeList();
+			}else{
+				//alert($(this).val());
+				
+				var k = $(this).val();
+				$.get('http://nurse.weixin.anxin365.com/location/getBDSuggest?keyword=' + k, function(res){
+					self.removeList();
+					//console.log(typeof res);
+
+					var resultsArr = res;
+					resultsArr = JSON.parse(resultsArr);
+					var len = resultsArr.length;
+					//console.log(resultsArr);
+
+					if(len == 0){
+						// 无数据
+						var oLi = document.createElement('li');
+						oLi.className = 'no-addr';
+
+						var oDiv = document.createElement('div');
+						oDiv.className = 'yuan-icon';
+						oLi.appendChild(oDiv);
+
+						var oP = document.createElement('p');
+						oP.innerHTML = '亲，未能找到此地址';
+						oLi.appendChild(oP);
+
+						var oP2 = document.createElement('p');
+						oP2.style.fontSize = '12px';
+						oP2.style.marginTop = '10px';
+						oP2.innerHTML = '建议输入学校/校区/写字楼全称';
+						oLi.appendChild(oP2);
+
+						self.addrList.append($(oLi));
+					}
+
+					for(var i = 0; i < len; i++){
+
+						(function(i){
+
+							var details = resultsArr[i].city + resultsArr[i].district;
+							var oLi = document.createElement('li');
+							oLi.className = 'per-addr';
+							oLi.innerHTML = '<h3 class="business">' + resultsArr[i].name + '</h3><p class="ccc-addr">' + details + '</p>';
+
+							oLi.setAttribute('latitude', resultsArr[i].location.lat);
+		                    oLi.setAttribute('longitude', resultsArr[i].location.lng);
+		                    $(oLi).on('tap', function(){
+				            	self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].name, resultsArr[i]);
+				            });
+
+							self.addrList.append($(oLi));
+
+
+						})(i);
+						
+					}
+				});
+				
 			}
 		});
 
@@ -167,6 +192,8 @@ $.extend(proto, {
 	 */
 	show : function(addrStr){
 		this.getList(addrStr);
+
+		this.addrInput.val('');
 		
 		this.mobileAddrMark.css({left: 0});
 	},

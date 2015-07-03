@@ -7,7 +7,7 @@
 	<meta content="black" name="apple-mobile-web-app-status-bar-style">
 	<meta content="telephone=no" name="format-detection">
 	<meta content="email=no" name="format-detection">
-	<title>移动端 选择地址 组件</title>
+	<title>移动端 选择地址 组件 通过php获取数据</title>
 	<style>
 	/* hcy  */
 		@charset "utf-8";
@@ -51,26 +51,24 @@
 	
 	<div id="txt">地址</div>
 	
-
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=05480ccea3dfdbfa1b4473e60d955f88"></script>
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    	G.use(['zepto', 'com/mobile/widget/Hmap/js/Hmap.js'], function($, Hmap){
+    	G.use(['zepto', 'com/mobile/widget/Hmap/js/Hmaphp.js'], function($, Hmaphp){
 			
-    		var hmap = new Hmap({
+    		var Hmaphp = new Hmaphp({
     			perAddrOnclick: function(liObj, longitude, latitude, business, results){
     				console.log(latitude);
     				console.log(longitude);
     				console.log(business);
     				console.log(results);
 
-    				hmap.hide();
+    				Hmaphp.hide();
     			}
     		});
 
     		$('#txt').on('click', function(){
-    			hmap.show('金泉');
+    			Hmaphp.show('工');
     		});
 
 		});

@@ -11,6 +11,7 @@
 	-ms-transition: 0.3s;
 	-o-transition: 0.3s;
 	transition: 0.3s;
+	overflow-y: auto;
 }
 #mobile-addr-mark .back{
 	position: absolute;
@@ -24,7 +25,8 @@
 #mobile-addr-mark .select-addr-top{
 	height: 38px;
 	background: #fff;
-	position: relative;
+	position: absolute;
+	width: 100%;
 	padding-top: 6px;
 }
 #mobile-addr-mark .addr-input-wrap{
@@ -48,13 +50,13 @@
 }
 #mobile-addr-mark .addr-list{
 	background: #fff;
-	margin-top: 1px;
+	margin-top: 39px;
 }
 #mobile-addr-mark .per-addr{
 	padding: 0 4%;
 	height: 50px;
 	border-bottom: 1px solid #e1e1e1;
-	width: 100%;
+	width: 92%;
 	overflow: hidden;
 }
 #mobile-addr-mark .per-addr:last-of-type{
@@ -91,4 +93,22 @@
 	line-height: 30px;
 	font-size: 12px;
 	text-indent: 4%;
+}
+#mobile-addr-mark .no-addr{
+	text-align: center;
+	font-size: 15px;
+	color: #999;
+	background: #f1f1f1;
+}
+#mobile-addr-mark .yuan-icon{
+	margin: 80px auto 20px;
+	width: 70px;
+	height: 70px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	border: 3px solid #d9d9d9;
+	background: url(../imgs/addr.png) no-repeat center center;
 }
