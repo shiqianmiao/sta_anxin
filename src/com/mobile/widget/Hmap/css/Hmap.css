@@ -48,7 +48,7 @@
 	width: 80%;
 }
 #mobile-addr-mark .addr-list{
-	background: #fff;
+	background: #f2f2f2;
 	position: absolute;
 	top: 45px;
 	bottom: 0;
@@ -56,14 +56,12 @@
 	overflow: auto;
 }
 #mobile-addr-mark .per-addr{
+	background: #fff;
 	padding: 0 4%;
 	height: 50px;
 	border-bottom: 1px solid #e1e1e1;
 	width: 92%;
 	overflow: hidden;
-}
-#mobile-addr-mark .per-addr:last-of-type{
-	border: none;
 }
 #mobile-addr-mark h3.business{
 	font-size: 15px;
