@@ -272,7 +272,7 @@ $.extend(proto, {
 	                    oLi.setAttribute('longitude', resultsArr[i].point.lng);
 						oLi.setAttribute('latitude', resultsArr[i].point.lat);
 	                    $(oLi).on('tap', function(){
-			            	self.settings.perAddrOnclick(this, oLi.getAttribute('longitude'),  oLi.getAttribute('latitude'), resultsArr[i].title, resultsArr[i]);
+			            	self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].title, resultsArr[i]);
 			            });
 
 						self.addrList.append($(oLi));
