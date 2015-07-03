@@ -19,9 +19,9 @@ var Hmap = function(opations){
 
 	this.tpl = '<section id="mobile-addr-mark">'
 +			'<header class="select-addr-top boxSha">'
-+				'<a class="back" href="#"></a>'
++				'<a class="back" href="javascript:;"></a>'
 +				'<section class="addr-input-wrap borR-3">'
-+					'<img src="imgs/addr.png" class="addr-img">'
++					'<img src="http://s1.anxinsta.com/com/mobile/widget/Hmap/imgs/addr.png" class="addr-img">'
 +					'<input type="text" placeholder="请输入您的常驻地址" class="addr-input" id="addr-input" />'
 +				'</section>'
 +			'</header>'
