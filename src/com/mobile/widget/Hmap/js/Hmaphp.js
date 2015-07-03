@@ -111,10 +111,10 @@ $.extend(proto, {
 		// 实例化定位
 		var Geolocation = new BMap.Geolocation();
 		this.Geolocation = Geolocation;
-		this.Geolocation.getCurrentPosition(function(res){
-			self.longitude = res.longitude;
-			self.latitude = res.latitude;
-		});
+		// this.Geolocation.getCurrentPosition(function(res){
+		// 	self.longitude = res.longitude;
+		// 	self.latitude = res.latitude;
+		// });
 
 		// 实例化地图 自动完成api
 		var ac = new BMap.Autocomplete({
@@ -253,42 +253,48 @@ $.extend(proto, {
 	 */
 	getLocation : function(){
 		var self = this;
-		// 定位
-		this.Geocoder.getLocation(new BMap.Point(this.longitude,this.latitude), function(GeocoderResult){
-            	var oLi = document.createElement('li')
-				oLi.className = 'my-addr-tip';
-				oLi.innerHTML = '当前位置';
-				self.addrList.append($(oLi));
-            	//alert(JSON.stringify(GeocoderResult));
-            	var resultsArr = GeocoderResult.surroundingPois;
-            	var len = GeocoderResult.surroundingPois.length;
 
-            	for(var i = 0; i < len; i++){
+		this.Geolocation.getCurrentPosition(function(res){
+			self.longitude = res.longitude;
+			self.latitude = res.latitude;
+			// 定位
+			self.Geocoder.getLocation(new BMap.Point(self.longitude,self.latitude), function(GeocoderResult){
+	            	var oLi = document.createElement('li')
+					oLi.className = 'my-addr-tip';
+					oLi.innerHTML = '当前位置';
+					self.addrList.append($(oLi));
+	            	//alert(JSON.stringify(GeocoderResult));
+	            	var resultsArr = GeocoderResult.surroundingPois;
+	            	var len = GeocoderResult.surroundingPois.length;
 
-					(function(i){
+	            	for(var i = 0; i < len; i++){
 
-						var details = resultsArr[i].address;
-						var oLi = document.createElement('li');
-						oLi.className = 'per-addr';
-						oLi.innerHTML = '<h3 class="business">' + resultsArr[i].title + '</h3><p class="ccc-addr">' + details + '</p>';
+						(function(i){
 
-	                    oLi.setAttribute('longitude', resultsArr[i].point.lng);
-						oLi.setAttribute('latitude', resultsArr[i].point.lat);
-	              //       $(oLi).on('tap', function(){
-			            // 	self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].title, resultsArr[i]);
-			            // });
-			            oLi.onclick = function(){
-							self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].title, resultsArr[i]);
-						};
+							var details = resultsArr[i].address;
+							var oLi = document.createElement('li');
+							oLi.className = 'per-addr';
+							oLi.innerHTML = '<h3 class="business">' + resultsArr[i].title + '</h3><p class="ccc-addr">' + details + '</p>';
 
-						self.addrList.append($(oLi));
+		                    oLi.setAttribute('longitude', resultsArr[i].point.lng);
+							oLi.setAttribute('latitude', resultsArr[i].point.lat);
+		              //       $(oLi).on('tap', function(){
+				            // 	self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].title, resultsArr[i]);
+				            // });
+				            oLi.onclick = function(){
+								self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].title, resultsArr[i]);
+							};
+
+							self.addrList.append($(oLi));
 
 
-					})(i);
-					
-				}
+						})(i);
+						
+					}
 
-        });
+	        });
+		});
+		
 	},
 	/**
 	 * @desc 我的位置
