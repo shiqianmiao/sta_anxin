@@ -45,6 +45,8 @@ var Hmap = function(opations){
 
 	this.first = true;
 
+	this.preKeyword = '';
+
 	this.init();
 
 	
@@ -130,64 +132,67 @@ $.extend(proto, {
 				}
 				
 			}else{
+				// 只有keyword改变的时候才帅新列表
+				if(self.preKeyword != self.addrInput.val()){
+					self.preKeyword = self.addrInput.val();
+					self.first = false;
+					//alert($(this).val());
+					
+					var k = self.addrInput.val();
+					$.get('http://nurse.weixin.anxin365.com/location/getBDSuggest?keyword=' + k, function(res){
+						self.removeList();
+						//console.log(typeof res);
 
-				self.first = false;
-				//alert($(this).val());
-				
-				var k = self.addrInput.val();
-				$.get('http://nurse.weixin.anxin365.com/location/getBDSuggest?keyword=' + k, function(res){
-					self.removeList();
-					//console.log(typeof res);
+						var resultsArr = res;
+						resultsArr = JSON.parse(resultsArr);
+						var len = resultsArr.length;
+						//console.log(resultsArr);
 
-					var resultsArr = res;
-					resultsArr = JSON.parse(resultsArr);
-					var len = resultsArr.length;
-					//console.log(resultsArr);
-
-					if(len == 0){
-						// 无数据
-						var oLi = document.createElement('li');
-						oLi.className = 'no-addr';
-
-						var oDiv = document.createElement('div');
-						oDiv.className = 'yuan-icon';
-						oLi.appendChild(oDiv);
-
-						var oP = document.createElement('p');
-						oP.innerHTML = '亲，未能找到此地址';
-						oLi.appendChild(oP);
-
-						var oP2 = document.createElement('p');
-						oP2.style.fontSize = '12px';
-						oP2.style.marginTop = '10px';
-						oP2.innerHTML = '建议输入学校/校区/写字楼全称';
-						oLi.appendChild(oP2);
-
-						self.addrList.append($(oLi));
-					}
-
-					for(var i = 0; i < len; i++){
-
-						(function(i){
-
-							var details = resultsArr[i].city + resultsArr[i].district;
+						if(len == 0){
+							// 无数据
 							var oLi = document.createElement('li');
-							oLi.className = 'per-addr';
-							oLi.innerHTML = '<h3 class="business">' + resultsArr[i].name + '</h3><p class="ccc-addr">' + details + '</p>';
+							oLi.className = 'no-addr';
 
-							oLi.setAttribute('latitude', resultsArr[i].location.lat);
-		                    oLi.setAttribute('longitude', resultsArr[i].location.lng);
-		                    $(oLi).on('tap', function(){
-				            	self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].name, resultsArr[i]);
-				            });
+							var oDiv = document.createElement('div');
+							oDiv.className = 'yuan-icon';
+							oLi.appendChild(oDiv);
+
+							var oP = document.createElement('p');
+							oP.innerHTML = '亲，未能找到此地址';
+							oLi.appendChild(oP);
+
+							var oP2 = document.createElement('p');
+							oP2.style.fontSize = '12px';
+							oP2.style.marginTop = '10px';
+							oP2.innerHTML = '建议输入学校/校区/写字楼全称';
+							oLi.appendChild(oP2);
 
 							self.addrList.append($(oLi));
+						}
+
+						for(var i = 0; i < len; i++){
+
+							(function(i){
+
+								var details = resultsArr[i].city + resultsArr[i].district;
+								var oLi = document.createElement('li');
+								oLi.className = 'per-addr';
+								oLi.innerHTML = '<h3 class="business">' + resultsArr[i].name + '</h3><p class="ccc-addr">' + details + '</p>';
+
+								oLi.setAttribute('latitude', resultsArr[i].location.lat);
+			                    oLi.setAttribute('longitude', resultsArr[i].location.lng);
+			                    $(oLi).on('tap', function(){
+					            	self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].name, resultsArr[i]);
+					            });
+
+								self.addrList.append($(oLi));
 
 
-						})(i);
-						
-					}
-				});
+							})(i);
+							
+						}
+					});
+				}
 				
 			}
 		}, 200);
