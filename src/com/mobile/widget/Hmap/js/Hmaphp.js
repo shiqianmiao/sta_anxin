@@ -43,6 +43,8 @@ var Hmap = function(opations){
 	this.longitude = 0;
 	this.latitude = 0;
 
+	this.first = true;
+
 	this.init();
 
 	
@@ -123,8 +125,13 @@ $.extend(proto, {
 		setInterval(function(){
 			if($.trim(self.addrInput.val()) == ''){
 				// 当地址输入表单为空的时候
-				self.removeList();
+				if(!self.first){
+					self.removeList();
+				}
+				
 			}else{
+
+				self.first = false;
 				//alert($(this).val());
 				
 				var k = self.addrInput.val();
@@ -194,6 +201,7 @@ $.extend(proto, {
 		this.getList(addrStr);
 
 		this.addrInput.val('');
+		this.first = true;
 		
 		this.mobileAddrMark.css({left: 0});
 	},
