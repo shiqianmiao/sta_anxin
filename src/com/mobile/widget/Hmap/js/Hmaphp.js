@@ -130,6 +130,8 @@ $.extend(proto, {
 				if(!self.first){
 					self.removeList();
 				}
+
+				self.preKeyword = '';
 				
 			}else{
 				// 只有keyword改变的时候才帅新列表
@@ -198,7 +200,7 @@ $.extend(proto, {
 				}
 				
 			}
-		}, 200);
+		}, 100);
 
 	},
 	/**
@@ -289,7 +291,7 @@ $.extend(proto, {
 
 
 						})(i);
-						
+
 					}
 
 	        });
