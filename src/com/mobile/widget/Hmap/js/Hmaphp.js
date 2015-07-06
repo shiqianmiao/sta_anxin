@@ -2,7 +2,7 @@
  * @desc 移动端 选择地址 组件
  * @copyright (c) 2015 anxin Inc
  * @author 霍春阳 <huochunyang@anxin365.com>
- * @since 2015-04-26
+ * @since 2015-07-01
  */
 
 var $ = require('zepto');
@@ -259,42 +259,47 @@ $.extend(proto, {
 		this.Geolocation.getCurrentPosition(function(res){
 			self.longitude = res.longitude;
 			self.latitude = res.latitude;
+			//console.log(self.latitude + ',' + self.longitude);
 			// 定位
-			self.Geocoder.getLocation(new BMap.Point(self.longitude,self.latitude), function(GeocoderResult){
-	            	var oLi = document.createElement('li')
-					oLi.className = 'my-addr-tip';
-					oLi.innerHTML = '当前位置';
-					self.addrList.append($(oLi));
-	            	//alert(JSON.stringify(GeocoderResult));
-	            	var resultsArr = GeocoderResult.surroundingPois;
-	            	var len = GeocoderResult.surroundingPois.length;
+			// self.Geocoder.getLocation(new BMap.Point(self.longitude,self.latitude), function(GeocoderResult){
 
-	            	for(var i = 0; i < len; i++){
+	  //       });
+			$.get('http://nurse.weixin.anxin365.com/location/geocoder?location=' + self.latitude + ',' + self.longitude, function(res){
+				var res = JSON.parse(res);
 
-						(function(i){
+				var oLi = document.createElement('li')
+				oLi.className = 'my-addr-tip';
+				oLi.innerHTML = '当前位置';
+				self.addrList.append($(oLi));
+            	//alert(JSON.stringify(GeocoderResult));
+            	var resultsArr = res;
+            	var len = resultsArr.length;
 
-							var details = resultsArr[i].address;
-							var oLi = document.createElement('li');
-							oLi.className = 'per-addr';
-							oLi.innerHTML = '<h3 class="business">' + resultsArr[i].title + '</h3><p class="ccc-addr">' + details + '</p>';
+            	for(var i = 0; i < len; i++){
 
-		                    oLi.setAttribute('longitude', resultsArr[i].point.lng);
-							oLi.setAttribute('latitude', resultsArr[i].point.lat);
-		              //       $(oLi).on('tap', function(){
-				            // 	self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].title, resultsArr[i]);
-				            // });
-				            oLi.onclick = function(){
-								self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].title, resultsArr[i]);
-							};
+					(function(i){
 
-							self.addrList.append($(oLi));
+						var details = resultsArr[i].addr;
+						var oLi = document.createElement('li');
+						oLi.className = 'per-addr';
+						oLi.innerHTML = '<h3 class="business">' + resultsArr[i].name + '</h3><p class="ccc-addr">' + details + '</p>';
+
+	                    oLi.setAttribute('longitude', resultsArr[i].lng);
+						oLi.setAttribute('latitude', resultsArr[i].lat);
+	              //       $(oLi).on('tap', function(){
+			            // 	self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].title, resultsArr[i]);
+			            // });
+			            oLi.onclick = function(){
+							self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].name, resultsArr[i]);
+						};
+
+						self.addrList.append($(oLi));
 
 
-						})(i);
+					})(i);
 
-					}
-
-	        });
+				}
+			});
 		});
 		
 	},
