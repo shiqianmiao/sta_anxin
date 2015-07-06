@@ -105,8 +105,8 @@ $.extend(proto, {
 		});
 
 		// 实例化地址解析实例
-		var myGeo = new BMap.Geocoder();
-		this.Geocoder = myGeo;
+		// var myGeo = new BMap.Geocoder();
+		// this.Geocoder = myGeo;
 
 		// 实例化定位
 		var Geolocation = new BMap.Geolocation();
