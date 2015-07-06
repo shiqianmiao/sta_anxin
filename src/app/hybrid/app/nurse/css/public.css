@@ -24,6 +24,7 @@ table{border-collapse:collapse;}
 input,textarea{outline:none;}
 textarea{ resize:none; overflow:auto;}
 body{font-size:12px;  font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Medium;}
+a,button,input,textarea{-webkit-tap-highlight-color: rgba(0,0,0,0;);-webkit-tap-highlight-color: rgba(0,0,0,0;);-webkit-user-modify:read-write-plaintext-only; }
 /* end reset */
 .clear { zoom:1; }
 .clear:after { content:''; display:block; clear:both; }

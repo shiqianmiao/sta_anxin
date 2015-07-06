@@ -16,7 +16,6 @@ var Hmap = function(opations){
 
 	$.extend(this.settings, opations);
 
-
 	this.tpl = '<section id="mobile-addr-mark">'
 +			'<header class="select-addr-top boxSha">'
 +				'<a class="back" href="javascript:;"></a>'
@@ -48,9 +47,6 @@ var Hmap = function(opations){
 	this.preKeyword = '';
 
 	this.init();
-
-	
-
 
 };
 
@@ -90,7 +86,6 @@ $.extend(proto, {
 		mapApiScript.onload = function(){
 			self.bind();
 		};
-		
 		
 	},
 	/**
@@ -267,7 +262,7 @@ $.extend(proto, {
 			$.get('http://nurse.weixin.anxin365.com/location/geocoder?location=' + self.latitude + ',' + self.longitude, function(res){
 				var res = JSON.parse(res);
 
-				var oLi = document.createElement('li')
+				var oLi = document.createElement('li');
 				oLi.className = 'my-addr-tip';
 				oLi.innerHTML = '当前位置';
 				self.addrList.append($(oLi));
@@ -294,7 +289,6 @@ $.extend(proto, {
 						};
 
 						self.addrList.append($(oLi));
-
 
 					})(i);
 
@@ -330,7 +324,6 @@ $.extend(proto, {
 
 
 });
-
 
 // 暴露接口
 if (typeof module !== 'undefined' && module.exports) {
