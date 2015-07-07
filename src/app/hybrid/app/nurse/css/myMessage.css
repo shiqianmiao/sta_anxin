@@ -1,4 +1,6 @@
-
+html, body{
+	background: #e9e9e9;
+}
 .msg-list{
 	margin: 0 auto;
 	padding: 0 3.7%;
@@ -20,4 +22,18 @@
 .per-msg time{
 	font-size: 13px;
 	color: #999999;	
+}
+.null-sec{
+	margin-top: 97px;
+}
+.null-sun{
+	width: 101px;
+	height: 101px;
+	display: block;
+	margin: 0 auto 17px;
+}
+.null-sec p{
+	font-size: 15px;
+	color: #999999;
+	text-align: center;
 }

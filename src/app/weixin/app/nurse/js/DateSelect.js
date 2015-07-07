@@ -428,7 +428,7 @@ DateSel.getDaysInMonth = function(year,month){
 DateSel.createHour = function(todayMark, initHourMark){
     $('.hour-list').empty();
     var oDate = new Date();
-    var cur_hour = oDate.getHours() + 2; // 0-23 // 业务规定1小时后
+    var cur_hour = oDate.getHours() + 2; // 0-23 // 业务规定2小时后
     var cur_min = oDate.getMinutes(); // 0-59
     var cur_all_min = cur_hour * 60 + cur_min;
     var hour_str = '';
