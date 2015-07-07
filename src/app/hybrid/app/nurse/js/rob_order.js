@@ -47,7 +47,8 @@ RobOrder.order = function(config) {
                 if (data.error == 0) {
                     $this.html(data.btn_text);
                     $this.data('robbed', data.robbed);
-                    window.plugins.toast.showShortCenter('抢单成功！', function(){}, function(){});
+                    var msg = robbed ? '取消抢单成功！' : '抢单成功！';
+                    window.plugins.toast.showShortCenter(msg, function(){}, function(){});
                 } else if (data.msg) {
                     window.plugins.toast.showShortCenter(data.msg, function(){}, function(){});
                 } else {
