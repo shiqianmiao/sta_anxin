@@ -4,7 +4,7 @@
 
     <% if(order_list[i].remain_time) {%>
     <div class="remaining-wrap">
-        <p class="order2-remaining-time">距离接单结束还剩：<%= order_list[i].remain_time%></p>
+        <p class="order2-remaining-time">距离接单结束还剩：<span class="server-remain_time"  data-remain_time="<%= order_list[i].remain_time_js%>"><%= order_list[i].remain_time%></p>
     </div>
     <% } %>
     <a href="/order/desc?order_id=<%= order_list[i].order_id%>">
