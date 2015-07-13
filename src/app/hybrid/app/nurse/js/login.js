@@ -43,7 +43,7 @@ Login.loginForm = function(config) {
             window.plugins.toast.showShortCenter('请输入登陆密码！', function(){}, function(){});
             return false;
         }
-        if (!(/^[a-zA-Z]{6,12}$/.test(pwdValue))) {
+        if (!(/^[a-z|A-Z|0-9]{6,12}$/.test(pwdValue))) {
             window.plugins.toast.showShortCenter('请输入6-12位数字或英文字母的密码！', function(){}, function(){});
             return false;
         }
