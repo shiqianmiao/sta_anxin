@@ -99,17 +99,9 @@ $.extend(proto, {
 			self.hide();
 		});
 
-		// 实例化地址解析实例
-		// var myGeo = new BMap.Geocoder();
-		// this.Geocoder = myGeo;
-
 		// 实例化定位
 		var Geolocation = new BMap.Geolocation();
 		this.Geolocation = Geolocation;
-		// this.Geolocation.getCurrentPosition(function(res){
-		// 	self.longitude = res.longitude;
-		// 	self.latitude = res.latitude;
-		// });
 
 		// 实例化地图 自动完成api
 		var ac = new BMap.Autocomplete({
@@ -133,17 +125,13 @@ $.extend(proto, {
 				if(self.preKeyword != self.addrInput.val()){
 					self.preKeyword = self.addrInput.val();
 					self.first = false;
-					//alert($(this).val());
 					
 					var k = self.addrInput.val();
 					$.get('http://nurse.weixin.anxin365.com/location/getBDSuggest?keyword=' + k, function(res){
 						self.removeList();
-						//console.log(typeof res);
-
 						var resultsArr = res;
 						resultsArr = JSON.parse(resultsArr);
 						var len = resultsArr.length;
-						//console.log(resultsArr);
 
 						if(len == 0){
 							// 无数据
@@ -178,9 +166,6 @@ $.extend(proto, {
 
 								oLi.setAttribute('latitude', resultsArr[i].location.lat);
 			                    oLi.setAttribute('longitude', resultsArr[i].location.lng);
-			              //       $(oLi).on('tap', function(){
-					            // 	self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].name, resultsArr[i]);
-					            // });
 								oLi.onclick = function(){
 									self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].name, resultsArr[i]);
 								};
@@ -254,11 +239,9 @@ $.extend(proto, {
 		this.Geolocation.getCurrentPosition(function(res){
 			self.longitude = res.longitude;
 			self.latitude = res.latitude;
-			//console.log(self.latitude + ',' + self.longitude);
 			// 定位
 			// self.Geocoder.getLocation(new BMap.Point(self.longitude,self.latitude), function(GeocoderResult){
-
-	  //       });
+	  		// });
 			$.get('http://nurse.weixin.anxin365.com/location/geocoder?location=' + self.latitude + ',' + self.longitude, function(res){
 				var res = JSON.parse(res);
 
@@ -281,9 +264,7 @@ $.extend(proto, {
 
 	                    oLi.setAttribute('longitude', resultsArr[i].lng);
 						oLi.setAttribute('latitude', resultsArr[i].lat);
-	              //       $(oLi).on('tap', function(){
-			            // 	self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].title, resultsArr[i]);
-			            // });
+
 			            oLi.onclick = function(){
 							self.settings.perAddrOnclick(this, oLi.getAttribute('latitude'),  oLi.getAttribute('longitude'), resultsArr[i].name, resultsArr[i]);
 						};
