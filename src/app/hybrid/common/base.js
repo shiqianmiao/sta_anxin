@@ -16,4 +16,8 @@ var Base = exports;
 
 Base.init = function (param) {
     Widget.initWidgets();
+    //关闭app启动图
+    setTimeout(function() {
+        navigator.splashscreen.hide();
+    }, 1000);
 };

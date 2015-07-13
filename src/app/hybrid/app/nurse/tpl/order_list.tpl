@@ -25,7 +25,7 @@
     </section>
     <section class="order-pro clear">
         <h3 class="pro-title">服务地址 :</h3>
-        <p class="pro-p"><%= order_list[i].address_text %><a href="/index/map/"><i class="addr-icon"></i></a></p>
+        <a href="<%= order_list[i].map_url %>"><p class="pro-p"><%= order_list[i].address_text %><i class="addr-icon"></i></p></a>
     </section>
     <section class="order-pro clear">
         <h3 class="pro-title">备　　注 :</h3>

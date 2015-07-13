@@ -1,5 +1,5 @@
 /**
- * @desc 页面基类
+ * @desc 登陆模块
  * @copyright (c) 2015 anxin Inc
  * @author 陈朝阳 <chenchaoyang@anxin365.com>
  * @since 2015-06-15
@@ -16,12 +16,6 @@ Login.loginForm = function(config) {
     var $telInput = $elem.find('#tel');
     var $pwdInput = $elem.find('#password');
     var $autoAudio = $elem.find('.keep-pwd');
-    $telInput.on('blur', function () {
-        confirmTel();
-    });
-    $pwdInput.on('blur', function () {
-        confirmPwd();
-    });
     $autoAudio.on('tap', function() {
         if(Boolean($(this).data('keep'))) {
             $(this).find('.radio-span').removeClass('active');
@@ -49,8 +43,8 @@ Login.loginForm = function(config) {
             window.plugins.toast.showShortCenter('请输入登陆密码！', function(){}, function(){});
             return false;
         }
-        if (pwdValue.length < 6) {
-            window.plugins.toast.showShortCenter('请输入6-12位数字或字符的密码！', function(){}, function(){});
+        if (!(/^[a-z|A-Z|0-9]{6,12}$/.test(pwdValue))) {
+            window.plugins.toast.showShortCenter('请输入6-12位数字或英文字母的密码！', function(){}, function(){});
             return false;
         }
         return true;
