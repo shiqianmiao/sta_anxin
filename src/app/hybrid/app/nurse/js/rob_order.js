@@ -8,6 +8,9 @@
 // dependences
 var $ = require('$');
 var Base = require('app/hybrid/common/base.js');
+var OrderTpl = require('app/hybrid/app/nurse/tpl/rob_order.tpl');
+var Widget = require('com/mobile/lib/widget/widget.js');
+
 var RobOrder = exports;
 
 RobOrder.order = function(config) {
@@ -60,6 +63,46 @@ RobOrder.order = function(config) {
     });
 };
 
+//异步获取抢单数据
+RobOrder.getPost = function() {
+    $.ajax({
+        type : 'post',
+        url  : '/index/ajaxGetPost/',
+        data : {},
+        dataType : 'json',
+        success : function(data) {
+            if (data.error == 0) {
+                if (data.order_list) {
+                    if (data.order_list.length > 0) {
+                        $('#no_order').hide();
+                        var html = OrderTpl(data);
+                        $('#js_order_list').html(html);
+                        //将取到的数据写入localstorage
+                        localStorage.rob_order = JSON.stringify(data);
+                        Widget.initWidgets();
+                    } else {
+                        localStorage.rob_order = JSON.stringify(data);
+                        $('#js_order_list').html('');
+                        $('#no_order').show();
+                    }
+                }
+            } else if (data.msg) {
+                window.plugins.toast.showShortCenter(data.msg, function(){}, function(){});
+            } else {
+                window.plugins.toast.showShortCenter('未知错误，请重试！', function(){}, function(){});
+            }
+        },
+        error : function() {}
+    });
+};
+
 RobOrder.start = function(param) {
+    //从localstorage 读取数据，实现页面快速展示
+    if (localStorage.rob_order) {
+        var data = JSON.parse(localStorage.rob_order);
+        var html = OrderTpl(data);
+        $('#js_order_list').html(html);
+    }
+    RobOrder.getPost();
     Base.init(param);
 };
