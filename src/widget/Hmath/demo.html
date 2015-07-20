@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title></title>
+</head>
+<body>
+
+
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+	<script>
+	G.use(['widget/Hmath/Hmath.js'], function(Hmath){
+
+		var a = 7;
+		var b = 0.5;
+
+		// 加法
+		console.log( Hmath.accAdd(a, b) );	// 7.5
+		// 减法
+		console.log( Hmath.accSub(a, b) );	// 6.5
+		// 乘法
+		console.log( Hmath.accMul(a, b) );	// 3.5
+		// 除法
+		console.log( Hmath.accDiv(a, b) );	// 14
+
+	});
+	
+	</script>
+</body>
+</html>

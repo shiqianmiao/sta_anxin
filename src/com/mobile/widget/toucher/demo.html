@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<style>
+	#box{
+		width: 100px;
+		height: 100px;
+		background: red;
+	}
+	</style>
+</style>
+</head>
+<body>
+
+	<div id="box"></div>
+
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+	<script>
+	G.use(['zepto', 'com/mobile/widget/toucher/toucher.js'], function($, toucher){
+
+		var target = util.toucher($('#box')[0]);
+		target.on('swipeUp', function(e){
+			console.log(e);
+		});
+		//singleTap		单击
+		//doubleTap		双击
+		//longTap		长按
+		//swipeStart	滑动开始
+		//swipe 		滑动过程
+		//swipeEnd		滑动结束
+		//swipeUp		向上滑动
+		//swipeRight	向右滑动
+		//swipeDown		向下滑动
+		//swipeLeft		向左滑动
+
+	});
+	
+	</script>
+
+	
+</body>
+</html>
