@@ -32,3 +32,12 @@ Util.isTel = function(tel){
         return true;
     }
 };
+
+Util.isIdCard = function(idCard) {
+    var regx = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+    if (regx.test(idCard)) {
+        return true;
+    } else {
+        return false;
+    }
+};

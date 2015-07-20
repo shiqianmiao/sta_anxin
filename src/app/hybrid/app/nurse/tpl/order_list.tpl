@@ -13,7 +13,7 @@
     </section>
     <section class="order-pro clear">
         <h3 class="pro-title">服务金额 :</h3>
-        <p class="pro-p red">￥<%= order_list[i].price %></p>
+        <p class="pro-p red">￥<%= order_list[i].price %> <%= order_list[i].pay_way %></p>
     </section>
     <section class="order-pro clear">
         <h3 class="pro-title"><em class="letter-span">联系人</em>:</h3>

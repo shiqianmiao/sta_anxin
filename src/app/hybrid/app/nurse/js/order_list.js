@@ -110,6 +110,9 @@ OrderList.remainTimer = function(param) {
     var $timeShow = $el.find('span');
     var time = $el.data('time');
     time = parseInt(time);
+    if (time > 86400) {
+        $el.hide();
+    }
     if (time > 0) {
         var timer = setInterval(function () {
             time--;
@@ -121,6 +124,9 @@ OrderList.remainTimer = function(param) {
             mm = checkTime(mm);
             ss = checkTime(ss);
             $timeShow.html(hh + ':' + mm + ':' + ss);
+            if (time <= 86400 && $el.is(':hidden')) {
+                $el.show();
+            }
         }, 1000);
         function checkTime(i) {
             if (i < 10) {
