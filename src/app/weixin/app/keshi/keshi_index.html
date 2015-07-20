@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>服务列表</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="服务列表" />
+    <meta name="description" content="服务列表" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="服务列表">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/keshi_index.css" />
+</head>
+<body class="padding-bottom-60">
+
+    <section class="ks-index-top">
+        <h2 class="ks-title">胸外科</h2>
+        <p class="ks-hospital">北医三院</p>
+        <p class="ks-intr">简介：胸腔外科学是一门医学专科，专门研究胸腔内器官，主要指食道、肺部<a class="show-more" href="#">更多》》</a></p>
+    </section>
+
+    <ul class="plate-list">
+        <li class="per-plate">
+            <a href="#">
+                <div class="icon"></div>
+                <p class="plate-name">健康科普</p>
+            </a>
+        </li>
+        <li class="per-plate">
+            <a href="#">
+                <div class="icon"></div>
+                <p class="plate-name">活动通知</p>
+            </a>
+        </li>
+        <li class="per-plate">
+            <a href="#">
+                <div class="icon"></div>
+                <p class="plate-name">科室指南</p>
+            </a>
+        </li>
+        <li class="per-plate">
+            <a href="#">
+                <div class="icon"></div>
+                <p class="plate-name">医护提示</p>
+            </a>
+        </li>
+    </ul>
+
+    <ul class="problem-list">
+        <li class="per-problem">
+            <div class="problem-icon jkkp-icon"></div>
+            <section class="pro-wrap">
+                <p>神经外科病人应该注意什么？</p>
+                <time>2015-6-1 18：24</time>
+            </section>
+        </li>
+        <li class="per-problem">
+            <div class="problem-icon hdtz-icon"></div>
+            <section class="pro-wrap">
+                <p>神经外科病人应该注意什么？</p>
+                <time>2015-6-1 18：24</time>
+            </section>
+        </li>
+        <li class="per-problem">
+            <div class="problem-icon kszn-icon"></div>
+            <section class="pro-wrap">
+                <p>神经外科病人应该注意什么？</p>
+                <time>2015-6-1 18：24</time>
+            </section>
+        </li>
+        <li class="per-problem">
+            <div class="problem-icon yhts-icon"></div>
+            <section class="pro-wrap">
+                <p>神经外科病人应该注意什么？</p>
+                <time>2015-6-1 18：24</time>
+            </section>
+        </li>
+        <li class="per-problem">
+            <div class="problem-icon jkkp-icon"></div>
+            <section class="pro-wrap">
+                <p>神经外科病人应该注意什么？</p>
+                <time>2015-6-1 18：24</time>
+            </section>
+        </li>
+        <li class="per-problem">
+            <div class="problem-icon jkkp-icon"></div>
+            <section class="pro-wrap">
+                <p>神经外科病人应该注意什么？</p>
+                <time>2015-6-1 18：24</time>
+            </section>
+        </li>
+         <li class="per-problem">
+            <div class="problem-icon jkkp-icon"></div>
+            <section class="pro-wrap">
+                <p>神经外科病人应该注意什么？</p>
+                <time>2015-6-1 18：24</time>
+            </section>
+        </li>
+        <li class="per-problem">
+            <div class="problem-icon jkkp-icon"></div>
+            <section class="pro-wrap">
+                <p>神经外科病人应该注意什么？</p>
+                <time>2015-6-1 18：24</time>
+            </section>
+        </li>
+        <li class="per-problem">
+            <div class="problem-icon jkkp-icon"></div>
+            <section class="pro-wrap">
+                <p>神经外科病人应该注意什么？</p>
+                <time>2015-6-1 18：24</time>
+            </section>
+        </li>
+         <li class="per-problem">
+            <div class="problem-icon jkkp-icon"></div>
+            <section class="pro-wrap">
+                <p>神经外科病人应该注意什么？</p>
+                <time>2015-6-1 18：24</time>
+            </section>
+        </li>
+        <li class="per-problem">
+            <div class="problem-icon jkkp-icon"></div>
+            <section class="pro-wrap">
+                <p>神经外科病人应该注意什么？</p>
+                <time>2015-6-1 18：24</time>
+            </section>
+        </li>
+        <li class="per-problem">
+            <div class="problem-icon jkkp-icon"></div>
+            <section class="pro-wrap">
+                <p>神经外科病人应该注意什么？</p>
+                <time>2015-6-1 18：24</time>
+            </section>
+        </li>
+    </ul>
+    
+    <script src="http://sta.anxin365.com/g.js"></script>
+    <script src="http://sta.anxin365.com/config.js"></script>
+    <script>
+    G.use(['jquery'], function($){
+
+        // topHeight    滚动头图的高度
+        var topHeight = 168;
+        var preScrollTop = 0;
+        var upOrDown = 'down'; // 上滚还是下滚
+        $(document).on('touchmove', function(){
+            console.log($(window).scrollTop() + '-' + preScrollTop + '=' + ($(window).scrollTop() - preScrollTop));
+            if($(window).scrollTop() - preScrollTop > 0){
+                upOrDown = 'up';
+            }else{
+                upOrDown = 'down';
+            }
+        });
+        $(document).on('touchend', function(){
+            if($(window).scrollTop() > 0 && $(window).scrollTop() < topHeight && upOrDown == 'up'){
+                $('html,body').animate({ scrollTop:topHeight },300,'swing', function(){
+                    preScrollTop = topHeight;
+                });
+            }else if($(window).scrollTop() > 0 && $(window).scrollTop() < topHeight && upOrDown == 'down'){
+                $('html,body').animate({ scrollTop:0 },300,'swing', function(){
+                    preScrollTop = 0;
+                });
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>
