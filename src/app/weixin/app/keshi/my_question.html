@@ -1,95 +1,40 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>服务列表</title>
+    <title>我的问题</title>
     <meta charset="utf-8">
-    <meta name="keywords" content="科室首页" />
-    <meta name="description" content="科室首页" />
+    <meta name="keywords" content="我的问题" />
+    <meta name="description" content="我的问题" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-title" content="科室首页">
+    <meta name="apple-mobile-web-app-title" content="我的问题">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
 
-    <link rel="stylesheet" type="text/css" href="./css/public.css" />
-    <link rel="stylesheet" type="text/css" href="./css/keshi_index.css" />
+    <link rel="stylesheet" href="./css/public.css" />
+    <link rel="stylesheet" href="./css/my_question.css" />
+    <link rel="stylesheet" href="css/cropper.min.css">
+    <link rel="stylesheet" href="css/HimgCrop.css">
 </head>
 <body class="padding-bottom-60">
 
-    <section class="ks-index-top">
-        <img src="imgs/ks_index_top.jpg" />
-        <section class="txt-mark-bg">
-            <h2>胸外科</h2>
-            <p class="hospital-name">北医三院</p>
-            <p class="noWrapEllipsis hospital-intr">简介：胸腔外科学是一门一门胸腔外科学是一门一门胸腔外科学是一门一门胸腔外科学是一门一门</p>
-        </section>
+    <section class="origin-poster boxSha">
+        <div class="poster-intr clear">
+            <img src="imgs/head.jpg" class="head-pic borR-50" />
+            <div class="intr-txt-wrap">
+                <h3>陈黎明<mark>楼主</mark></h3>
+                <p><time>2015-6-1  18:24</time><span>回复：4</span></p>
+            </div>
+            <p class="art-content">手术后伤口一直有点红肿怎么办？需要涂药么？另外需要有什么特别注意的么？比如洗澡的时候？</p>
+        </div>
+        <ul class="pic-list clear">
+            <li class="per-pic change-bg-pic" data-url="imgs/pic.jpg"></li>
+            <li class="per-pic change-bg-pic" data-url="imgs/pic.jpg"></li>
+            <li class="per-pic change-bg-pic" data-url="imgs/pic.jpg"></li>
+            <li class="per-pic change-bg-pic" data-url="imgs/ks_index_top.jpg"></li>
+            <li class="per-pic change-bg-pic" data-url="imgs/pic.jpg"></li>
+            <li class="per-pic change-bg-pic" data-url="imgs/pic.jpg"></li>
+        </ul>
     </section>
-
-    <div class="go-wrap">
-        <section class="down-drag-wrap">
-            <p>向下拖动，查看科室详情</p>
-        </section>
-
-        <ul class="plate-list">
-            <li class="per-plate">
-                <a href="#">
-                    <div class="plate-icon icon-jkkp"></div>健康科普
-                </a>
-            </li>
-            <li class="per-plate">
-                <a href="#">
-                    <div class="plate-icon icon-hdtz"></div>活动通知
-                </a>
-            </li>
-            <li class="per-plate">
-                <a href="#">
-                    <div class="plate-icon icon-kszn"></div>科室指南
-                </a>
-            </li>
-        </ul>
-
-        <ul class="problem-list">
-            <li class="per-pro">
-                <h3>【健康科普】神经外科病人应该注意什么？</h3>
-                <time>2015-6-1 18：24</time>
-            </li>
-            <li class="per-pro">
-                <h3>【健康科普】神经外科病人应该注意什么？</h3>
-                <time>2015-6-1 18：24</time>
-            </li>
-            <li class="per-pro">
-                <h3>【健康科普】神经外科病人应该注意什么？</h3>
-                <time>2015-6-1 18：24</time>
-            </li>
-            <li class="per-pro">
-                <h3>【健康科普】神经外科病人应该注意什么？</h3>
-                <time>2015-6-1 18：24</time>
-            </li>
-            <li class="per-pro">
-                <h3>【健康科普】神经外科病人应该注意什么？</h3>
-                <time>2015-6-1 18：24</time>
-            </li>
-            <li class="per-pro">
-                <h3>【健康科普】神经外科病人应该注意什么？</h3>
-                <time>2015-6-1 18：24</time>
-            </li>
-            <li class="per-pro">
-                <h3>【健康科普】神经外科病人应该注意什么？</h3>
-                <time>2015-6-1 18：24</time>
-            </li>
-            <li class="per-pro">
-                <h3>【健康科普】神经外科病人应该注意什么？</h3>
-                <time>2015-6-1 18：24</time>
-            </li>
-            <li class="per-pro">
-                <h3>【健康科普】神经外科病人应该注意什么？</h3>
-                <time>2015-6-1 18：24</time>
-            </li>
-            <li class="per-pro">
-                <h3>【健康科普】神经外科病人应该注意什么？</h3>
-                <time>2015-6-1 18：24</time>
-            </li>
-        </ul>
-    </div>
 
     <footer class="footer">
         <span class="footer-center-img"></span>
@@ -103,29 +48,57 @@
         </ul>
         <a href="#" class="to-questions"></a>
     </footer>
+
+    <!-- 查看大图的包裹层 -->
+    <div class="big-pic-wrap">
+        <span class="close-big-pic">×</span>
+        <img src="imgs/def.jpg" class="big-pic" />
+    </div>
     
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['zepto', 'com/mobile/widget/toucher/toucher.js'], function($, toucher){
+    G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery2.js'], function($, HimgCropJquery){
 
-        var moveLabel = true;
-        // 向下滑动 scrollTop == 0
-        var target = util.toucher($('html')[0]);
-        target.on('swipeDown', function(e){
-            //console.log(e);
-            if($(window).scrollTop() <= 0 && moveLabel){
-                $(document).on('touchend', function(){
-                    $('.down-drag-wrap').hide();
-                    $('.ks-index-top').show().addClass('pt-page-scaleUpCenter');
-                    moveLabel = false;
-                    $(document).off('touchend');
-                });
-                
-            }
+        // 处理图像
+        $('.change-bg-pic').each(function(i, o){
+            var sourceUrl = 'url(' + $(this).data('url') + ') no-repeat center center';
+            $(this).css({background: sourceUrl, backgroundSize: 'cover'});
+        });
+        // 点击查看大图
+        $('.change-bg-pic').on('touchend', showBigImg);
+        function showBigImg(){
+            
+            var src = $(this).data('url');
+            
+            $('.big-pic').on('load', function(){
+                $('.big-pic-wrap').show();
+                $('.big-pic').cropper('replace', src);
+            });
+            $('.big-pic-wrap').show();
+            $('.big-pic').cropper('replace', src);
+            
+        }
+
+        // 初始化大图
+        $('.big-pic').cropper({
+            aspectRatio: 2 / 2,
+            autoCropArea: 1,
+            strict: false,
+            guides: false,
+            autoCrop : false,
+            highlight: false,
+            dragCrop: false,
+            cropBoxMovable: true,
+            background: true, // 是否显示网格背景 true 是 false 不显示
+            cropBoxResizable: true,
+            guides: true
         });
 
-
+        // 关闭查看大图
+        $('.close-big-pic').on('click', function(){
+            $('.big-pic-wrap').hide();
+        });
         
     });
     </script>
