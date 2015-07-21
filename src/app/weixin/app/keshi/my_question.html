@@ -99,6 +99,17 @@
         $('.close-big-pic').on('click', function(){
             $('.big-pic-wrap').hide();
         });
+
+        // 去提问按钮效果
+        $('.to-questions').on('touchstart', function(){
+            $(this).addClass('pt-page-scaleUpCenter');
+        });
+        $('.to-questions').on('touchend', function(){
+            var self = this;
+            setTimeout(function(){
+                $(self).removeClass('pt-page-scaleUpCenter');
+            }, 700);
+        });
         
     });
     </script>

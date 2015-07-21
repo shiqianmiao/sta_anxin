@@ -18,6 +18,11 @@ table{border-collapse:collapse;}
 input,textarea{outline:none;}
 textarea{ resize:none; overflow:auto;}
 body{font-size:12px; font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Medium;}
+a,button,input,textarea{
+	-webkit-tap-highlight-color: rgba(255,0,0,0;)
+	-webkit-user-modify:read-write-plaintext-only; 
+}
+a,button,input,textarea{-webkit-tap-highlight-color: rgba(255,0,0,0;)}
 /* end reset */
 /* public */
 .clear { zoom:1; }
@@ -345,3 +350,13 @@ Hmodel 样式
 }
 /* footer 结束 */
 
+.pt-page-scaleUpCenter {
+	-webkit-animation: scaleUpCenter .4s ease-out both;
+	animation: scaleUpCenter .4s ease-out both;
+}
+@-webkit-keyframes scaleUpCenter {
+	from { opacity: 0; -webkit-transform: scale(.7); }
+}
+@keyframes scaleUpCenter {
+	from { opacity: 0; -webkit-transform: scale(.7); transform: scale(.7); }
+}
