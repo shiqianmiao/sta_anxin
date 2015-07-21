@@ -21,7 +21,7 @@
         <div class="poster-intr clear">
             <img src="imgs/head.jpg" class="head-pic borR-50" />
             <div class="intr-txt-wrap">
-                <h3>陈黎明<mark>楼主</mark></h3>
+                <h3><span>陈黎明</span><mark>楼主</mark></h3>
                 <p><time>2015-6-1  18:24</time><span>回复：4</span></p>
             </div>
             <p class="art-content">手术后伤口一直有点红肿怎么办？需要涂药么？另外需要有什么特别注意的么？比如洗澡的时候？</p>
@@ -100,16 +100,6 @@
             $('.big-pic-wrap').hide();
         });
 
-        // 去提问按钮效果
-        $('.to-questions').on('touchstart', function(){
-            $(this).addClass('pt-page-scaleUpCenter');
-        });
-        $('.to-questions').on('touchend', function(){
-            var self = this;
-            setTimeout(function(){
-                $(self).removeClass('pt-page-scaleUpCenter');
-            }, 700);
-        });
         
     });
     </script>

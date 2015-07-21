@@ -19,7 +19,11 @@
 	line-height: 16px;
 	margin-top: 3px;
 }
+.intr-txt-wrap h3 span{
+	float: left;
+}
 .intr-txt-wrap h3 mark{
+	float: left;
 	display: inline-block;
 	width: 43px;
 	height: 16px;
@@ -28,7 +32,6 @@
 	color: #fff;
 	margin-left: 8px;
 	font-size: 13px;
-	line-height: 16px;
 	text-align: center;
 }
 .intr-txt-wrap p{

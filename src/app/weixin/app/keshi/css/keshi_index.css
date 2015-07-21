@@ -154,4 +154,56 @@
 	color: #999999;
 	margin-top: 10px;
 }
-
+.tip-win{
+	width: 275px;
+	background: #fff;
+}
+.attention{
+	padding: 0 5%;
+	font-size: 15px;
+	color: #999999;
+	margin-top: 20px;
+}
+.attention a{
+	color: #ffad0f;
+	text-decoration: underline;
+}
+.tip-win-foot{
+	height: 87px;
+	margin-top: 14px;
+	border-top: 1px solid #e1e1e1;
+}
+.no-tip{
+	height: 37px;
+	line-height: 37px;
+	position: relative;
+	color: #999999;
+	font-size: 17px;
+	text-indent: 45px;
+}
+.no-tip .radio{
+	width: 12px;
+	height: 12px;
+	background: #fff;
+	border: 3px solid #ededed;
+	position: absolute;
+	top: 10px;
+	left: 14px;
+}
+.notip-true .radio{
+	background: #ffad0f;
+}
+.to-wen{
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+	height: 38px;
+	background: #ffad0f;
+	color: #fff;
+	text-align: center;
+	line-height: 38px;
+	font-size: 17px;
+}
+.hide-win{
+	display: none;
+}
