@@ -53,10 +53,27 @@ body{font-size:12px; font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Medi
 .padding-bottom-60{
 	padding-bottom: 60px;
 }
+/* 强制换行 */
+.toWrap{
+	word-break: break-all;       /* 只对英文起作用，以字母作为换行依据。 */
+
+	word-wrap: break-word;   	/* 只对英文起作用，以单词作为换行依据。*/
+
+	white-space: pre-wrap;     /* 只对中文起作用，强制换行。*/
+}
+/* 禁止换行 */
+.noWrap{
+	white-space:nowrap;
+}
+/* 禁止换行,超出省略号 */
+.noWrapEllipsis{
+	 white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
 .c-like-red{color: #ff4500;}
 .c-huan{color: #ffad0f;}
 .c-hong{color: #ff4500;}
 /* end public */
+
 /* 头部公共样式 */
 .header{
 	height: 45px;
@@ -254,3 +271,77 @@ Hmodel 样式
 	from {  opacity: 0; }
 	to {}
 }
+
+/* footer */
+.footer{
+	height: 48px;
+	border-top: 1px solid #dadada;
+	background: #f9f9f9;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+.footer-center-img{
+	width: 46px;
+	height: 11px;
+	background: url(../imgs/footer_center.png) no-repeat;
+	background-size: 45px 11px;
+	position: absolute;
+	top: -11px;
+	left: 50%;
+	margin-left: -23px;
+}
+.to-questions{
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background: url(../imgs/questions.png) no-repeat;
+	background-size: 50px 50px;
+	left: 50%;
+	margin-left: -25px;
+	top: -6px;
+}
+.footerbtn-wrap{
+	width: 100%;
+	height: 62px;
+}
+.footerbtn-wrap li{
+	width: 43%;
+	height: 100%;
+	position: relative;
+}
+.footerbtn-wrap li.btn1{
+	float: left;
+	background: url(../imgs/ks_btn.png) no-repeat center 7px;
+	background-size: 20px 20px;
+}
+.footerbtn-wrap li.btn1.active{
+	background: url(../imgs/ks_btn_ing.png) no-repeat center 7px;
+	background-size: 20px 20px;
+}
+.footerbtn-wrap li.btn2{
+	float: right;
+	background: url(../imgs/order.png) no-repeat center 7px;
+	background-size: 23px 21px;
+}
+.footerbtn-wrap li.btn2.active{
+	background: url(../imgs/order_ing.png) no-repeat center 7px;
+	background-size: 23px 21px;
+}
+.footerbtn-wrap p{
+	position: absolute;
+	width: 100%;
+	height: 10px;
+	font-size: 10px;
+	line-height: 10px;
+	color: #a0a0a0;
+	text-align: center;
+	top: 32px;
+	left: 0;
+}
+.footerbtn-wrap li.btn1.active p, .footerbtn-wrap li.btn2.active p{
+	color: #ffad0f;
+}
+/* footer 结束 */
+
