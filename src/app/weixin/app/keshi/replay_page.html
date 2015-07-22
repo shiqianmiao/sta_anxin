@@ -11,6 +11,7 @@
     <meta name="format-detection" content="telephone=no">
 
     <link rel="stylesheet" href="./css/public.css" />
+    <link rel="stylesheet" href="./css/swiper.min.css" />
     <link rel="stylesheet" href="./css/reply_page.css" />
 </head>
 <body class="padding-bottom-60">
@@ -20,7 +21,7 @@
         <ul class="patients-list clear">
             <li class="borR-3">张三</li>
             <li class="borR-3 active">张三</li>
-            <li class="borR-3 add-patients">新增</li>
+            <li class="borR-3 add-patients"><a href="#">新增</a></li>
         </ul>
     </section>
 
@@ -33,6 +34,28 @@
             <a href="javascript:;" class="expression"></a>
         </div>
     </section>
+
+    <p class="tip">* 您上传的照片仅医生可见</p>
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide uplode-slide">
+                <ul class="clear uplode-list">
+                    <li class="uplode-img"></li>
+                    <li class="uplode-img"></li>
+                    <li class="uplode-img"></li>
+                    <li class="uplode-img"></li>
+                    <li class="uplode-img"></li>
+                    <li class="uplode-img"></li>
+                    <li class="uplode-img"></li>
+                    <li class="uplode-img"></li>
+                    <li class="uplode-img"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="push-btn borR-3">提交</a>
 
     <footer class="footer">
         <span class="footer-center-img"></span>
@@ -50,7 +73,7 @@
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery2.js'], function($, HimgCropJquery){
+    G.use(['jquery', 'lib/swiper/swiper.min.js'], function($, Swiper){
 
         var initContent = '<span>来说两句吧</span>';
         $('.textarea-div').html(initContent);
@@ -74,6 +97,20 @@
                 $(this).addClass('onblur');
                 $(this).removeClass('onfocus');
             }
+        });
+
+        // 计算图片wiper的宽度
+        var mrWidth = parseInt($('.uplode-img').css('marginRight'));
+        var ulPL = parseInt($('.uplode-list').css('paddingLeft'));
+        var perliWidth = parseInt($('.uplode-img').width());
+        var allWidth = $('.uplode-img').length * (mrWidth + perliWidth) + ulPL * 2;
+        $('.uplode-slide').css({width: allWidth + 'px'});
+
+        var swiper = new Swiper('.swiper-container', {
+            direction: 'horizontal',
+            slidesPerView: 'auto',
+            mousewheelControl: true,
+            freeMode: true
         });
         
     });

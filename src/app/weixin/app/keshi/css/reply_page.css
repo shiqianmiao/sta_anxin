@@ -23,12 +23,20 @@
 	color: #333333;
 	font-size: 15px;
 }
+@media all and (max-width: 320px){
+	.patients-list li{
+		margin: 14px 15px 14px 0;
+	}
+}
 .patients-list li.active{
 	background: #ffad0f;
 	color: #fff;
 }
 .patients-list li.add-patients{
 	background: #d6d6d6;
+	color: #fff;
+}
+.patients-list li.add-patients a{
 	color: #fff;
 }
 .editor-wrap{
@@ -77,4 +85,35 @@
 	background-size: 18px 18px;
 	right: 11px;
 	top: 0;
+}
+.tip{
+	height: 40px;
+	line-height: 40px;
+	padding: 0 4%;
+	color: #999999;
+	font-size: 13px;
+}
+.uplode-list{
+	padding: 0 15px;
+}
+.uplode-img{
+	height: 58px;
+	width: 58px;
+	background: red;
+	margin-right: 15px;
+	float: left;
+}
+.uplode-img:last-of-type{
+	margin-right: 0;
+}
+.push-btn{
+	height: 38px;
+	width: 92%;
+	display: block;
+	background: #ffad0f;
+	color: #fff;
+	line-height: 38px;
+	text-align: center;
+	font-size: 15px;
+	margin: 33px auto 0;
 }
