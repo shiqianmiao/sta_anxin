@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>回复/提问</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="回复/提问" />
+    <meta name="description" content="回复/提问" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="回复/提问">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="./css/public.css" />
+    <link rel="stylesheet" href="./css/reply_page.css" />
+</head>
+<body class="padding-bottom-60">
+
+    <section class="patients-info clear">
+        <h3>患者信息</h3>
+        <ul class="patients-list clear">
+            <li class="borR-3">张三</li>
+            <li class="borR-3 active">张三</li>
+            <li class="borR-3 add-patients">新增</li>
+        </ul>
+    </section>
+
+    <section class="editor-wrap borR-3">
+        <div contentEditable="true" class="textarea-div onblur"></div>
+        <div class="editor-opation">
+            <label class="camera">
+                <input type="file" id="camera-pic" accept="image/*">
+            </label>
+            <a href="javascript:;" class="expression"></a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <span class="footer-center-img"></span>
+        <ul class="footerbtn-wrap">
+            <li class="btn1 active">
+                <p>科室</p>
+            </li>
+            <li class="btn2">
+                <p>服务预订</p>
+            </li>
+        </ul>
+        <a href="#" class="to-questions"></a>
+    </footer>
+
+    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery2.js'], function($, HimgCropJquery){
+
+        var initContent = '<span>来说两句吧</span>';
+        $('.textarea-div').html(initContent);
+        // 当可编辑的div获得焦点时
+        $('.textarea-div').on('focus', function(){
+            // 切换样式
+            $(this).addClass('onfocus');
+            $(this).removeClass('onblur');
+            // 如果获得焦点时内容有span元素，清空
+            if($(this).find('span').length){
+                $(this).html('');
+            }
+        });
+
+        // 当可编辑的div失去焦点时
+        $('.textarea-div').on('blur', function(){
+            // 如果失去焦点时内容为空，设置为提示内容
+            if($.trim($(this).html()) == ''){
+                $(this).html(initContent);
+                // 切换样式
+                $(this).addClass('onblur');
+                $(this).removeClass('onfocus');
+            }
+        });
+        
+    });
+    </script>
+
+</body>
+</html>
