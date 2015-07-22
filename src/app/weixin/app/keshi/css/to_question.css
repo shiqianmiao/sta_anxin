@@ -1,0 +1,99 @@
+.search-wrap{
+	height: 60px;
+	background: #fff;
+	overflow: hidden;
+}
+.input-wrap{
+	width: 92%;
+	height: 34px;
+	-webkit-border-radius: 17px;
+	-moz-border-radius: 17px;
+	-ms-border-radius: 17px;
+	-o-border-radius: 17px;
+	border-radius: 17px;
+	background: #f2f2f2;
+	margin: 13px auto;
+	box-shadow: 0 1px 2px #bdbbbc inset;
+	position: relative;
+}
+.search-input{
+	height: 30px;
+	border: none;
+	width: 86%;
+	margin-left: 14px;
+	margin-top: 3px;
+	line-height: 30px;
+	background: none;
+
+}
+.search-input::-webkit-input-placeholder{
+	color:#999999;
+	font-size: 15px;
+}
+.search-con{
+	position: absolute;
+	width: 30px;
+	height: 24px;
+	background: url(../imgs/search.png) no-repeat;
+	background-size: 30px 24px;
+	right: 12px;
+	top: 5px;
+}
+.ques-btn-list{
+	width: 92%;
+	height: 29px;
+	margin: 15px auto;
+	border: 1px solid #ffad0f;
+}
+.ques-btn-list li{
+	float: left;
+	width: 50%;
+	height: 29px;
+	line-height: 29px;
+	text-align: center;
+	font-size: 15px;
+	color: #ffad0f
+}
+.ques-btn-list li.active{
+	background: #ffad0f;
+	color: #fff;
+}
+.ques-list{
+	background: #fff;
+}
+.per-ques{
+	padding: 0 4%;
+	border-bottom: 1px solid #cbcbcb;
+	height: 70px;
+}
+.head-pic{
+	float: left;
+	height: 48px;
+	width: 48px;
+	border: 2px solid #d7d7d7;
+	margin-top: 9px;
+}
+.ques-con-wrap{
+	margin-left: 52px;
+	padding-left: 11px;
+	height: 70px;
+	overflow: hidden;
+}
+.ques-con-wrap h3{
+	font-size: 15px;
+	color: #333;
+	line-height: 15px;
+	height: 15px;
+	margin-top: 16px;
+}
+.ques-con-wrap time{
+	display: block;
+	font-size: 13px;
+	height: 13px;
+	line-height: 13px;
+	color: #999;
+	margin-top: 10px;
+}
+.com-list{
+	display: none;
+}
