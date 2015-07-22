@@ -13,24 +13,23 @@
     <link rel="stylesheet" href="./css/public.css" />
     <link rel="stylesheet" href="./css/swiper.min.css" />
     <link rel="stylesheet" href="./css/reply_page.css" />
+    <link rel="stylesheet" href="./css/face.css" />
 </head>
 <body class="padding-bottom-60">
 
     <section class="patients-info clear">
         <h3>患者信息</h3>
         <ul class="patients-list clear">
-            <li class="borR-3">张三</li>
-            <li class="borR-3 active">张三</li>
+            <li class="borR-3 patients">张三</li>
+            <li class="borR-3 patients active">张三</li>
             <li class="borR-3 add-patients"><a href="#">新增</a></li>
         </ul>
     </section>
 
     <section class="editor-wrap borR-3">
         <div contentEditable="true" class="textarea-div onblur"></div>
-        <div class="editor-opation">
-            <label class="camera">
-                <input type="file" id="camera-pic" accept="image/*">
-            </label>
+        <div class="editor-opation" id="container">
+            <label class="camera" id="pickfiles"></label>
             <a href="javascript:;" class="expression"></a>
         </div>
     </section>
@@ -41,21 +40,25 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide uplode-slide">
                 <ul class="clear uplode-list">
-                    <li class="uplode-img"></li>
-                    <li class="uplode-img"></li>
-                    <li class="uplode-img"></li>
-                    <li class="uplode-img"></li>
-                    <li class="uplode-img"></li>
-                    <li class="uplode-img"></li>
-                    <li class="uplode-img"></li>
-                    <li class="uplode-img"></li>
-                    <li class="uplode-img"></li>
                 </ul>
             </div>
         </div>
     </div>
 
     <a href="#" class="push-btn borR-3">提交</a>
+
+    <div class="swiper-container-face">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide face-list">
+                <span class="per-emo"><i class="emo qqemoji0"></i></span>
+            </div>
+            <div class="swiper-slide face-list"></div>
+            <div class="swiper-slide face-list"></div>
+            <div class="swiper-slide face-list"></div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
 
     <footer class="footer">
         <span class="footer-center-img"></span>
@@ -73,7 +76,13 @@
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['jquery', 'lib/swiper/swiper.min.js'], function($, Swiper){
+    G.use(['zepto', 'lib/swiper/swiper.min.js', 'lib/qiniu/qiniu.js'], function($, Swiper, Qiniu){
+
+        // 点击患者效果
+        $('.patients').on('click', function(){
+            $('.patients').removeClass('active');
+            $(this).addClass('active');
+        });
 
         var initContent = '<span>来说两句吧</span>';
         $('.textarea-div').html(initContent);
@@ -105,13 +114,134 @@
         var perliWidth = parseInt($('.uplode-img').width());
         var allWidth = $('.uplode-img').length * (mrWidth + perliWidth) + ulPL * 2;
         $('.uplode-slide').css({width: allWidth + 'px'});
-
+        // 图片滑动
         var swiper = new Swiper('.swiper-container', {
             direction: 'horizontal',
             slidesPerView: 'auto',
             mousewheelControl: true,
             freeMode: true
         });
+        // 上传图片
+        var uploader = Qiniu.uploader({
+            runtimes: 'html5,flash,html4',
+            browse_button: 'pickfiles',
+            container: 'container',
+            drop_element: 'container',
+            max_file_size: '100mb',
+            flash_swf_url: 'js/plupload/Moxie.swf',
+            dragdrop: true,
+            chunk_size: '4mb',
+            //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
+            uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:SO-rlrKaihlZ_-5PmU15WVUqM7E=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0Mzc2Mzk5Mzd9',
+            domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
+            auto_start: true,
+            init: {
+                'Key': function(up, file) {
+                    // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
+                    // 该配置必须要在 unique_names: false , save_key: false 时才生效
+                    var key = 'hsimg';
+                    var timestamp = new Date().getTime();
+                    return key + timestamp;
+                },
+                'FileUploaded': function(up, file, info) {
+
+                    var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
+                    
+                    console.log(src);
+
+                    var oLi = document.createElement('li');
+                    oLi.className = 'uplode-img borR-3';
+                    oLi.style.background = 'url(' + src + ') no-repeat center center';
+                    oLi.style.backgroundSize = 'cover';
+
+                    var oClose = document.createElement('span');
+                    oClose.innerHTML = '+';
+                    oClose.className = 'borR-50';
+                    oClose.onclick = function(){
+                        $(this).parent().detach();
+                    }
+
+                    oLi.appendChild(oClose);
+
+                    $('.uplode-list').append(oLi);
+                    
+                }
+            }
+        });
+    
+        // 表情
+        var swiper = new Swiper('.swiper-container-face', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true
+        });
+
+        // 创建表情
+        var faceNum = 104;
+        var $pagelist = $('.face-list');
+        var str1 = '';
+        var str2 = '';
+        var str3 = '';
+        var str4 = '';
+
+        for(var j = 0; j < faceNum; j++){
+            if(j < 28){
+                str1 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemoji' + j + '"></i></span>';
+            }else if(j >= 28 && j < 56){
+                str2 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemoji' + j + '"></i></span>';
+            }else if(j >= 56 && j < 84){
+                str3 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemoji' + j + '"></i></span>';
+            }else{
+                str4 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemoji' + j + '"></i></span>';
+            }
+           
+        }
+        console.log(str1);
+        console.log(str2);
+        console.log(str3);
+        console.log(str4);
+        $pagelist.eq(0).html(str1);
+        $pagelist.eq(1).html(str2);
+        $pagelist.eq(2).html(str3);
+        $pagelist.eq(3).html(str4);
+
+        // 点击每一个表情的时候
+        $('.per-emo').on('click', function(){
+            if($('.textarea-div').find('span').length){
+                $('.textarea-div').html('');
+            }
+            var emonum = $(this).data('emonum');
+            var oImg = document.createElement('img');
+            oImg.src = 'imgs/11opation.png'; // 1像素透明图
+            oImg.className = 'emo2 qqemoji' + emonum;
+            $('.textarea-div').append(oImg);
+        });
+
+        // 点击表情按钮的时候
+        $('.expression').on('touchend', function(event){
+            $('.swiper-container-face').toggleClass('show-face');
+
+            var event = event || window.event;
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble = true;
+            }
+        });
+
+        $(document).on('touchend', function(){
+             $('.swiper-container-face').removeClass('show-face');
+        });
+
+        $('.swiper-container-face').on('touchend', function(event){
+            var event = event || window.event;
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble = true;
+            }
+        });
+
+
         
     });
     </script>
