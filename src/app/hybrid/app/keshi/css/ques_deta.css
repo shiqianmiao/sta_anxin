@@ -1,6 +1,5 @@
 .content{
-	padding: 26px 0 0;
-	background: #fff;
+	padding: 30px 0 0;
 	position: relative;
 }
 .attention-p{
@@ -51,4 +50,94 @@
 }
 .poster-wrap{
 	padding: 0 4%;
+	background: #fff;
+}
+.ques-title{
+	height: 37px;
+	padding-top: 5px;
+}
+.ques-head-pic{
+	float: left;
+	width: 37px;
+	height: 37px;
+}
+.title-content{
+	margin-left: 37px;
+	height: 37px;
+	line-height: 37px;
+	padding-left: 10px;
+	position: relative;
+}
+.title-content span{
+	font-size: 15px;
+	color: #333;
+	float: left;
+}
+.title-content em{
+	font-size: 13px;
+	color: #999;
+	margin-left: 6px;
+}
+.opation-wrap{
+	width: 25px;
+	height: 14px;
+	background: url(../imgs/opation.png) no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	right: 12px;
+	top: 12px;
+}
+.opation-wrap .alert-opa{
+	display: none;
+	width: 105px;
+	height: 32px;
+	position: absolute;
+	background: #a4a4a4;
+	top: 50%;
+	margin-top: -16px;
+	right: 29px;
+	line-height: 32px;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	overflow: hidden;
+}
+.alert-opa span:hover{
+	background: #8c8c8c;
+}
+.opation-wrap .to-public{
+	position: absolute;
+	width: 63px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	top: 0;
+	left: 0;
+	font-size: 12px;
+	color: #fff;
+}
+.opation-wrap .to-public:after{
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 7px;
+	width: 1px;
+	height: 18px;
+	background: #8c8c8c;
+}
+.opation-wrap .to-delete{
+	position: absolute;
+	width: 42px;
+	height: 32px;
+	right: 0;
+	font-size: 12px;
+	color: #fff;
+	top: 0;
+}
+.ques-con{
+	font-size: 15px;
+	content: #333;
+	line-height: 30px;
+	margin-top: 3px;
+	margin-bottom: 6px;
 }

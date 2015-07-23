@@ -158,7 +158,30 @@
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['jquery', 'widget/clientCheck/js/clientCheck.js', 'widget/Hscroll/js/Hscroll.js'], function($, Client, Hscroll){
+    G.use(['jquery', 'widget/clientCheck/js/clientCheck.js', 'widget/Hscroll/js/Hscroll.js', 'widget/waitLoading/js/waitLoading.js'], function($, Client, Hscroll, waitLoading){
+
+        // 实例化等待加载遮罩
+        var WL = new waitLoading();
+        function showWaitLoad(){
+            WL.init({
+                color : "#fff",
+                width : "100px",
+                height : "100px",
+                // type -> ['circle', 'chasingDots', 'cubeGrid', 'doubleBounce', 'fadingCircle'
+                //          'pulse', 'rotatingPlane', 'threeBounce', 'wanderingCubes', 'wave'
+                //          'wordpress']
+                type : "circle",
+                loadEnd : function(){
+                    WL.show();
+                }
+            });
+        }
+
+        showWaitLoad();
+        setTimeout(function(){
+            WL.hide();
+        }, 2000);
+        
 
         // 点击操作按钮时候
         $('.opation-wrap').on('click', function(event){
