@@ -8,11 +8,19 @@
 	  width: 100%;
 }
 .top-nav{
-	display: none;
-	height: 50px;
+	height: 0;
 	background: #fff;
 	position: relative;
 	z-index: 100;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-ms-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+	overflow: hidden;
+}
+.top-nav.slide-show{
+	height: 50px;
 }
 .top-nav a{
 	display: block;
@@ -105,13 +113,13 @@
 	position: relative;
 }
 .opation-wrap{
-	width: 25px;
-	height: 14px;
-	background: url(../imgs/opation.png) no-repeat;
-	background-size: 100% 100%;
+	width: 37px;
+	height: 37px;
+	background: url(../imgs/opation.png) no-repeat center center;
+	background-size: 25px 14px;
 	position: absolute;
-	right: 12px;
-	top: 12px;
+	right: 0;
+	top: 0;
 }
 .opation-wrap .alert-opa{
 	display: none;
@@ -121,7 +129,7 @@
 	background: #a4a4a4;
 	top: 50%;
 	margin-top: -16px;
-	right: 29px;
+	right: 34px;
 	line-height: 32px;
 	color: #fff;
 	font-size: 12px;

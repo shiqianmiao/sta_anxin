@@ -33,7 +33,7 @@
                 <img src="imgs/head.jpg" class="ques-head-pic" />
                 <div class="title-content">
                     <span>王先生</span>
-                    <div class="opation-wrap">
+                    <div class="opation-wrap" data-show='false'>
                         <div class="alert-opa borR-3">
                             <span class="to-public">设为公开</span>
                             <span class="to-delete">删除</span>
@@ -98,7 +98,7 @@
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['jquery', 'widget/clientCheck/js/clientCheck.js'], function($, Client){
+    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js'], function($, Client){
 
         var system = Client.client.system;
         if(system.iphone){
@@ -109,12 +109,12 @@
         }
 
         // 点击第一个p标签的时候
-        $('.first-p').on('click', function(){
+        $('.first-p').on('tap', function(){
             $('.attention-p').toggleClass('show');
         });
 
         // 点击关闭注意事项叉叉时
-        $('.p-close').on('click', function(event){
+        $('.p-close').on('tap', function(event){
 
             $('.attention-p').css({opacity: '0'});
             setTimeout(function(){
@@ -128,16 +128,20 @@
             }
         });
 
+        var $alertDom = null;
         // 点击操作按钮时候
-        $('.opation-wrap').on('click', function(event){
+        $('.opation-wrap').on('tap', function(event){
             // 先fadeIn所有
-            $('.alert-opa').fadeOut();
+            $('.alert-opa').show();
 
-            var $alertDom = $(this).find('.alert-opa');
-            if($alertDom.css('display') == 'none'){
-                $alertDom.fadeIn();
+            $alertDom = $(this).find('.alert-opa');
+
+            if($alertDom.data('show') == true){
+                $alertDom.hide();
+                $alertDom.data('show', false);
             }else{
-                $alertDom.fadeOut();
+                $alertDom.show();
+                $alertDom.data('show', true);
             }
 
             if(event.stopPropagation){
@@ -148,11 +152,12 @@
             
         });
 
-        $(document).on('click', function(){
-            $('.alert-opa').fadeOut();
+        $(document).on('tap', function(){
+            $('.alert-opa').hide();
+            $alertDom.data('show', false);
         });
 
-        $('.alert-opa').on('click', function(event){
+        $('.alert-opa').on('tap', function(event){
             if(event.stopPropagation){
                 event.stopPropagation();
             }else{
@@ -162,7 +167,7 @@
 
 
         // 点击患者详情
-        $('.hz-info-title').on('click', function(){
+        $('.hz-info-title').on('tap', function(){
             $('.info-txt').toggleClass('hide');
             $('.jiao').toggleClass('rotate45');
         });

@@ -32,7 +32,7 @@
             <img src="imgs/c.jpg"/>公开
         </a>
     </div>
-    <!-- <div id="Hwrap">
+    <div id="Hwrap">
         <div id="Hscroll">
             <header class="Hs-header"><span class="pullDownIcon"></span><em>下拉刷新</em></header>
                 
@@ -44,7 +44,7 @@
                                 <span>王先生</span>
                                 <p class="answer-label">待回答</p>
                                 <div class="opation-wrap">
-                                    <div class="alert-opa borR-3">
+                                    <div class="alert-opa borR-3" data-show="false">
                                         <span class="to-public">设为公开</span>
                                         <span class="to-delete">删除</span>
                                     </div>
@@ -64,7 +64,7 @@
                                 <span>王先生</span>
                                 <p class="answer-label">待回答</p>
                                 <div class="opation-wrap">
-                                    <div class="alert-opa borR-3">
+                                    <div class="alert-opa borR-3" data-show="false">
                                         <span class="to-public">设为公开</span>
                                         <span class="to-delete">删除</span>
                                     </div>
@@ -84,7 +84,7 @@
                                 <span>王先生</span>
                                 <p class="answer-label">待回答</p>
                                 <div class="opation-wrap">
-                                    <div class="alert-opa borR-3">
+                                    <div class="alert-opa borR-3" data-show="false">
                                         <span class="to-public">设为公开</span>
                                         <span class="to-delete">删除</span>
                                     </div>
@@ -104,7 +104,7 @@
                                 <span>王先生</span>
                                 <p class="answer-label">待回答</p>
                                 <div class="opation-wrap">
-                                    <div class="alert-opa borR-3">
+                                    <div class="alert-opa borR-3" data-show="false">
                                         <span class="to-public">设为公开</span>
                                         <span class="to-delete">删除</span>
                                     </div>
@@ -121,7 +121,7 @@
                 
             <footer class="Hs-footer"><span class="pullUpIcon"></span><em>上拉加载更多</em></footer>
         </div>
-    </div> -->
+    </div>
 
     <footer class="footer2">
         <a href="#"></a>
@@ -154,17 +154,17 @@
     </div>
     <!-- 二维码弹窗 结束 -->
 
-    <section class="null-sec">
+    <!-- <section class="null-sec">
         <img src="imgs/sun.jpg" class="null-sun">
         <p>您还没有未完成订单，</p>
         <p>赶快继续去接单区接单吧！</p>
-    </section>
+    </section> -->
     
 
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['jquery', 'widget/clientCheck/js/clientCheck.js', 'widget/Hscroll/js/Hscroll.js', 'widget/waitLoading/js/waitLoading.js'], function($, Client, Hscroll, waitLoading){
+    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js', 'widget/Hscroll/js/Hscroll.js', 'widget/waitLoading/js/waitLoading.js'], function($, Client, Hscroll, waitLoading){
 
         // 实例化等待加载遮罩
         var WL = new waitLoading();
@@ -188,17 +188,19 @@
             WL.hide();
         }, 2000);
         
-
+        var $alertDom = null;
         // 点击操作按钮时候
-        $('.opation-wrap').on('click', function(event){
-            // 先fadeIn所有
-            $('.alert-opa').fadeOut();
+        $('.opation-wrap').on('tap', function(event){
+            // 先show所有
+            $('.alert-opa').hide();
 
-            var $alertDom = $(this).find('.alert-opa');
-            if($alertDom.css('display') == 'none'){
-                $alertDom.fadeIn();
+            $alertDom = $(this).find('.alert-opa');
+            if($alertDom.data('show') == false){
+                $alertDom.show();
+                $alertDom.data('show', true);
             }else{
-                $alertDom.fadeOut();
+                $alertDom.hide();
+                $alertDom.data('show', false);
             }
 
             if(event.stopPropagation){
@@ -209,11 +211,12 @@
             
         });
 
-        $(document).on('click', function(){
-            $('.alert-opa').fadeOut();
+        $(document).on('tap', function(){
+            $('.alert-opa').hide();
+            $alertDom.data('show', false);
         });
 
-        $('.alert-opa').on('click', function(event){
+        $('.alert-opa').on('tap', function(event){
             if(event.stopPropagation){
                 event.stopPropagation();
             }else{
@@ -222,20 +225,20 @@
         });
 
         // 点击头部的全部按钮，展开隐藏导航
-        $('.show-all').on('touchend', function(){
+        $('.show-all').on('tap', function(){
             $(this).find('img').toggleClass('rotate180');
-            $('.top-nav').slideToggle();
+            $('.top-nav').toggleClass('slide-show');
         });
 
 
         // 弹出完善信息
         //alertWin('#through-window', '.through-close');
         // 点击头部二维码btn，弹出二维码弹窗
-        $('.er-btn').on('click', function(){
+        $('.er-btn').on('tap', function(){
             alertWin('#er-window', '.er-close-mark');
         });
         
-        $('.erpic').on('click', function(event){
+        $('.erpic').on('tap', function(event){
             if(event.stopPropagation){
                 event.stopPropagation();
             }else{
@@ -246,9 +249,9 @@
         // 弹窗
         function alertWin(winSelector, closeSelector){
             $(winSelector).removeClass('window-hide');
-            $(closeSelector).on('click', function(){
+            $(closeSelector).on('tap', function(){
                 $(winSelector).addClass('window-hide');
-                $(closeSelector).off('click');
+                $(closeSelector).off('tap');
             });
         }
 
@@ -263,7 +266,7 @@
 
         // 初始化刷新的top
         //$('#Hwrap').css({top: $('.header').innerHeight() + 'px'});
-        $('#Hwrap').css({height: $(window).height() - $('.header').innerHeight() - 60 + 'px'});
+        $('#Hwrap').css({height: $(window).height() - $('.header').height() - 60 + 'px'});
         // 只实例化对象不传配置参数的时候，指示做了一个模拟滚动，可以用来修复移动端fixed定位bug
         var hscroll = new Hscroll({
             refreshCallback : function(self){
