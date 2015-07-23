@@ -427,3 +427,29 @@ Hmodel 样式
 @keyframes scaleUpCenter {
 	from { opacity: 0; -webkit-transform: scale(.7); transform: scale(.7); }
 }
+
+.null-sec{
+	margin-top: 97px;
+}
+.null-sun{
+	width: 101px;
+	height: 101px;
+	display: block;
+	margin: 0 auto 17px;
+}
+.null-sec p{
+	font-size: 15px;
+	color: #999999;
+	text-align: center;
+}
+.null-sec a{
+	display: block;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	background: #ffad0f;
+	color: #fff;
+	font-size: 17px;
+	width: 92%;
+	margin: 34px auto 0;
+}
