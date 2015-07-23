@@ -40,6 +40,9 @@ body{
 .text-indent-2{
 	text-indent: 2em;
 }
+.hide{
+	display: none;
+}
 .boxSha{
 	-webkit-box-shadow: 0 2px 2px #d1d1d1;
 	-moz-box-shadow: 0 2px 2px #d1d1d1;
