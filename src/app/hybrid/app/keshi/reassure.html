@@ -13,27 +13,211 @@
     <link rel="stylesheet" href="./css/public.css" />
     <link rel="stylesheet" href="./css/reassure.css" />
 </head>
-<body>
+<body class="padding-bottom-60">
 
     <header class="header">
         <a href="#" class="header-return"></a>
-        <span>全部<img src="imgs/show_hide.png" class="show-hide-rotate"></span>
+        <span class="show-all">全部<img src="imgs/show_hide.png" class="show-hide-rotate"></span>
         <a href="javascript:" class="er-btn"></a>
     </header>
+    <div class="top-nav boxSha">
+        <a href="#">
+            <img src="imgs/a.jpg"/>全部
+        </a>
+        <a href="#">
+            <img src="imgs/b.jpg"/>我回答
+        </a>
+        <a href="#">
+            <img src="imgs/c.jpg"/>公开
+        </a>
+    </div>
 
     <ul class="ques-list">
         <li class="per-ques borR-3">
-            <div class="ques-title">
+            <div class="ques-title clear">
                 <img src="imgs/head.jpg" class="ques-head-pic" />
+                <div class="title-content">
+                    <span>王先生</span><em>1分钟前</em>
+                    <p class="answer-label">待回答</p>
+                </div>
             </div>
+            <p class="ques-txt">膝盖有积液，走路不怎么感觉到就是蹲下觉得膝盖部位发涨、麻木，站起来费劲，这是什么原因呢？</p>
+            <footer class="ques-footer">
+                <div class="opation-wrap">
+                    <div class="alert-opa borR-3">
+                        <span class="to-public">设为公开</span>
+                        <span class="to-delete">删除</span>
+                    </div>
+                </div>
+                <a href="#" class="reply-num-btn borR-3">回复 0</a>
+            </footer>
+        </li>
+        <li class="per-ques borR-3">
+            <div class="ques-title clear">
+                <img src="imgs/head.jpg" class="ques-head-pic" />
+                <div class="title-content">
+                    <span>王先生</span><em>1分钟前</em>
+                    <p class="answer-label">待回答</p>
+                </div>
+            </div>
+            <p class="ques-txt">膝盖有积液，走路不怎么感觉到就是蹲下觉得膝盖部位发涨、麻木，站起来费劲，这是什么原因呢？</p>
+            <footer class="ques-footer">
+                <div class="opation-wrap">
+                    <div class="alert-opa borR-3">
+                        <span class="to-public">设为公开</span>
+                        <span class="to-delete">删除</span>
+                    </div>
+                </div>
+                <a href="#" class="reply-num-btn borR-3">回复 0</a>
+            </footer>
+        </li>
+        <li class="per-ques borR-3">
+            <div class="ques-title clear">
+                <img src="imgs/head.jpg" class="ques-head-pic" />
+                <div class="title-content">
+                    <span>王先生</span><em>1分钟前</em>
+                    <p class="answer-label">待回答</p>
+                </div>
+            </div>
+            <p class="ques-txt">膝盖有积液，走路不怎么感觉到就是蹲下觉得膝盖部位发涨、麻木，站起来费劲，这是什么原因呢？</p>
+            <footer class="ques-footer">
+                <div class="opation-wrap">
+                    <div class="alert-opa borR-3">
+                        <span class="to-public">设为公开</span>
+                        <span class="to-delete">删除</span>
+                    </div>
+                </div>
+                <a href="#" class="reply-num-btn borR-3">回复 0</a>
+            </footer>
+        </li>
+        <li class="per-ques borR-3">
+            <div class="ques-title clear">
+                <img src="imgs/head.jpg" class="ques-head-pic" />
+                <div class="title-content">
+                    <span>王先生</span><em>1分钟前</em>
+                    <p class="answer-label">待回答</p>
+                </div>
+            </div>
+            <p class="ques-txt">膝盖有积液，走路不怎么感觉到就是蹲下觉得膝盖部位发涨、麻木，站起来费劲，这是什么原因呢？</p>
+            <footer class="ques-footer">
+                <div class="opation-wrap">
+                    <div class="alert-opa borR-3">
+                        <span class="to-public">设为公开</span>
+                        <span class="to-delete">删除</span>
+                    </div>
+                </div>
+                <a href="#" class="reply-num-btn borR-3">回复 0</a>
+            </footer>
         </li>
     </ul>
+
+    <footer class="footer2">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#" class="active"></a>
+    </footer>
+
+    <!-- 完善信息弹窗 -->
+    <div class="alert-mark flex-center window-hide" id="through-window">
+        <section class="window borR-3">
+            <a href="javascript:;" class="close-btn through-close borR-50">×</a>
+            <div class="win-top">
+                <div class="win-title borR-50 boxSiz">
+                    <h3>完善</h3>
+                    <h3>信息</h3>
+                </div>
+                <p>您的个人信息还不完善，不能进行接单，</p>
+                <p>请去个人中心完善信息</p>
+            </div>
+            <footer class="win-foot">
+                <a href="#">去完善个人信息</a>
+            </footer>
+        </section>
+    </div>
+    <!-- 完善信息弹窗 结束 -->
+
+    <!-- 二维码弹窗 -->
+    <div class="alert-mark flex-center window-hide er-close-mark" id="er-window" >
+        <img src="imgs/er.jpg" class="erpic" />
+    </div>
+    <!-- 二维码弹窗 结束 -->
     
 
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['zepto'], function($){
+    G.use(['jquery', 'widget/clientCheck/js/clientCheck.js'], function($, Client){
+
+        // 点击操作按钮时候
+        $('.opation-wrap').on('click', function(event){
+            // 先fadeIn所有
+            $('.alert-opa').fadeOut();
+
+            var $alertDom = $(this).find('.alert-opa');
+            if($alertDom.css('display') == 'none'){
+                $alertDom.fadeIn();
+            }else{
+                $alertDom.fadeOut();
+            }
+
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble = true;
+            }
+            
+        });
+
+        $(document).on('click', function(){
+            $('.alert-opa').fadeOut();
+        });
+
+        $('.alert-opa').on('click', function(event){
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble = true;
+            }
+        });
+
+        // 点击头部的全部按钮，展开隐藏导航
+        $('.show-all').on('touchend', function(){
+            $(this).find('img').toggleClass('rotate180');
+            $('.top-nav').slideToggle();
+        });
+
+
+        // 弹出完善信息
+        //alertWin('#through-window', '.through-close');
+        // 点击头部二维码btn，弹出二维码弹窗
+        $('.er-btn').on('click', function(){
+            alertWin('#er-window', '.er-close-mark');
+        });
+        
+        $('.erpic').on('click', function(event){
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble = true;
+            }
+        });
+
+        // 弹窗
+        function alertWin(winSelector, closeSelector){
+            $(winSelector).removeClass('window-hide');
+            $(closeSelector).on('click', function(){
+                $(winSelector).addClass('window-hide');
+                $(closeSelector).off('click');
+            });
+        }
+
+        var system = Client.client.system;
+        if(system.iphone){
+            // 是iphone,增加头部高度
+            $('.header').addClass('ios-header');
+        }else{
+            $('.header').removeClass('ios-header');
+        }
 
         
     });

@@ -1,15 +1,267 @@
+.top-nav{
+	display: none;
+	height: 50px;
+	background: #fff;
+}
+.top-nav a{
+	display: block;
+	float: left;
+	width: 33.33333333%;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	font-size: 15px;
+	color: #333;
+	position: relative;
+}
+.top-nav a:after{
+	content: "";
+	width: 1px;
+	height: 12px;
+	background: #d9d9d9;
+	position: absolute;
+	right: 0;
+	top: 19px;
+}
+.top-nav a:last-of-type:after{
+	background: #fff;
+}
+.top-nav a img{
+	vertical-align: middle;
+	width: 34px;
+	height: 34px;
+	border-right: 50%;
+	margin-right: 6px;
+}
 .ques-list{
 	padding: 0 4%;
 }
 .per-ques{
 	background: #fff;
 	overflow: hidden;
-	padding: 0 12px;
+	padding-top: 8px;
+	margin-top: 16px;
 }
 .ques-title{
 	height: 37px;
+	padding: 0 12px;
 }
 .ques-head-pic{
 	float: left;
-	
+	width: 37px;
+	height: 37px;
+}
+.title-content{
+	margin-left: 37px;
+	height: 37px;
+	line-height: 37px;
+	padding-left: 10px;
+	position: relative;
+}
+.title-content span{
+	font-size: 15px;
+	color: #333;
+}
+.title-content em{
+	font-size: 13px;
+	color: #999;
+	margin-left: 6px;
+}
+.answer-label{
+	position: absolute;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	color: #fff;
+	width: 67px;
+	border-radius: 13px;
+	background: #ffa7b3;
+	font-size: 13px;
+	right: 0;
+	top: 5px;
+}
+.ques-txt{
+	padding: 0 12px;
+	font-size: 15px;
+	color: #333;
+	line-height: 30px;
+	margin: 3px 0;
+}
+.ques-footer{
+	height: 52px;
+	border-top: 1px solid #ffefcf;
+	position: relative;
+}
+.opation-wrap{
+	width: 25px;
+	height: 14px;
+	background: url(../imgs/opation.png) no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	left: 12px;
+	top: 19px;
+}
+.alert-opa{
+	display: none;
+	width: 105px;
+	height: 32px;
+	position: absolute;
+	background: #a4a4a4;
+	top: 50%;
+	margin-top: -16px;
+	left: 29px;
+	line-height: 32px;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	overflow: hidden;
+}
+.alert-opa span:hover{
+	background: #8c8c8c;
+}
+.to-public{
+	position: absolute;
+	width: 63px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	top: 0;
+	left: 0;
+}
+.to-public:after{
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 7px;
+	width: 1px;
+	height: 18px;
+	background: #8c8c8c;
+}
+.to-delete{
+	position: absolute;
+	width: 42px;
+	height: 32px;
+	right: 0;
+	top: 0;
+}
+.reply-num-btn{
+	width: 80px;
+	height: 33px;
+	background: #ffad0f;
+	color: #fff;
+	line-height: 33px;
+	top: 9px;
+	right: 12px;
+	position: absolute;
+	text-align: center;
+	font-size: 15px;
+}
+
+/* 弹窗公共样式 */
+.window{
+	width: 86.666666666%;
+	overflow: hidden;
+	position: relative;
+}
+.close-btn{
+	position: absolute;
+	width: 19px;
+	height: 19px;
+	border: 1px solid #fff;
+	color: #fff;
+	text-align: center;
+	line-height: 19px;
+	z-index: 10;
+	top: 12px;
+	right: 13px;
+	font-size: 18px;
+}
+.win-top{
+	height: 167px;
+	background: #ffad0f;
+	overflow: hidden;
+	position: relative;
+}
+.win-title{
+	width: 85px;
+	height: 85px;
+	border: 5px solid #ffce6f;
+	background: #fff;
+	margin: 20px auto 0;
+}
+.win-title h3{
+	font-size: 20px;
+	font-weight: bold;
+	color: #ffad0f;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+}
+.win-title h3:nth-of-type(1){
+	margin-top: 15px;
+}
+.win-title h3:nth-of-type(2){
+	margin-top: 5px;
+}
+.win-top p{
+	font-size: 15px;
+	height: 15px;
+	line-height: 15px;
+	color: #fff;
+	text-align: center;
+	font-weight: normal;
+}
+.win-top p:nth-of-type(1){
+	margin-top: 14px;
+}
+.win-top p:nth-of-type(2){
+	margin-top: 4px;
+}
+.win-foot{
+	height: 93px;
+	background: #fff;
+	overflow: hidden;
+}
+.success-foot{
+	height: 116px;
+}
+.win-foot a{
+	display: block;
+	width: 218px;
+	height: 47px;
+	line-height: 47px;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	font-size: 23px;
+	background: url(../imgs/btn.png) no-repeat;
+	background-size: 100% 100%;
+	margin: 24px auto 0;
+}
+.win-foot p{
+	font-size: 15px;
+	color: #ffad0f;
+	text-align: center;
+	height: 15px;
+	line-height: 15px;
+	margin-top: 22px;
+}
+.win-foot a.success-btn{
+	margin: 12px auto 0;
+}
+/* 弹窗公共样式 结束 */
+.window-hide{
+	display: none;
+}
+.erpic{
+	width: 200px;
+	height: 200px;
+}
+.close-erwin{
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	top: 7px;
+	right: 22px;
+
 }

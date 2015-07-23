@@ -20,6 +20,7 @@ textarea{ resize:none; overflow:auto;}
 body{font-size:12px; font-family:Microsoft YaHei,SimHei,Arial,Pro LiHei Pro Medium;}
 a,button,input,textarea{
 	-webkit-tap-highlight-color: rgba(255,0,0,0);
+	outline: none;
 }
 a,button,input,textarea{-webkit-tap-highlight-color: rgba(255,0,0,0);}
 body{
@@ -27,6 +28,13 @@ body{
 }
 /* end reset */
 /* public */
+.rotate180{
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
 .clear { zoom:1; }
 .clear:after { content:''; display:block; clear:both; }
 .text-indent-2{
@@ -121,7 +129,7 @@ body{
 .er-btn{
 	position: absolute;
 	right: 4px;
-	top: 0;
+	bottom: 0;
 	height: 45px;
 	width: 41px;
 	background: url(../imgs/er-btn.png) no-repeat center center;
@@ -129,6 +137,53 @@ body{
 }
 /* 头部公共样式 结束 */
 
+.footer2{
+	height: 48px;
+	border-top: 1px solid #b5b5b5;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	z-index: 10;
+}
+.footer2 a{
+	float: left;
+	height: 100%;
+	width: 33.333333%;
+	background: url(../imgs/footer.png) no-repeat;
+	position: relative;
+}
+.footer2 a:after{
+	content: "";
+	position: absolute;
+	height: 15px;
+	width: 1px;
+	background: #e1e1e1;
+	right: 0;
+	top: 16px;
+}
+.footer2 a:last-of-type:after{
+	background: #fff;
+}
+.footer2 a:nth-of-type(1){
+	background-position: center 12px;
+}
+.footer2 a:nth-of-type(1).active{
+	background-position: center -38px;
+}
+.footer2 a:nth-of-type(2){
+	background-position: center -84px;
+}
+.footer2 a:nth-of-type(2).active{
+	background-position: center -131px;
+}
+.footer2 a:nth-of-type(3){
+	background-position: center -181px;
+}
+.footer2 a:nth-of-type(3).active{
+	background-position: center -229px;
+}
 #Hwrap{
 	position: absolute;
 	top: 0;
