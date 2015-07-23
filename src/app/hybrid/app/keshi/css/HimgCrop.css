@@ -1,0 +1,128 @@
+#HimgCropWrap{
+	position: fixed;
+	z-index: 100;
+	background: #000;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.Himg-canvas{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.crop-box{
+	position: absolute;
+	border: 1px solid #fff;
+	box-sizing: border-box;
+}
+.mark-top{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	background: rgba(0,0,0,0.5);
+	z-index: 110;
+}
+.mark-left{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 5px;
+	left: 0;
+	background: #000;
+	z-index: 110;
+}
+.mark-right{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 5px;
+	right: 0;
+	background: #000;
+	z-index: 110;
+}
+.mark-bottom{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.5);
+	z-index: 110;
+}
+.Himg-footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	z-index: 120;
+	text-align: center;
+	line-height: 50px;
+	font-size: 18px;
+	color: #fff;
+	background: -webkit-linear-gradient(top, #686868, #020202);
+}
+.Himg-footer span{
+	position: absolute;
+	width: 60px;
+	height: 32px;
+	top: 8px;
+	border-radius: 4px;
+	box-shadow: 0 0 2px #000 inset, 0 0 2px #ccc;
+	line-height: 36px;
+	text-align: center;
+	border: 1px solid #000;
+}
+.Himg-footer span.Himg-cancel{
+	left: 5%;
+	background: -webkit-linear-gradient(top, #686868, #020202);
+	cursor: pointer;
+}
+.Himg-footer span.Himg-cancel:active{
+	background: -webkit-linear-gradient(top, #020202, #686868);
+}
+.Himg-footer span.Himg-select{
+	right: 5%;
+	background: -webkit-linear-gradient(top, #6e89be, #1153ce);
+	cursor: pointer;
+}
+.Himg-footer span.Himg-select:active{
+	background: -webkit-linear-gradient(top, #1153ce, #6e89be);
+}
+.rotate-ing{
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 140;
+	cursor: pointer;
+}
+.pointer-mark{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 115;
+}
+.big-pic-wrap{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.close-big-pic{
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 40px;
+	height: 40px;
+	background: #fff;
+	line-height: 40px;
+	color: #000;
+	text-align: center;
+	font-size: 30px;
+	z-index: 10;
+	font-weight: bold;
+}

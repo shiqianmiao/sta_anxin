@@ -1,0 +1,15 @@
+.ques-list{
+	padding: 0 4%;
+}
+.per-ques{
+	background: #fff;
+	overflow: hidden;
+	padding: 0 12px;
+}
+.ques-title{
+	height: 37px;
+}
+.ques-head-pic{
+	float: left;
+	
+}
