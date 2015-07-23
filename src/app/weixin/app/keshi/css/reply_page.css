@@ -171,10 +171,3 @@
 	margin: 6px auto;
 	background: url(../imgs/emo.png) no-repeat top left;
 }
-.emo2{
-	width: 20px;
-	height: 20px;
-	background: url(../imgs/emo.png) no-repeat top left;
-	display: inline-block;
-	vertical-align: middle;
-}
