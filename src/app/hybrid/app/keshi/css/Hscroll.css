@@ -1,0 +1,74 @@
+#Hwrap{
+	position: absolute;
+	top: 50px;
+	bottom: 50px;
+	overflow: hidden;
+	background: #ebebeb;
+	width: 100%;
+}
+#Hscroll{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #ebebeb;
+	min-height: 100%;
+}
+.Hs-header,.Hs-footer{
+	height: 50px;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	line-height: 50px;
+	font-weight: bold;
+	color: #999;
+}
+.Hs-header{
+	top: -50px;
+}
+.Hs-footer{
+	bottom: -50px;
+}
+.Hs-header em,.Hs-footer em{
+	display: inline-block;
+}
+.pullDownIcon,.pullUpIcon{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background: url(../imgs/pull-icon@2x.png) 0 0 no-repeat;
+	-webkit-background-size: 50px 100px;
+	background-size: 50px 100px;
+	-webkit-transition-property: -webkit-transform;
+	-webkit-transition-duration: 250ms;
+	vertical-align: top;
+}
+.pullDownIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+.pullDownIcon.flip  {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+.pullUpIcon  {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+.pullUpIcon.flip {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+.pullDownIcon.loading, .pullUpIcon.loading {
+	background-position:0 100%;
+	-webkit-transform:rotate(0deg) translateZ(0);
+	-webkit-transition-duration:0ms;
+
+	-webkit-animation-name:loading;
+	-webkit-animation-duration:2s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:linear;
+}
+
+@-webkit-keyframes loading {
+	from { -webkit-transform:rotate(0deg) translateZ(0); }
+	to { -webkit-transform:rotate(360deg) translateZ(0); }
+}

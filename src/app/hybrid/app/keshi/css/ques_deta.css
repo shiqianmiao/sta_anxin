@@ -1,0 +1,54 @@
+.content{
+	padding: 26px 0 0;
+	background: #fff;
+	position: relative;
+}
+.attention-p{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.75);
+	color: #fff;
+	font-size: 13px;
+	line-height: 30px;
+	height: 30px;
+	overflow: hidden;
+	-webkit-transition: 0.3s;
+	-moz-transition: 0.3s;
+	-ms-transition: 0.3s;
+	-o-transition: 0.3s;
+	transition: 0.3s;
+}
+.attention-p.show{
+	height: 282px;
+}
+.attention-p p{
+	padding: 0 4%;
+}
+.attention-p p:first-of-type{
+	text-align: center;
+}
+.attention-p p:last-of-type{
+	margin-bottom: 12px;
+}
+.next-more{
+	vertical-align: middle;
+	width: 10px;
+	height: 12px;
+	margin-left: 5px;
+	position: relative;
+	top: -2px;
+}
+.p-close{
+	background: url(../imgs/close.png) no-repeat center center;
+	background-size: 10px 10px;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	right: 5px;
+	top: 0;
+}
+.poster-wrap{
+	padding: 0 4%;
+}

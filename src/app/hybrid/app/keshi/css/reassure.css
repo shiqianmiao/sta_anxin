@@ -1,7 +1,18 @@
+#Hwrap{
+	  position: relative;
+	  height: 100px;
+	  top: 0;
+	  bottom: 0;
+	  overflow: hidden;
+	  background: #ebebeb;
+	  width: 100%;
+}
 .top-nav{
 	display: none;
 	height: 50px;
 	background: #fff;
+	position: relative;
+	z-index: 100;
 }
 .top-nav a{
 	display: block;
@@ -61,6 +72,7 @@
 .title-content span{
 	font-size: 15px;
 	color: #333;
+	float: left;
 }
 .title-content em{
 	font-size: 13px;
@@ -68,17 +80,17 @@
 	margin-left: 6px;
 }
 .answer-label{
-	position: absolute;
-	height: 26px;
-	line-height: 26px;
+	float: left;
+	height: 20px;
+	line-height: 20px;
 	text-align: center;
-	color: #fff;
+	color: #ffa7b3;
 	width: 67px;
-	border-radius: 13px;
-	background: #ffa7b3;
+	border-radius: 10px;
+	background: #fff;
+	border: 1px solid #ffa7b3;
 	font-size: 13px;
-	right: 0;
-	top: 5px;
+	margin: 8px 0 0 7px;
 }
 .ques-txt{
 	padding: 0 12px;
@@ -98,10 +110,10 @@
 	background: url(../imgs/opation.png) no-repeat;
 	background-size: 100% 100%;
 	position: absolute;
-	left: 12px;
-	top: 19px;
+	right: 12px;
+	top: 12px;
 }
-.alert-opa{
+.opation-wrap .alert-opa{
 	display: none;
 	width: 105px;
 	height: 32px;
@@ -109,7 +121,7 @@
 	background: #a4a4a4;
 	top: 50%;
 	margin-top: -16px;
-	left: 29px;
+	right: 29px;
 	line-height: 32px;
 	color: #fff;
 	font-size: 12px;
@@ -119,7 +131,7 @@
 .alert-opa span:hover{
 	background: #8c8c8c;
 }
-.to-public{
+.opation-wrap .to-public{
 	position: absolute;
 	width: 63px;
 	height: 32px;
@@ -127,8 +139,10 @@
 	text-align: center;
 	top: 0;
 	left: 0;
+	font-size: 12px;
+	color: #fff;
 }
-.to-public:after{
+.opation-wrap .to-public:after{
 	content: "";
 	position: absolute;
 	right: 0;
@@ -137,12 +151,20 @@
 	height: 18px;
 	background: #8c8c8c;
 }
-.to-delete{
+.opation-wrap .to-delete{
 	position: absolute;
 	width: 42px;
 	height: 32px;
 	right: 0;
+	font-size: 12px;
+	color: #fff;
 	top: 0;
+}
+.ques-time{
+	line-height: 53px;
+	color: #999;
+	font-size: 13px;
+	margin-left: 4%;
 }
 .reply-num-btn{
 	width: 80px;
