@@ -456,3 +456,8 @@ Hmodel 样式
 	width: 92%;
 	margin: 34px auto 0;
 }
+/* 二维码弹窗样式 */
+.erpic{
+	width: 200px;
+	height: 200px;
+}

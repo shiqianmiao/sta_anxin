@@ -283,18 +283,7 @@
 .window-hide{
 	display: none;
 }
-.erpic{
-	width: 200px;
-	height: 200px;
-}
-.close-erwin{
-	width: 18px;
-	height: 18px;
-	position: absolute;
-	top: 7px;
-	right: 22px;
 
-}
 .reply-box{
 	position: fixed;
 	height: 48px;
