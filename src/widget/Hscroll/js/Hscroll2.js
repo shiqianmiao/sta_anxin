@@ -139,7 +139,7 @@ $.extend(proto, {
 		this.prevY =	ev.touches[0].pageY;
 		this.disY = this.prevY - this.getTranslateY(this.Hscroll);
 
-		console.log(this.getTranslateY(this.Hscroll));
+		// console.log(this.getTranslateY(this.Hscroll));
 		
 	},
 	/**
@@ -149,7 +149,7 @@ $.extend(proto, {
 	_touchmoveFn : function(ev){
 		// move的时候更新当前的top值
 		this.curTop = ev.touches[0].pageY - this.disY;
-		console.log(this.curTop);
+		// console.log(this.curTop);
 		this.upOrDown = ev.touches[0].pageY - this.prevY;
 		var config = this.settings;
 		
@@ -241,7 +241,7 @@ $.extend(proto, {
 		}
 
 		// 计算速度
-		this.speed = parseInt( (this.endlocation - this.startlocation) / (this.endTime - this.startTime) * 600 );
+		this.speed = parseInt( (this.endlocation - this.startlocation) / (this.endTime - this.startTime) * 500 );
 		if(Math.abs(this.speed) < 100){
 			this.speed = 0;
 		}
