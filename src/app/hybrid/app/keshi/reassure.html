@@ -159,6 +159,11 @@
         <p>您还没有未完成订单，</p>
         <p>赶快继续去接单区接单吧！</p>
     </section> -->
+
+    <div class="reply-box">
+        <input type="text" class="reply-input borR-3" />
+        <span class="reply-btn borR-3">回复</span>
+    </div>
     
 
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
@@ -213,7 +218,10 @@
 
         $(document).on('tap', function(){
             $('.alert-opa').hide();
-            $alertDom.data('show', false);
+            if($alertDom){
+                $alertDom.data('show', false);
+            }
+            
         });
 
         $('.alert-opa').on('tap', function(event){
@@ -289,6 +297,26 @@
             // 选择您需要的加载类型【只要下拉刷新 - onlyTop 】【只要上拉加载更多 - onlyBottom 】【两个都要 - double 】【都不要 - none 】
             opationType : 'double'
 
+        });
+
+
+        // 点击回复按钮
+        $('.reply-num-btn').on('click', function(event){
+            $('.reply-box').show();
+            $('.reply-input').focus();
+            
+            
+            // 失去焦点
+            $('.reply-input').on('blur', function(){
+                $('.reply-box').hide();
+                $('.reply-input').off('blur');
+            });
+
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble = true;
+            }
         });
 
         
