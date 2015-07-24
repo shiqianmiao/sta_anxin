@@ -21,7 +21,11 @@ body, html{
 	color: #ffad0f;
 	font-size: 15px;
 }
-.order-nav li.active{
+.order-nav li a{
+	color: #ffad0f;
+	display: block;
+}
+.order-nav li.active a{
 	color: #fff;
 	background: #ffad0f;
 }
