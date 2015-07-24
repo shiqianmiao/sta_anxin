@@ -241,7 +241,7 @@ $.extend(proto, {
 		}
 
 		// 计算速度
-		this.speed = parseInt( (this.endlocation - this.startlocation) / (this.endTime - this.startTime) * 400 );
+		this.speed = parseInt( (this.endlocation - this.startlocation) / (this.endTime - this.startTime) * 600 );
 		if(Math.abs(this.speed) < 100){
 			this.speed = 0;
 		}
