@@ -1,0 +1,235 @@
+html, body{
+	background: #e9e9e9;
+}
+body{
+	padding-bottom: 50px;
+}
+.center-top{
+	width: 100%;
+	height: 218px;
+	background: url(../imgs/topbg.jpg) no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+	position: relative;
+}
+.headpic{
+	width: 77px;
+	height: 77px;
+	display: block;
+	margin: 30px auto 0;
+
+}
+.user-name{
+	color: #fff;
+	font-weight: normal;
+	text-align: center;
+	font-size: 18px;
+	margin-top: 6px;
+}
+.project-list{
+	position: absolute;
+	width: 100%;
+	height: 38px;
+	bottom: 12px;
+	left: 0;
+}
+.per-pro{
+	float: left;
+	height: 100%;
+	width: 33.33333333%;
+	text-align: center;
+	position: relative;
+}
+.per-pro:nth-of-type(1):after, .per-pro:nth-of-type(2):after{
+	content: "";
+	width: 1px;
+	height: 37px;
+	background: rgba(255,255,255,0.3);
+	position: absolute;
+	right: 0;
+	top: 1px;
+}
+.per-pro em, .per-pro h4{
+	font-size: 15px;
+	height: 15px;
+	line-height: 15px;
+	color: #ffad0f;
+}
+.per-pro h4{
+	position: absolute;
+	color: #fff;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+}
+.on-off-btn{
+	width: 60px;
+	height: 28px;
+	-webkit-border-radius: 14px;
+	-moz-border-radius: 14px;
+	-o-border-radius: 14px;
+	-ms-border-radius: 14px;
+	border-radius: 14px;
+	position: absolute;
+	top: 11px;
+	right: 1px;
+	overflow: hidden;
+}
+.child-btn{
+	width: 92px;
+	height: 28px;
+	position: relative;
+	left: 0;
+	-webkit-transition : 0.3s;
+	-moz-transition : 0.3s;
+	-o-transition : 0.3s;
+	-ms-transition : 0.3s;
+	transition : 0.3s;
+}
+.child-btn em.on{
+	line-height: 28px;
+	color: #c05f03;
+	text-shadow: 0 0 1px #ae6109;
+	font-size: 10px;
+	background: #ffad0f;
+	position: absolute;
+	left: 0;
+	width: 60px;
+	text-indent: 9px;
+	-webkit-border-radius: 14px;
+	-moz-border-radius: 14px;
+	-o-border-radius: 14px;
+	-ms-border-radius: 14px;
+	border-radius: 14px;
+	-webkit-transition : 0.3s;
+	-moz-transition : 0.3s;
+	-o-transition : 0.3s;
+	-ms-transition : 0.3s;
+	transition : 0.3s;
+}
+.child-btn em.off{
+	line-height: 28px;
+	color: #999;
+	text-shadow: 0 0 1px #333;
+	font-size: 10px;
+	position: absolute;
+	right: 0;
+	text-align: right;
+	width: 60px;
+	-webkit-border-radius: 14px;
+	-moz-border-radius: 14px;
+	-o-border-radius: 14px;
+	-ms-border-radius: 14px;
+	border-radius: 14px;
+	-webkit-transition : 0.3s;
+	-moz-transition : 0.3s;
+	-o-transition : 0.3s;
+	-ms-transition : 0.3s;
+	transition : 0.3s;
+}
+.child-btn mark{
+	margin-right: 9px;
+	background: #e9e9e9;
+}
+.child-btn em.off:after{
+	content: "";
+	display: block;
+	height: 100%;
+	width: 9px;
+}
+.btn-change{
+	left: -32px;
+}
+.btn-change em.on{
+	background: none;
+}
+.btn-change em.off{
+	color: #999;
+	text-shadow: 0 0 1px #333;
+	background: #e9e9e9;
+}
+.child-btn span{
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	left: 34px;
+	top: 2px;
+	background: #dfd5c1;
+	box-shadow: 0 0 3px #999;
+	z-index: 10;
+}
+.service-status{
+	font-size: 15px;
+	height: 15px;
+	line-height: 15px;
+	color: #333333;
+	margin: 16px 0 12px 0;
+	text-indent: 4%;
+}
+.audit-tip{
+	height: 15px;
+	padding: 0 4%;
+	background: url(../imgs/audit.png) no-repeat 4% center;
+	background-size: 15px 15px;
+	line-height: 15px;
+	color: #999999;
+	text-indent: 19px;
+}
+.logout{
+	display: block;
+	width: 92%;
+	margin: 16px auto 24px;
+	background: #b0b0b0;
+	color: #fff;
+	font-size: 17px;
+	text-align: center;
+	line-height: 44px;
+	height: 44px;
+}
+/* 个人中心 个人信息中 长条按钮的公共样式 */
+.strip-sec{
+	margin-top: 16px;
+	padding: 0 4%;
+	background: #fff;
+}
+.per-stripbtn{
+	height: 50px;
+	border-bottom: 1px solid #e1e1e1;
+	line-height: 50px;
+	font-size: 15px;
+	color: #333333;
+	position: relative;
+	/*background: url(../imgs/strip.png) no-repeat;*/
+}
+.per-stripbtn a{
+	display: block;
+	color: #333333;
+}
+.per-stripbtn em{
+	position: absolute;
+	font-style: 13px;
+	color: #b0b0b0;
+	right: 26px;
+}
+.per-stripbtn em.no{
+	color: #b0b0b0
+}
+.per-stripbtn em.yes{
+	color: #ffb72c
+}
+.per-stripbtn span{
+	position: absolute;
+	width: 9px;
+	height: 17px;
+	background: url(../imgs/strip.png) no-repeat;
+	background-size: 9px 17px;
+	right: 8px;
+	top: 17px;
+}
+.per-stripbtn:last-of-type{
+	border: none;
+}
+/* 个人中心 个人信息中 长条按钮的公共样式 结束 */
+.window-hide{
+	display: none;
+}

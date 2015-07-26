@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>个人中心</title>
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/center.css">
+</head>
+<body>
+	
+	<header class="header">
+        <span>个人中心</span>
+        <a href="javascript:" class="er-btn"></a>
+    </header>
+
+	<section class="center-top">
+		<img src="imgs/head.jpg" class="headpic borR-50">
+		<h2 class="user-name">陈护士</h2>
+		<ul class="project-list">
+			<li class="per-pro">
+				<em>123</em>
+				<h4>鲜花数</h4>
+			</li>
+			<li class="per-pro">
+				<em>12%</em>
+				<h4>好评率</h4>
+			</li>
+			<li class="per-pro">
+				<em>123</em>
+				<h4>累计收益</h4>
+			</li>
+		</ul>
+	</section>
+
+	<section class="strip-sec">
+		<ul class="strip-btn-list">
+			<li class="per-stripbtn">
+				<a href="#">
+					我的团队
+					<span></span>
+				</a>
+			</li>
+			<li class="per-stripbtn">
+				<a href="#">
+					我的回答
+					<em class="no">205条</em>
+					<span></span>
+				</a>
+			</li>
+			<li class="per-stripbtn">
+				<a href="#">
+					我的消息
+					<span></span>
+				</a>
+			</li>
+			<li class="per-stripbtn">
+				<a href="#">
+					账户与安全
+					<span></span>
+				</a>
+			</li>
+		</ul>
+	</section>
+
+	<!-- 二维码弹窗 -->
+    <div class="alert-mark flex-center window-hide er-close-mark" id="er-window" >
+        <img src="imgs/er.jpg" class="erpic" />
+    </div>
+
+	<footer class="footer2">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#" class="active"></a>
+    </footer>
+	
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+	G.use(['zepto', 'widget/clientCheck/js/clientCheck.js'], function($, Client){
+
+		// 点击头部二维码btn，弹出二维码弹窗
+	    $('.er-btn').on('tap', function(){
+	        alertWin('#er-window', '.er-close-mark');
+	    });
+
+	    function alertWin(winSelector, closeSelector){
+	    	$(winSelector).removeClass('window-hide');
+	    	$(closeSelector).on('tap', function(){
+	    		$(winSelector).addClass('window-hide');
+	    		$(closeSelector).off('tap');
+	    	});
+	    }
+
+	    // 适配ios和Android的导航高度
+        var system = Client.client.system;
+        if(system.iphone){
+            // 是iphone,增加头部高度
+            $('.header').addClass('ios-header');
+        }else{
+            $('.header').removeClass('ios-header');
+        }
+
+
+	});
+    </script>
+</body>
+</html>

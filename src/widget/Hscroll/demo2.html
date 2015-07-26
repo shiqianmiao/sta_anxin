@@ -20,7 +20,7 @@
 
 
 	<div id="Hwrap">
-		<div id="Hscroll">
+		<div id="Hscroll" style="-webkit-transform:translate(0,0);transform:translate(0,0);">
 			<header class="Hs-header"><span class="pullDownIcon"></span><em>下拉刷新</em></header>
 
 			把你的代码内容放在这里
@@ -41,7 +41,7 @@
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
 	<script>
-	G.use(['widget/Hscroll/js/Hscroll.js'], function(Hscroll){
+	G.use(['widget/Hscroll/js/Hscroll2.js'], function(Hscroll){
 		// 只实例化对象不传配置参数的时候，指示做了一个模拟滚动，可以用来修复移动端fixed定位bug
 		var hscroll = new Hscroll({
 			refreshCallback : function(self){

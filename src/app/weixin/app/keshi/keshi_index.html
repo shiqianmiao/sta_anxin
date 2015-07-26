@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>科室首页</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="科室首页" />
+    <meta name="description" content="科室首页" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="科室首页">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/keshi_index.css" />
+</head>
+<body class="padding-bottom-60">
+
+    <section class="ks-index-top">
+        <img src="imgs/ks_index_top.jpg" />
+        <section class="txt-mark-bg">
+            <h2>胸外科</h2>
+            <p class="hospital-name">北医三院</p>
+            <p class="noWrapEllipsis hospital-intr">简介：胸腔外科学是一门一门胸腔外科学是一门一门胸腔外科学是一门一门胸腔外科学是一门一门</p>
+        </section>
+    </section>
+
+    <div class="go-wrap">
+        <section class="down-drag-wrap">
+            <p>向下拖动，查看科室详情</p>
+        </section>
+
+        <ul class="plate-list">
+            <li class="per-plate">
+                <a href="#">
+                    <div class="plate-icon icon-jkkp"></div>健康科普
+                </a>
+            </li>
+            <li class="per-plate">
+                <a href="#">
+                    <div class="plate-icon icon-hdtz"></div>活动通知
+                </a>
+            </li>
+            <li class="per-plate">
+                <a href="#">
+                    <div class="plate-icon icon-kszn"></div>科室指南
+                </a>
+            </li>
+        </ul>
+
+        <ul class="problem-list">
+            <li class="per-pro">
+                <h3>【健康科普】神经外科病人应该注意什么？</h3>
+                <time>2015-6-1 18：24</time>
+            </li>
+            <li class="per-pro">
+                <h3>【健康科普】神经外科病人应该注意什么？</h3>
+                <time>2015-6-1 18：24</time>
+            </li>
+            <li class="per-pro">
+                <h3>【健康科普】神经外科病人应该注意什么？</h3>
+                <time>2015-6-1 18：24</time>
+            </li>
+            <li class="per-pro">
+                <h3>【健康科普】神经外科病人应该注意什么？</h3>
+                <time>2015-6-1 18：24</time>
+            </li>
+            <li class="per-pro">
+                <h3>【健康科普】神经外科病人应该注意什么？</h3>
+                <time>2015-6-1 18：24</time>
+            </li>
+            <li class="per-pro">
+                <h3>【健康科普】神经外科病人应该注意什么？</h3>
+                <time>2015-6-1 18：24</time>
+            </li>
+            <li class="per-pro">
+                <h3>【健康科普】神经外科病人应该注意什么？</h3>
+                <time>2015-6-1 18：24</time>
+            </li>
+            <li class="per-pro">
+                <h3>【健康科普】神经外科病人应该注意什么？</h3>
+                <time>2015-6-1 18：24</time>
+            </li>
+            <li class="per-pro">
+                <h3>【健康科普】神经外科病人应该注意什么？</h3>
+                <time>2015-6-1 18：24</time>
+            </li>
+            <li class="per-pro">
+                <h3>【健康科普】神经外科病人应该注意什么？</h3>
+                <time>2015-6-1 18：24</time>
+            </li>
+        </ul>
+    </div>
+
+    <footer class="footer">
+        <span class="footer-center-img"></span>
+        <ul class="footerbtn-wrap">
+            <li class="btn1 active">
+                <p>科室</p>
+            </li>
+            <li class="btn2">
+                <p>服务预订</p>
+            </li>
+        </ul>
+        <a href="javascript:;" class="to-questions"></a>
+    </footer>
+
+    <!-- 弹层 -->
+    <div class="alert-mark tip-mark-win flex-center hide-win">
+        <div class="tip-win borR-3">
+            <p class="attention">治疗期间的注意事项，您可以看看我们的<a href="#">“健康科普”,“科室指南”, “医护提示”</a></p>
+            <p class="attention">您还没有完善过<a href="#">“患者信息”</a>哦，完善信息医护人员会更好的帮您解答问题</p>
+            <footer class="tip-win-foot">
+                <div class="no-tip">
+                    <span class="radio borR-50"></span>不在提醒
+                </div>
+                <a href="#" class="to-wen borR-3">直接提问</a>
+            </footer>
+        </div>
+    </div>
+    
+    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['zepto', 'com/mobile/widget/toucher/toucher.js'], function($, toucher){
+
+        var moveLabel = true;
+        // 向下滑动 scrollTop == 0
+        var target = util.toucher($('html')[0]);
+        target.on('swipeDown', function(e){
+            //console.log(e);
+            if($(window).scrollTop() <= 0 && moveLabel){
+                $(document).on('touchend', function(){
+                    $('.down-drag-wrap').hide();
+                    $('.ks-index-top').show().addClass('pt-page-scaleUpCenter');
+                    moveLabel = false;
+                    $(document).off('touchend');
+                });
+                
+            }
+        });
+
+        // 弹层
+        alertFn('.tip-mark-win')
+        function alertFn(selector){
+            $(selector).removeClass('hide-win');
+        }
+        $('.no-tip').on('tap', function(){
+            $(this).toggleClass('notip-true');
+            
+        });
+
+    });
+    </script>
+
+</body>
+</html>

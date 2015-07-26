@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>服务列表</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="服务列表" />
+    <meta name="description" content="服务列表" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="服务列表">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/server_list.css" />
+</head>
+<body class="padding-bottom-60">
+
+    <header class="header">
+        <a href="#" class="header-return"></a>
+        服务列表
+    </header>
+    <section class="top-bg">
+        <h2>心外科</h2>
+        <p>首都医科大学附属人民医院</p>
+    </section>
+    
+    <article>
+        <ul class="server-list">
+            <li class="per-server clear" data-max="3" data-start="1" data-service_id="1" data-next_price="0.03" >
+                <a href="server_details.html">
+                    <div class="con-wrap">
+                        <h3>卧床清洁擦浴ddd <em>( 约<em class="per-time">1.5</em>小时)</em></h3>
+                    </div>
+                    <p class="ys-intr">主任医师主任医师主任医师主任医师主任医师主任医师主任医师主任医师</p>
+                </a>
+                <div class="con-wrap-2 clear">
+                    <p>￥<span class="per-money">0.01</span><em>起</em></p>
+                    <div class="btn-sec">
+                        <section class="btnc" data-type="remove">
+                            <div class="remove borR-50">-</div>
+                        </section>
+                        <em class="per-num">0</em>
+                        <section class="btnc" data-type="add">
+                            <div class="add borR-50">+</div>
+                        </section>
+                    </div>
+                </div>
+            </li>
+            <li class="per-server clear" data-max="3" data-start="1" data-service_id="2" data-next_price="0.03" >
+                <a href="server_details.html">
+                    <div class="con-wrap">
+                        <h3>卧床清洁擦浴ddd <em>( 约<em class="per-time">1.5</em>小时)</em></h3>
+                    </div>
+                    <p class="ys-intr">主任医师主任医师主任医师主任医师主任医师主任医师主任医师主任医师</p>
+                </a>
+                <div class="con-wrap-2 clear">
+                    <p>￥<span class="per-money">0.01</span><em>起</em></p>
+                    <div class="btn-sec">
+                        <section class="btnc" data-type="remove">
+                            <div class="remove borR-50">-</div>
+                        </section>
+                        <em class="per-num">0</em>
+                        <section class="btnc" data-type="add">
+                            <div class="add borR-50">+</div>
+                        </section>
+                    </div>
+                </div>
+            </li>
+            <li class="per-server clear" data-max="3" data-start="1" data-service_id="3" data-next_price="0.03" >
+                <a href="server_details.html">
+                    <div class="con-wrap">
+                        <h3>卧床清洁擦浴ddd <em>( 约<em class="per-time">1.5</em>小时)</em></h3>
+                    </div>
+                    <p class="ys-intr">主任医师主任医师主任医师主任医师主任医师主任医师主任医师主任医师</p>
+                </a>
+                <div class="con-wrap-2 clear">
+                    <p>￥<span class="per-money">0.01</span><em>起</em></p>
+                    <div class="btn-sec">
+                        <section class="btnc" data-type="remove">
+                            <div class="remove borR-50">-</div>
+                        </section>
+                        <em class="per-num">0</em>
+                        <section class="btnc" data-type="add">
+                            <div class="add borR-50">+</div>
+                        </section>
+                    </div>
+                </div>
+            </li>
+            <li class="per-server clear" data-max="3" data-start="1" data-service_id="4" data-next_price="0.03" >
+                <a href="server_details.html">
+                    <div class="con-wrap">
+                        <h3>卧床清洁擦浴ddd <em>( 约<em class="per-time">1.5</em>小时)</em></h3>
+                    </div>
+                    <p class="ys-intr">主任医师主任医师主任医师主任医师主任医师主任医师主任医师主任医师</p>
+                </a>
+                <div class="con-wrap-2 clear">
+                    <p>￥<span class="per-money">0.01</span><em>起</em></p>
+                    <div class="btn-sec">
+                        <section class="btnc" data-type="remove">
+                            <div class="remove borR-50">-</div>
+                        </section>
+                        <em class="per-num">0</em>
+                        <section class="btnc" data-type="add">
+                            <div class="add borR-50">+</div>
+                        </section>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </article>
+    <footer id="sel-true">
+        <div class="cart">
+            合计 ￥<em class="money">0</em> （共<em class="num">0</em>件）
+        </div>
+        <div class="button-wrap">
+            <a href="#">选好了</a>
+        </div>
+    </footer>
+    <footer id="sel-false">
+        还没选好哦
+    </footer>
+    <div class="statistical" hidden>共计：<em class="all-num">0</em>项  <em class="all-hour">0</em>小时  <span class="c-hong">￥<em class="all-money">0</em></span></div>
+
+    <form action="/service/confirm" id="serviceForm" method="post">
+        <input type="hidden" name="service" value="" id="service">
+    </form>
+    <!--
+    <script src="js/jquery-2.0.3.js"></script>
+    <script src="js/server_list.js"></script>
+    -->
+    <script src="http://sta.anxin365.com/g.js"></script>
+    <script src="http://sta.anxin365.com/config.js"></script>
+    <script>
+    G.use(['app/yanglao/weixin/js/DateSelect.js', 'widget/Halert/js/Halert.js'], function(DateS, Halert){
+        var $ = DateS.$;
+        var allCount = 0;
+        var serviceNum = JSON.parse( localStorage.getItem('service') ) || {};
+        var allType = '';
+
+        // 禁用另一部分按钮
+        // 定义两个部分的data-数据
+        var aType = 'hljs';
+        var bType = 'zyhs';
+        // 给按钮加点击事件
+        $('.btnc').on('tap', toAddCart);
+        function toAddCart(ev){
+            // 获取用户操作的父级元素
+            var parent = $(this).parents('.per-server');
+            // 第一次点击加号的初始数量，在业务中代表服务的起订数量
+            var dataStart = parseFloat($(parent).data('start'));
+            // 获取用户点击服务的当前所选数量
+            var clickServNum = parseFloat($(parent).find('.per-num').html());
+
+            var firstBool = clickServNum < dataStart;
+            var secBool = clickServNum <= dataStart;
+
+            // 根据要求，用户只能点击其中一个类别，
+            //所以要检测用户点击的是那块区域，然后禁用另外一个区域的按钮
+            if($(this).data('type') == 'add'){
+                if($(this).parents('li.per-prof').data('type') == aType){
+                    // 禁用bType区下面的添加按钮并添加禁用样式
+                    disableBType();
+                }else{
+                    // 禁用aType区下面的添加按钮并添加禁用样式
+                    disableAType();
+                }
+
+            }
+            if(parseFloat($(this).parents('.per-server').find('.per-num').html()) >= $(this).parents('.per-server').data('max') && $(this).data('type') == 'add'){
+                //alert(allCount);
+                var halert = new Halert({
+                    title : '提示',
+                    content : '该项服务最多选择' + $(this).parents('.per-server').data('max') + '个',
+                    contentAlign : 'left',
+                    titleAlign : 'left'
+                });
+
+                halert.show();
+
+                return false;
+            }
+            if($(this).data('type') == 'remove'){
+                if(allCount > 0 && parseFloat($(this).parent().find('.per-num').html()) > 0){
+                    secBool ? allCount -= dataStart : allCount--;
+                }
+            }else{
+                firstBool ? allCount += dataStart : allCount++
+            }
+
+            if(allCount == 0){
+                $('li[data-type="' + aType + '"]').find('.btnc').off('click', banClick);
+                $('li[data-type="' + bType + '"]').find('.btnc').off('click', banClick);
+                // 防止重复绑定事件
+                $('.btnc').off('tap', toAddCart);
+
+                $('.btnc').on('tap', toAddCart);
+                $('.add').css({color:"#ff4500"});
+            }
+
+            var _this = $(this);
+            DateS.addCart(_this, false);
+
+            //生成POST数据
+            var service_id = $(this).parents('.per-server').data('service_id');
+            serviceNum[service_id] = parseInt($(this).parent().find('.per-num').html());
+            if(serviceNum[service_id] == 0) {
+                delete serviceNum[service_id];
+            }
+            var service = JSON.stringify(serviceNum);
+            $("#service").val(service);
+
+            localStorage.setItem('service', service);
+            console.log(localStorage.getItem('service'));
+            
+
+            return false;
+            
+        }
+
+        // 不可点击的提示函数
+        function banClick(){
+            var halert = new Halert({
+                title : '提示',
+                content : '您已选择“' + $('#prof-list').data('yixuan') + '”服务，如果想选择“' + $('#prof-list').data('xiangxuan') + '”服务请单独下单，或退减掉所有“' + $('#prof-list').data('yixuan') + '”服务并重新选择。',
+                contentAlign : 'left',
+                titleAlign : 'left'
+            });
+
+            halert.show();
+        }
+
+
+        var charJson = JSON.parse( localStorage.getItem('service') ) || {};
+        var an = 0;
+        var am = 0;
+        console.log(charJson);
+        for(k in charJson){
+            $.each($('.per-server'), function(i, elem){
+                if($(elem).data('service_id') == k){
+
+                    allType = $(elem).parents('.per-prof').data('type');
+
+                    $(elem).find('.per-num').html(charJson[k]);
+                    if(charJson[k] != 0){
+                        $(elem).find('.remove').css({color : '#ff4500'});
+                    }
+                    an += parseFloat(charJson[k]);
+                    if(an > parseFloat($(elem).data('start'))){
+                        var moreNum = parseFloat($(elem).find('.per-num').html()) - parseFloat($(elem).data('start')); // 超出的数量
+                        am += DateS.accMul( moreNum , parseFloat($(elem).data('next_price')) );
+                        am += DateS.accMul( parseFloat($(elem).data('start')) , parseFloat($(elem).find('.per-money').html()) );
+                    }else{
+                        am += DateS.accMul( parseFloat($(elem).find('.per-num').html()) , parseFloat($(elem).find('.per-money').html()) );
+                    }
+                    
+                }
+            });
+        }
+
+        allCount = parseFloat(an);
+
+        if(parseFloat(an) != 0){
+            if(allType == aType){
+                disableBType();
+            }else{
+                disableAType();
+            }
+        }
+
+        $('.money').html(parseFloat(am).toFixed(2));
+        $('.num').html(parseFloat(an));
+
+        $('.all-num').html(parseFloat(an));
+        $('.all-money').html(parseFloat(am).toFixed(2)); 
+
+
+        if(an){
+            $('#sel-true').show();
+            $('#sel-false').hide();
+        }
+
+        function disableBType(){
+            // 禁用bType区下面的添加按钮并添加禁用样式
+            $('li[data-type="' + bType + '"]').find('.btnc').off('tap', toAddCart)
+            $('li[data-type="' + bType + '"]').find('.btnc div').css({color:"#999999"});
+
+            $('li[data-type="' + bType + '"]').find('.btnc').off('click', banClick);
+            $('li[data-type="' + bType + '"]').find('.btnc').on('click', banClick);
+            $('li[data-type="' + aType + '"]').find('.btnc').off('click', banClick);
+            $('#prof-list').data('yixuan', '护理技师');
+            $('#prof-list').data('xiangxuan', '专业护士');
+        }
+
+        function disableAType(){
+            // 禁用aType区下面的添加按钮并添加禁用样式
+            $('li[data-type="' + aType + '"]').find('.btnc').off('tap', toAddCart)
+            $('li[data-type="' + aType + '"]').find('.btnc div').css({color:"#999999"});
+
+            $('li[data-type="' + aType + '"]').find('.btnc').off('click', banClick);
+            $('li[data-type="' + aType + '"]').find('.btnc').on('click', banClick);
+            $('li[data-type="' + bType + '"]').find('.btnc').off('click', banClick);
+            $('#prof-list').data('yixuan', '专业护士');
+            $('#prof-list').data('xiangxuan', '护理技师');
+        }
+
+        // 点击tab切换
+        $('#tab-wrap span').tap(function(){
+            $('#tab-wrap span').removeClass('active');
+            $(this).addClass('active');
+            
+            var showType = $(this).data('t');
+            $('.per-prof').hide();
+            $('.per-prof[data-type="' + showType + '"]').show();
+
+        });
+        
+    });
+    </script>
+
+</body>
+</html>

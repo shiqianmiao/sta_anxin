@@ -1,0 +1,209 @@
+.ks-index-top{
+	/*position: absolute;
+	z-index: -1;
+	top: -100%;*/
+	position: relative;
+	display: none;
+	margin-bottom: 15px;
+}
+.ks-index-top img{
+	width: 100%;
+}
+.down-drag-wrap{
+	height: 36px;
+	position: relative;
+}
+.down-drag-wrap:after{
+	content: "";
+	position: absolute;
+	height: 1px;
+	width: 96%;
+	left: 2%;
+	top: 18px;
+	background: #d4d4d4;
+}
+.down-drag-wrap p{
+	position: absolute;
+	height: 36px;
+	line-height: 36px;
+	font-size: 12px;
+	color: #999999;
+	z-index: 1;
+	background: #ededed;
+	width: 143px;
+	top: 0;
+	left: 50%;
+	margin-left: -72px;
+	text-align: center;
+}
+.txt-mark-bg{
+	height: 60px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: url(../imgs/txt_mark_bg.png) no-repeat;
+	background-size: 100% 100%;
+}
+.txt-mark-bg h2{
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	margin: 9px 0 0 4%;
+	text-shadow: 1px 2px 2px #363032;
+}
+.hospital-name{
+	font-size: 15px;
+	text-shadow: 1px 2px 2px #363032;
+	height: 15px;
+	line-height: 15px;
+	float: left;
+	margin: 17px 0 0 5px;
+	color: #fff;
+	left: 
+}
+.hospital-intr{
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 2px 2px #363032;
+	height: 15px;
+	line-height: 13px;
+	clear: both;
+	padding: 0 4%;
+	padding-top: 6px;
+}
+.plate-list{
+	background: #fff;
+	height: 43px;
+}
+.per-plate{
+	float: left;
+	height: 100%;
+	width: 33.333333333%;
+	text-align: center;
+	line-height: 43px;
+	font-size: 15px;
+	color: #333333;
+	position: relative;
+}
+.per-plate a{
+	display: block;
+	height: 100%;
+	width: 100%;
+	color: #333333;
+}
+.per-plate:after{
+	content: "";
+	position: absolute;
+	width: 1px;
+	height: 28px;
+	right: 0;
+	top: 50%;
+	margin-top: -14px;
+	background: #e2e2e2;
+}
+.per-plate:last-of-type:after{
+	background: #fff;
+}
+.plate-icon{
+	width: 23px;
+	height: 23px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 6px;
+}
+.icon-jkkp{
+	background: url(../imgs/plate.png) no-repeat;
+	background-position: 0 0;
+}
+.icon-hdtz{
+	background: url(../imgs/plate.png) no-repeat;
+	background-position: 0 -23px;
+}
+.icon-kszn{
+	background: url(../imgs/plate.png) no-repeat;
+	background-position: 0 -46px;
+}
+.problem-list{
+	background: #fff;
+	margin-top: 15px;
+}
+.per-pro{
+	height: 62px;
+	border-bottom: 1px solid #cbcbcb;
+	padding: 0 4%;
+	overflow: hidden;
+}
+.per-pro h3{
+	font-size: 15px;
+	content: #333333;
+	height: 15px;
+	line-height: 15px;
+	margin-top: 13px;
+	position: relative;
+	left: -6px;
+}
+.per-pro time{
+	display: block;
+	font-size: 13px;
+	height: 13px;
+	line-height: 13px;
+	color: #999999;
+	margin-top: 10px;
+}
+.tip-win{
+	width: 275px;
+	background: #fff;
+}
+.attention{
+	padding: 0 5%;
+	font-size: 15px;
+	color: #999999;
+	margin-top: 20px;
+}
+.attention a{
+	color: #ffad0f;
+	text-decoration: underline;
+}
+.tip-win-foot{
+	height: 87px;
+	margin-top: 14px;
+	border-top: 1px solid #e1e1e1;
+}
+.no-tip{
+	height: 37px;
+	line-height: 37px;
+	position: relative;
+	color: #999999;
+	font-size: 17px;
+	text-indent: 45px;
+}
+.no-tip .radio{
+	width: 12px;
+	height: 12px;
+	background: #fff;
+	border: 3px solid #ededed;
+	position: absolute;
+	top: 10px;
+	left: 14px;
+}
+.notip-true .radio{
+	background: #ffad0f;
+}
+.to-wen{
+	display: block;
+	width: 90%;
+	margin: 0 auto;
+	height: 38px;
+	background: #ffad0f;
+	color: #fff;
+	text-align: center;
+	line-height: 38px;
+	font-size: 17px;
+}
+.hide-win{
+	display: none;
+}

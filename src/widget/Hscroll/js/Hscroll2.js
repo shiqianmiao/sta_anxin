@@ -59,6 +59,7 @@ var Hscroll = function(opations){
 
 	// 当前Hscroll的Top值
 	this.curTop = 0;
+	this.setTranslateY(this.Hscroll, 0);
 
 	// Hscroll最大可滚动的高度
 	this.maxScrollHeight = Math.abs(this.Hscroll.offsetHeight - this.Hwrap.offsetHeight);
@@ -136,7 +137,10 @@ $.extend(proto, {
 		this.startTime = new Date().getTime();
 		// 计算初始时手指相对Hscroll的位置
 		this.prevY =	ev.touches[0].pageY;
-		this.disY = this.prevY - this.Hscroll.offsetTop;
+		this.disY = this.prevY - this.getTranslateY(this.Hscroll);
+
+		// console.log(this.getTranslateY(this.Hscroll));
+		
 	},
 	/**
 	 * @desc touchmove事件函数
@@ -145,6 +149,7 @@ $.extend(proto, {
 	_touchmoveFn : function(ev){
 		// move的时候更新当前的top值
 		this.curTop = ev.touches[0].pageY - this.disY;
+		// console.log(this.curTop);
 		this.upOrDown = ev.touches[0].pageY - this.prevY;
 		var config = this.settings;
 		
@@ -185,7 +190,8 @@ $.extend(proto, {
 		}
 
 
-		this.Hscroll.style.top = this.curTop + 'px';
+		//this.Hscroll.style.top = this.curTop + 'px';
+		this.setTranslateY(this.Hscroll, this.curTop);
 
 		
 
@@ -235,18 +241,19 @@ $.extend(proto, {
 		}
 
 		// 计算速度
-		this.speed = parseInt( (this.endlocation - this.startlocation) / (this.endTime - this.startTime) * 200 );
+		this.speed = parseInt( (this.endlocation - this.startlocation) / (this.endTime - this.startTime) * 400 );
 		if(Math.abs(this.speed) < 100){
 			this.speed = 0;
 		}
 		
 		// end的时候更新当前的top值
-		this.curTop = this.Hscroll.offsetTop + this.speed;
+		this.curTop = this.getTranslateY(this.Hscroll) + this.speed;
 
 		// 下拉后滚动过界
 		if(this.curTop > 0){
 			this.curTop = this.curTop * 0.2;
-			this.Hscroll.style.top = this.curTop + 'px';
+			// this.Hscroll.style.top = this.curTop + 'px';
+			this.setTranslateY(this.Hscroll, this.curTop);
 			this.addTransionStyle(this.Hscroll, '0.6s');
 			setTimeout(function(){
 				self.refreshEnd();
@@ -258,7 +265,8 @@ $.extend(proto, {
 		}else if(Math.abs(this.curTop) > this.maxScrollHeight){
 			// 上拉后滚动过界
 			this.curTop = -this.maxScrollHeight - (Math.abs(this.curTop) - this.maxScrollHeight) * 0.2;
-			this.Hscroll.style.top = this.curTop + 'px';
+			// this.Hscroll.style.top = this.curTop + 'px'
+			this.setTranslateY(this.Hscroll, this.curTop);
 			this.addTransionStyle(this.Hscroll, '0.6s');
 			setTimeout(function(){
 				self.loadMoreEnd();
@@ -269,7 +277,8 @@ $.extend(proto, {
 			return false;
 		}
 
-		this.Hscroll.style.top = this.curTop + 'px';
+		// this.Hscroll.style.top = this.curTop + 'px';
+		this.setTranslateY(this.Hscroll, this.curTop);
 		this.addTransionStyle(this.Hscroll, '0.6s');
 		// 速度清0 ，必须
 		this.speed = 0;
@@ -280,7 +289,8 @@ $.extend(proto, {
 	 */
 	refresh : function(){
 		$('.pullDownIcon').addClass('loading');
-		this.Hscroll.style.top = '50px';
+		// this.Hscroll.style.top = '50px';
+		this.setTranslateY(this.Hscroll, 50);
 		this.addTransionStyle(this.Hscroll, '0.2s');
 		if(this.settings.refreshCallback){
 			this.settings.refreshCallback(this);
@@ -292,7 +302,8 @@ $.extend(proto, {
 	 */
 	loadMore : function(){
 		$('.pullUpIcon').addClass('loading');
-		this.Hscroll.style.top = -(this.maxScrollHeight + 50) + 'px';
+		// this.Hscroll.style.top = -(this.maxScrollHeight + 50) + 'px';
+		this.setTranslateY(this.Hscroll, -(this.maxScrollHeight + 50));
 		this.addTransionStyle(this.Hscroll, '0.2s');
 		if(this.settings.loadMoreCallback){
 			this.settings.loadMoreCallback(this);
@@ -305,7 +316,8 @@ $.extend(proto, {
 	refreshEnd : function(){
 		$('.pullDownIcon').removeClass('flip');
 		$('.pullDownIcon').removeClass('loading');
-		this.Hscroll.style.top = 0;
+		// this.Hscroll.style.top = 0;
+		this.setTranslateY(this.Hscroll, 0);
 		this.addTransionStyle(this.Hscroll, '0.2s');
 		this.refreshMark = false;
 
@@ -319,7 +331,8 @@ $.extend(proto, {
 	loadMoreEnd : function(){
 		$('.pullUpIcon').removeClass('flip');
 		$('.pullUpIcon').removeClass('loading');
-		this.Hscroll.style.top = -this.maxScrollHeight + 'px';
+		// this.Hscroll.style.top = -this.maxScrollHeight + 'px';
+		this.setTranslateY(this.Hscroll, -this.maxScrollHeight);
 		this.addTransionStyle(this.Hscroll, '0.2s');
 		this.loadMark = false;
 
@@ -390,7 +403,17 @@ $.extend(proto, {
 			event.returnValue = false;
 		}
 		
-	}
+	},
+	setTranslateY: function (obj, diff) {
+        $(obj).css({
+            "-webkit-transform": "translateY(" + diff + "px)",
+            "transform": "translateY(" + diff + "px)"
+        });
+        $(obj).data('translateY', diff);
+    },
+    getTranslateY : function(obj){
+    	return $(obj).data('translateY');
+    }
 
 });
 
