@@ -17,7 +17,10 @@
 
     G.config(config);
 
-    if (/\.anxinsta\.com$/.test(window.location.host)) {
+    /*if (/\.anxinsta\.com$/.test(window.location.host)) {
         document.domain = 'anxinsta.com';
+    }*/
+    if (/\.anxin365\.com$/.test(window.location.host)) {
+        document.domain = 'anxin365.com';
     }
 })();
