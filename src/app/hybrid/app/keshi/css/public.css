@@ -289,7 +289,25 @@ body{
     -o-box-align: center;
     box-align: center;
 }
-
+/* 点击加载更多 */
+.load-more{ 
+	height: 35px; 
+	text-align: center; 
+	color: #999999; 
+	background: #fff; 
+	line-height: 35px;  
+	border-top: 1px solid #e1e1e1;
+	border-bottom: 1px solid #e1e1e1;
+}
+.load-more img{ 
+	width: 23px; 
+	height: 23px; 
+	display: inline-block; 
+	position: relative; 
+	top: 6px; 
+	display: none;
+}
+/* 点击加载更多 结束 */
 /*
 Hmodel 样式
 */

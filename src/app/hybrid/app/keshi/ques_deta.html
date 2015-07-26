@@ -105,6 +105,7 @@
                 <div class="reply-zan only-pai">￥10</div>
             </li>
         </ul>
+        <div class="load-more"><img src="imgs/load.gif"> <span>加载更多</span></div>
         <h2 class="no-reply">暂无回复...</h2>
     </section>
 
@@ -127,7 +128,13 @@
     <script>
     G.use(['zepto', 'widget/clientCheck/js/clientCheck.js', 'lib/swiper/swiper.min.js'], function($, Client, Swiper){
 
-        
+        // 加载更多
+        $('.load-more').on('touchend', function () {
+            $(this).find('img').show();
+            $(this).find('span').html('加载中...');
+            // 发送ajax请求
+            
+        });
 
         // 处理图像
         $('.change-bg-pic').each(function(i, o){

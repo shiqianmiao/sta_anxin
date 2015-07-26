@@ -213,6 +213,9 @@
 	margin-bottom: 15px;
 	position: relative;
 }
+.per-reply:last-of-type{
+	margin-bottom: 0;
+}
 .reply-title{
 	height: 50px;
 	padding: 0 4%;
