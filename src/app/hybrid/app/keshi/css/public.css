@@ -138,6 +138,16 @@ body{
 	background: url(../imgs/er-btn.png) no-repeat center center;
 	background-size: 18px 18px;
 }
+.txt-btn{
+	height: 45px;
+	line-height: 45px;
+	position: absolute;
+	bottom: 0;
+	right: 4%;
+	text-align: center;
+	font-size: 13px;
+	color: #fff;
+}
 /* 头部公共样式 结束 */
 
 .footer2{
@@ -447,6 +457,17 @@ Hmodel 样式
 }
 @keyframes scaleUpCenter {
 	from { opacity: 0; -webkit-transform: scale(.7); transform: scale(.7); }
+}
+
+.pt-page-scaleUpCenter-hide {
+	-webkit-animation: scaleUpCenterhide .4s ease-out both;
+	animation: scaleUpCenterhide .4s ease-out both;
+}
+@-webkit-keyframes scaleUpCenterhide {
+	to { opacity: 0; -webkit-transform: scale(.7); }
+}
+@keyframes scaleUpCenterhide {
+	to { opacity: 0; -webkit-transform: scale(.7); transform: scale(.7); }
 }
 
 .null-sec{

@@ -1,7 +1,8 @@
 reassure.html			答疑解惑
 ques_deta.html			问题详情
+question_details.html	问题详情2
 rob_order.html			抢单
 my_order.html			我的订单
 center.html				个人中心
 hs_details.html			护士详情
-question_details.html	问题详情
+my_info.html			个人信息

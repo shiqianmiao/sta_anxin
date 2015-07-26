@@ -19,6 +19,7 @@
     <header class="header">
         <a href="#" class="header-return"></a>
         <span>详情</span>
+        <a href="javascript:" class="er-btn"></a>
     </header>
 
     <section class="content">
@@ -122,6 +123,12 @@
         <input type="text" class="reply-input borR-3" />
         <span class="reply-btn borR-3">回复</span>
     </div>
+
+    <!-- 二维码弹窗 -->
+    <div class="alert-mark flex-center window-hide er-close-mark" id="er-window" >
+        <img src="imgs/er.jpg" class="erpic" />
+    </div>
+    <!-- 二维码弹窗 结束 -->
     
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
@@ -193,6 +200,27 @@
             $('.header').addClass('ios-header');
         }else{
             $('.header').removeClass('ios-header');
+        }
+        // 点击头部二维码btn，弹出二维码弹窗
+        $('.er-btn').on('tap', function(){
+            alertWin('#er-window', '.er-close-mark');
+        });
+        
+        $('.erpic').on('tap', function(event){
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble = true;
+            }
+        });
+
+        // 弹窗
+        function alertWin(winSelector, closeSelector){
+            $(winSelector).removeClass('window-hide');
+            $(closeSelector).on('tap', function(){
+                $(winSelector).addClass('window-hide');
+                $(closeSelector).off('tap');
+            });
         }
 
         // 点击第一个p标签的时候
