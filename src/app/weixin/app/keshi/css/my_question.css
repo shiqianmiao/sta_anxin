@@ -142,6 +142,7 @@
 }
 .songhua-win,.remuneration-win{
 	width: 275px;
+	overflow: hidden;
 	background: #fff;
 }
 .songhua-win .p-div,.remuneration-win .p-div{

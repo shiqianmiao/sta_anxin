@@ -49,6 +49,19 @@
 	right: 5px;
 	top: 0;
 }
+.pic-list{
+	margin-top: 16px;
+}
+.per-pic{
+	float: left;
+	width: 72px;
+	height: 72px;
+	margin-right: 13px;
+	margin-bottom: 13px;
+}
+.add-pd{
+	padding: 0 4%;
+}
 .poster-wrap{
 	padding: 0 4% 12px;
 	background: #fff;
@@ -247,8 +260,6 @@
 .reply-zan{
 	height: 27px;
 	padding-left: 60px;
-	background: url(../imgs/hua_pai.png) no-repeat left bottom;
-	background-size: 53px 27px;
 	position: absolute;
 	right: 4%;
 	bottom: 7px;
@@ -256,6 +267,18 @@
 	font-weight: bold;
 	color: #ff4500;
 	line-height: 27px;
+}
+.reply-zan.only-hua{
+	background: url(../imgs/hua.png) no-repeat left center;
+	background-size: 20px 19px;
+}
+.reply-zan.only-pai{
+	background: url(../imgs/pai.png) no-repeat 35px center;
+	background-size: 17px 26px;
+}
+.reply-zan.hua-pai{
+	background: url(../imgs/hua.png) no-repeat left center, url(../imgs/pai.png) no-repeat 35px center;
+	background-size: 20px 19px, 17px 26px;
 }
 .aite{
 	color: #999;
@@ -294,4 +317,25 @@
 	color: #fff;
 	font-size: 15px;
 	background: #ffad0f;
+}
+.swiper-container{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	display: none;
+	background: #fff;
+}
+.swiper-wrapper img{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.no-reply{
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 14px;
+	color: #c2c2c2;
 }

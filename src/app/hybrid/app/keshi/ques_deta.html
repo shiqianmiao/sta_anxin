@@ -11,6 +11,7 @@
     <meta name="format-detection" content="telephone=no">
 
     <link rel="stylesheet" href="./css/public.css" />
+    <link rel="stylesheet" href="./css/swiper.min.css" />
     <link rel="stylesheet" href="./css/ques_deta.css" />
 </head>
 <body class="padding-bottom-60">
@@ -42,6 +43,14 @@
                 </div>
             </div>
             <p class="ques-con">膝盖有积液，走路不怎么感觉到就是蹲下觉得膝盖部位发涨、麻木，站起来费劲，这是什么原因呢？</p>
+            <ul class="pic-list clear">
+                <li class="per-pic change-bg-pic" data-sort="0" data-url="imgs/er.jpg"></li>
+                <li class="per-pic change-bg-pic" data-sort="1" data-url="imgs/pic.jpg"></li>
+                <li class="per-pic change-bg-pic" data-sort="2" data-url="imgs/pic.jpg"></li>
+                <li class="per-pic change-bg-pic" data-sort="3" data-url="imgs/ks_index_top.jpg"></li>
+                <li class="per-pic change-bg-pic" data-sort="4" data-url="imgs/er.jpg"></li>
+                <li class="per-pic change-bg-pic" data-sort="5" data-url="imgs/pic.jpg"></li>
+            </ul>
             <h3 class="hz-info-title"><img src="imgs/jiao.png" class="jiao rotate45" />患者信息</h3>
             <section class="info-txt borR-3">
                 <h3>张三　 女　 45岁</h3>
@@ -49,7 +58,7 @@
             </section>
         </div>
 
-        <h2 class="reply-title-num">回复（6）</h2>
+        <h2 class="reply-title-num">回复（0）</h2>
         <ul class="reply-list">
             <li class="per-reply">
                 <header class="reply-title">
@@ -61,7 +70,15 @@
                     </div>
                 </header>
                 <p class="reply-content"><span class="aite">@小陈-护士</span>答：膝盖有积液，属于正常现象，建议暂时不要运动，伤口愈合再运动。</p>
-                <div class="reply-zan">￥10</div>
+                <ul class="pic-list clear add-pd">
+                    <li class="per-pic change-bg-pic" data-sort="0" data-url="imgs/pic.jpg"></li>
+                    <li class="per-pic change-bg-pic" data-sort="1" data-url="imgs/pic.jpg"></li>
+                    <li class="per-pic change-bg-pic" data-sort="2" data-url="imgs/pic.jpg"></li>
+                    <li class="per-pic change-bg-pic" data-sort="3" data-url="imgs/ks_index_top.jpg"></li>
+                    <li class="per-pic change-bg-pic" data-sort="4" data-url="imgs/pic.jpg"></li>
+                    <li class="per-pic change-bg-pic" data-sort="5" data-url="imgs/pic.jpg"></li>
+                </ul>
+                <div class="reply-zan only-hua">￥10</div>
             </li>
             <li class="per-reply">
                 <header class="reply-title">
@@ -73,7 +90,7 @@
                     </div>
                 </header>
                 <p class="reply-content">答：膝盖有积液，属于正常现象，建议暂时不要运动，伤口愈合再运动。</p>
-                <div class="reply-zan">￥10</div>
+                <div class="reply-zan hua-pai">￥10</div>
             </li>
             <li class="per-reply">
                 <header class="reply-title">
@@ -85,10 +102,20 @@
                     </div>
                 </header>
                 <p class="reply-content">答：膝盖有积液，属于正常现象，建议暂时不要运动，伤口愈合再运动。</p>
-                <div class="reply-zan">￥10</div>
+                <div class="reply-zan only-pai">￥10</div>
             </li>
         </ul>
+        <h2 class="no-reply">暂无回复...</h2>
     </section>
+
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- <div class="swiper-slide flex-center">Slide 1</div> -->
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
 
     <div class="reply-box">
         <input type="text" class="reply-input borR-3" />
@@ -98,7 +125,60 @@
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js'], function($, Client){
+    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js', 'lib/swiper/swiper.min.js'], function($, Client, Swiper){
+
+        
+
+        // 处理图像
+        $('.change-bg-pic').each(function(i, o){
+            var sourceUrl = 'url(' + $(this).data('url') + ') no-repeat center center';
+            $(this).css({background: sourceUrl, backgroundSize: 'cover'});
+        });
+
+        var preArr = [];
+        var nextArr = [];
+        var $piclist = null;
+        var thisSort = 0;
+        // 当点击图片的时候
+        $('.per-pic').on('tap', function(){
+            // 初始化查看图片的滚动
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: true
+            });
+            $('.swiper-container').show();
+            // 收集该图片集的所有图片
+            $piclist = $(this).parent().find('.per-pic');
+            preArr = [];
+            nextArr = [];
+            thisSort = $(this).data('sort');
+            $('.swiper-wrapper').append('<div class="swiper-slide flex-center"><img src="' + $(this).data('url') + '" /></div>');
+
+            $piclist.each(function(i, o){
+                if(i < thisSort){
+                    preArr.push('<div class="swiper-slide flex-center"><img src="' + $(o).data('url') + '" /></div>');
+                }else if(i > thisSort){
+                    nextArr.push('<div class="swiper-slide flex-center"><img src="' + $(o).data('url') + '" /></div>');
+                }
+            });
+
+            if(preArr.length != 0){
+                swiper.prependSlide(preArr.reverse());
+            }
+            if(nextArr.length != 0){
+                swiper.appendSlide(nextArr);
+            }
+
+            $('.swiper-container').on('click', function(){
+                $(this).hide();
+                $('.swiper-wrapper').empty();
+                swiper.destroy();
+                $('.swiper-container').off('click');
+            });
+            
+        });
+
+        
 
         var system = Client.client.system;
         if(system.iphone){
@@ -154,7 +234,10 @@
 
         $(document).on('tap', function(){
             $('.alert-opa').hide();
-            $alertDom.data('show', false);
+            if($alertDom){
+                $alertDom.data('show', false);
+            }
+            
         });
 
         $('.alert-opa').on('tap', function(event){
