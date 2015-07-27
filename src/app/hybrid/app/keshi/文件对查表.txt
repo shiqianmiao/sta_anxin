@@ -10,3 +10,8 @@ patient_info.html		患者信息
 answer_records.html		回答记录
 account_center.html		账户中心
 keshi_index.html		我的团队
+signin.html				登陆
+zhpwd1.html				找回密码1
+zhpwd2.html				找回密码2
+tel_change.html			手机号变更
+update_pwd.html			修改登录密码
