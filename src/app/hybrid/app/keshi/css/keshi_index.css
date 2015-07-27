@@ -1,3 +1,6 @@
+body{
+	padding-bottom: 15px;
+}
 .ks-index-top{
 	position: relative;
 }
@@ -35,7 +38,6 @@
 	float: left;
 	margin: 17px 0 0 5px;
 	color: #fff;
-	left: 
 }
 .hospital-intr{
 	font-size: 13px;
