@@ -78,6 +78,8 @@ body{
 .per-hz a, .per-t a{
 	display: block;
 	overflow: hidden;
+	height: 100%;
+	position: relative;
 }
 .head-pic{
 	width: 48px;
@@ -111,4 +113,16 @@ body{
 }
 .window-hide{
 	display: none;
+}
+.hua-num{
+	position: absolute;
+	height: 100%;
+	line-height: 56px;
+	font-size: 15px;
+	color: #999;
+	padding-left: 24px;
+	background: url(../imgs/hua.png) no-repeat left center;
+	background-size: 20px 19px;
+	top: 0;
+	right: 0;
 }
