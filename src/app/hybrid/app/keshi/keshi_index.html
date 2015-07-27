@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>科室首页</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="科室首页" />
+    <meta name="description" content="科室首页" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="科室首页">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/keshi_index.css" />
+</head>
+<body class="padding-bottom-60">
+
+    <section class="ks-index-top">
+        <img src="imgs/ks_index_top.jpg" />
+        <section class="txt-mark-bg">
+            <h2>胸外科</h2>
+            <p class="hospital-name">北医三院</p>
+            <p class="noWrapEllipsis hospital-intr">简介：胸腔外科学是一门一门胸腔外科学是一门一门胸腔外科学是一门一门胸腔外科学是一门一门</p>
+        </section>
+    </section>
+
+    <section class="btn-wrap borR-3">
+        <div class="tab-btn"></div>
+        <div></div>
+    </section>
+
+    
+    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['zepto', 'com/mobile/widget/toucher/toucher.js'], function($, toucher){
+
+        // var moveLabel = true;
+        // // 向下滑动 scrollTop == 0
+        // var target = util.toucher($('html')[0]);
+        // target.on('swipeDown', function(e){
+        //     //console.log(e);
+        //     if($(window).scrollTop() <= 0 && moveLabel){
+        //         $(document).on('touchend', function(){
+        //             $('.down-drag-wrap').hide();
+        //             $('.ks-index-top').show().addClass('pt-page-scaleUpCenter');
+        //             moveLabel = false;
+        //             $(document).off('touchend');
+        //         });
+                
+        //     }
+        // });
+
+    });
+    </script>
+
+</body>
+</html>
