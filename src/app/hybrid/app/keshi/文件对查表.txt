@@ -7,3 +7,4 @@ center.html				个人中心
 hs_details.html			护士详情
 my_info.html			个人信息
 patient_info.html		患者信息
+answer_records.html		回答记录

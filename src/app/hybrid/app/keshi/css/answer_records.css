@@ -1,0 +1,39 @@
+.window-hide{
+	display: none;
+}
+.per-records{
+	border-bottom: 1px solid #e1e1e1;
+	overflow: hidden;
+	background: #fff;
+	padding: 13px 4% 12px;
+}
+.per-records:last-of-type{
+	border-bottom: none;
+}
+.head-pic{
+	float: left;
+	height: 58px;
+	width: 58px;
+
+}
+.records-content{
+	margin-left: 58px;
+	padding-left: 14px;
+}
+.records-content h2{
+	font-size: 15px;
+	color: #333;
+	height: 15px;
+	line-height: 15px;
+}
+.records-content h2 em{
+	font-size: 13px;
+	color: #999;
+	margin-left: 9px;
+}
+.records-content p{
+	font-size: 13px;
+	color: #999;
+	line-height: 20px;
+	margin-top: 3px;
+}
