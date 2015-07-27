@@ -1,0 +1,175 @@
+body{
+	padding-bottom: 15px;
+}
+.hs-top{
+	background: #fff;
+}
+.hs-con-wrap{
+	height: 93px;
+	padding: 0 4%;
+	border-bottom: 1px solid #cbcbcb;
+}
+.head-pic{
+	float: left;
+	width: 73px;
+	height: 73px;
+	border: 2px solid #e0dfdf;
+	margin-top: 8px;
+}
+.hs-intr-wrap{
+	margin-left: 77px;
+	padding-left: 13px;
+	overflow: hidden;
+}
+.hs-name{
+	font-size: 18px;
+	color: #333;
+	height: 18px;
+	line-height: 18px;
+	margin-top: 23px;
+}
+.hs-name span{
+	font-size: 15px;
+	color: #999;
+	margin-left: 
+}
+.hs-school{
+	font-size: 15px;
+	color: #999;
+	height: 15px;
+	line-height: 15px;
+	margin-top: 14px;
+}
+.opation-list li{
+	float: left;
+	width: 33.333333333%;
+	border-right: 1px solid #cbcbcb;
+	box-sizing: border-box;
+	height: 39px;
+	color: #999999;
+	font-size: 13px;
+	line-height: 39px;
+	text-align: center;
+}
+.opation-list li span{
+	color: #ffad0f;
+}
+.opation-list li em{
+	color: #ffad0f;
+	text-decoration: underline;
+}
+.opation-list li img{
+	width: 20px;
+	height: 19px;
+	vertical-align: middle;
+	position: relative;
+	top: -2px;
+}
+.common-block{
+	background: #fff;
+	margin-top: 15px;
+}
+.common-block h2{
+	font-size: 13px;
+	height: 29px;
+	line-height: 29px;
+	padding: 0 4%;
+	color: #999;
+	border-bottom: 1px solid #cbcbcb;
+}
+.fixed-opa-wrap{
+	position: fixed;
+	right: 4.2%;
+	bottom: 15px;
+	height: 20px;
+}
+.share-btn{
+	float: right;
+	text-align: right;
+	line-height: 20px;
+	height: 20px;
+	width: 47px;
+	color: #999999;
+	font-size: 12px;
+	background: url(../imgs/share.png) no-repeat left center;
+	background-size: 17px 19px;
+}
+.zan-btn{
+	float: right;
+	line-height: 20px;
+	height: 20px;
+	padding-left: 24px;
+	color: #999999;
+	font-size: 12px;
+	background: url(../imgs/zan.png) no-repeat left center;
+	background-size: 18px 19px;
+	margin-right: 18px;
+}
+.sentiment{
+	float: right;
+	line-height: 20px;
+	height: 20px;
+	font-size: 12px;
+	color: #999;
+	margin-right: 18px;
+}
+.window-hide{
+	display: none;
+}
+.pat-info-list{
+	background: #fff;
+}
+.pat-info{
+	padding: 5px 4% 12px;
+	border-bottom: 1px solid #e1e1e1;
+}
+.pat-name{
+	height: 32px;
+	line-height: 32px;
+	color: #333333;
+	font-size: 15px;
+}
+.pat-intr-info{
+	font-size: 13px;
+	color: #999;
+	line-height: 24px;
+}
+.link-ta{
+	display: block;
+	line-height: 37px;
+	height: 37px;
+	color: #fff;
+	text-align: center;
+	font-size: 15px;
+	background: #ffad0f;
+	width: 92%;
+	margin: 21px auto 0;
+}
+.page2{
+	position: fixed;
+	z-index: 10000;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #ebebeb;
+	display: none;
+	overflow: auto;
+}
+.note-title{
+	height: 40px;
+	line-height: 40px;
+	color: #999999;
+	font-size: 13px;
+	padding: 0 4%;
+}
+.note-input{
+	height: 50px;
+	display: block;
+	width: 100%;
+	background: #fff;
+	line-height: 50px;
+	color: #333;
+	text-indent: 4%;
+	border: none;
+}

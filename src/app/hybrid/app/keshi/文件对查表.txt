@@ -6,3 +6,4 @@ my_order.html			我的订单
 center.html				个人中心
 hs_details.html			护士详情
 my_info.html			个人信息
+patient_info.html		患者信息
