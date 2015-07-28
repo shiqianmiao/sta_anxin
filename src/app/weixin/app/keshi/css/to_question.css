@@ -39,27 +39,10 @@
 	right: 12px;
 	top: 5px;
 }
-.ques-btn-list{
-	width: 92%;
-	height: 29px;
-	margin: 15px auto;
-	border: 1px solid #ffad0f;
-}
-.ques-btn-list li{
-	float: left;
-	width: 50%;
-	height: 29px;
-	line-height: 29px;
-	text-align: center;
-	font-size: 15px;
-	color: #ffad0f
-}
-.ques-btn-list li.active{
-	background: #ffad0f;
-	color: #fff;
-}
+
 .ques-list{
 	background: #fff;
+	margin-top: 15px;
 }
 .per-ques{
 	padding: 0 4%;
@@ -100,3 +83,24 @@
 .to-bold{
 	font-weight: bold;
 }
+/* 个人问题页样式 people_ques.html */
+.peo-ques-wrap{
+	height: 60px;
+	background: #fff;
+	overflow: hidden;
+	font-size: 18px;
+	color: #333;
+	line-height: 60px;
+	text-align: center;
+}
+.head-pic-top{
+	width: 38px;
+	height: 38px;
+	vertical-align: middle;
+	margin-right: 2px;
+}
+.peo-per-ques{
+	margin-left: 0;
+	padding-left: 0;
+}
+/* 个人问题页样式 people_ques.html 结束 */

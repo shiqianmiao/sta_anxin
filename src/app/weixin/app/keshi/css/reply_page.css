@@ -1,48 +1,7 @@
-.patients-info{
-	padding: 0 4%;
-}
-.patients-info h3{
-	line-height: 54px;
-	height: 54px;
-	float: left;
-	width: 90px;
-	font-size: 15px;
-	color: #333333;
-}
-.patients-list{
-	margin-left: 90px;
-	min-height: 54px;
-}
-.patients-list li{
-	float: left;
-	width: 53px;
-	height: 26px;
-	margin: 14px 17px 14px 0;
-	line-height: 26px;
-	text-align: center;
-	color: #333333;
-	font-size: 15px;
-}
-@media all and (max-width: 320px){
-	.patients-list li{
-		margin: 14px 15px 14px 0;
-	}
-}
-.patients-list li.active{
-	background: #ffad0f;
-	color: #fff;
-}
-.patients-list li.add-patients{
-	background: #d6d6d6;
-	color: #fff;
-}
-.patients-list li.add-patients a{
-	color: #fff;
-}
 .editor-wrap{
 	width: 92%;
 	background: #fff;
-	margin: 0 auto;
+	margin: 15px auto 0;
 }
 .textarea-div{
 	padding: 10px 10px 0 10px;
