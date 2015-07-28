@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>我的订单</title>
+	<link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/Hscroll.css">
+	<link rel="stylesheet" href="css/my_order.css">
+</head>
+<body class="padding-bottom-60">
+	
+    <div id="Hwrap">
+        <div id="Hscroll">
+            <header class="Hs-header"><span class="pullDownIcon"></span><em>下拉刷新</em></header>
+
+			    <ul class="my-order-list">
+			    	<li class="per-order">
+			    		<header class="order-head">服务状态：未开始</header>
+			    		<div class="order-con">
+			    			<section class="opa-wrap clear">
+			    				<h2>服务类型：</h2>
+			    				<p>挂号</p>
+			    			</section>
+			    			<section class="opa-wrap clear">
+			    				<h2>服务时间：</h2>
+			    				<p>2015-07-25</p>
+			    			</section>
+			    			<section class="doctor-wrap">人民医院-呼吸科 　主任医师</section>
+			    			<ul class="ser-list">
+			    				<li class="per-service clear">
+			    					<h3>【护士静脉注射】*1</h3>
+			    					<em>￥180</em>
+			    				</li>
+			    			</ul>
+			    		</div>
+			    		<section class="actual-pay">
+			    			<h4>实　　付：</h4>
+			    			<em>￥180</em>
+			    		</section>
+			    		<footer class="opation-footer">
+			    			<a href="#" class="do-service borR-3">开始服务</a>
+			    			<a href="#" class="cancel-order borR-3">取消订单</a>
+			    		</footer>
+			    	</li>
+			    	<li class="per-order">
+			    		<header class="order-head">服务状态：已开始</header>
+			    		<div class="order-con">
+			    			<section class="opa-wrap clear">
+			    				<h2>服务类型：</h2>
+			    				<p>挂号</p>
+			    			</section>
+			    			<section class="opa-wrap clear">
+			    				<h2>服务时间：</h2>
+			    				<p>2015-07-25</p>
+			    			</section>
+			    			<section class="doctor-wrap">人民医院-呼吸科 　主任医师</section>
+			    			<ul class="ser-list">
+			    				<li class="per-service clear">
+			    					<h3>【护士静脉注射】*1</h3>
+			    					<em>￥180</em>
+			    				</li>
+			    			</ul>
+			    		</div>
+			    		<section class="actual-pay">
+			    			<h4>实　　付：</h4>
+			    			<em>￥180</em>
+			    		</section>
+			    		<footer class="opation-footer">
+			    			<a href="#" class="to-evaluation borR-3">去评价</a>
+			    		</footer>
+			    	</li>
+			    	<li class="per-order">
+			    		<header class="order-head">服务状态：已完成</header>
+			    		<div class="order-con">
+			    			<section class="opa-wrap clear">
+			    				<h2>服务类型：</h2>
+			    				<p>挂号</p>
+			    			</section>
+			    			<section class="opa-wrap clear">
+			    				<h2>服务时间：</h2>
+			    				<p>2015-07-25</p>
+			    			</section>
+			    			<section class="doctor-wrap">人民医院-呼吸科 　主任医师</section>
+			    			<ul class="ser-list">
+			    				<li class="per-service clear">
+			    					<h3>【护士静脉注射】*1</h3>
+			    					<em>￥180</em>
+			    				</li>
+			    			</ul>
+			    		</div>
+			    		<section class="actual-pay">
+			    			<h4>实　　付：</h4>
+			    			<em>￥180</em>
+			    		</section>
+			    	</li>
+			    </ul>
+
+			<footer class="Hs-footer"><span class="pullUpIcon"></span><em>上拉加载更多</em></footer>
+	    </div>
+	</div>
+
+	<!-- <section class="null-sec">
+		<img src="imgs/sun.jpg" class="null-sun">
+		<p>您还没有未完成订单，</p>
+		<p>赶快继续去接单区接单吧！</p>
+	</section> -->
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+
+    G.use(['zepto', 'widget/Hscroll/js/Hscroll2.js'], function($, Hscroll){
+	  
+        // 只实例化对象不传配置参数的时候，指示做了一个模拟滚动，可以用来修复移动端fixed定位bug
+        var hscroll = new Hscroll({
+            refreshCallback : function(self){
+                // 执行下拉刷新的操作
+
+                //self.refreshEnd();
+                setTimeout(function(){
+                    self.refreshEnd();
+                },1000);
+            },
+            loadMoreCallback : function(self){
+                // 执行上拉加载更多的操作
+
+                setTimeout(function(){
+                    self.loadMoreEnd();
+                },1000);
+                //self.loadMoreEnd();
+            },
+
+            // 选择您需要的加载类型【只要下拉刷新 - onlyTop 】【只要上拉加载更多 - onlyBottom 】【两个都要 - double 】【都不要 - none 】
+            opationType : 'double'
+
+        });
+
+    });
+    
+
+    </script>
+</body>
+</html>
