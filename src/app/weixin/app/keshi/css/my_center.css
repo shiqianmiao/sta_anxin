@@ -1,0 +1,43 @@
+.top-sec{
+	padding: 0 4%;
+	background: #fff;
+	margin-top: 15px;
+	height: 63px;
+	position: relative;
+}
+.head-pic{
+	width: 48px;
+	height: 48px;
+	float: left;
+	margin-top: 8px;
+}
+.top-sec h2{
+	margin-left: 48px;
+	line-height: 63px;
+	height: 63px;
+	font-size: 15px;
+	color: #333;
+	padding-left: 11px;
+}
+.black-a{
+	display: block;
+	background: url(../imgs/strip.png) no-repeat right center;
+	background-size: 9px 17px;
+}
+.nav-list{
+	margin-top: 15px;
+	background: #fff;
+}
+.per-nav a{
+	display: block;
+	background: url(../imgs/strip.png) no-repeat right center;
+	background-size: 9px 17px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 15px;
+	color: #333;
+}
+.per-nav{
+	border-bottom: 1px solid #eeeeee;
+	padding: 0 4%;
+}

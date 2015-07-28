@@ -7,3 +7,4 @@ replay_page.html		回复/提问 公用的页面
 people_ques.html		个人问题页
 confirm_pay.html		确认支付页
 my_order.html			我的订单
+my_center.html			个人中心
