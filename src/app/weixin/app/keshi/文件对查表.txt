@@ -8,3 +8,7 @@ people_ques.html		个人问题页
 confirm_pay.html		确认支付页
 my_order.html			我的订单
 my_center.html			个人中心
+my_center_head.html		个人中心-上传头像-修改昵称
+account_info.html		账号信息
+tel_change1.html		修改手机号1
+tel_change2.html		修改手机号2

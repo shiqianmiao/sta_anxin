@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>个人中心</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="个人中心" />
+    <meta name="description" content="个人中心" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="个人中心">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="./css/public.css" />
+    <link rel="stylesheet" href="./css/my_center.css" />
+    <link rel="stylesheet" href="css/cropper.min.css">
+    <link rel="stylesheet" href="css/HimgCrop.css">
+</head>
+<body>
+
+    <section class="headimg-wrap">
+        <div class="headimg-con">
+            头像
+            <img src="imgs/head.jpg" class="headimg-pic borR-8" />
+        </div>
+    </section>
+    <section class="nickname-wrap">
+        <div class="nickname-con">昵称</div>
+    </section>
+
+    <!-- 头像裁剪 -->
+    <div id="HimgCropWrap">
+        <img src="imgs/rotate.jpg" class="rotate-ing" width="50" height="50"  />
+        <div class="cropper-wrap">
+            <img src="" alt="Picture" id="picccc" data-active="false">
+        </div>
+        <footer class="Himg-footer">
+            <span class="Himg-cancel">取消</span>
+            图片裁剪
+            <span class="Himg-select">选取</span>
+        </footer>
+        <input type="hidden" value="imgs/def.jpg" class="srcDom" />
+    </div>
+
+    <!-- 上传图片弹层 -->
+    <section class="upload-mark">
+        <div class="option-wrap">
+            <ul class="opa-list borR-3" id="container">
+                <li class="show-big">查看大图</li>
+                <li class="upload-yes" id="pickfiles">上传图片</li>
+            </ul>
+            <a href="javascript:;" class="close-upload-win borR-3">取消</a>
+        </div>
+    </section>
+
+    <!-- 查看大图的包裹层 -->
+    <div class="big-pic-wrap">
+        <span class="close-big-pic">×</span>
+        <img src="imgs/def.jpg" class="big-pic" />
+    </div>
+
+    <div class="page2 pt-page-scaleUpCenter-hide" id="page-beizhu">
+        <h3 class="note-title">备注名</h3>
+        <input type="text" class="note-input" placeholder="输入备注名"/>
+        <a href="#" class="reg-btn page2-save borR-3">保存</a>
+    </div>
+
+
+    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['jquery', 'widget/HimgCrop/js/HimgCropJquery2.js', 'lib/qiniu/qiniu.js'], function($, HimgCropJquery, Qiniu){
+
+        // 点击头像
+        $('.headimg-wrap').on('click', function(){
+            $('.upload-mark').css({top: 0});
+        });
+        // 点击图片上传弹层的取消按钮
+        $('.close-upload-win').on('touchend', function(){
+            // 隐藏
+            $('.upload-mark').css({top: '-100%'});
+        });
+        // 点击查看大图
+        $('.show-big').on('touchend', showBigImg);
+        function showBigImg(){
+            
+            var src = $('.headimg-pic').attr('src');
+            
+            $('.big-pic').on('load', function(){
+                $('.big-pic-wrap').show();
+                $('.big-pic').cropper('replace', src);
+            });
+            $('.big-pic-wrap').show();
+            $('.big-pic').cropper('replace', src);
+            
+        }
+
+        // 初始化大图
+        $('.big-pic').cropper({
+            aspectRatio: 2 / 2,
+            autoCropArea: 1,
+            strict: false,
+            guides: false,
+            autoCrop : false,
+            highlight: false,
+            dragCrop: false,
+            cropBoxMovable: true,
+            background: true, // 是否显示网格背景 true 是 false 不显示
+            cropBoxResizable: true,
+            guides: true
+        });
+
+        // 关闭查看大图
+        $('.close-big-pic').on('click', function(){
+            $('.big-pic-wrap').hide();
+        });
+
+        var uploader = Qiniu.uploader({
+            runtimes: 'html5,flash,html4',
+            browse_button: 'pickfiles',
+            container: 'container',
+            drop_element: 'container',
+            max_file_size: '100mb',
+            flash_swf_url: 'js/plupload/Moxie.swf',
+            dragdrop: true,
+            chunk_size: '4mb',
+            //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
+            uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:u6me8Es2e0aJUnFEW2KgV51VOtc=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0MzgxNzA1NTJ9',
+            domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
+            auto_start: true,
+            init: {
+                'Key': function(up, file) {
+                    // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
+                    // 该配置必须要在 unique_names: false , save_key: false 时才生效
+                    var key = 'C';
+                    var timestamp = new Date().getTime();
+                    return key + timestamp;
+                },
+                'FileUploaded': function(up, file, info) {
+
+                    // 隐藏
+                    $('.upload-mark').css({top: '-100%'});
+
+                    var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
+                    $('.srcDom').val(src);
+                    // 裁剪
+                    var HimgCropJquery1 = new HimgCropJquery({
+                        srcDom: $('.srcDom'),
+                        rotateIngEvent : 'touchend',
+                        callback : function(canvasDom, data){
+
+                            // 图片的缩放宽高
+                            var imgWidth = Math.round(data.canvasData.width);
+                            var imgHeight = Math.round(data.canvasData.height);
+                            // 裁剪是的宽高
+                            var cropWidth = Math.round(data.CropBoxData.width);
+                            var cropHeight = Math.round(data.CropBoxData.height);
+                            // 裁剪是的偏移
+                            var cropOffsetLeft = Math.round(data.CropBoxData.left) - Math.round(data.canvasData.left);
+                            var cropOffsetTop = Math.round(data.CropBoxData.top) - Math.round(data.canvasData.top);
+                            // 旋转的角度
+                            var rotate = data.imageData.rotate;
+
+                            // 拼接七牛裁剪连接,注意裁剪顺序，先旋转
+                            src = src + '?imageMogr2/rotate/' + rotate + '/thumbnail/' + imgWidth + 'x' + imgHeight + '!/crop/!' + cropWidth + 'x' + cropHeight + 'a' + cropOffsetLeft + 'a' + cropOffsetTop;
+
+                            $('.headimg-pic').attr('src', src);
+
+                        },
+                        cropperSetting : {
+                            aspectRatio: 2 / 2,
+                            autoCropArea: 0.65,
+                            strict: true,
+                            guides: false,
+                            highlight: false,
+                            dragCrop: false,
+                            cropBoxMovable: true,
+                            background: true, // 是否显示网格背景 true 是 false 不显示
+                            cropBoxResizable: true,
+                            guides: true
+                        }
+                    });
+                    
+                }
+            }
+        });
+
+        // 点击昵称的时候
+        $('.nickname-con').on('click', function(){
+            $('.note-input').val($('.nickname-con').html());
+            $('.page2').show().removeClass('pt-page-scaleUpCenter-hide').addClass('pt-page-scaleUpCenter');
+        });
+        // 点击保存的时候
+        $('.page2-save').on('click', function(){
+            $('.page2').removeClass('pt-page-scaleUpCenter').addClass('pt-page-scaleUpCenter-hide');
+            setTimeout(function(){
+                $('.page2').hide();
+            }, 400);
+
+            $('.nickname-con').html($('.note-input').val());
+            
+        });
+
+    });
+    </script>
+</body>
+</html>

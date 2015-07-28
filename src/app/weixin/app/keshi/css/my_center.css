@@ -41,3 +41,112 @@
 	border-bottom: 1px solid #eeeeee;
 	padding: 0 4%;
 }
+/* 个人中心 - 上传头像的样式 */
+.headimg-wrap{
+	height: 63px;
+	background: #fff;
+	margin-top: 15px;
+	padding: 0 4%;
+	border-bottom: 1px solid #eeeeee;
+}
+.headimg-con, .nickname-con, .tel-con{
+	position: relative;
+	height: 100%;
+	font-size: 15px;
+	color: #333;
+	line-height: 63px;
+	background: url(../imgs/strip.png) no-repeat right center;
+	background-size: 9px 17px;
+}
+.nickname-con, .tel-con{
+	line-height: 50px;
+	display: block;
+}
+.tel-con{
+	margin-top: 15px;
+}
+.headimg-pic{
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	right: 20px;
+	top: 7px;
+}
+.nickname-wrap, .tel-wrap{
+	height: 50px;
+	background: #fff;
+	padding: 0 4%;
+	line-height: 50px;
+}
+.page2{
+	position: fixed;
+	z-index: 10000;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #ebebeb;
+	display: none;
+	overflow: auto;
+}
+.note-title{
+	height: 40px;
+	line-height: 40px;
+	color: #999999;
+	font-size: 15px;
+	padding: 0 4%;
+}
+.note-input{
+	font-size: 15px;
+	height: 50px;
+	display: block;
+	width: 100%;
+	background: #fff;
+	line-height: 50px;
+	color: #333;
+	text-indent: 4%;
+	border: none;
+}
+/* 个人中心 - 上传头像的样式 结束 */
+/* 上传图片弹层 */
+.upload-mark{
+	position: fixed;
+	top: -100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	display: block;
+}
+.option-wrap{
+	position: absolute;
+	width: 94%;
+	left: 3%;
+	bottom: 10px;
+}
+.opa-list{
+	background: #fff;
+	padding: 0 2%;
+}
+.opa-list li{
+	height: 52px;
+	border-bottom: 1px solid #efefef;
+	font-size: 17px;
+	line-height: 52px;
+	text-align: center;
+	color: #ffad0f;
+}
+.opa-list li:last-of-type{
+	border: none;
+}
+.close-upload-win{
+	display: block;
+	height: 52px;
+	line-height: 52px;
+	text-align: center;
+	color: #ffad0f;
+	font-size: 17px;
+	background: #fff;
+	margin-top: 10px;
+}
+/* 上传图片弹层 结束 */
