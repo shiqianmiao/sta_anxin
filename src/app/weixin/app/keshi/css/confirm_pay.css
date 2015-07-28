@@ -1,0 +1,63 @@
+body, html{
+	background: #fff;
+}
+.page-wrap{
+	padding: 15px 4% 0;
+}
+.thank-input{
+	height: 30px;
+	display: block;
+	width: 100%;
+	line-height: 30px;
+	font-size: 15px;
+	color: #333;
+	border: none;
+}
+.thank-input::-webkit-input-placeholder{ color:#999; }
+.thank-input:focus::-webkit-input-placeholder{ color:#999; }
+.pay-amount{
+	height: 87px;
+	border-bottom: 1px solid #e1e1e1;
+	font-size: 50px;
+	color: #333;
+	text-align: right;
+	line-height: 80px;
+}
+.red-envelope,.wx-pay{
+	height: 49px;
+	border-bottom: 1px solid #e1e1e1;
+	position: relative;
+}
+.wx-pay{
+	background: url(../imgs/strip.png) no-repeat right center;
+	background-size: 7px 13px;
+}
+.envelope-title,.wx-title{
+	position: absolute;
+	line-height: 49px;
+	left: 0;
+	top: 0;
+	color: #999;
+	font-size: 15px;
+}
+.enve-amount,.wx-amount{
+	position: absolute;
+	line-height: 49px;
+	color: #333;
+	font-size: 15px;
+	left: 180px;
+	top: 0;
+	height: 49px;
+}
+.im-radio{
+	width: 12px;
+	height: 12px;
+	position: absolute;
+	background: #ffad0f;
+	border: 3px solid #ededed;
+	top: 15px;
+	right: 0;
+}
+.im-radio.no-select{
+	background: #ededed;
+}
