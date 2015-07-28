@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>接单</title>
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/rob_order.css">
+</head>
+<body class="padding-bottom-60">
+	
+	<header class="header">
+        <span>订单</span>
+        <a href="javascript:" class="er-btn"></a>
+    </header>
+
+    <div class="order-nav">
+    	<ul class="borR-3">
+    		<li class="active"><a href="#">抢单</a></li>
+    		<li><a href="#">我的订单</a></li>
+    	</ul>
+    </div>
+
+	<ul class="order-list">
+		<li class="per-order">
+			<div class="order-title">
+				<h3 class="order-name">婴幼儿家庭巡检adfasdfasdfasdfadfasdfasdfasdfasdfadsfasdf</h3>
+				<time class="order-time">06月38日　8:30</time>
+			</div>
+			<p class="addr">朝阳区大屯路金泉家园4号楼1单元502</p>
+			<div class="remaining">
+				<h4 class="remaining-title">剩余时间：</h4>
+				<time class="remaining-time">1:15</time>
+			</div>
+			<footer class="order-foot">
+				<a href="#" class="rob-btn borR-3">接单</a>
+			</footer>
+		</li>
+		<li class="per-order">
+			<div class="order-title">
+				<h3 class="order-name">婴幼儿家庭巡检adfasdfasdfasdfadfasdfasdfasdfasdfadsfasdf</h3>
+				<time class="order-time">06月38日　8:30</time>
+			</div>
+			<p class="addr">朝阳区大屯路金泉家园4号楼1单元502</p>
+			<div class="remaining">
+				<h4 class="remaining-title">剩余时间：</h4>
+				<time class="remaining-time">1:15</time>
+			</div>
+			<footer class="order-foot">
+				<a href="#" class="rob-btn borR-3">接单</a>
+			</footer>
+		</li>
+		<li class="per-order">
+			<div class="order-title">
+				<h3 class="order-name">婴幼儿家庭巡检adfasdfasdfasdfadfasdfasdfasdfasdfadsfasdf</h3>
+				<time class="order-time">06月38日　8:30</time>
+			</div>
+			<p class="addr">朝阳区大屯路金泉家园4号楼1单元502</p>
+			<div class="remaining">
+				<h4 class="remaining-title">剩余时间：</h4>
+				<time class="remaining-time">1:15</time>
+			</div>
+			<footer class="order-foot">
+				<a href="#" class="rob-btn borR-3">接单</a>
+			</footer>
+		</li>
+	</ul>
+
+	<!-- 完善资料弹窗 -->
+	<div class="alert-mark flex-center window-hide" id="pf-window">
+		<section class="window borR-3">
+			<a href="javascript:;" class="close-btn pf-close borR-50">×</a>
+			<div class="win-top">
+				<div class="win-title borR-50 boxSiz">
+					<h3>完善</h3>
+					<h3>信息</h3>
+				</div>
+				<p>您已经是安心护士平台的成员啦</p>
+				<p>但您需要完成以下信息才能接单哦</p>
+			</div>
+			<ul class="link-list">
+				<li><a href="#"><em class="borR-50">1</em>基本信息 <mark class="yes-mark">已完成</mark></a></li>
+				<li><a href="#"><em class="borR-50">2</em>长住地址 <mark class="no-mark">未完成</mark></a></li>
+				<li><a href="#"><em class="borR-50">3</em>身份验证，护士资格证验证 <mark class="yes-mark">已完成</mark></a></li>
+			</ul>
+		</section>
+	</div>
+	<!-- 完善资料弹窗 结束 -->
+
+	<!-- 审核通过弹窗 -->
+	<div class="alert-mark flex-center window-hide" id="through-window">
+		<section class="window borR-3">
+			<a href="javascript:;" class="close-btn through-close borR-50">×</a>
+			<div class="win-top">
+				<div class="win-title borR-50 boxSiz">
+					<h3>审核</h3>
+					<h3>通过</h3>
+				</div>
+				<p>您的审核已经通过，请仔细越</p>
+				<p>阅读服务条款，您就可以接单了~</p>
+			</div>
+			<footer class="win-foot">
+				<a href="#">服务条款</a>
+			</footer>
+		</section>
+	</div>
+	<!-- 审核通过弹窗 结束 -->
+
+	<!-- 审核未通过弹窗 -->
+	<div class="alert-mark flex-center window-hide" id="nothrough-window">
+		<section class="window borR-3">
+			<a href="javascript:;" class="close-btn nothrough-close borR-50">×</a>
+			<div class="win-top">
+				<div class="win-title borR-50 boxSiz">
+					<h3>审核</h3>
+					<h3>未通过</h3>
+				</div>
+				<p>您的审核未通过，原因是护士注册号码与</p>
+				<p>证件不符，请到个人中心修改后再次提交</p>
+			</div>
+			<footer class="win-foot">
+				<a href="#">个人中心</a>
+			</footer>
+		</section>
+	</div>
+	<!-- 审核未通过弹窗 结束 -->
+
+	<!-- 提交成功弹窗 -->
+	<div class="alert-mark flex-center window-hide" id="success-window">
+		<section class="window borR-3">
+			<a href="javascript:;" class="close-btn success-close borR-50">×</a>
+			<div class="win-top">
+				<div class="win-title borR-50 boxSiz">
+					<h3>提交</h3>
+					<h3>成功</h3>
+				</div>
+				<p>您的审核已经提交，审核结果</p>
+				<p>我们会以短信形式通知您，请耐心等待</p>
+			</div>
+			<footer class="win-foot success-foot">
+				<p>在此期间有任何问题，可拨打</p>
+				<a href="#" class="success-btn">400-614-9398</a>
+			</footer>
+		</section>
+	</div>
+	<!-- 提交成功弹窗 结束 -->
+	<!-- 二维码弹窗 -->
+    <div class="alert-mark flex-center window-hide er-close-mark" id="er-window" >
+        <img src="imgs/er.jpg" class="erpic" />
+    </div>
+
+	<section class="null-sec">
+		<img src="imgs/sun.jpg" class="null-sun">
+		<p>您还没有未完成订单，</p>
+		<p>赶快继续去接单区接单吧！</p>
+	</section>
+
+	<footer class="footer2">
+        <a href="#"></a>
+        <a href="#" class="active"></a>
+        <a href="#"></a>
+    </footer>
+	
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+
+    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js'], function($, Client){
+
+    	// 弹窗完善资料窗
+    	// alertWin('#pf-window', '.pf-close');
+    	// 弹出通过审窗
+    	// alertWin('#through-window', '.through-close');
+    	// 弹出未通过审核窗
+    	// alertWin('#nothrough-window', '.nothrough-close');
+    	// 弹出提交成功窗
+    	// alertWin('#success-window', '.success-close');
+
+	    // 弹窗
+	    function alertWin(winSelector, closeSelector){
+	    	$(winSelector).removeClass('window-hide');
+	    	$(closeSelector).on('tap', function(){
+	    		$(winSelector).addClass('window-hide');
+	    		$(closeSelector).off('tap');
+	    	});
+	    }
+
+	    // 点击头部二维码btn，弹出二维码弹窗
+        $('.er-btn').on('tap', function(){
+            alertWin('#er-window', '.er-close-mark');
+        });
+
+        // 适配ios和Android的导航高度
+        var system = Client.client.system;
+        if(system.iphone){
+            // 是iphone,增加头部高度
+            $('.header').addClass('ios-header');
+        }else{
+            $('.header').removeClass('ios-header');
+        }
+
+    });
+    
+
+    </script>
+</body>
+</html>

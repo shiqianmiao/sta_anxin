@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>账户明细</title>
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/account_center.css">
+</head>
+<body class="ccc-body pd-b-50">
+	
+	<header class="header">
+        <a href="#" class="header-return"></a>
+        <span class="show-all">账户中心</span>
+        <a href="javascript:" class="txt-btn">账户明细</a>
+    </header>
+
+	<header class="account-center-top">
+		<h3 class="amount-title">账户金额（元）</h3>
+		<span class="amount-num">532044.<em>00</em></span>
+		<a href="#" class="round-btn">提现</a>
+	</header>
+
+	<ul class="bank-card-list">
+		<li class="per-bank">
+			<a href="#">
+				银行卡
+				<em class="noadd-info">未添加</em>
+				<span class="go-jiantou"></span>
+			</a>
+		</li>
+	</ul>
+
+	<section class="other-list-title">账户安全等级<em>（高）</em></section>
+	<ul class="other-list">
+		<li class="per-other">
+			<a href="#">
+				<h3>已绑定手机</h3>
+				<p>189******2120</p>
+				<em class="noadd-info">修改</em>
+				<span class="go-jiantou"></span>
+			</a>
+		</li>
+		<li class="per-other">
+			<a href="#">
+				<h3>登录密码</h3>
+				<p></p>
+				<em class="noadd-info">修改</em>
+				<span class="go-jiantou"></span>
+			</a>
+		</li>
+		<li class="per-other">
+			<a href="#">
+				<h3>提现密码</h3>
+				<p></p>
+				<em class="noadd-info">未设置</em>
+				<span class="go-jiantou"></span>
+			</a>
+		</li>
+	</ul>
+
+	<a href="#" class="reg-btn borR-3">退出当前账户</a>
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js'], function($, Client){
+    	var system = Client.client.system;
+        if(system.iphone){
+            // 是iphone,增加头部高度
+            $('.header').addClass('ios-header');
+        }else{
+            $('.header').removeClass('ios-header');
+        }
+    });
+    </script>
+	
+</body>
+</html>

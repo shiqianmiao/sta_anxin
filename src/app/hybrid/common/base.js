@@ -21,3 +21,18 @@ Base.init = function (param) {
         navigator.splashscreen.hide();
     }, 1000);
 };
+
+//对widget.initWidget的封装，用户绑定异步载入元素的widget
+Base.bindDomWidget = function($el) {
+    if ($el.length > 1) {
+        $el.each(function(){
+            $(this).find('[data-widget]').each(function () {
+                Widget.initWidget($(this));
+            });
+        })
+    } else {
+        $el.find('[data-widget]').each(function () {
+            Widget.initWidget($(this));
+        });
+    }
+};

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>我的团队</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="我的团队" />
+    <meta name="description" content="我的团队" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="我的团队">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/keshi_index.css" />
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="header-return"></a>
+        <span class="show-all">我的团队</span>
+        <a href="javascript:" class="er-btn"></a>
+    </header>
+
+    <section class="ks-index-top">
+        <img src="imgs/ks_index_top.jpg" />
+        <section class="txt-mark-bg">
+            <h2>胸外科</h2>
+            <p class="hospital-name">北医三院</p>
+            <p class="noWrapEllipsis hospital-intr">简介：胸腔外科学是一门一门胸腔外科学是一门一门胸腔外科学是一门一门胸腔外科学是一门一门</p>
+        </section>
+    </section>
+
+    <section class="btn-wrap borR-3">
+        <div class="tab-btn active" data-type="hz">患者（123）</div>
+        <div class="tab-btn" data-type="team">团队成员（12）</div>
+    </section>
+    <!-- 患者列表 -->
+    <ul class="hz-list tablist">
+        <li class="per-hz">
+            <a href="#">
+                <img src="imgs/head.jpg" class="head-pic borR-50" />
+                <div class="hz-txt-wrap">李依依</div>
+            </a>
+        </li>
+        <li class="per-hz">
+            <a href="#">
+                <img src="imgs/head.jpg" class="head-pic borR-50" />
+                <div class="hz-txt-wrap">李依依</div>
+            </a>
+        </li>
+        <li class="per-hz">
+            <a href="#">
+                <img src="imgs/head.jpg" class="head-pic borR-50" />
+                <div class="hz-txt-wrap">李依依</div>
+            </a>
+        </li>
+        <li class="per-hz">
+            <a href="#">
+                <img src="imgs/head.jpg" class="head-pic borR-50" />
+                <div class="hz-txt-wrap">李依依</div>
+            </a>
+        </li>
+        <li class="per-hz">
+            <a href="#">
+                <img src="imgs/head.jpg" class="head-pic borR-50" />
+                <div class="hz-txt-wrap">李依依</div>
+            </a>
+        </li>
+        <li class="per-hz">
+            <a href="#">
+                <img src="imgs/head.jpg" class="head-pic borR-50" />
+                <div class="hz-txt-wrap">李依依</div>
+            </a>
+        </li>
+        <li class="per-hz">
+            <a href="#">
+                <img src="imgs/head.jpg" class="head-pic borR-50" />
+                <div class="hz-txt-wrap">李依依</div>
+            </a>
+        </li>
+    </ul>
+    <!-- 团队成员列表 -->
+    <ul class="team-list tablist" hidden>
+        <li class="per-t">
+            <a href="#" class="clear">
+                <img src="imgs/head.jpg" class="head-pic borR-50" />
+                <div class="team-txt-wrap">
+                    <h3>李依依</h3>
+                    <p>护士</p>
+                </div>
+            </a>
+        </li>
+        <li class="per-t">
+            <a href="#" class="clear">
+                <img src="imgs/head.jpg" class="head-pic borR-50" />
+                <div class="team-txt-wrap">
+                    <h3>李依依</h3>
+                    <p>护士</p>
+                </div>
+                <span class="hua-num">56朵</span>
+            </a>
+        </li>
+    </ul>
+
+    <!-- 二维码弹窗 -->
+    <div class="alert-mark flex-center window-hide er-close-mark" id="er-window" >
+        <img src="imgs/er.jpg" class="erpic" />
+    </div>
+    <!-- 二维码弹窗 结束 -->
+
+    
+    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js'], function($, Client){
+
+        // 点击切换团队与患者
+        $('.tab-btn').on('tap', function(){
+            $('.tab-btn').removeClass('active');
+            $(this).addClass('active');
+
+            var selector = '.' + $(this).data('type') + '-list';
+
+            $('.tablist').hide();
+            $(selector).show();
+        });
+
+        var system = Client.client.system;
+        if(system.iphone){
+            // 是iphone,增加头部高度
+            $('.header').addClass('ios-header');
+        }else{
+            $('.header').removeClass('ios-header');
+        }
+
+        // 点击头部二维码btn，弹出二维码弹窗
+        $('.er-btn').on('tap', function(){
+            alertWin('#er-window', '.er-close-mark');
+        });
+        
+        $('.erpic').on('tap', function(event){
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble = true;
+            }
+        });
+
+        // 弹窗
+        function alertWin(winSelector, closeSelector){
+            $(winSelector).removeClass('window-hide');
+            $(closeSelector).on('tap', function(){
+                $(winSelector).addClass('window-hide');
+                $(closeSelector).off('tap');
+            });
+        }
+
+    });
+    </script>
+
+</body>
+</html>

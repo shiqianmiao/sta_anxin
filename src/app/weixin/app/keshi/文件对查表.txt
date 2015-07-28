@@ -4,3 +4,5 @@ my_question.html		我的问题
 to_question.html		去提问
 hs_details.html			护士详情
 replay_page.html		回复/提问 公用的页面
+people_ques.html		个人问题页
+confirm_pay.html		确认支付页

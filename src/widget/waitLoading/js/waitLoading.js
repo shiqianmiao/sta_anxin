@@ -4,16 +4,7 @@
  * @author 霍春阳 <huochunyang@anxin365.com>
  * @since 2015-04-19
  */
-var Ua = require('widget/clientCheck/js/clientCheck.js'),
-	system = Ua.client.system,
-	$,
-	jq_zp = '';
-	if(system.win || system.mac || system.x11){
-		jq_zp = 'jquery';
-	}else{
-		jq_zp = 'zepto';
-	}
-	$ = require(jq_zp);
+var $ = require('zepto');
 
 var waitLoading = function(){
 	this.settings = {

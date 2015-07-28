@@ -1,0 +1,142 @@
+body, html{
+	background: #e9e9e9;
+}
+.order-nav{
+	height: 55px;
+	overflow: hidden;
+}
+.order-nav ul{
+	width: 92%;
+	height: 28px;
+	overflow: hidden;
+	margin: 13px auto;
+	border: 1px solid #ffad0f;
+}
+.order-nav li{
+	float: left;
+	width: 50%;
+	height: 28px;
+	text-align: center;
+	line-height: 28px;
+	color: #ffad0f;
+	font-size: 15px;
+}
+.order-nav li a{
+	color: #ffad0f;
+	display: block;
+}
+.order-nav li.active a{
+	color: #fff;
+	background: #ffad0f;
+}
+.window-hide{display: none;}
+.per-order{
+	padding: 0 4% 6px;
+	background: #fff;
+	background: url(../imgs/order-bottom.png) repeat-x left bottom, #fff;
+	background-size: 375px 6px;
+	margin-bottom: 15px;
+}
+.time-wrap{
+	padding-top: 12px;
+}
+.content-wrap h3{
+	float: left;
+	width: 92px;
+	line-height: 32px;
+	font-size: 15px;
+	color: #999999;
+}
+.intr-list{
+	margin-left: 92px;
+}
+.intr-list li{
+	line-height: 32px;
+	font-size: 15px;
+	color: #333;
+}
+.text-indent-8{
+	text-indent: -8px;
+}
+.addr-icon{
+	vertical-align: middle;
+	width: 15px;
+	height: 19px;
+	margin-left: 11px;
+}
+.service-wrap{
+	padding-bottom: 7px;
+	border-bottom: 1px dotted #eeeeee;
+}
+.service-list{
+	padding: 6px 0;
+}
+.per-service{
+	height: 35px;
+}
+.service-title{
+	float: left;
+	height: 35px;
+	line-height: 35px;
+	color: #333;
+	font-size: 15px;
+}
+.price{
+	float: right;
+	font-size: 15px;
+	color: #ff3000;
+	height: 35px;
+	line-height: 35px;
+}
+.opation-footer{
+	height: 47px;
+	text-align: center;
+	overflow: hidden;
+	border-top: 1px dotted #eeeeee;
+}
+.opation-footer a{
+	display: inline-block;
+	height: 31px;
+	width: 111px;
+	line-height: 31px;
+	font-size: 17px;
+	color: #fff;
+	text-align: center;
+	margin-top: 8px;
+}
+.opation-footer a.do-service{
+	background: #ffad0f;
+}
+.opation-footer a.cancel-order{
+	background: #b0b0b0;
+}
+.order-title{
+	height: 41px;
+	line-height: 41px;
+	text-align: center;
+	color: #ffad0f;
+	font-size: 15px;
+	border-bottom: 1px dotted #eeeeee;
+}
+.pay-footer{
+	height: 47px;
+	border-top: 1px dotted #eeeeee;
+}
+.pay-footer h3{
+	float: left;
+	height: 47px;
+	line-height: 47px;
+	font-size: 15px;
+	color: #999;
+}
+.pay-footer em{
+	float: right;
+	height: 47px;
+	line-height: 47px;
+	font-size: 15px;
+	color: #ff3000;
+}
+#Hwrap {
+  top: 119px;
+  bottom: 50px;
+}

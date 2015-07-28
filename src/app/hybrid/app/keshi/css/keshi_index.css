@@ -1,0 +1,128 @@
+body{
+	padding-bottom: 15px;
+}
+.ks-index-top{
+	position: relative;
+}
+.ks-index-top img{
+	width: 100%;
+}
+.down-drag-wrap{
+	height: 36px;
+	position: relative;
+}
+.txt-mark-bg{
+	height: 60px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: url(../imgs/txt_mark_bg.png) no-repeat;
+	background-size: 100% 100%;
+}
+.txt-mark-bg h2{
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	margin: 9px 0 0 4%;
+	text-shadow: 1px 2px 2px #363032;
+}
+.hospital-name{
+	font-size: 15px;
+	text-shadow: 1px 2px 2px #363032;
+	height: 15px;
+	line-height: 15px;
+	float: left;
+	margin: 17px 0 0 5px;
+	color: #fff;
+}
+.hospital-intr{
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 2px 2px #363032;
+	height: 15px;
+	line-height: 13px;
+	clear: both;
+	padding: 0 4%;
+	padding-top: 6px;
+}
+.btn-wrap{
+	width: 92%;
+	height: 28px;
+	border: 1px solid #ffad0f;
+	margin: 15px auto;
+	overflow: hidden;
+}
+.tab-btn{
+	float: left;
+	width: 50%;
+	height: 100%;
+	text-align: center;
+	line-height: 28px;
+	color: #ffad0f;
+	font-size: 15px;
+}
+.tab-btn.active{
+	color: #fff;
+	background: #ffad0f;
+}
+.per-hz, .per-t{
+	height: 56px;
+	background: #fff;
+	border-bottom: 1px solid #e1e1e1;
+	padding: 0 4%;
+}
+.per-hz a, .per-t a{
+	display: block;
+	overflow: hidden;
+	height: 100%;
+	position: relative;
+}
+.head-pic{
+	width: 48px;
+	height: 48px;
+	float: left;
+	margin-top: 4px;
+}
+.hz-txt-wrap{
+	margin-left: 48px;
+	padding-left: 10px;
+	line-height: 56px;
+	font-size: 15px;
+	color: #333333;
+}
+.team-txt-wrap{
+	margin-left: 48px;
+	padding-left: 10px;
+}
+.team-txt-wrap h3{
+	font-size: 15px;
+	height: 15px;
+	color: #333;
+	line-height: 15px;
+	margin-top: 10px;
+}
+.team-txt-wrap p{
+	font-size: 15px;
+	height: 15px;
+	color: #999;
+	margin-top: 5px;
+}
+.window-hide{
+	display: none;
+}
+.hua-num{
+	position: absolute;
+	height: 100%;
+	line-height: 56px;
+	font-size: 15px;
+	color: #999;
+	padding-left: 24px;
+	background: url(../imgs/hua.png) no-repeat left center;
+	background-size: 20px 19px;
+	top: 0;
+	right: 0;
+}

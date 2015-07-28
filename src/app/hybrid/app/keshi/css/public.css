@@ -40,6 +40,9 @@ body{
 .text-indent-2{
 	text-indent: 2em;
 }
+.hide{
+	display: none;
+}
 .boxSha{
 	-webkit-box-shadow: 0 2px 2px #d1d1d1;
 	-moz-box-shadow: 0 2px 2px #d1d1d1;
@@ -134,6 +137,16 @@ body{
 	width: 41px;
 	background: url(../imgs/er-btn.png) no-repeat center center;
 	background-size: 18px 18px;
+}
+.txt-btn{
+	height: 45px;
+	line-height: 45px;
+	position: absolute;
+	bottom: 0;
+	right: 4%;
+	text-align: center;
+	font-size: 13px;
+	color: #fff;
 }
 /* 头部公共样式 结束 */
 
@@ -286,7 +299,25 @@ body{
     -o-box-align: center;
     box-align: center;
 }
-
+/* 点击加载更多 */
+.load-more{ 
+	height: 35px; 
+	text-align: center; 
+	color: #999999; 
+	background: #fff; 
+	line-height: 35px;  
+	border-top: 1px solid #e1e1e1;
+	border-bottom: 1px solid #e1e1e1;
+}
+.load-more img{ 
+	width: 23px; 
+	height: 23px; 
+	display: inline-block; 
+	position: relative; 
+	top: 6px; 
+	display: none;
+}
+/* 点击加载更多 结束 */
 /*
 Hmodel 样式
 */
@@ -428,6 +459,17 @@ Hmodel 样式
 	from { opacity: 0; -webkit-transform: scale(.7); transform: scale(.7); }
 }
 
+.pt-page-scaleUpCenter-hide {
+	-webkit-animation: scaleUpCenterhide .4s ease-out both;
+	animation: scaleUpCenterhide .4s ease-out both;
+}
+@-webkit-keyframes scaleUpCenterhide {
+	to { opacity: 0; -webkit-transform: scale(.7); }
+}
+@keyframes scaleUpCenterhide {
+	to { opacity: 0; -webkit-transform: scale(.7); transform: scale(.7); }
+}
+
 .null-sec{
 	margin-top: 97px;
 }
@@ -453,3 +495,135 @@ Hmodel 样式
 	width: 92%;
 	margin: 34px auto 0;
 }
+/* 二维码弹窗样式 */
+.erpic{
+	width: 200px;
+	height: 200px;
+}
+/* 注册页面 找回密码 公共样式 */
+.reg-body{
+	background: #f1f1f1;
+}
+.reg-top{
+	height: 44px;
+	box-shadow: 0 0 2px #d8d7d8;
+	background: #fff;
+	text-align: center;
+	color: #ffad0f;
+	font-size: 18px;
+	line-height: 44px;
+	position: relative;
+}
+.phone-call{
+	width: 45px;
+	height: 44px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: url(../imgs/tel.png) no-repeat center center;
+	background-size: 15px 18px;
+}
+.a-text{
+	position: absolute;
+	font-size: 13px;
+	color: #ffad0f;
+	line-height: 44px;
+	right: 4%;
+}
+.back{
+	position: absolute;
+	width: 44px;
+	height: 44px;
+	left: 0;
+	top: 0;
+	background: url(../imgs/return.png) no-repeat 15px center;
+	background-size: 9px 17px;
+}
+.reg-form-list{
+	padding: 0 4%;
+	margin-top: 16px;
+	background: #fff;
+}
+.reg-per-input-wrap{
+	border-bottom: 1px solid #efefef;
+	height: 50px;
+	line-height: 50px;
+}
+.reg-per-input-wrap:last-of-type{
+	border: none;
+}
+.reg-per-input-wrap h4{
+	float: left;
+	font-weight: normal;
+	font-size: 15px;
+	color: #999999;
+	width: 20%;
+}
+.addWidth h4{
+	width: 30%;
+}
+.reg-per-input-wrap input{
+	float: left;
+	width: 80%;
+	height: 50px;
+	border: none;
+	font-size: 15px;
+}
+.addWidth input{
+	width: 70%;
+}
+@media all and (max-width: 320px){
+	.reg-per-input-wrap h4{
+		width: 22%
+	}
+	.reg-per-input-wrap input{
+		width: 78%;
+	}
+	.addWidth h4{
+		width: 32%;
+	}
+	.addWidth input{
+		width: 68%;
+	}
+}
+.reg-per-input-wrap input.reg-code{
+	width: 40%;
+}
+.getCode{
+	width: 30%;
+	float: right;
+	height: 32px;
+	margin-top: 9px;
+	background: #ffad0f;
+	color: #fff;
+	font-size: 13px;
+	line-height: 32px;
+	text-align: center;
+}
+.getCodeing{
+	background: no-repeat;
+	border: 1px solid #ffad0f;
+	color: #ffad0f;
+}
+.reg-btn{
+	display: block;
+	height: 44px;
+	background: #ffad0f;
+	color: #fff;
+	font-size: 17px;
+	line-height: 44px;
+	text-align: center;
+	width: 92%;
+	margin: 17px auto 0;
+}
+.tel-change-list{
+	margin-top: 0;
+}
+.reg-tip{
+	height: 49px;
+	line-height: 49px;
+	font-size: 13px;
+	color: #999999;
+	text-indent: 4%;
+}
+/* 注册页面 找回密码 公共样式 结束 */

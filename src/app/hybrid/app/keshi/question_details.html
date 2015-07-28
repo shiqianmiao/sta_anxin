@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>我的问题</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="我的问题" />
+    <meta name="description" content="我的问题" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="我的问题">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="./css/public.css" />
+    <link rel="stylesheet" href="./css/swiper.min.css" />
+    <link rel="stylesheet" href="./css/question_details.css" />
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="header-return"></a>
+        <span class="show-all">问题详情</span>
+        <a href="javascript:" class="er-btn"></a>
+    </header>
+
+    <section class="origin-poster boxSha">
+        <div class="poster-intr clear">
+            <img src="imgs/head.jpg" class="head-pic borR-50" />
+            <div class="intr-txt-wrap">
+                <h3><span>陈黎明</span><mark>楼主</mark></h3>
+                <p><time>2015-6-1  18:24</time><span>回复：4</span></p>
+            </div>
+            <p class="art-content">手术后伤口一直有点红肿怎么办？需要涂药么？另外需要有什么特别注意的么？比如洗澡的时候？</p>
+        </div>
+        <ul class="pic-list clear">
+            <li class="per-pic change-bg-pic" data-sort="0" data-url="imgs/pic.jpg"></li>
+            <li class="per-pic change-bg-pic" data-sort="1" data-url="imgs/pic.jpg"></li>
+            <li class="per-pic change-bg-pic" data-sort="2" data-url="imgs/pic.jpg"></li>
+            <li class="per-pic change-bg-pic" data-sort="3" data-url="imgs/ks_index_top.jpg"></li>
+            <li class="per-pic change-bg-pic" data-sort="4" data-url="imgs/pic.jpg"></li>
+            <li class="per-pic change-bg-pic" data-sort="5" data-url="imgs/pic.jpg"></li>
+        </ul>
+    </section>
+
+    <ul class="reply-list">
+        <li class="per-reply">
+            <div class="reply-peo-intr clear">
+                <img src="imgs/head.jpg" class="reply-peo-pic borR-50">
+                <div class="reply-per-txt">
+                    <h3>陈静-住院护士</h3>
+                    <p>2015-6-1  18:24</p>
+                </div>
+            </div>
+            <p class="reply-content"><span>@小陈-护士</span>多发发达地方阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯顿奥迪啊大大奥迪奥迪</p>
+            <ul class="pic-list clear">
+                <li class="per-pic change-bg-pic" data-sort="0" data-url="imgs/pic.jpg"></li>
+                <li class="per-pic change-bg-pic" data-sort="1" data-url="imgs/pic.jpg"></li>
+                <li class="per-pic change-bg-pic" data-sort="2" data-url="imgs/pic.jpg"></li>
+                <li class="per-pic change-bg-pic" data-sort="3" data-url="imgs/ks_index_top.jpg"></li>
+                <li class="per-pic change-bg-pic" data-sort="4" data-url="imgs/pic.jpg"></li>
+                <li class="per-pic change-bg-pic" data-sort="5" data-url="imgs/pic.jpg"></li>
+            </ul>
+        </li>
+        <li class="per-reply">
+            <div class="reply-peo-intr clear">
+                <img src="imgs/head.jpg" class="reply-peo-pic borR-50">
+                <div class="reply-per-txt">
+                    <h3>陈静-住院护士</h3>
+                    <p>2015-6-1  18:24</p>
+                </div>
+            </div>
+            <p class="reply-content"><span>@小陈-护士</span>多发发达地方阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯顿奥迪啊大大奥迪奥迪</p>
+        </li>
+        <li class="per-reply">
+            <div class="reply-peo-intr clear">
+                <img src="imgs/head.jpg" class="reply-peo-pic borR-50">
+                <div class="reply-per-txt">
+                    <h3>陈静-住院护士</h3>
+                    <p>2015-6-1  18:24</p>
+                </div>
+            </div>
+            <p class="reply-content"><span>@小陈-护士</span>多发发达地方阿斯蒂芬阿斯蒂芬阿斯蒂芬阿斯顿奥迪啊大大奥迪奥迪</p>
+        </li>
+    </ul>
+
+    <!-- 送出红花弹层 -->
+    <section class="alert-mark song-hua-win flex-center hide-win">
+        <div class="songhua-win borR-3">
+            <div class="p-div">你已经送出朵小红花了，再付点酬金表示感谢吧</div>
+            <div class="btn-wrap">
+                <span class="borR-3 refused">狠心拒绝</span>
+                <span class="borR-3 remuneration">付点酬金</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 付酬金弹层 -->
+    <section class="alert-mark remuneration-a-win flex-center hide-win">
+        <div class="remuneration-win borR-3">
+            <div class="p-div">
+                <div class="input-wrap borR-3">
+                    <span>￥</span><input value="2.00" type="txt" />
+                </div>
+            </div>
+            <div class="btn-wrap">
+                <span class="borR-3 refused-pay">狠心拒绝</span>
+                <span class="borR-3 remuneration-pay">确认支付</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- <div class="swiper-slide flex-center">Slide 1</div> -->
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- 二维码弹窗 -->
+    <div class="alert-mark flex-center window-hide er-close-mark" id="er-window" >
+        <img src="imgs/er.jpg" class="erpic" />
+    </div>
+    <!-- 二维码弹窗 结束 -->
+    
+    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js', 'lib/swiper/swiper.min.js'], function($, Client, Swiper){
+
+        // 处理图像
+        $('.change-bg-pic').each(function(i, o){
+            var sourceUrl = 'url(' + $(this).data('url') + ') no-repeat center center';
+            $(this).css({background: sourceUrl, backgroundSize: 'cover'});
+        });
+
+        var preArr = [];
+        var nextArr = [];
+        var $piclist = null;
+        var thisSort = 0;
+        // 当点击图片的时候
+        $('.per-pic').on('tap', function(){
+            // 初始化查看图片的滚动
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: true
+            });
+            $('.swiper-container').show();
+            // 收集该图片集的所有图片
+            $piclist = $(this).parent().find('.per-pic');
+            preArr = [];
+            nextArr = [];
+            thisSort = $(this).data('sort');
+            $('.swiper-wrapper').append('<div class="swiper-slide flex-center"><img src="' + $(this).data('url') + '" /></div>');
+
+            $piclist.each(function(i, o){
+                if(i < thisSort){
+                    preArr.push('<div class="swiper-slide flex-center"><img src="' + $(o).data('url') + '" /></div>');
+                }else if(i > thisSort){
+                    nextArr.push('<div class="swiper-slide flex-center"><img src="' + $(o).data('url') + '" /></div>');
+                }
+            });
+
+            if(preArr.length != 0){
+                swiper.prependSlide(preArr.reverse());
+            }
+            if(nextArr.length != 0){
+                swiper.appendSlide(nextArr);
+            }
+
+            $('.swiper-container').on('click', function(){
+                $(this).hide();
+                $('.swiper-wrapper').empty();
+                swiper.destroy();
+                $('.swiper-container').off('click');
+            });
+            
+        });
+
+        var system = Client.client.system;
+        if(system.iphone){
+            // 是iphone,增加头部高度
+            $('.header').addClass('ios-header');
+        }else{
+            $('.header').removeClass('ios-header');
+        }
+        // 点击头部二维码btn，弹出二维码弹窗
+        $('.er-btn').on('tap', function(){
+            alertWin('#er-window', '.er-close-mark');
+        });
+        
+        $('.erpic').on('tap', function(event){
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble = true;
+            }
+        });
+
+        // 弹窗
+        function alertWin(winSelector, closeSelector){
+            $(winSelector).removeClass('window-hide');
+            $(closeSelector).on('tap', function(){
+                $(winSelector).addClass('window-hide');
+                $(closeSelector).off('tap');
+            });
+        }
+
+        // 点击感谢的时候
+        $('.to-thank').on('click', function(){
+            if(!$(this).hasClass('thank-true')){
+                // 点赞
+                alertFn('.song-hua-win');
+            }
+            $(this).toggleClass('thank-true');
+        });
+
+
+        // 弹层的函数
+        function alertFn(selector){
+            $(selector).removeClass('hide-win');
+        }
+
+        // 点击狠心拒绝(拒绝弹窗)
+        $('.refused').on('click', function(){
+            $('.song-hua-win').addClass('hide-win');
+        });
+
+        // 点击付点酬金
+        $('.remuneration').on('click', function(){
+            // 切换弹窗
+            $('.song-hua-win').addClass('hide-win');
+            $('.remuneration-a-win').removeClass('hide-win');
+        });
+
+        // 点击狠心拒绝（拒绝支付）
+        $('.refused-pay').on('click', function(){
+            $('.remuneration-a-win').addClass('hide-win');
+        });
+
+        
+        
+    });
+    </script>
+
+</body>
+</html>

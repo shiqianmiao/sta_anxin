@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>我的订单</title>
+	<link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/Hscroll.css">
+	<link rel="stylesheet" href="css/my_order.css">
+</head>
+<body class="padding-bottom-60">
+	
+	<header class="header">
+        <span>我的订单</span>
+        <a href="javascript:" class="er-btn"></a>
+    </header>
+
+    <div class="order-nav">
+    	<ul class="borR-3">
+    		<li><a href="#">抢单</a></li>
+    		<li class="active"><a href="#">我的订单</a></li>
+    	</ul>
+    </div>
+    <div id="Hwrap">
+        <div id="Hscroll">
+            <header class="Hs-header"><span class="pullDownIcon"></span><em>下拉刷新</em></header>
+			    <ul class="my-order-list">
+			    	<li class="per-order">
+			    		<div class="content-wrap clear time-wrap">
+			    			<h3>服务时间：</h3>
+			    			<ul class="intr-list">
+			    				<li>6月8号 10：00</li>
+			    				<li class="text-indent-8">【护士静脉注射】*1</li>
+			    				<li class="text-indent-8">【护士静脉注射】*1</li>
+			    			</ul>
+			    		</div>
+			    		<div class="content-wrap clear service-wrap">
+			    			<h3>服务时间：</h3>
+			    			<ul class="intr-list">
+			    				<li>程程</li>
+			    				<li>15012349876</li>
+			    				<li>朝阳区大屯路东金泉家园304号楼120室<img src="imgs/addr.png" class="addr-icon" /></li>
+			    			</ul>
+			    		</div>
+			    		<ul class="service-list">
+			    			<li class="per-service">
+			    				<h2 class="text-indent-8 service-title">【护士静脉注射】*1</h2>
+			    				<em class="price">￥180</em>
+			    			</li>
+			    			<li class="per-service">
+			    				<h2 class="text-indent-8 service-title">【护士静脉注射】*1</h2>
+			    				<em class="price">￥180</em>
+			    			</li>
+			    		</ul>
+			    		<footer class="opation-footer">
+			    			<a href="#" class="do-service borR-3">开始服务</a>
+			    			<a href="#" class="cancel-order borR-3">取消订单</a>
+			    		</footer>
+			    	</li>
+			    	<li class="per-order">
+			    		<header class="order-title">
+			    			服务状态：订单已取消
+			    		</header>
+			    		<div class="content-wrap clear time-wrap">
+			    			<h3>服务时间：</h3>
+			    			<ul class="intr-list">
+			    				<li>6月8号 10：00</li>
+			    				<li class="text-indent-8">【护士静脉注射】*1</li>
+			    				<li class="text-indent-8">【护士静脉注射】*1</li>
+			    			</ul>
+			    		</div>
+			    		<div class="content-wrap clear service-wrap">
+			    			<h3>服务时间：</h3>
+			    			<ul class="intr-list">
+			    				<li>程程</li>
+			    				<li>15012349876</li>
+			    				<li>朝阳区大屯路东金泉家园304号楼120室<img src="imgs/addr.png" class="addr-icon" /></li>
+			    			</ul>
+			    			<h3>备注信息：</h3>
+			    			<ul class="intr-list">
+			    				<li>自带工具</li>
+			    			</ul>
+			    		</div>
+			    		<ul class="service-list">
+			    			<li class="per-service">
+			    				<h2 class="text-indent-8 service-title">【护士静脉注射】*1</h2>
+			    				<em class="price">￥180</em>
+			    			</li>
+			    			<li class="per-service">
+			    				<h2 class="text-indent-8 service-title">【护士静脉注射】*1</h2>
+			    				<em class="price">￥180</em>
+			    			</li>
+			    		</ul>
+			    		<footer class="pay-footer">
+			    			<h3>在线支付：</h3>
+			    			<em>￥360</em>
+			    		</footer>
+			    	</li>
+			    </ul>
+			<footer class="Hs-footer"><span class="pullUpIcon"></span><em>上拉加载更多</em></footer>
+	    </div>
+	</div>
+
+	<!-- 提交成功弹窗 结束 -->
+	<!-- 二维码弹窗 -->
+    <div class="alert-mark flex-center window-hide er-close-mark" id="er-window" >
+        <img src="imgs/er.jpg" class="erpic" />
+    </div>
+
+	<!-- <section class="null-sec">
+		<img src="imgs/sun.jpg" class="null-sun">
+		<p>您还没有未完成订单，</p>
+		<p>赶快继续去接单区接单吧！</p>
+	</section> -->
+
+	<footer class="footer2">
+        <a href="#"></a>
+        <a href="#" class="active"></a>
+        <a href="#"></a>
+    </footer>
+	
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+
+    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js', 'widget/Hscroll/js/Hscroll2.js'], function($, Client, Hscroll){
+
+    	// 弹窗完善资料窗
+    	// alertWin('#pf-window', '.pf-close');
+    	// 弹出通过审窗
+    	// alertWin('#through-window', '.through-close');
+    	// 弹出未通过审核窗
+    	// alertWin('#nothrough-window', '.nothrough-close');
+    	// 弹出提交成功窗
+    	// alertWin('#success-window', '.success-close');
+
+	    // 弹窗
+	    function alertWin(winSelector, closeSelector){
+	    	$(winSelector).removeClass('window-hide');
+	    	$(closeSelector).on('tap', function(){
+	    		$(winSelector).addClass('window-hide');
+	    		$(closeSelector).off('tap');
+	    	});
+	    }
+
+	    // 点击头部二维码btn，弹出二维码弹窗
+        $('.er-btn').on('tap', function(){
+            alertWin('#er-window', '.er-close-mark');
+        });
+
+        // 适配ios和Android的导航高度
+        var system = Client.client.system;
+        if(system.iphone){
+            // 是iphone,增加头部高度
+            $('.header').addClass('ios-header');
+        }else{
+            $('.header').removeClass('ios-header');
+        }
+
+        // 只实例化对象不传配置参数的时候，指示做了一个模拟滚动，可以用来修复移动端fixed定位bug
+        var hscroll = new Hscroll({
+            refreshCallback : function(self){
+                // 执行下拉刷新的操作
+
+                //self.refreshEnd();
+                setTimeout(function(){
+                    self.refreshEnd();
+                },1000);
+            },
+            loadMoreCallback : function(self){
+                // 执行上拉加载更多的操作
+
+                setTimeout(function(){
+                    self.loadMoreEnd();
+                },1000);
+                //self.loadMoreEnd();
+            },
+
+            // 选择您需要的加载类型【只要下拉刷新 - onlyTop 】【只要上拉加载更多 - onlyBottom 】【两个都要 - double 】【都不要 - none 】
+            opationType : 'double'
+
+        });
+
+    });
+    
+
+    </script>
+</body>
+</html>

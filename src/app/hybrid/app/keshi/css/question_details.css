@@ -1,5 +1,5 @@
 .origin-poster{
-	padding: 10px 4% 8px;
+	padding: 10px 4% 2px;
 	background: #fff;
 }
 .head-pic{
@@ -79,10 +79,11 @@
 .reply-list{
 	background: #fff;
 	margin-top: 15px;
+	margin-bottom: 15px;
 }
 .per-reply{
 	border-bottom: 1px solid #cbcbcb;
-	padding: 0 4%;
+	padding: 0 4% 10px;
 	overflow: hidden;
 }
 .reply-peo-intr{
@@ -132,7 +133,7 @@
 	margin-left: 11px;
 }
 .reply-opa-wrap a:nth-of-type(1).thank-true{
-	background: url(../imgs/flowers_ing.png) no-repeat left center;
+	background: url(../imgs/hua.png) no-repeat left center;
 	background-size: 20px 19px;
 }
 .reply-opa-wrap a:nth-of-type(2){
@@ -195,4 +196,21 @@
 	font-size: 15px;
 	position: relative;
 	top: -1px;
+}
+.swiper-container{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	display: none;
+	background: #fff;
+}
+.swiper-wrapper img{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.window-hide{
+	display: none;
 }

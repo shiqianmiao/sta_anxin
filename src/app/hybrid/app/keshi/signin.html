@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>登陆</title>
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/signin.css">
+</head>
+<body>
+	
+	<div id="content">
+		<img src="imgs/bigLogo.png" alt="安心客" class="big-logo">
+		<div class="input-wrap">
+			<input type="text" name="" placeholder="用户名" />
+		</div>
+		<div class="input-wrap">
+			<input type="password" name="" placeholder="密码" />
+		</div>
+		<div class="radio-wrap">
+			<section class="keep-pwd" data-keep="false">
+				<span class="radio-span borR-50"><em class="borR-50"></em></span>
+				记住密码
+			</section>
+			<section class="forget-pwd">
+				<a href="#">忘记密码？</a>
+			</section>
+		</div>
+		<a class="signin-btn borR-3" href="javascript:;">登录</a>
+		<img src="imgs/or.png" class="or-line">
+		<a class="reg-btn borR-3" href="javascript:;">注册</a>
+	</div>
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    	G.use(['zepto'], function(){
+			// 点击记住密码
+			$('.keep-pwd').on('tap', function(){
+				if(Boolean($(this).data('keep'))){
+					$(this).find('.radio-span').removeClass('active');
+					$(this).data('keep', false);
+				}else{
+					$(this).find('.radio-span').addClass('active');
+					$(this).data('keep', true);
+				}
+				
+			});
+		});
+    </script>
+</body>
+</html>

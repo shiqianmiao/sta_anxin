@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>手机号变更</title>
+	<link rel="stylesheet" href="css/public.css">
+</head>
+<body class="reg-body">
+	
+	<header class="header">
+        <a href="#" class="header-return"></a>
+        <span class="show-all">手机号变更</span>
+    </header>
+	<section class="reg-tip">请输入手机号189****1122收到的短信验证码</section>
+	<ul class="reg-form-list tel-change-list">
+		<li class="reg-per-input-wrap addWidth clear">
+			<h4>新的手机号</h4>
+			<input type="text" class="reg-tel"/>
+		</li>
+		<li class="reg-per-input-wrap clear">
+			<h4>验证码</h4>
+			<input type="text" class="reg-code"/>
+			<span class="getCode borR-3">获取验证码</span>
+		</li>
+	</ul>
+
+	<a href="#" class="reg-btn borR-3">下一步</a>
+
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    	G.use(['zepto', 'widget/clientCheck/js/clientCheck.js'], function($, Client){
+			// 点击获取验证码
+			$('.getCode').on('tap', getCodeFn);
+
+			// 获取验证码的函数
+			function getCodeFn(){
+				var sec = 60,
+					self = this,
+					timer = null;
+				$(this).addClass('getCodeing');
+				$(this).off('tap');
+				$(this).html(sec + '秒');
+
+				timer = setInterval(function(){
+					if(sec != 0){
+						sec--;
+						$(self).html(sec + '秒');
+					}else{
+						clearInterval(timer);
+						$(self).removeClass('getCodeing');
+						$(self).on('tap', getCodeFn);
+						$(self).html('重新获取');
+					}
+					
+				}, 1000);
+
+				// 在这里发送ajax请求
+
+			}
+
+			var system = Client.client.system;
+	        if(system.iphone){
+	            // 是iphone,增加头部高度
+	            $('.header').addClass('ios-header');
+	        }else{
+	            $('.header').removeClass('ios-header');
+	        }
+
+
+		});
+    </script>
+</body>
+</html>

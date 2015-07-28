@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>陈静的问题页</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="陈静的问题页" />
+    <meta name="description" content="陈静的问题页" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="陈静的问题页">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="./css/public.css" />
+    <link rel="stylesheet" href="./css/confirm_pay.css" />
+</head>
+<body>
+
+    <section class="page-wrap">
+        <input type="text" placeholder="向护士表示感谢，支持酬金" class="thank-input" />
+        <section class="pay-amount">￥12.50</section>
+
+        <section class="red-envelope">
+            <h3 class="envelope-title">现金红包（余额）</h3>
+            <span class="enve-amount">￥3</span>
+            <span class="im-radio borR-50"></span>
+        </section>
+
+        <section class="wx-pay">
+            <h3 class="wx-title">微信支付</h3>
+            <span class="wx-amount">￥9</span>
+
+        </section>
+
+    </section>
+
+    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['zepto'], function($){
+
+        // 点击红包，切换是否使用红包金额
+        $('.red-envelope').on('tap', function(){
+            $(this).find('.im-radio').toggleClass('no-select');
+        });
+        
+    });
+    </script>
+
+</body>
+</html>

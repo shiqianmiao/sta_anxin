@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>个人信息</title>
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/my_info.css">
+	<link rel="stylesheet" href="css/cropper.min.css">
+	<link rel="stylesheet" href="css/HimgCrop.css">
+</head>
+<body class="ccc-body pd-b-50">
+	
+	<header class="header">
+        <a href="#" class="header-return"></a>
+        <span class="show-all">个人信息</span>
+        <a href="javascript:;" class="txt-btn save" hidden>保存</a>
+    </header>
+
+    <ul class="info1-list">
+    	<li class="per-info head-info">
+    		<h3>头像</h3>
+    		<img src="imgs/def.jpg" class="head-pic borR-50" />
+    		<img src="imgs/strip.png" class="right-to" />
+    	</li>
+    	<li class="per-info name">
+    		<h3>姓名</h3>
+    		<input type="text" class="name-input" value="李旭" />
+    	</li>
+    	<li class="per-info postion-select">
+    		<h3>职称</h3>
+    		<span class="position-name">护师</span>
+    		<img src="imgs/strip.png" class="right-to" />
+    	</li>
+    	<li class="per-info er-info">
+    		<h3>我的二维码</h3>
+    		<img src="imgs/er2.png" class="my-er" />
+    	</li>
+    </ul>
+
+    <ul class="info2-list">
+    	<li class="per-info" data-type="signature">
+    		<h3>签名</h3>
+    		<span class="txt-wrap noWrapEllipsis signature-span">护师护师护师护师护师护师护师护师</span>
+    		<img src="imgs/strip.png" class="right-to" />
+    	</li>
+    	<li class="per-info" data-type="introduction">
+    		<h3>简介</h3>
+    		<span class="txt-wrap noWrapEllipsis introduction-span">护师护师护师护师护师护师护师护师护师</span>
+    		<img src="imgs/strip.png" class="right-to" />
+    	</li>
+    </ul>
+
+    <!-- 二维码弹窗 -->
+    <div class="alert-mark flex-center window-hide er-close-mark" id="er-window" >
+        <img src="imgs/er.jpg" class="erpic" />
+    </div>
+    <!-- 二维码弹窗 结束 -->
+
+    <!-- 头像裁剪 -->
+	<div id="HimgCropWrap">
+		<img src="imgs/rotate.jpg" class="rotate-ing" width="50" height="50"  />
+		<div class="cropper-wrap">
+			<img src="" alt="Picture" id="picccc" data-active="false">
+		</div>
+		<footer class="Himg-footer">
+			<span class="Himg-cancel">取消</span>
+			图片裁剪
+			<span class="Himg-select">选取</span>
+		</footer>
+		<input type="hidden" value="imgs/def.jpg" class="srcDom" />
+	</div>
+
+	<!-- 上传图片弹层 -->
+	<section class="upload-mark">
+		<div class="option-wrap">
+			<ul class="opa-list borR-3" id="container">
+				<li class="show-big">查看大图</li>
+				<li class="upload-yes" id="pickfiles">上传图片</li>
+			</ul>
+			<a href="javascript:;" class="close-upload-win borR-3">取消</a>
+		</div>
+	</section>
+
+	<!-- 查看大图的包裹层 -->
+	<div class="big-pic-wrap">
+		<span class="close-big-pic">×</span>
+		<img src="imgs/def.jpg" class="big-pic" />
+	</div>
+
+	<div class="page2 pt-page-scaleUpCenter-hide" id="page-intr">
+		<header class="header">
+	        <a href="#" class="header-return page2-return"></a>
+	        <span class="page2-title">简介</span>
+	        <a href="javascript:;" class="txt-btn page2-save">保存</a>
+	    </header>
+	    <section class="textarea-wrap">
+	    	<textarea class="textarea-con" maxlength="120"></textarea>
+	    	<h3><em class="cur-length">0</em>/120</h3>
+	    </section>
+	</div>
+
+	<div class="page3 " id="page-position">
+		<header class="header">
+	        <a href="#" class="header-return page2-return"></a>
+	        <span class="page3-title">职称</span>
+	    </header>
+	    <ul class="p3-pos-list">
+	    	<li class="p3-per-list"><em>护士1</em><span class="radio-status borR-50"></span></li>
+	    	<li class="p3-per-list"><em>护士2</em><span class="radio-status borR-50"></span></li>
+	    	<li class="p3-per-list"><em>护士3</em><span class="radio-status borR-50"></span></li>
+	    	<li class="p3-per-list"><em>护士4</em><span class="radio-status borR-50"></span></li>
+	    	<li class="p3-per-list"><em>护士5</em><span class="radio-status borR-50"></span></li>
+	    	<li class="p3-per-list"><em>护士6</em><span class="radio-status borR-50"></span></li>
+	    	<li class="p3-per-list"><em>护士7</em><span class="radio-status borR-50"></span></li>
+	    </ul>
+	</div>
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['jquery', 'widget/clientCheck/js/clientCheck.js', 'widget/HimgCrop/js/HimgCropJquery2.js', 'lib/qiniu/qiniu.js'], function($, Client, HimgCropJquery, Qiniu){
+
+    	var system = Client.client.system;
+        if(system.iphone){
+            // 是iphone,增加头部高度
+            $('.header').addClass('ios-header');
+        }else{
+            $('.header').removeClass('ios-header');
+        }
+
+        // 点击头部二维码btn，弹出二维码弹窗
+        $('.er-info').on('click', function(){
+            alertWin('#er-window', '.er-close-mark');
+        });
+        
+        $('.erpic').on('click', function(event){
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble = true;
+            }
+        });
+
+        // 弹窗
+        function alertWin(winSelector, closeSelector){
+            $(winSelector).removeClass('window-hide');
+            $(closeSelector).on('click', function(){
+                $(winSelector).addClass('window-hide');
+                $(closeSelector).off('click');
+            });
+        }
+
+        // 点击头像
+        $('.head-info').on('click', function(){
+        	$('.upload-mark').css({top: 0});
+        });
+        // 点击图片上传弹层的取消按钮
+    	$('.close-upload-win').on('touchend', function(){
+    		// 隐藏
+	        $('.upload-mark').css({top: '-100%'});
+    	});
+    	// 点击查看大图
+   		$('.show-big').on('touchend', showBigImg);
+   		function showBigImg(){
+   			
+   			var src = $('.head-pic').attr('src');
+   			
+   			$('.big-pic').on('load', function(){
+   				$('.big-pic-wrap').show();
+	   			$('.big-pic').cropper('replace', src);
+   			});
+   			$('.big-pic-wrap').show();
+	   		$('.big-pic').cropper('replace', src);
+   			
+   		}
+
+   		// 初始化大图
+   		$('.big-pic').cropper({
+			aspectRatio: 2 / 2,
+			autoCropArea: 1,
+			strict: false,
+			guides: false,
+			autoCrop : false,
+			highlight: false,
+			dragCrop: false,
+			cropBoxMovable: true,
+			background: true, // 是否显示网格背景 true 是 false 不显示
+			cropBoxResizable: true,
+			guides: true
+		});
+
+    	// 关闭查看大图
+    	$('.close-big-pic').on('click', function(){
+    		$('.big-pic-wrap').hide();
+    	});
+
+    	var uploader = Qiniu.uploader({
+	        runtimes: 'html5,flash,html4',
+	        browse_button: 'pickfiles',
+	        container: 'container',
+	        drop_element: 'container',
+	        max_file_size: '100mb',
+	        flash_swf_url: 'js/plupload/Moxie.swf',
+	        dragdrop: true,
+	        chunk_size: '4mb',
+	        //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
+	        uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:50LWPnsXuS7sRUOBIhLh8ErUpmU=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0Mzc5ODMyMjF9',
+	        domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
+	        auto_start: true,
+	        init: {
+	        	'Key': function(up, file) {
+                    // 若想在前端对每个文件的key进行个性化处理，可以配置该函数
+                    // 该配置必须要在 unique_names: false , save_key: false 时才生效
+                    var key = 'B';
+                    var timestamp = new Date().getTime();
+                    return key + timestamp;
+                },
+	            'FileUploaded': function(up, file, info) {
+
+	            	// 隐藏
+	            	$('.upload-mark').css({top: '-100%'});
+
+	                var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
+	                $('.srcDom').val(src);
+	                // 裁剪
+	                var HimgCropJquery1 = new HimgCropJquery({
+						srcDom: $('.srcDom'),
+						rotateIngEvent : 'touchend',
+						callback : function(canvasDom, data){
+
+							// 图片的缩放宽高
+							var imgWidth = Math.round(data.canvasData.width);
+							var imgHeight = Math.round(data.canvasData.height);
+							// 裁剪是的宽高
+							var cropWidth = Math.round(data.CropBoxData.width);
+							var cropHeight = Math.round(data.CropBoxData.height);
+							// 裁剪是的偏移
+							var cropOffsetLeft = Math.round(data.CropBoxData.left) - Math.round(data.canvasData.left);
+							var cropOffsetTop = Math.round(data.CropBoxData.top) - Math.round(data.canvasData.top);
+							// 旋转的角度
+							var rotate = data.imageData.rotate;
+
+							// 拼接七牛裁剪连接,注意裁剪顺序，先旋转
+							src = src + '?imageMogr2/rotate/' + rotate + '/thumbnail/' + imgWidth + 'x' + imgHeight + '!/crop/!' + cropWidth + 'x' + cropHeight + 'a' + cropOffsetLeft + 'a' + cropOffsetTop;
+
+                			$('.head-pic').attr('src', src);
+
+						},
+						cropperSetting : {
+							aspectRatio: 2 / 2,
+							autoCropArea: 0.65,
+							strict: true,
+							guides: false,
+							highlight: false,
+							dragCrop: false,
+							cropBoxMovable: true,
+							background: true, // 是否显示网格背景 true 是 false 不显示
+							cropBoxResizable: true,
+							guides: true
+						}
+					});
+	                
+	            }
+	        }
+	    });
+
+		// 点击签名或者简介的时候
+		$('.info2-list li').on('click', function(){
+			var type = $(this).data('type'),
+				title = '';
+			if(type == 'signature'){
+				title = '签名';
+			}else if(type == 'introduction'){
+				title = '简介';
+			}
+
+			$('.textarea-con').val('');
+
+			$('.page2-title').html(title);
+			$('.page2').data('type', type);
+			$('.page2').show().removeClass('pt-page-scaleUpCenter-hide').addClass('pt-page-scaleUpCenter');
+		});
+
+		// 点击保存的时候
+		$('.page2-save').on('click', function(){
+			$('.page2').removeClass('pt-page-scaleUpCenter').addClass('pt-page-scaleUpCenter-hide');
+			setTimeout(function(){
+				$('.page2').hide();
+			}, 400);
+
+			if($('.page2').data('type') == 'signature'){
+				$('.signature-span').html($('.textarea-con').val());
+			}else if($('.page2').data('type') == 'introduction'){
+				$('.introduction-span').html($('.textarea-con').val());
+			}
+			
+		});
+
+		// 点击page2的返回按钮
+		$('.page2-return').on('click', function(){
+			$('.page2').removeClass('pt-page-scaleUpCenter').addClass('pt-page-scaleUpCenter-hide');
+			setTimeout(function(){
+				$('.page2').hide();
+			}, 400);
+		});
+
+		// 统计还可以输入字符数量
+		setInterval(function(){
+			var curLength = $('.textarea-con').val().length;
+			var allLength = 120;
+			var remainLength = allLength - curLength;
+			$('.cur-length').html(curLength);
+		}, 20);
+
+		// 点击职称选择按钮
+		$('.postion-select').on('click', function(){
+			$('.page3').show().removeClass('pt-page-scaleUpCenter-hide').addClass('pt-page-scaleUpCenter');
+		});
+		// 点选职称
+		$('.p3-per-list').on('click', function(){
+			var selectPos = $(this).find('em').html();
+			$('.position-name').html(selectPos);
+			$('.radio-status').removeClass('active');
+			$(this).find('.radio-status').addClass('active');
+
+			$('.page3').removeClass('pt-page-scaleUpCenter').addClass('pt-page-scaleUpCenter-hide');
+			setTimeout(function(){
+				$('.page3').hide();
+			}, 400);
+		});
+
+    });
+    </script>
+	
+</body>
+</html>

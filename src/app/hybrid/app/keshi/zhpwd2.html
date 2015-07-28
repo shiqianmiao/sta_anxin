@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>找回密码</title>
+	<link rel="stylesheet" href="css/public.css">
+</head>
+<body class="reg-body">
+	
+	<header class="header">
+        <a href="#" class="header-return"></a>
+        <span class="show-all">找回密码</span>
+    </header>
+
+	<ul class="reg-form-list">
+		<li class="reg-per-input-wrap addWidth clear">
+			<h4>输入新密码</h4>
+			<input type="text" class="reg-pwd"/>
+		</li>
+		<li class="reg-per-input-wrap addWidth clear">
+			<h4>再输一遍</h4>
+			<input type="text" class="reg-re-pwd"/>
+		</li>
+	</ul>
+
+	<a href="#" class="reg-btn borR-3">下一步</a>
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    	G.use(['zepto', 'widget/clientCheck/js/clientCheck.js'], function($, Client){
+			
+
+			var system = Client.client.system;
+	        if(system.iphone){
+	            // 是iphone,增加头部高度
+	            $('.header').addClass('ios-header');
+	        }else{
+	            $('.header').removeClass('ios-header');
+	        }
+
+
+		});
+    </script>
+</body>
+</html>
