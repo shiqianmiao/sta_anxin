@@ -45,6 +45,14 @@ html, body{
 	color: #fff;
 	z-index: 0;
 }
+#Hwrap {
+  top: 0;
+  bottom: 0;
+  background: #fff;
+}
+#Hscroll {
+  background: #fff;
+}
 /* 消息详情样式 */
 .msgdet-time-wrap{
 	text-align: center;

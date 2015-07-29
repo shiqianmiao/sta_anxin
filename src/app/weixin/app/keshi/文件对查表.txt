@@ -13,3 +13,5 @@ account_info.html		账号信息
 tel_change1.html		修改手机号1
 tel_change2.html		修改手机号2
 msg_det.html			消息详情
+report_duty.html		报到
+report_duty_yes.html	报到完成

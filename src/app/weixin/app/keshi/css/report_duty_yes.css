@@ -1,0 +1,40 @@
+.reg-yes{
+	width: 125px;
+	height: 125px;
+	background: url(../imgs/report.png) no-repeat;
+	background-size: 125px;
+	height: 125px;
+	margin: 33px auto;
+	overflow: hidden;
+}
+.reg-yes p{
+	height: 30px;
+	font-size: 30px;
+	color: #fff;
+	line-height: 30px;
+	text-align: center;
+}
+.reg-yes p:first-of-type{
+	margin-top: 30px;
+}
+.reg-yes p:last-of-type{
+	margin-top: 6px;
+}
+.report-tip{
+	font-size: 15px;
+	color: #333;
+	text-align: center;
+}
+.report-tip em{
+	font-weight: bold;
+	color: #ff5a00;
+}
+.report-tip2{
+	font-size: 13px;
+	color: #999;
+	text-align: center;
+	margin-top: 8px;
+}
+.reg-btn{
+	margin: 42px auto 0;
+}
