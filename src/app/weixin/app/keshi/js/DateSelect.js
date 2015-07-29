@@ -28,17 +28,17 @@ DateSel.addCart = function(obj, label){
 	var _this = obj;
 	// 获取用户操作的父级元素
 	var parent = $(_this).parents('.per-server');
-
+	
 	// 获取用户点击服务的价钱
-	var clickMoney = parseFloat($(parent).find('.per-money').html()).toFixed(2);
-	var clickMoneyNext = parseFloat($(parent).data('next_price')).toFixed(2);
+	var clickMoney = parseFloat($(parent).find('.per-money').html()).toFixed(2); 
+	var clickMoneyNext = parseFloat($(parent).data('next_price')).toFixed(2); 
 	// 获取用户点击服务用时
-	var clickTime = parseFloat($(parent).find('.per-time').html());
+	var clickTime = parseFloat($(parent).find('.per-time').html()); 
 
 	// 获取用户点击服务的当前所选数量
 	var clickServNum = parseFloat($(parent).find('.per-num').html());
 	// 第一次点击加号的初始数量，在业务中代表服务的起订数量
-	var dataStart = parseFloat($(parent).data('start'));
+	var dataStart = parseFloat($(parent).data('start')); 
 
 	if(type == 'remove' && clickServNum <= 0){
 		return false;
@@ -52,7 +52,7 @@ DateSel.addCart = function(obj, label){
 	// 服务总数量累加
 	type == 'add' ? (firstBool ? serverAllNum += dataStart : serverAllNum++) : (secBool ? serverAllNum -= dataStart : serverAllNum--);
 	$('.all-num').html(serverAllNum);	// 赋值
-
+	
 	//结算车总数量累加
 	type == 'add' ? (firstBool ? cartAllNum += dataStart : cartAllNum++) : (secBool ? cartAllNum -= dataStart : cartAllNum--);
 	$('.num').html(cartAllNum);	// 赋值
@@ -62,16 +62,16 @@ DateSel.addCart = function(obj, label){
 	$('.all-hour').html(serverAllTime);	// 赋值
 
 	// 服务总价钱累加
-	type == 'add' ? (firstBool ? serverAllMoney = parseFloat(DateSel.accAdd(serverAllMoney,clickMoney * dataStart)).toFixed(2)
-							   : serverAllMoney = parseFloat(DateSel.accAdd(serverAllMoney,clickMoneyNext)).toFixed(2))
-				  : (secBool ? serverAllMoney = parseFloat(DateSel.accSub(clickMoney * dataStart, serverAllMoney)).toFixed(2)
+	type == 'add' ? (firstBool ? serverAllMoney = parseFloat(DateSel.accAdd(serverAllMoney,clickMoney * dataStart)).toFixed(2) 
+							   : serverAllMoney = parseFloat(DateSel.accAdd(serverAllMoney,clickMoneyNext)).toFixed(2)) 
+				  : (secBool ? serverAllMoney = parseFloat(DateSel.accSub(clickMoney * dataStart, serverAllMoney)).toFixed(2) 
 				  			 : serverAllMoney = parseFloat(DateSel.accSub(clickMoneyNext, serverAllMoney)).toFixed(2));
 
 	// 如果是首单，不修改价格
 	if(!firstOrder){
 		$('.all-money').html(serverAllMoney);
 	}
-
+	
 	if(label){
 		// 结算车的总价钱计算 = serverAllMoney - 减免费用
 		// 获取减免费用总额
@@ -104,7 +104,7 @@ DateSel.addCart = function(obj, label){
 	}
 
 	breaksMoney = 0; // 减免清零,很重要，不清零的减免每次都会累加
-
+	
 	if(clickServNum <= 0){
 		$(parent).find('.remove').css({color:'#999999'});
 	}else{
