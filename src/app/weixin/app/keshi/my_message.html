@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>我的消息</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="我的消息" />
+    <meta name="description" content="我的消息" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="我的消息">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="./css/public.css" />
+    <link rel="stylesheet" href="./css/my_message.css" />
+</head>
+<body>
+
+    <ul class="msg-list">
+        <li class="per-msg">
+            <div class="con-wrap" data-a='1'>
+                <h2 class="from-user">发件人： 安心客</h2>
+                <p class="msg-fragment">程序经费搜到分局从事软件成佛居委考评局势等委考评局势，等委考评局势等</p>
+                <time class="receive-time">2015-6-1　13:24</time>
+            </div>
+            <div class="delete-btn flex-center">删除</div>
+        </li>
+        <li class="per-msg">
+            <div class="con-wrap" data-a='2'>
+                <h2 class="from-user">发件人： 安心客</h2>
+                <p class="msg-fragment">程序经费搜到分局从事软件成佛居委考评局势等委考评局势，等委考评局势等</p>
+                <time class="receive-time">2015-6-1　13:24</time>
+            </div>
+            <div class="delete-btn flex-center">删除</div>
+        </li>
+    </ul>
+
+    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+
+    G.use(['zepto'], function($){
+
+        var startX = 0; // touchstart 时的X
+        var curX = 0;   // touchmove 时的X
+        var disX = 0;   // touchmove 的距离
+        var endX = 0;   // touchend 时的X
+        $('.con-wrap').data('endCurX', 0); // 滑动结束后，变换后，的距离，实际上只有2种
+        var deleteBtnWidth = $('.delete-btn').width();
+        $('.con-wrap').on('touchstart', function(event){
+            startX = event.touches[0].pageX;
+
+            if(event.preventDefault){
+                event.preventDefault();
+            }else{
+                event.returnValue = false;
+            }
+            
+        });
+        $('.con-wrap').on('touchmove', function(event){
+            curX = event.touches[0].pageX;
+
+            disX = curX - startX;
+
+            setTranslateX($(this), $(this).data('endCurX') + disX);
+
+            if(event.preventDefault){
+                event.preventDefault();
+            }else{
+                event.returnValue = false;
+            }
+        });
+        $('.con-wrap').on('touchend', function(event){
+            var self = this;
+            if(Math.abs(disX) < deleteBtnWidth / 2 && disX <= 0){
+                // 滑动距离小于删除滑块的一半，复原
+                addTransionStyle(this, '0.3s');
+                setTranslateX($(this), 0);
+                $(this).data('endCurX', 0);
+                setTimeout(function(){
+                    addTransionStyle(self, '0s');
+                }, 300);
+            }else if(Math.abs(disX) >= deleteBtnWidth / 2 && Math.abs(disX) <= deleteBtnWidth && disX <= 0){
+                // 滑动距离大于等于删除滑块宽度的一半，小于等于删除滑块的宽度时，显示滑块
+                addTransionStyle(this, '0.3s');
+                setTranslateX($(this), -deleteBtnWidth);
+                $(this).data('endCurX', -deleteBtnWidth);
+                setTimeout(function(){
+                    addTransionStyle(self, '0s');
+                }, 300);
+            }else if(Math.abs(disX) > deleteBtnWidth && disX <= 0){
+                // 滑动距离大于删除滑块宽度, 显示滑块
+                addTransionStyle(this, '0.3s');
+                setTranslateX($(this), -deleteBtnWidth);
+                $(this).data('endCurX', -deleteBtnWidth);
+                setTimeout(function(){
+                    addTransionStyle(self, '0s');
+                }, 300);
+            }else if(disX > 0){
+                // 滑动距离小于删除滑块的一半，复原
+                addTransionStyle(this, '0.3s');
+                setTranslateX($(this), 0);
+                $(this).data('endCurX', 0);
+                setTimeout(function(){
+                    addTransionStyle(self, '0s');
+                }, 300);
+            }
+            if(event.preventDefault){
+                event.preventDefault();
+            }else{
+                event.returnValue = false;
+            }
+
+        });
+
+
+
+        function setTranslateX(obj, diff) {
+            $(obj).css({
+                "-webkit-transform": "translateX(" + diff + "px)",
+                "transform": "translateX(" + diff + "px)"
+            });
+            $(obj).data('translateX', diff);
+        }
+        function addTransionStyle(obj, str){
+            obj.style.transition = str;
+            obj.style.WebkitTransition = str;
+            obj.style.MozTransition = str;
+            obj.style.OTransition = str;
+            obj.style.msTransition = str;
+        }
+        
+    });
+    
+
+    </script>
+
+</body>
+</html>

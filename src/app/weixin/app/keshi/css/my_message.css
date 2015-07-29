@@ -1,0 +1,47 @@
+html, body{
+	background: #ffffff;
+}
+.per-msg{
+	height: 125px;
+	position: relative;
+	overflow: hidden;
+	border-bottom: 1px solid #e1e1e1;
+}
+.con-wrap{
+	padding: 19px 4% 0;
+	position: relative;
+	z-index: 1;
+	background: #fff;
+	height: 125px;
+}
+.from-user{
+	height: 15px;
+	line-height: 15px;
+	font-size: 15px;
+	color: #333;
+}
+.msg-fragment{
+	font-size: 15px;
+	color: #999;
+	line-height: 22px;
+	margin-top: 12px;
+}
+.receive-time{
+	height: 34px;
+	text-align: right;
+	line-height: 34px;
+	font-size: 15px;
+	color: #999;
+	display: block;
+}
+.delete-btn{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 77px;
+	height: 100%;
+	background: #ff3b30;
+	font-size: 15px;
+	color: #fff;
+	z-index: 0;
+}
