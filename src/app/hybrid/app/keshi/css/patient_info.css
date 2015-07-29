@@ -16,6 +16,13 @@ body{
 	border: 2px solid #e0dfdf;
 	margin-top: 8px;
 }
+.nickname{
+	height: 13px;
+	font-size: 13px;
+	color: #999;
+	line-height: 13px;
+	margin-top: 8px;
+}
 .hs-intr-wrap{
 	margin-left: 77px;
 	padding-left: 13px;
@@ -26,7 +33,7 @@ body{
 	color: #333;
 	height: 18px;
 	line-height: 18px;
-	margin-top: 23px;
+	margin-top: 16px;
 }
 .hs-name span{
 	font-size: 15px;
@@ -34,11 +41,11 @@ body{
 	margin-left: 
 }
 .hs-school{
-	font-size: 15px;
+	font-size: 13px;
 	color: #999;
-	height: 15px;
-	line-height: 15px;
-	margin-top: 14px;
+	height: 13px;
+	line-height: 13px;
+	margin-top: 8px;
 }
 .opation-list li{
 	float: left;
@@ -118,10 +125,31 @@ body{
 }
 .pat-info-list{
 	background: #fff;
+	border-bottom: 1px solid #f2f2f2;
 }
 .pat-info{
-	padding: 5px 4% 12px;
-	border-bottom: 1px solid #e1e1e1;
+	padding: 5px 0 0;
+	width: 92%;
+	margin: 0 auto;
+	border-bottom: 1px solid #f2f2f2;
+}
+.pat-info:last-of-type{
+	border-bottom: none;
+}
+.pat-footer{
+	height: 33px;
+	line-height: 33px;
+}
+.pat-footer time{
+	float: right;
+	font-size: 13px;
+	color: #999;
+}
+.pat-footer span{
+	float: right;
+	font-size: 13px;
+	color: #999;
+	margin-right: 20px;
 }
 .pat-name{
 	height: 32px;
@@ -131,7 +159,7 @@ body{
 }
 .pat-intr-info{
 	font-size: 13px;
-	color: #999;
+	color: #333;
 	line-height: 24px;
 }
 .link-ta{
