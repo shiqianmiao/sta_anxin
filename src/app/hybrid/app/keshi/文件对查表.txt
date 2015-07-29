@@ -2,6 +2,7 @@ reassure.html			答疑解惑
 ques_deta.html			问题详情
 question_details.html	问题详情2
 rob_order.html			抢单
+rob_order_det.html		详情信息
 my_order.html			我的订单
 center.html				个人中心
 hs_details.html			护士详情
@@ -15,3 +16,6 @@ zhpwd1.html				找回密码1
 zhpwd2.html				找回密码2
 tel_change.html			手机号变更
 update_pwd.html			修改登录密码
+account_center_bank.html账户中心-银行卡
+account_det.html        账户明细
+withdrawal_det.html 	提现详情

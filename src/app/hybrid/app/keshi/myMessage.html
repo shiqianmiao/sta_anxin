@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="email=no" name="format-detection">
+	<title>我的消息</title>
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/myMessage.css">
+</head>
+<body>
+	
+	<header class="header">
+        <a href="#" class="header-return"></a>
+        <span class="show-all">我的消息</span>
+    </header>
+
+	<article class="msg-wrap">
+		<ul class="msg-list">
+			<li class="per-msg">
+				<p>您的审核未通过，审核失败原因是头像信息、身份信息、科室信息不合格，请登录个人中心进行修改。有任何问题请致电400-614-9398。</p>
+				<time>2015-6-1  14:23</time>
+			</li>
+			<li class="per-msg">
+				<p>您的审核未通过，审核失败原因是头像信息、身份信息、科室信息不合格，请登录个人中心进行修改。有任何问题请致电400-614-9398。</p>
+				<time>2015-6-1  14:23</time>
+			</li>
+			<li class="per-msg">
+				<p>您的审核未通过，审核失败原因是头像信息、身份信息、科室信息不合格，请登录个人中心进行修改。有任何问题请致电400-614-9398。</p>
+				<time>2015-6-1  14:23</time>
+			</li>
+			<li class="per-msg">
+				<p>您的审核未通过，审核失败原因是头像信息、身份信息、科室信息不合格，请登录个人中心进行修改。有任何问题请致电400-614-9398。</p>
+				<time>2015-6-1  14:23</time>
+			</li>
+			<li class="per-msg">
+				<p>您的审核未通过，审核失败原因是头像信息、身份信息、科室信息不合格，请登录个人中心进行修改。有任何问题请致电400-614-9398。</p>
+				<time>2015-6-1  14:23</time>
+			</li>
+			<li class="per-msg">
+				<p>您的审核未通过，审核失败原因是头像信息、身份信息、科室信息不合格，请登录个人中心进行修改。有任何问题请致电400-614-9398。</p>
+				<time>2015-6-1  14:23</time>
+			</li>
+		</ul>
+		<div class="load-more"><img src="imgs/load.gif"> <span>加载更多</span></div>
+	</article>
+
+	<section class="null-sec">
+		<img src="imgs/sun.jpg" class="null-sun">
+		<p>还没有消息哦</p>
+	</section>
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+   	<script>
+   		G.use(['zepto', 'widget/clientCheck/js/clientCheck.js'], function($, Client){
+			// 加载更多
+			$('.load-more').on('touchend', function () {
+				$(this).find('img').show();
+				$(this).find('span').html('加载中...');
+				// 发送ajax请求
+				
+			});
+
+			var system = Client.client.system;
+	        if(system.iphone){
+	            // 是iphone,增加头部高度
+	            $('.header').addClass('ios-header');
+	        }else{
+	            $('.header').removeClass('ios-header');
+	        }
+			
+		});
+   	</script>
+</body>
+</html>

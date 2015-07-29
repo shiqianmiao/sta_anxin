@@ -1,0 +1,136 @@
+.content{
+	padding: 0 4%;
+}
+.wd-title{
+	height: 60px;
+	line-height: 60px;
+	color: #333;
+	font-size: 15px;
+	border-bottom: 1px solid #e1e1e1;
+}
+.white{
+	background: #fff;
+}
+.amount-wrap{
+	padding-top: 13px;
+	border-bottom: 1px solid #e1e1e1;
+	height: 120px;
+	position: relative;
+}
+.amount-title{
+	font-size: 15px;
+	height: 15px; 
+	line-height: 15px;
+	color: #999999;
+}
+.amount{
+	font-size: 50px;
+	text-align: right;
+	height: 50px;
+	line-height: 50px;
+	position: absolute;
+	right: 0;
+	bottom: 20px;
+}
+.amount-list{
+	margin-top: 26px;
+}
+.per-amount{
+	height: 15px;
+	line-height: 15px;
+	margin-top: 17px;
+}
+.per-amount h3{
+	float: left;
+	width: 27.2463%;
+	color: #999;
+	font-size: 15px;
+	font-weight: normal;
+}
+.per-amount p{
+	float: left;
+	width: 72.7537%;
+	color: #333;
+	font-size: 15px;
+}
+.letter-span{
+	letter-spacing: 7px;
+}
+/* 账户明细的样式 */
+.account-top{
+	height: 49px;
+}
+.account-top nav{
+	height: 28px;
+	width: 92%;
+	border: 1px solid #ffad0f;
+	margin: 11px auto 0;
+	
+}
+.account-top nav a{
+	float: left;
+	width: 50%;
+	color: #ffad0f;
+	text-align: center;
+	line-height: 28px;
+	font-size: 15px;
+}
+.account-top nav a.active{
+	background: #ffad0f;
+	color: #fff;
+}
+.account-top nav a:first-of-type{
+	border-right: 1px solid #ffad0f;
+}
+.account-list{
+	padding: 0 4%;
+	background: #fff;
+}
+.per-account{
+	height: 60px;
+	border-bottom: 1px solid #e1e1e1;
+	position: relative;
+	ba
+}
+.per-account:last-of-type{
+	border: none;
+}
+.per-account a{
+	display: block;
+	height: 100%;
+}
+.account-title{
+	font-size: 15px;
+	height: 15px;
+	position: absolute;
+	line-height: 15px;
+	color: #333;
+	top: 12px;
+}
+.account-time{
+	font-size: 13px;
+	color: #999;
+	position: absolute;
+	height: 13px;
+	line-height: 13px;
+	bottom: 10px;
+}
+.money{
+	position: absolute;
+	height: 60px;
+	line-height: 60px;
+	right: 32px;
+	top: 0;
+	color: #ff3000;
+	font-size: 15px;
+}
+.go-icon{
+	position: absolute;
+	width: 9px;
+	height: 60px;
+	background: url(../imgs/strip.png) no-repeat 0 center;
+	background-size: 9px 17px;
+	top: 0;
+	right: 8px;
+}
+/* 账户明细的样式 结束 */
