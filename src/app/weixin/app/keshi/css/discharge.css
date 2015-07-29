@@ -1,0 +1,57 @@
+html,body{
+	background: #fff;
+}
+.dcg-top{
+	height: 67px;
+	border-bottom: 1px solid #cbcbcb;
+	padding: 0 4%;
+	overflow: hidden;
+}
+.dcg-top h2{
+	font-size: 18px;
+	color: #333;
+	height: 18px;
+	line-height: 18px;
+	margin-top: 13px;
+}
+.dcg-top p{
+	font-size: 13px;
+	height: 13px;
+	line-height: 13px;
+	color: #999;
+	margin-top: 10px;
+}
+.con-wrap{
+	padding: 19px 4% 0;
+}
+.con-wrap p{
+	font-size: 15px;
+	color: #333;
+	line-height: 22px;
+	margin-bottom: 23px;
+}
+.opationall-wrap{
+	height: 30px;
+	padding: 0 4%;
+}
+.opationall-wrap a,.opationall-wrap span{
+	float: right;
+	height: 30px;
+	line-height: 30px;
+	font-size: 13px;
+	color: #999;
+}
+.opationall-wrap span{
+	margin-right: 20px;
+}
+.share{
+	padding-left: 19px;
+	background: url(../imgs/share.png) no-repeat left center;
+	background-size: 14px 15px;
+}
+.zan{
+	padding-left: 18px;
+	background: url(../imgs/zan.png) no-repeat left center;
+	background-size: 13px 14px;
+	margin-right: 20px;
+}
