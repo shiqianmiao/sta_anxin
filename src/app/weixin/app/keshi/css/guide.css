@@ -1,0 +1,28 @@
+html, body{
+	background: #fff;
+}
+.per-posts{
+	height: 62px;
+	border-bottom: 1px solid #cbcbcb;
+	padding: 0 4%;
+}
+.per-posts a{
+	display: block;
+	color: #333;
+	overflow: hidden;
+}
+.per-posts h2{
+	font-size: 15px;
+	height: 15px;
+	line-height: 15px;
+	margin-top: 12px;
+	text-indent: -8px;
+}
+.per-posts time{
+	font-size: 13px;
+	color: #999;
+	height: 13px;
+	line-height: 13px;
+	margin-top: 10px;
+	display: block;
+}
