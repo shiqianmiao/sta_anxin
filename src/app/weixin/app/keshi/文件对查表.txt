@@ -12,3 +12,4 @@ my_center_head.html		个人中心-上传头像-修改昵称
 account_info.html		账号信息
 tel_change1.html		修改手机号1
 tel_change2.html		修改手机号2
+msg_det.html			消息详情
