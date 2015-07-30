@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>账号信息</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="账号信息" />
+    <meta name="description" content="账号信息" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="账号信息">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="./css/public.css" />
+    <link rel="stylesheet" href="./css/my_keshi.css" />
+</head>
+<body>
+
+    <ul class="keshi-list">
+        <li class="per-keshi">人民医院-呼吸科<span class="label-false label-true"></span></li>
+        <li class="per-keshi">人民医院-呼吸科<span class="label-false"></span></li>
+        <li class="per-keshi">人民医院-呼吸科<span class="label-false"></span></li>
+        <li class="per-keshi">人民医院-呼吸科<span class="label-false"></span></li>
+    </ul>
+
+    <footer class="opa-foot">
+        <a href="#" class="to-default">设为默认</a>
+    </footer>
+
+    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['zepto'], function($){
+
+        var targetAll = $('.per-keshi').find('span');
+        $('.per-keshi').on('tap', function(){
+            var target = $(this).find('span');
+            if(target.hasClass('label-true')){
+                target.toggleClass('label-true');
+            }else{
+                targetAll.removeClass('label-true');
+                target.toggleClass('label-true');
+            }
+            
+        });
+
+    });
+    </script>
+
+</body>
+</html>

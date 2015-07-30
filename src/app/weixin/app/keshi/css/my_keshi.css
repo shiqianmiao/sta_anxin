@@ -1,0 +1,48 @@
+html, body{
+	background: #f2f2f2;
+}
+.per-keshi{
+	height: 76px;
+	border-bottom: 1px solid #cbcbcb;
+	line-height: 76px;
+	color: #333;
+	font-size: 15px;
+	padding: 0 4%;
+	background: #fff;
+	position: relative;
+}
+.label-false{
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	background: url(../imgs/false.png) no-repeat;
+	background-size: 100% 100%;
+	right: 4%;
+	top: 25px;
+}
+.label-true{
+	background: url(../imgs/true.png) no-repeat;
+	background-size: 100% 100%;
+}
+.opa-foot{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 53px;
+	background: #e5e5e5;
+	border-top: 1px solid #c5c5c5;
+	overflow: hidden;
+	text-align: center;
+	width: 100%;
+}
+.opa-foot a{
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	font-size: 15px;
+	color: #fff;
+	padding: 0 30px;
+	background: #34c445;
+	border-radius: 16px;
+	margin-top: 10px;
+}
