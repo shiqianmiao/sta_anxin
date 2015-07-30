@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>我的账户</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="我的账户" />
+    <meta name="description" content="我的账户" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="我的账户">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="./css/public.css" />
+    <link rel="stylesheet" href="./css/survey.css" />
+</head>
+<body>
+
+    <header class="header-top">
+        <h2>您对科室的服务还满意么？</h2>
+    </header>
+
+    <ul class="ques-list">
+        <li class="per-ques">
+            <h2 class="ques-title">1. 医护人员是否解决了您提出的问题？</h2>
+            <ol class="options-list">
+                <li class="per-opa"><span class="borR-50"></span>解决</li>
+                <li class="per-opa"><span class="borR-50"></span>未解决</li>
+            </ol>
+        </li>
+        <li class="per-ques">
+            <h2 class="ques-title">2. 医护人员上门服务的态度您是否满意？</h2>
+            <ol class="options-list">
+                <li class="per-opa"><span class="borR-50"></span>非常满意</li>
+                <li class="per-opa"><span class="borR-50"></span>满意</li>
+                <li class="per-opa"><span class="borR-50"></span>一般</li>
+                <li class="per-opa"><span class="borR-50"></span>不满意</li>
+            </ol>
+        </li>
+        <li class="per-ques">
+            <h2 class="ques-title">2. 医护人员上门服务的态度您是否满意？</h2>
+            <ol class="options-list">
+                <li class="per-opa"><span class="borR-50"></span>非常满意</li>
+                <li class="per-opa"><span class="borR-50"></span>满意</li>
+                <li class="per-opa"><span class="borR-50"></span>一般</li>
+                <li class="per-opa"><span class="borR-50"></span>不满意</li>
+            </ol>
+        </li>
+        <li class="per-ques">
+            <h2 class="ques-title">2. 医护人员上门服务的态度您是否满意？</h2>
+            <ol class="options-list">
+                <li class="per-opa"><span class="borR-50"></span>非常满意</li>
+                <li class="per-opa"><span class="borR-50"></span>满意</li>
+                <li class="per-opa"><span class="borR-50"></span>一般</li>
+                <li class="per-opa"><span class="borR-50"></span>不满意</li>
+            </ol>
+        </li>
+        <li class="per-ques">
+            <h2 class="ques-title">2. 医护人员上门服务的态度您是否满意？</h2>
+            <ol class="options-list">
+                <li class="per-opa"><span class="borR-50"></span>非常满意</li>
+                <li class="per-opa"><span class="borR-50"></span>满意</li>
+                <li class="per-opa"><span class="borR-50"></span>一般</li>
+                <li class="per-opa"><span class="borR-50"></span>不满意</li>
+            </ol>
+        </li>
+    </ul>
+
+    <a href="#" class="reg-btn borR-3">提交</a>
+
+    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['zepto'], function($){
+        
+        // 点选效果
+        $('.per-opa').on('tap', function(){
+            
+            var radio = $(this).find('span');
+            if(radio.hasClass('active')){
+                radio.toggleClass('active');
+            }else{
+                $(this).parent().find('span').removeClass('active');
+                $(this).find('span').toggleClass('active');
+            }
+            
+        });
+
+    });
+    </script>
+
+</body>
+</html>

@@ -95,7 +95,7 @@
             disY = curY - startY;
 
 
-            if(Math.abs(disX) > 20 && Math.abs(disY) < 20){
+            if(Math.abs(disX) > 20){
                 setTranslateX($(this), $(this).data('endCurX') + disX);
                 if(event.preventDefault){
                     event.preventDefault();
@@ -110,44 +110,36 @@
 
         function endFn(event){
             var self = this;
-            if(Math.abs(disX) < deleteBtnWidth / 2 && disX <= 0){
-                // 滑动距离小于删除滑块的一半，复原
-                addTransionStyle(this, '0.3s');
-                setTranslateX($(this), 0);
-                $(this).data('endCurX', 0);
-                setTimeout(function(){
-                    addTransionStyle(self, '0s');
-                }, 300);
-            }else if(Math.abs(disX) >= deleteBtnWidth / 2 && Math.abs(disX) <= deleteBtnWidth && disX <= 0){
-                // 滑动距离大于等于删除滑块宽度的一半，小于等于删除滑块的宽度时，显示滑块
-                addTransionStyle(this, '0.3s');
-                setTranslateX($(this), -deleteBtnWidth);
-                $(this).data('endCurX', -deleteBtnWidth);
-                setTimeout(function(){
-                    addTransionStyle(self, '0s');
-                }, 300);
-            }else if(Math.abs(disX) > deleteBtnWidth && disX <= 0){
-                // 滑动距离大于删除滑块宽度, 显示滑块
-                addTransionStyle(this, '0.3s');
-                setTranslateX($(this), -deleteBtnWidth);
-                $(this).data('endCurX', -deleteBtnWidth);
-                setTimeout(function(){
-                    addTransionStyle(self, '0s');
-                }, 300);
-            }else if(disX > 0){
-                // 滑动距离小于删除滑块的一半，复原
-                addTransionStyle(this, '0.3s');
-                setTranslateX($(this), 0);
-                $(this).data('endCurX', 0);
-                setTimeout(function(){
-                    addTransionStyle(self, '0s');
-                }, 300);
+            if(Math.abs(disY) > 40){
+                slideFn(this, 0);
+            }else{
+                if(Math.abs(disX) < deleteBtnWidth / 2 && disX <= 0){
+                    // 滑动距离小于删除滑块的一半，复原
+                    slideFn(this, 0);
+                }else if(Math.abs(disX) >= deleteBtnWidth / 2 && Math.abs(disX) <= deleteBtnWidth && disX <= 0){
+                    // 滑动距离大于等于删除滑块宽度的一半，小于等于删除滑块的宽度时，显示滑块
+                    slideFn(this, -deleteBtnWidth);
+                }else if(Math.abs(disX) > deleteBtnWidth && disX <= 0){
+                    // 滑动距离大于删除滑块宽度, 显示滑块
+                    slideFn(this, -deleteBtnWidth);
+                }else if(disX > 0){
+                    // 滑动距离小于删除滑块的一半，复原
+                    slideFn(this, 0);
+                }
             }
+            
 
         }
 
 
-
+        function slideFn(obj, dis){
+            addTransionStyle(obj, '0.3s');
+            setTranslateX($(obj), dis);
+            $(obj).data('endCurX', dis);
+            setTimeout(function(){
+                addTransionStyle(obj, '0s');
+            }, 300);
+        }
 
         function setTranslateX(obj, diff) {
             $(obj).css({
