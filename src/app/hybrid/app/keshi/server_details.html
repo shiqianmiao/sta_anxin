@@ -17,7 +17,7 @@
 <body>
     <article>
         <div id="top" class="clear boxSha">
-            <div class="per-server clear" data-max="4" data-start="2" data-service_id="2" data-next_price="0.03">
+            <div class="per-server clear" data-max="1" data-start="1" data-service_id="2" data-next_price="0.01">
                 <a href="#">
                     <div class="con-wrap">
                         <h3>卧床清洁 <em><em class="per-time"></em></em>　<em class="color-hong">￥<span class="per-money">0.01</span></em></h3>
@@ -103,10 +103,12 @@
         还没选好哦
     </footer>
     <div class="statistical" hidden>共计：<em class="all-num">0</em>项  <em class="all-hour">0</em>小时  <span class="c-hong">￥<em class="all-money">0</em></span></div>
-    <script src="http://sta.anxin365.com/g.js"></script>
-    <script src="http://sta.anxin365.com/config.js"></script>
+    
+
+    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['zepto', 'app/yanglao/weixin/js/swiper.min.js','app/yanglao/weixin/js/DateSelect.js','widget/Halert/js/Halert.js'], function($, Swiper, DateS, Halert){
+    G.use(['zepto', 'lib/swiper/swiper.min.js','app/weixin/app/keshi/js/DateSelect.js'], function($, Swiper, DateS){
         // 轮播图
         var swiper = new Swiper('.swiper-container', {
             pagination: '.swiper-pagination',
@@ -121,17 +123,17 @@
             
 
             if(parseFloat($(this).parents('.per-server').find('.per-num').html()) >= $(this).parents('.per-server').data('max') && $(this).data('type') == 'add'){
-                //alert(allCount);
-                var halert = new Halert({
-                    title : '提示',
-                    content : '该项服务最多选择' + $(this).parents('.per-server').data('max') + '个',
-                    contentAlign : 'left',
-                    titleAlign : 'left'
-                });
-
-                halert.show();
 
                 return false;
+            }
+
+            // 点击加号，加号变灰色，减号显示
+            if($(this).data('type') == 'add'){
+                
+                showJian($('.btn-sec'));
+
+            }else{
+                showJia($('.btn-sec'));
             }
            
             var _this = $(this);
@@ -177,10 +179,30 @@
         $('.all-money').html(am); 
         if(lsNum != 0){
             $('.remove').css({color : '#ff4500'});
+            showJian($('.btn-sec'));
+        }else{
+            showJia($('.btn-sec'));
         }
+
         if(lsNum){
             $('#sel-true').show();
             $('#sel-false').hide();
+        }
+
+
+
+        function showJian(elem){
+            $(elem).find('.remove').css({color : '#ff4500', visibility: 'visible'});
+            $(elem).find('.per-num').css({visibility: 'visible'});
+            // 加变灰
+            $(elem).find('.add').css({color : '#999999'});
+        }
+
+        function showJia(elem){
+            $(elem).find('.remove').css({color : '#ff4500', visibility: 'hidden'});
+            $(elem).find('.per-num').css({visibility: 'hidden'});
+            // 加变灰
+            $(elem).find('.add').css({color : '#ff4500'});
         }
 
         // 计算轮播图的最小高度

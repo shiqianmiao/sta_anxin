@@ -146,11 +146,7 @@
             var firstBool = clickServNum < dataStart;
             var secBool = clickServNum <= dataStart;
 
-            // 点击加号，加号变灰色，减号显示
-            if($(this).data('type') == 'add'){
-                
-
-            }
+            
             if(parseFloat($(this).parents('.per-server').find('.per-num').html()) >= $(this).parents('.per-server').data('max') && $(this).data('type') == 'add'){
                 //alert(allCount);
                 // var halert = new Halert({

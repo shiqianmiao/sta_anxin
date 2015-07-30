@@ -1,0 +1,235 @@
+body{
+	padding-bottom: 70px;
+}
+#top{
+	padding: 10px 5% 20px;
+	background: #fff;
+	margin-bottom: 20px;
+}
+#top h2{
+	color: #2c2c2c;
+	font-size: 18px;
+	font-weight: normal;
+}
+.content-wrap{
+	float: left;
+	width: 86%;
+	height: 30px;
+	line-height: 30px;
+}
+.content-wrap h2{
+	float: left;
+	height: 30px;
+}
+.content-wrap p{
+	float: right;
+	height: 30px;
+	font-size: 18px;
+	color: #ff4500;
+}
+.add{
+	float: right;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #cccccc;
+}
+.top-p{
+	clear: both;
+	font-size: 14px;
+	color: #999999;
+	margin-top: 0;
+	line-height: 24px;
+}
+.per-detai{
+	background: #fff;
+	margin-top: 20px;
+}
+.loop-title,.title{
+	height: 45px;
+	padding: 0 5%;
+	border-bottom: 1px solid #cbcbcb;
+	line-height: 45px;
+	color: #ffad0f;
+	font-size: 16px;
+	font-weight: normal;
+}
+.loop-title{
+	color: #2c2c2c;
+	width: 100%;
+	border-bottom: none;
+}
+.img-wrap-slide{
+	height: auto;
+}
+.swiper-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+.swiper-slide {
+    background: #fff;
+    position: relative;
+    height: auto;
+}
+.swiper-slide img{
+	display: block;
+	width: 100%;
+}
+.swiper-slide p{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.5);
+	width: 90%;
+	padding: 5% 5% 6% 5%;
+	color: #fff;
+	font-size: 14px;
+	line-height: 22px;
+}
+.attention-to{
+	padding: 5% 5% 30px 5%;
+}
+.attention-to li{
+	font-size: 14px;
+	color: #2c2c2c;
+	margin-bottom: 18px;
+	line-height: 24px;
+}
+
+.per-server{
+	padding: 0;
+	position: relative;
+}
+.per-server a{
+	display: block;
+	width: 65%;
+	float: left;
+}
+.con-wrap h3{
+	color: #2c2c2c;
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 50px;
+	line-height: 50px;
+}
+.con-wrap h3 em{
+	font-size: 14px;
+	color: #999999;
+}
+.con-wrap h3 em.color-hong{
+	color: #ff4500;
+	font-size: 20px;
+}
+.nextem{
+	font-size: 20px;
+	color: #ff4500;
+	position: relative;
+	top: -14px;
+}
+@media all and (max-width: 330px){
+	.nextem{
+		font-size: 18px;
+	}
+}
+.nextp{
+	display: block;
+	background: none;
+	clear: both;
+	color: #2c2c2c;
+	font-size: 12px;
+	position: relative;
+	top: -12px;
+}
+.con-wrap p{
+	font-size: 16px;
+	color: #ff4500;
+	line-height: 30px;
+}
+.btn-sec{
+	float: left;
+	width: 35%;
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	text-align: center;
+	color: #2c2c2c;
+	position: relative;
+}
+.btn-sec section:first-of-type{
+	position: absolute;
+	height: 100%;
+	width: 50%;
+	left: 0;
+	top: 0;
+}
+.btn-sec section:last-of-type{
+	position: absolute;
+	height: 100%;
+	width: 50%;
+	right: 0;
+	top: 0;
+}
+.remove{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #999999;
+	line-height: 26px;
+	text-align: center;
+	color: #999999;
+	font-size: 34px;
+	left: 10px;
+	top: 10px;
+}
+.add{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #999999;
+	line-height: 30px;
+	text-align: center;
+	color: #ff4500;
+	font-size: 34px;
+	right: 10px;
+	top: 10px;
+}
+
+#sel-true, #sel-false{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	background: #4b5057;
+	font-size: 16px;
+	color: #fff;
+	z-index: 1000;
+}
+#sel-true{
+	display: none;
+}
+#sel-false{
+	text-align: center;
+}
+.cart{
+	width: 60%;
+	padding: 0 5%;
+	float: left;
+}
+.button-wrap{
+	float: left;
+	width: 30%;
+}
+.button-wrap a{
+	display: block;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	background: #ff5a00;
+}
+
