@@ -46,6 +46,13 @@
 	margin-top: 15px;
 	padding: 0 4%;
 }
+.more-ques span{
+	float: left;
+	height: 34px;
+	line-height: 34px;
+	color: #999;
+	font-size: 13px; 
+}
 .more-ques a{
 	float: right;
 	height: 34px;
