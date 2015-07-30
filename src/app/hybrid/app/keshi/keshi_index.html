@@ -15,12 +15,6 @@
 </head>
 <body>
 
-    <header class="header">
-        <a href="#" class="header-return"></a>
-        <span class="show-all">我的团队</span>
-        <a href="javascript:" class="er-btn"></a>
-    </header>
-
     <section class="ks-index-top">
         <img src="imgs/ks_index_top.jpg" />
         <section class="txt-mark-bg">
@@ -112,7 +106,7 @@
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js'], function($, Client){
+    G.use(['zepto'], function($){
 
         // 点击切换团队与患者
         $('.tab-btn').on('tap', function(){
@@ -125,35 +119,6 @@
             $(selector).show();
         });
 
-        var system = Client.client.system;
-        if(system.iphone){
-            // 是iphone,增加头部高度
-            $('.header').addClass('ios-header');
-        }else{
-            $('.header').removeClass('ios-header');
-        }
-
-        // 点击头部二维码btn，弹出二维码弹窗
-        $('.er-btn').on('tap', function(){
-            alertWin('#er-window', '.er-close-mark');
-        });
-        
-        $('.erpic').on('tap', function(event){
-            if(event.stopPropagation){
-                event.stopPropagation();
-            }else{
-                event.cancelBubble = true;
-            }
-        });
-
-        // 弹窗
-        function alertWin(winSelector, closeSelector){
-            $(winSelector).removeClass('window-hide');
-            $(closeSelector).on('tap', function(){
-                $(winSelector).addClass('window-hide');
-                $(closeSelector).off('tap');
-            });
-        }
 
     });
     </script>

@@ -25,7 +25,7 @@
     </section>
 
     <div class="go-wrap">
-        <section class="down-drag-wrap">
+        <!-- <section class="down-drag-wrap">
             <p>向下拖动，查看科室详情</p>
         </section>
 
@@ -45,7 +45,7 @@
                     <div class="plate-icon icon-kszn"></div>科室指南
                 </a>
             </li>
-        </ul>
+        </ul> -->
 
         <ul class="problem-list">
             <li class="per-pro">
@@ -91,21 +91,9 @@
         </ul>
     </div>
 
-    <footer class="footer">
-        <span class="footer-center-img"></span>
-        <ul class="footerbtn-wrap">
-            <li class="btn1 active">
-                <p>科室</p>
-            </li>
-            <li class="btn2">
-                <p>服务预订</p>
-            </li>
-        </ul>
-        <a href="javascript:;" class="to-questions"></a>
-    </footer>
 
     <!-- 弹层 -->
-    <div class="alert-mark tip-mark-win flex-center hide-win">
+   <!--  <div class="alert-mark tip-mark-win flex-center hide-win">
         <div class="tip-win borR-3">
             <p class="attention">治疗期间的注意事项，您可以看看我们的<a href="#">“健康科普”,“科室指南”, “医护提示”</a></p>
             <p class="attention">您还没有完善过<a href="#">“患者信息”</a>哦，完善信息医护人员会更好的帮您解答问题</p>
@@ -116,38 +104,51 @@
                 <a href="#" class="to-wen borR-3">直接提问</a>
             </footer>
         </div>
-    </div>
+    </div> -->
+
+    <footer class="footer">
+        <span class="footer-center-img"></span>
+        <ul class="footerbtn-wrap">
+            <li class="btn1 active">
+                <p>科室</p>
+            </li>
+            <li class="btn2">
+                <p>服务预订</p>
+            </li>
+        </ul>
+        <a href="#" class="to-questions"></a>
+    </footer>
     
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
     G.use(['zepto', 'com/mobile/widget/toucher/toucher.js'], function($, toucher){
 
-        var moveLabel = true;
-        // 向下滑动 scrollTop == 0
-        var target = util.toucher($('html')[0]);
-        target.on('swipeDown', function(e){
-            //console.log(e);
-            if($(window).scrollTop() <= 0 && moveLabel){
-                $(document).on('touchend', function(){
-                    $('.down-drag-wrap').hide();
-                    $('.ks-index-top').show().addClass('pt-page-scaleUpCenter');
-                    moveLabel = false;
-                    $(document).off('touchend');
-                });
+        // var moveLabel = true;
+        // // 向下滑动 scrollTop == 0
+        // var target = util.toucher($('html')[0]);
+        // target.on('swipeDown', function(e){
+        //     //console.log(e);
+        //     if($(window).scrollTop() <= 0 && moveLabel){
+        //         $(document).on('touchend', function(){
+        //             $('.down-drag-wrap').hide();
+        //             $('.ks-index-top').show().addClass('pt-page-scaleUpCenter');
+        //             moveLabel = false;
+        //             $(document).off('touchend');
+        //         });
                 
-            }
-        });
+        //     }
+        // });
 
-        // 弹层
-        alertFn('.tip-mark-win')
-        function alertFn(selector){
-            $(selector).removeClass('hide-win');
-        }
-        $('.no-tip').on('tap', function(){
-            $(this).toggleClass('notip-true');
+        // // 弹层
+        // alertFn('.tip-mark-win')
+        // function alertFn(selector){
+        //     $(selector).removeClass('hide-win');
+        // }
+        // $('.no-tip').on('tap', function(){
+        //     $(this).toggleClass('notip-true');
             
-        });
+        // });
 
     });
     </script>

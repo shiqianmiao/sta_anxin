@@ -39,10 +39,22 @@
 	right: 12px;
 	top: 5px;
 }
-
+.more-ques{
+	height: 34px;
+	background: #fff;
+	border-bottom: 1px solid #cbcbcb;
+	margin-top: 15px;
+	padding: 0 4%;
+}
+.more-ques a{
+	float: right;
+	height: 34px;
+	line-height: 34px;
+	color: #ffad0f;
+	font-size: 13px;
+}
 .ques-list{
 	background: #fff;
-	margin-top: 15px;
 }
 .per-ques{
 	padding: 0 4%;
