@@ -21,3 +21,4 @@ report_duty_yes.html	报到完成
 discharge.html			出院宣教
 guide.html				科室指南
 survey.html				满意度调查
+feedback.html			意见反馈

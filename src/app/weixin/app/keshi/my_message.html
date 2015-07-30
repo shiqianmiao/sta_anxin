@@ -80,6 +80,8 @@
         var disY = 0;   // touchmove 的Y距离
         var endX = 0;   // touchend 时的X
         var endY = 0;   // touchend 时的Y
+        var labelX = false; // 标志着该次滑动X的距离是否大于20
+        var labelY = false; // 标志着该次滑动Y的距离是否大于20
         $('.con-wrap').data('endCurX', 0); // 滑动结束后，变换后，的距离，实际上只有2种
         var deleteBtnWidth = $('.delete-btn').width();
         $('.con-wrap').on('touchstart', function(event){
@@ -94,14 +96,23 @@
             disX = curX - startX;
             disY = curY - startY;
 
+            if(Math.abs(disX) > 20 && !labelY){
 
-            if(Math.abs(disX) > 20){
                 setTranslateX($(this), $(this).data('endCurX') + disX);
+
                 if(event.preventDefault){
                     event.preventDefault();
                 }else{
                     event.returnValue = false;
                 }
+            }
+
+            if(Math.abs(disX) > 20 && !labelY){
+                labelX = true;
+            }
+
+            if(Math.abs(disY) > 20 && !labelX){
+                labelY = true;
             }
 
 
@@ -110,9 +121,7 @@
 
         function endFn(event){
             var self = this;
-            if(Math.abs(disY) > 40){
-                slideFn(this, 0);
-            }else{
+            if(labelX){
                 if(Math.abs(disX) < deleteBtnWidth / 2 && disX <= 0){
                     // 滑动距离小于删除滑块的一半，复原
                     slideFn(this, 0);
@@ -126,8 +135,25 @@
                     // 滑动距离小于删除滑块的一半，复原
                     slideFn(this, 0);
                 }
+            }else{
+                slideFn(this, 0);
             }
             
+            labelX = false;
+            labelY = false;
+            // if(Math.abs(disX) < deleteBtnWidth / 2 && disX <= 0){
+            //     // 滑动距离小于删除滑块的一半，复原
+            //     slideFn(this, 0);
+            // }else if(Math.abs(disX) >= deleteBtnWidth / 2 && Math.abs(disX) <= deleteBtnWidth && disX <= 0){
+            //     // 滑动距离大于等于删除滑块宽度的一半，小于等于删除滑块的宽度时，显示滑块
+            //     slideFn(this, -deleteBtnWidth);
+            // }else if(Math.abs(disX) > deleteBtnWidth && disX <= 0){
+            //     // 滑动距离大于删除滑块宽度, 显示滑块
+            //     slideFn(this, -deleteBtnWidth);
+            // }else if(disX > 0){
+            //     // 滑动距离小于删除滑块的一半，复原
+            //     slideFn(this, 0);
+            // }
 
         }
 

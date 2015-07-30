@@ -1,0 +1,65 @@
+html, body{
+	background: #fff;
+}
+.logo-img{
+	display: block;
+	width: 50px;
+	height: 62px;
+	margin: 60px auto 16px;
+}
+@media all and (max-width: 320px) and (max-height: 480px){
+	.logo-img{
+		margin: 20px auto 0;
+	}
+}
+.title{
+	font-size: 18px;
+	text-align: center;
+	height: 18px;
+	line-height: 18px;
+	color: #999;
+}
+.tel{
+	font-size: 30px;
+	height: 30px;
+	color: #ffad0f;
+	line-height: 30px;
+	text-align: center;
+	display: block;
+	margin-top: 15px;
+	font-weight: bold;
+}
+.textarea{
+	display: block;
+	width: 84%;
+	height: 205px;
+	padding: 14px 4%;
+	margin: 56px auto 0;
+	border: 1px solid #dadada;
+	line-height: 20px;
+	color: #333;
+}
+@media all and (max-width: 320px){
+	.textarea{
+		margin: 26px auto 0;
+	}
+}
+@media all and (max-width: 320px) and (max-height: 480px){
+	.textarea{
+		margin: 16px auto 0;
+	}
+}
+.reg-btn{
+	box-shadow: 0 3px 2px #d97908;
+	position: relative;
+	margin: 26px auto 0;
+}
+@media all and (max-width: 320px) and (max-height: 480px){
+	.reg-btn{
+		margin: 16px auto 0;
+	}
+}
+.reg-btn:active{
+	box-shadow: 0 0 0 #fff;
+	top: 2px;
+}
