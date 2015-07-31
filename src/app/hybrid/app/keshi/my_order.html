@@ -117,6 +117,47 @@
 		<p>赶快继续去接单区接单吧！</p>
 	</section> -->
 
+	<!-- 取消订单弹窗 -->
+	<div class="alert-mark flex-center hide-win" id="cancle-window">
+		<section class="cancle-win borR-3">
+			<h2 class="canwin-title">订单取消原因</h2>
+			<ul class="why-list">
+				<li class="per-why active">
+					<span class="borR-50 boxSiz"></span>客人家中无人
+				</li>
+				<li class="per-why">
+					<span class="borR-50 boxSiz"></span>客人没时间
+				</li>
+				<li class="per-why">
+					<span class="borR-50 boxSiz"></span>客人下错单
+				</li>
+				<li class="per-why">
+					<span class="borR-50 boxSiz"></span>其他原因
+				</li>
+			</ul>
+			<textarea class="why-text borR-3"></textarea>
+			<p class="why-tip">取消订单前建议联系客服，以免造成其它麻烦！</p>
+			<footer class="why-foot">
+				<a href="Javascript:;" class="boxSiz close-why-win">取消</a>
+				<a href="#">确认</a>
+			</footer>
+		</section>
+	</div>
+
+	<!-- 支付弹窗 -->
+	<div class="alert-mark flex-center hide-win" id="pay-window">
+		<section class="pay-win borR-3">
+			<h2>选择付款方式</h2>
+			<ul>
+				<li class="pay-way active">线上支付</li>
+				<li class="pay-way">现金支付</li>
+			</ul>
+			<footer>
+				<a href="#" class="borR-3">确定</a><a href="#" class="borR-3 cancle-pay">取消</a>
+			</footer>
+		</section>
+	</div>
+
 	<footer class="footer2">
         <a href="#"></a>
         <a href="#" class="active"></a>
@@ -129,23 +170,42 @@
 
     G.use(['zepto', 'widget/clientCheck/js/clientCheck.js', 'widget/Hscroll/js/Hscroll2.js'], function($, Client, Hscroll){
 
-    	// 弹窗完善资料窗
-    	// alertWin('#pf-window', '.pf-close');
-    	// 弹出通过审窗
-    	// alertWin('#through-window', '.through-close');
-    	// 弹出未通过审核窗
-    	// alertWin('#nothrough-window', '.nothrough-close');
-    	// 弹出提交成功窗
-    	// alertWin('#success-window', '.success-close');
+    	// 点击取消订单，弹出窗口
+    	$('.cancel-order').on('tap', function(){
+    		$('#cancle-window').removeClass('hide-win');
+    		// 点击取消按钮
+    		$('.close-why-win').on('tap', function(){
+    			$('#cancle-window').addClass('hide-win');
+    			$('.close-why-win').off('tap');
+    			$('.per-why').off('tap');
+    			// 还原选项
+    			$('.per-why').removeClass('active');
+    			$('.per-why').eq(0).addClass('active');
+    		});
+    		// 点击选项
+			$('.per-why').on('tap', function(){
+				$('.per-why').removeClass('active');
+				$(this).addClass('active');
+			});
+    	});
 
-	    // 弹窗
-	    function alertWin(winSelector, closeSelector){
-	    	$(winSelector).removeClass('window-hide');
-	    	$(closeSelector).on('tap', function(){
-	    		$(winSelector).addClass('window-hide');
-	    		$(closeSelector).off('tap');
-	    	});
-	    }
+    	alertPayWin();
+
+    	// 显示支付弹窗
+    	function alertPayWin(){
+    		$('#pay-window').removeClass('hide-win');
+    		// 点击支付方式
+    		$('.pay-way').on('tap', function(){
+    			$('.pay-way').removeClass('active');
+    			$(this).addClass('active');
+    		});
+    		// 点击取消按钮
+    		$('.cancle-pay').on('tap', function(){
+    			$('#pay-window').addClass('hide-win');
+    			$('.cancle-pay').off('tap');
+    			$('.pay-way').off('tap');
+    		});
+    	}
 
 	    // 点击头部二维码btn，弹出二维码弹窗
         $('.er-btn').on('tap', function(){
