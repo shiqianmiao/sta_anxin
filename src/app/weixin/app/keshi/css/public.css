@@ -227,6 +227,7 @@ Hmodel 样式
 	border-radius: 6px;
 
 	display: none;
+	z-index: 20000;
 
 	top: 50%;
 	left: 50%;
@@ -293,7 +294,7 @@ Hmodel 样式
 .to-questions:active{
 	box-shadow: 0 0 6px #333;
 	transform: scale(.9);
-	-webkit-transform: scale(.9); 
+	-webkit-transform: scale(.9);
 }
 .footerbtn-wrap{
 	width: 100%;
