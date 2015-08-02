@@ -11,13 +11,13 @@ Comment.init = function() {
 		var curIndex = $(this).data("num");
 		for(var i=0;i<allStar.length;i++) {
 			if(i < curIndex) {
-				$(allStar[i]).find('img').attr('src', 'http://s1.anxinsta.com/app/weixin/app/nurse/imgs/stars_ing.png').addClass('t');
+				$(allStar[i]).find('img').attr('src', 'http://s1.anxinsta.com/app/weixin/app/keshi/imgs/stars_ing.png').addClass('t');
 			} else {
-				$(allStar[i]).find('img').attr('src','http://s1.anxinsta.com/app/weixin/app/nurse/imgs/stars.png').removeClass('t');
+				$(allStar[i]).find('img').attr('src','http://s1.anxinsta.com/app/weixin/app/keshi/imgs/stars.png').removeClass('t');
 			}
 		}
 		// 让后面的星星熄灭
-		$(this).next().find('img').attr('src','http://s1.anxinsta.com/app/weixin/app/nurse/imgs/stars.png').removeClass('t');
+		$(this).next().find('img').attr('src','http://s1.anxinsta.com/app/weixin/app/keshi/imgs/stars.png').removeClass('t');
 
 		var score = Comment.checkStars(),
 			contentLength = $("#content").val().length;
@@ -53,7 +53,7 @@ Comment.init = function() {
 		$.ajax({
             type : 'POST',
             url  : '/comment/add',
-            data : {score : score, content : content, order_id : orderId, weixin_id: ANXIN.weixinId},
+            data : {score : score, content : content, order_id : orderId, weixin_id: KS.ksWeixinId},
             dataType : 'json',
             success:function(data){
                 if (data.status > 0) {
