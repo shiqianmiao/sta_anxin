@@ -145,28 +145,51 @@ $.extend(waitLoading.prototype, {
 				break;
 		}
 
+		this.maskWrap = $('<section></section>');
+		this.maskWrap.css({
+			position:"fixed",
+			width:"100%",
+			height:"100%",
+			top:0,
+			left:0,
+			display:"none",
+			zIndex:"100000"
+		});
 		this.mask = $('<div></div>');
-		this.mask.css({display:"none",position:"fixed",width:"100%",height:"100%",background:"rgba(0,0,0,0.5)",top:"0",left:"0",zIndex:"100000"});		
+		this.mask.css({
+			position:"fixed",
+			width:"100px",
+			height:"100px",
+			background:"rgba(0,0,0,0.5)",
+			top:"50%",
+			left:"50%",
+			marginLeft:"-50px", 
+			marginTop:"-50px",
+			borderRadius:"3px"
+		});		
 		this.mask.append($(templateStr));
 		$(this.mask).find('.sk-spinner').css({width:this.settings.width,height:this.settings.height});
 		$(this.mask).find('.sk-spinner span').css({background:this.settings.color});
 		if(this.settings.type == this.styleList.pulse || this.settings.type == this.styleList.rotatingPlane){
 			$(this.mask).find('.sk-spinner').css({background:this.settings.color});
 		}
-		$('body').append(this.mask);
+		$(this.maskWrap).append(this.mask);
+		$('body').append(this.maskWrap);
 
 		if(this.settings.loadEnd){
-			this.settings.loadEnd(this.mask);
+			this.settings.loadEnd(this.maskWrap);
 		}
 	},
 
-	show : function(){
-		$(this.mask).show();
+	show : function(num){
+		var num2 = num ? num : 0;
+		$(this.maskWrap).show(num2);
 		$(document).on('touchmove', this._noScrollFn);
 	},
 
-	hide : function(){
-		$(this.mask).hide();
+	hide : function(num){
+		var num2 = num ? num : 0;
+		$(this.maskWrap).hide(num2);
 		$(document).off('touchmove', this._noScrollFn);
 	},
 

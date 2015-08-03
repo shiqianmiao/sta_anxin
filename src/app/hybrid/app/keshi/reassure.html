@@ -176,8 +176,8 @@
         function showWaitLoad(){
             WL.init({
                 color : "#fff",
-                width : "100px",
-                height : "100px",
+                width : "30px",
+                height : "30px",
                 // type -> ['circle', 'chasingDots', 'cubeGrid', 'doubleBounce', 'fadingCircle'
                 //          'pulse', 'rotatingPlane', 'threeBounce', 'wanderingCubes', 'wave'
                 //          'wordpress']
@@ -188,9 +188,9 @@
             });
         }
 
-        //showWaitLoad();
+        showWaitLoad();
         setTimeout(function(){
-            WL.hide();
+            WL.hide(300);
         }, 2000);
         
         var $alertDom = null;
