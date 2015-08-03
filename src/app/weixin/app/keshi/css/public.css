@@ -493,3 +493,21 @@ Hmodel 样式
 	color: #999;
 }
 /* 注册页面 找回密码 公共样式 结束 */
+/* 数据null样式 */
+.null-sec{
+	text-align: center;
+	margin-top: 125px;
+}
+.null-sec img{
+	width: 105px;
+	height: 105px;
+}
+.null-sec p{
+	font-size: 15px;
+	height: 15px;
+	line-height: 15px;
+	color: #999;
+	margin-top: 23px;
+	text-align: center;
+}
+/* 数据null样式 结束 */

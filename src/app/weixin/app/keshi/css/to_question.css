@@ -39,6 +39,10 @@
 	right: 12px;
 	top: 5px;
 }
+.reg-btn{
+	margin: 13px auto 0;
+	box-shadow: 0 3px 0px 0 #d97908;
+}
 .more-ques{
 	height: 34px;
 	background: #fff;
