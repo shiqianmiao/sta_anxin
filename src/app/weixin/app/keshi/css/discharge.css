@@ -24,6 +24,13 @@ html,body{
 .con-wrap{
 	padding: 19px 4% 0;
 }
+.posts-wrap{
+	font-size: 15px;
+	color: #333;
+	line-height: 22px;
+	margin-bottom: 23px;
+	text-indent: 2em;
+}
 .con-wrap p{
 	font-size: 15px;
 	color: #333;
