@@ -3,7 +3,6 @@
 	z-index: -1;
 	top: -100%;*/
 	position: relative;
-	margin-bottom: 15px;
 }
 .ks-index-top img{
 	width: 100%;
@@ -242,5 +241,18 @@
 }
 .index2-plate li h2{
 	font-size: 15px;
+	height: 15px;
+	line-height: 15px;
+	color: #333;
+	margin-top: 21px;
+	position: relative;
+}
+.index2-plate li em{
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	background: #ff2020;
+	right: 52px;
+	top: -5px;
 }
 /* 新科室首页 结束 */
