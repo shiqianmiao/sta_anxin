@@ -24,3 +24,4 @@ survey.html				满意度调查
 feedback.html			意见反馈
 server_details.html		服务详情
 my_keshi.html			我的科室
+posts.html				文章详情
