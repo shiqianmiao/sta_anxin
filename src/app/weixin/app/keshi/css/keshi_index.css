@@ -206,3 +206,41 @@
 .hide-win{
 	display: none;
 }
+/* 新科室首页 */
+.white{
+	background: #fff;
+}
+.index2-plate li{
+	float: left;
+	width: 50%;
+	height: 171px;
+	text-align: center;
+}
+.index2-plate li a{
+	display: block;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.plate-bg{
+	width: 109px;
+	height: 109px;
+	background: url(../imgs/index_plate.png) no-repeat;
+	margin: 26px auto 0;
+}
+.plate-bg1{
+	background-position: 0 0;
+}
+.plate-bg2{
+	background-position: -109px 0;
+}
+.plate-bg3{
+	background-position: 0 -109px;
+}
+.plate-bg4{
+	background-position: -109px -109px;
+}
+.index2-plate li h2{
+	font-size: 15px;
+}
+/* 新科室首页 结束 */
