@@ -197,6 +197,14 @@ body{
 .footer2 a:nth-of-type(3).active{
 	background-position: center -229px;
 }
+.footer2 a em{
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	background: #ff2020;
+	left: 62%;
+	top: 8px;
+}
 #Hwrap{
 	position: absolute;
 	top: 0;
