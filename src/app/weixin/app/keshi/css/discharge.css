@@ -24,6 +24,9 @@ html,body{
 .con-wrap{
 	padding: 19px 4% 0;
 }
+.posts-body{
+	padding-bottom: 10px;
+}
 .posts-wrap{
 	font-size: 15px;
 	color: #333;
