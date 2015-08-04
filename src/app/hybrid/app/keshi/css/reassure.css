@@ -7,20 +7,7 @@
 	  background: #ebebeb;
 	  width: 100%;
 }
-.load-more{
-	background: #ededed;
-	border: none;
-	text-align: center;
-	margin-top: 50px;
-}
-.load-more.hide{
-	display: none;
-}
-.load-more img{
-	display: inline-block;
-	width: 30px;
-	height: 30px;
-}
+
 .top-nav{
 	height: 0;
 	background: #fff;

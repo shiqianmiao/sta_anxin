@@ -304,18 +304,20 @@ body{
 	height: 35px; 
 	text-align: center; 
 	color: #999999; 
-	background: #fff; 
+	background: none;
 	line-height: 35px;  
-	border-top: 1px solid #e1e1e1;
-	border-bottom: 1px solid #e1e1e1;
+	border: none;
+	margin-top: 50px;
+}
+.load-more.hide{
+	display: none;
 }
 .load-more img{ 
-	width: 23px; 
-	height: 23px; 
+	width: 30px; 
+	height: 30px; 
 	display: inline-block; 
 	position: relative; 
 	top: 6px; 
-	display: none;
 }
 /* 点击加载更多 结束 */
 /*

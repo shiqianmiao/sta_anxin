@@ -3,7 +3,6 @@
 	z-index: -1;
 	top: -100%;*/
 	position: relative;
-	margin-bottom: 15px;
 }
 .ks-index-top img{
 	width: 100%;
@@ -62,7 +61,7 @@
 	float: left;
 	margin: 17px 0 0 5px;
 	color: #fff;
-	left: 
+	left:
 }
 .hospital-intr{
 	font-size: 13px;
@@ -138,7 +137,7 @@
 }
 .per-pro h3{
 	font-size: 15px;
-	content: #333333;
+	color: #333333;
 	height: 15px;
 	line-height: 15px;
 	margin-top: 13px;
@@ -206,3 +205,54 @@
 .hide-win{
 	display: none;
 }
+/* 新科室首页 */
+.white{
+	background: #fff;
+}
+.index2-plate li{
+	float: left;
+	width: 50%;
+	height: 171px;
+	text-align: center;
+}
+.index2-plate li a{
+	display: block;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.plate-bg{
+	width: 109px;
+	height: 109px;
+	background: url(../imgs/index_plate.png) no-repeat;
+	margin: 26px auto 0;
+}
+.plate-bg1{
+	background-position: 0 0;
+}
+.plate-bg2{
+	background-position: -109px 0;
+}
+.plate-bg3{
+	background-position: 0 -109px;
+}
+.plate-bg4{
+	background-position: -109px -109px;
+}
+.index2-plate li h2{
+	font-size: 15px;
+	height: 15px;
+	line-height: 15px;
+	color: #333;
+	margin-top: 21px;
+	position: relative;
+}
+.index2-plate li em{
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	background: #ff2020;
+	right: 52px;
+	top: -5px;
+}
+/* 新科室首页 结束 */

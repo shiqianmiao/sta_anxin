@@ -61,3 +61,6 @@ body, html{
 .im-radio.no-select{
 	background: #ededed;
 }
+.reg-btn{
+	margin: 30px auto 0;
+}
