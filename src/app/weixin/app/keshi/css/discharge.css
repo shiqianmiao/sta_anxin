@@ -70,3 +70,18 @@ html,body{
 	background-size: 13px 14px;
 	margin-right: 20px;
 }
+.posts-bottom{
+	width: 320px;
+	height: 202px;
+	background: url(../imgs/posts_btm.png) no-repeat;
+	background-size: 100% 100%;
+	margin: 20px auto;
+	position: relative;
+}
+.posts-bottom img{
+	position: absolute;
+	width: 121px;
+	height: 121px;
+	right: 17px;
+	top: 65px;
+}
