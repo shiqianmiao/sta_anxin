@@ -284,7 +284,7 @@ Answer.swipeImg = function(config) {
     var $piclist = null;
     var thisSort = 0;
     // 当点击图片的时候
-    $el.find('.per-pic').on('tap', function(){
+    $el.find('.per-pic').on('click', function(){
         // 初始化查看图片的滚动
         var swiper = new Swiper('.swiper-container', {
             pagination: '.swiper-pagination',
