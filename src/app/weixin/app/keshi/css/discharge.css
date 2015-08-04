@@ -37,6 +37,11 @@ html,body{
 	line-height: 22px;
 	margin-bottom: 23px;
 }
+.posts-wrap img{
+	max-width: 100%;
+	display: block;
+	margin: 10px auto;
+}
 .opationall-wrap{
 	height: 30px;
 	padding: 0 4%;
