@@ -26,6 +26,9 @@
 	height: 15px;
 	line-height: 15px;
 }
+.records-content h2 a{
+	color: #333;
+}
 .records-content h2 em{
 	font-size: 13px;
 	color: #999;

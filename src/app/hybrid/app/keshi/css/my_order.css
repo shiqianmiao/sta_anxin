@@ -55,6 +55,9 @@ body, html{
 	font-size: 15px;
 	color: #333;
 }
+.addr-link{
+	color: #333;
+}
 .text-indent-8{
 	text-indent: -8px;
 }
