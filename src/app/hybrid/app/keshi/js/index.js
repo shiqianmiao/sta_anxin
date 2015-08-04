@@ -11,7 +11,6 @@ var Base = require('app/hybrid/common/base.js');
 var QuestionTpl = require('app/hybrid/app/keshi/tpl/question_list.tpl');
 var Widget = require('com/mobile/lib/widget/widget.js');
 var Hscroll = require('widget/Hscroll/js/Hscroll2.js');
-var WaitLoading = require('widget/waitLoading/js/waitLoading.js');
 var Question = exports;
 
 var ajaxDataUrl = '';
@@ -23,31 +22,10 @@ var maxTime = 0;
 Question.bindTopEvent = function(config) {
     var $el = config.$el;
     // 点击头部的全部按钮，展开隐藏导航
-    $el.find('.show-all').on('tap', function(){
+    $el.find('.show-all').on('click', function(event){
         $(this).find('img').toggleClass('rotate180');
         $('.top-nav').toggleClass('slide-show');
     });
-
-    // 点击头部二维码btn，弹出二维码弹窗
-    $el.find('.er-btn').on('tap', function(){
-        alertWin('#er-window', '.er-close-mark');
-    });
-
-    $('.erpic').on('tap', function(event){
-        if(event.stopPropagation){
-            event.stopPropagation();
-        }else{
-            event.cancelBubble = true;
-        }
-    });
-    // 弹窗
-    function alertWin(winSelector, closeSelector){
-        $(winSelector).removeClass('window-hide');
-        $(closeSelector).on('tap', function(){
-            $(winSelector).addClass('window-hide');
-            $(closeSelector).off('tap');
-        });
-    }
 };
 
 Question.bindQuestionEvent = function(config) {
@@ -130,7 +108,8 @@ Question.bindQuestionEvent = function(config) {
 
     //设置公开
     var sendPublic = false;
-    $el.delegate('.to-public', 'tap', function(){
+    $el.delegate('.to-public', 'touchend', function(event){
+        event.stopPropagation();
         if (sendPublic) {
             return false;
         }
@@ -147,6 +126,8 @@ Question.bindQuestionEvent = function(config) {
                 if (data.errorCode == 0) {
                     $this.data('open', data.data.open);
                     $this.html(data.data.open_text);
+                    $this.parents('.alert-opa').hide();
+                    $this.parents('.alert-opa').data('show', false);
                     window.plugins.toast.showShortCenter('设置成功', function(){}, function(){});
                 } else if (data.errorMessage) {
                     window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
@@ -157,11 +138,13 @@ Question.bindQuestionEvent = function(config) {
                 sendPublic = false;
             }
         });
+        event.preventDefault();
     });
 
     //删除
     var sendDelete = false;
-    $el.delegate('.to-delete', 'tap', function(){
+    $el.delegate('.to-delete', 'touchend', function(event){
+        event.stopPropagation();
         if (sendDelete) {
             return false;
         }
@@ -176,6 +159,8 @@ Question.bindQuestionEvent = function(config) {
             success : function (data) {
                 if (data.errorCode == 0) {
                     $this.parents('li').remove();
+                    $this.parents('.alert-opa').hide();
+                    $this.parents('.alert-opa').data('show', false);
                     window.plugins.toast.showShortCenter('删除成功', function(){}, function(){});
                 } else if (data.errorMessage) {
                     window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
@@ -186,6 +171,7 @@ Question.bindQuestionEvent = function(config) {
                 sendDelete = false;
             }
         });
+        event.preventDefault();
     });
 
     // 点击回复按钮
@@ -210,7 +196,8 @@ Question.bindQuestionEvent = function(config) {
     });
 
     var sendComment = false;
-    $replyBox.find('.reply-btn').on('tap', function(){
+    $replyBox.find('.reply-btn').on('touchend', function(event){
+        event.stopPropagation();
         if (sendComment) {
             return false;
         }
@@ -244,6 +231,7 @@ Question.bindQuestionEvent = function(config) {
                 sendComment = false;
             }
         });
+        event.preventDefault();
     });
 };
 
@@ -263,55 +251,16 @@ var getQuestion = function(params, success, error) {
     });
 };
 
-
-//js实现url跳转
-Question.jsLinks = function (config) {
-    var $elem = config.$el;
-    $elem.delegate('[data-jslink]', 'click', function(e){
-        //flag标记为1的元素不触发js链接跳转
-        var $this = $(this);
-        var $target = $(e.target);
-        var flag = $target.data('flag');
-        if (!flag) {
-            var target = $this.data('target');
-            var url = $this.data('jslink');
-            if (url) {
-                if (target == '_blank') {
-                    window.open(url);
-                } else {
-                    window.location.href = url;
-                }
-            }
-            return false;
-        }
-    });
-};
-
 //页面初始化函数
 Question.start = function(param) {
-    var WL = new WaitLoading();
-    function showWaitLoad(){
-        WL.init({
-            color  : "#fff",
-            width  : "100px",
-            height : "100px",
-            // type -> ['circle', 'chasingDots', 'cubeGrid', 'doubleBounce', 'fadingCircle'
-            //          'pulse', 'rotatingPlane', 'threeBounce', 'wanderingCubes', 'wave'
-            //          'wordpress']
-            type : "circle",
-            loadEnd : function(){
-                WL.show();
-            }
-        });
-    }
-    showWaitLoad();
+    var $loading = $('#js_loadind');
     ajaxDataUrl = param.ajaxDataUrl;
     //从localstorage 读取数据，实现页面快速展示
     if (localStorage.question) {
         var data = JSON.parse(localStorage.question);
         var html = QuestionTpl(data);
-        $('#js_order_list').html(html);
-        WL.hide();
+        $('.ques-list').html(html);
+        $loading.hide();
     }
     getQuestion({question_ids : questionIds}, function(data) {
         if (data.errorCode == 0) {
@@ -321,15 +270,16 @@ Question.start = function(param) {
                 maxTime = data.data.max_time;
                 var html = QuestionTpl(data.data);
                 $('.ques-list').html(html);
+                localStorage.question = JSON.stringify(data.data);
             } else {
                 $('#js_no_data').show();
             }
         } else if(data.errorMessage) {
             window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
         }
-        WL.hide();
+        $loading.hide();
     }, function(){
-        WL.hide();
+        $loading.hide();
     });
     Base.init(param);
 };

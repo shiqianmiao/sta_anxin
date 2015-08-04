@@ -36,3 +36,26 @@ Base.bindDomWidget = function($el) {
         });
     }
 };
+
+//js实现url跳转
+Base.jsLinks = function (config) {
+    var $elem = config.$el;
+    $elem.delegate('[data-jslink]', 'click', function(e){
+        //flag标记为1的元素不触发js链接跳转
+        var $this = $(this);
+        var $target = $(e.target);
+        var flag = $target.data('flag');
+        if (!flag) {
+            var target = $this.data('target');
+            var url = $this.data('jslink');
+            if (url) {
+                if (target == '_blank') {
+                    window.open(url);
+                } else {
+                    window.location.href = url;
+                }
+            }
+            return false;
+        }
+    });
+};
