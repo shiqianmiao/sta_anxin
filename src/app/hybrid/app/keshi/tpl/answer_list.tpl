@@ -1,9 +1,9 @@
 <% for(var i = 0; i < answer_list.length; i++) { %>
 <li class="per-reply">
     <header class="reply-title">
-        <img src="<%= answer_list[i]['from_user']['face_url'] %>" class="head-pic borR-50" />
+        <a href="<%= answer_list[i]['from_user']['detail_url'] %>"><img src="<%= answer_list[i]['from_user']['face_url'] %>" class="head-pic borR-50" /></a>
         <div class="txt-wrap">
-            <span class="reply-name"><%= answer_list[i]['from_user']['real_name'] %></span>
+            <a href="<%= answer_list[i]['from_user']['detail_url'] %>"><span class="reply-name"><%= answer_list[i]['from_user']['real_name'] %></span></a>
             <time><%= answer_list[i]['create_time'] %></time>
             <% if (answer_list[i]['allow_delete']) { %>
                 <a href="javascript:;" class="delete-btn" data-id="<%= answer_list[i]['id'] %>"></a>

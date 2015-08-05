@@ -8,9 +8,10 @@
 // dependences
 var $ = require('$');
 var Base = require('app/hybrid/common/base.js');
+var Hscroll   = require('widget/Hscroll/js/Hscroll2.js');
+var OrderTpl  = require('app/hybrid/app/keshi/tpl/order_list.tpl');
+var Widget    = require('com/mobile/lib/widget/widget.js');
 var OrderList = exports;
-var cancelReason = '';
-var ReasonTpl = '<ul class="why-list"><% if (reason){ %><% for(value in reason){ %><li class="per-why" data-value="<%= value %>"><span class="borR-50 boxSiz"></span><%= reason[value] %></li><% } %><% } %></ul>';
 
 OrderList.order = function(config) {
     var $el = config.$el;
@@ -30,6 +31,8 @@ OrderList.order = function(config) {
                 // 还原选项
                 $('.per-why').removeClass('active');
                 $('.per-why').eq(0).addClass('active');
+                $('.why-text').val('');
+                $('.why-text').hide();
             });
             // 点击选项
             $('.per-why').on('tap', function(){
@@ -74,11 +77,11 @@ OrderList.order = function(config) {
             data : {orderId : orderId, type : type, reason : reason, detail_reason : reasonDetail},
             dataType : 'json',
             success : function(data) {
-                if (data.error == 0) {
+                if (data.data.errorCode == 0) {
                     window.plugins.toast.showShortCenter('操作成功！', function(){}, function(){});
                     window.location.reload();
                 } else {
-                    window.plugins.toast.showShortCenter(data.msg, function(){}, function(){});
+                    window.plugins.toast.showShortCenter(data.data.errorMessage, function(){}, function(){});
                 }
                 isSubmit = false;
             },
@@ -105,39 +108,87 @@ OrderList.order = function(config) {
     }
 };
 
-OrderList.remainTimer = function(param) {
-    var $el = param.$el;
-    var $timeShow = $el.find('span');
-    var time = $el.data('time');
-    time = parseInt(time);
-    if (time > 86400) {
-        $el.hide();
+OrderList.getPost = function(config){
+    var $el = config.$el;
+    var $noOrder = $('#no_order');
+    var storageKey = 'my_order';
+    var page = 1;
+    //从localStorage读取数据
+    if (localStorage[storageKey]) {
+        var data = JSON.parse(localStorage[storageKey]);
+        var html = OrderTpl(data);
+        $el.html(html);
     }
-    if (time > 0) {
-        var timer = setInterval(function () {
-            time--;
-            var ts = time;//计算剩余的毫秒数
-            var hh = parseInt(ts / 60 / 60, 10);//计算剩余的小时数
-            var mm = parseInt(ts / 60 % 60, 10);//计算剩余的分钟数
-            var ss = parseInt(ts % 60, 10);//计算剩余的秒数
-            hh = checkTime(hh);
-            mm = checkTime(mm);
-            ss = checkTime(ss);
-            $timeShow.html(hh + ':' + mm + ':' + ss);
-            if (time <= 86400 && $el.is(':hidden')) {
-                $el.show();
+    //下拉刷新
+    var hscroll = new Hscroll({
+        loadMoreCallback : function(self){
+            getPost(function(data){
+                if (data.order_list.length > 0) {
+                    var html = OrderTpl(data);
+                    $el.append(html);
+                    Base.bindDomWidget($el);
+                }
+                if (!data.has_more) {
+                    hscroll.changeTypeTo('none');
+                }
+                page = data.page;
+                self.loadMoreEnd();
+            });
+        },
+        // 选择您需要的加载类型【只要下拉刷新 - onlyTop 】【只要上拉加载更多 - onlyBottom 】【两个都要 - double 】【都不要 - none 】
+        opationType : 'onlyBottom'
+    });
+
+    //获取初始订单
+    getPost(function(data){
+        if (data.order_list) {
+            if (data.order_list.length > 0) {
+                localStorage[storageKey] = JSON.stringify(data);
+                $noOrder.hide();
+                var html = OrderTpl(data);
+                $el.html(html);
+                Base.bindDomWidget($el);
+            } else {
+                localStorage.removeItem(storageKey);
+                $el.html('');
+                $noOrder.show();
             }
-        }, 1000);
-        function checkTime(i) {
-            if (i < 10) {
-                i = "0" + i;
-            }
-            return i;
+            page = data.page;
         }
+        if (!data.has_more) {
+            hscroll.changeTypeTo('none');
+        }
+    });
+
+    var isSend = false;
+    function getPost(success, error) {
+        if (isSend) {
+            return false;
+        }
+        isSend = true;
+        $.ajax({
+            type : 'post',
+            url  : "/order/ajaxGetOrder/",
+            data : {page : page},
+            dataType : 'json',
+            success  : function(data) {
+                if (data.errorCode == 0) {
+                    success(data.data);
+                } else if (data.errorMessage) {
+                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+                } else {
+                    window.plugins.toast.showShortCenter('未知错误，请重试', function(){}, function(){});
+                }
+                isSend = false;
+            },
+            error : function(data) {
+                error(data);
+                isSend = false;
+            }
+        });
     }
 };
 
 OrderList.start = function(param) {
     Base.init(param);
-    cancelReason = param.cancel_reason;
 };

@@ -19,7 +19,7 @@
         <ul class="intr-list">
             <li><%= order_list[i].customer_name %></li>
             <li><%= order_list[i].mobile %></li>
-            <li><a href="<%= order_list[i].map_url %>"><%= order_list[i].address_text %><img src="http://s1.anxinsta.com/app/hybrid/app/keshi/imgs/addr.png" class="addr-icon" /></a></li>
+            <li><a class="addr-link" href="<%= order_list[i].map_url %>"><%= order_list[i].address_text %><img src="http://s1.anxinsta.com/app/hybrid/app/keshi/imgs/addr.png" class="addr-icon" /></a></li>
         </ul>
         <h3>备注信息：</h3>
         <ul class="intr-list">

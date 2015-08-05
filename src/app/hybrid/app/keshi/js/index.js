@@ -30,6 +30,17 @@ Question.bindTopEvent = function(config) {
 
 Question.bindQuestionEvent = function(config) {
     var $el = config.$el;
+    //数据载入中div
+    var $loading  = $('#js_loadind');
+    var $dataArea = $el.find('.ques-list');
+    var $noData   = $el.find('#js_no_data');
+    //从localstorage载入数据
+    if (localStorage.question) {
+        var data = JSON.parse(localStorage.question);
+        var html = QuestionTpl(data);
+        $dataArea.html(html);
+        $loading.hide();
+    }
     $el.css({height: $(window).height() - $('.header').height() - 60 + 'px'});
     // 只实例化对象不传配置参数的时候，指示做了一个模拟滚动，可以用来修复移动端fixed定位bug
     var hscroll = new Hscroll({
@@ -38,11 +49,11 @@ Question.bindQuestionEvent = function(config) {
             getQuestion({question_ids : questionIds, min_time : minTime}, function(data){
                 if (data.errorCode == 0) {
                     if (data.data.question_list.length > 0) {
-                        questionIds  = data.data.question_ids;
+                        questionIds = data.data.question_ids;
                         minTime = data.data.min_time;
                         var html = QuestionTpl(data.data);
-                        $('.ques-list').prepend(html);
-                        $('#js_no_data').hide();
+                        $dataArea.prepend(html);
+                        $noData.hide();
                     }
                 } else if(data.errorMessage) {
                     window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
@@ -60,9 +71,10 @@ Question.bindQuestionEvent = function(config) {
                         questionIds  = data.data.question_ids;
                         maxTime = data.data.max_time;
                         var html = QuestionTpl(data.data);
-                        $('.ques-list').append(html);
+                        $dataArea.append(html);
                     }
                     if (data.data.question_list.length < data.data.limit) {
+                        //没有
                         self.changeTypeTo('onlyTop');
                     }
                 } else if(data.errorMessage) {
@@ -75,6 +87,32 @@ Question.bindQuestionEvent = function(config) {
         },
         // 选择您需要的加载类型【只要下拉刷新 - onlyTop 】【只要上拉加载更多 - onlyBottom 】【两个都要 - double 】【都不要 - none 】
         opationType : 'double'
+    });
+
+    //载入初始问题数据
+    getQuestion({question_ids : questionIds}, function(data) {
+        if (data.errorCode == 0) {
+            if (data.data.question_list.length > 0) {
+                questionIds  = data.data.question_ids;
+                minTime = data.data.min_time;
+                maxTime = data.data.max_time;
+                var html = QuestionTpl(data.data);
+                $('.ques-list').html(html);
+                localStorage.question = JSON.stringify(data.data);
+                if (data.data.question_list.length < data.data.limit) {
+                    hscroll.changeTypeTo('onlyTop');
+                }
+            } else {
+                $('#js_no_data').show();
+                $('.ques-list').html('');
+                localStorage.removeItem('question');
+            }
+        } else if(data.errorMessage) {
+            window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+        }
+        $loading.hide();
+    }, function(){
+        $loading.hide();
     });
 
     var $alertDom = null;
@@ -144,33 +182,43 @@ Question.bindQuestionEvent = function(config) {
     //删除
     var sendDelete = false;
     $el.delegate('.to-delete', 'touchend', function(event){
-        event.stopPropagation();
-        if (sendDelete) {
-            return false;
-        }
         var $this = $(this);
-        var id    = $this.parents('li').data('id');
-        sendDelete = true;
-        $.ajax({
-            type : 'post',
-            url  : '/index/ajaxDelete/',
-            data : {id : id},
-            dataType : 'json',
-            success : function (data) {
-                if (data.errorCode == 0) {
-                    $this.parents('li').remove();
-                    $this.parents('.alert-opa').hide();
-                    $this.parents('.alert-opa').data('show', false);
-                    window.plugins.toast.showShortCenter('删除成功', function(){}, function(){});
-                } else if (data.errorMessage) {
-                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+        navigator.notification.confirm(
+            '确定删除当前问题吗？', // message
+            onConfirm,           // callback to invoke with index of button pressed
+            '删除问题',           // title
+            ['确定','取消']       // buttonLabels
+        );
+        function onConfirm(index) {
+            //选择了确定
+            if (index == 1) {
+                if (sendDelete) {
+                    return false;
                 }
-                sendDelete = false;
-            },
-            error : function () {
-                sendDelete = false;
+                var id     = $this.parents('li').data('id');
+                sendDelete = true;
+                $.ajax({
+                    type : 'post',
+                    url  : '/index/ajaxDelete/',
+                    data : {id : id},
+                    dataType : 'json',
+                    success : function (data) {
+                        if (data.errorCode == 0) {
+                            $this.parents('li').remove();
+                            $this.parents('.alert-opa').hide();
+                            $this.parents('.alert-opa').data('show', false);
+                            window.plugins.toast.showShortCenter('删除成功', function(){}, function(){});
+                        } else if (data.errorMessage) {
+                            window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+                        }
+                        sendDelete = false;
+                    },
+                    error : function () {
+                        sendDelete = false;
+                    }
+                });
             }
-        });
+        }
         event.preventDefault();
     });
 
@@ -253,33 +301,7 @@ var getQuestion = function(params, success, error) {
 
 //页面初始化函数
 Question.start = function(param) {
-    var $loading = $('#js_loadind');
     ajaxDataUrl = param.ajaxDataUrl;
     //从localstorage 读取数据，实现页面快速展示
-    if (localStorage.question) {
-        var data = JSON.parse(localStorage.question);
-        var html = QuestionTpl(data);
-        $('.ques-list').html(html);
-        $loading.hide();
-    }
-    getQuestion({question_ids : questionIds}, function(data) {
-        if (data.errorCode == 0) {
-            if (data.data.question_list.length > 0) {
-                questionIds  = data.data.question_ids;
-                minTime = data.data.min_time;
-                maxTime = data.data.max_time;
-                var html = QuestionTpl(data.data);
-                $('.ques-list').html(html);
-                localStorage.question = JSON.stringify(data.data);
-            } else {
-                $('#js_no_data').show();
-            }
-        } else if(data.errorMessage) {
-            window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
-        }
-        $loading.hide();
-    }, function(){
-        $loading.hide();
-    });
     Base.init(param);
 };
