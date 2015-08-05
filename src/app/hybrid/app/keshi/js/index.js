@@ -105,6 +105,7 @@ Question.bindQuestionEvent = function(config) {
             } else {
                 $('#js_no_data').show();
                 $('.ques-list').html('');
+                hscroll.changeTypeTo('onlyTop');
                 localStorage.removeItem('question');
             }
         } else if(data.errorMessage) {
