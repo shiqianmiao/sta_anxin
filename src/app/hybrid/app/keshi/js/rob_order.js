@@ -55,13 +55,13 @@ RobOrder.order = function(config) {
             data : {order_id : orderId, robbed : robbed},
             dataType : 'json',
             success : function(data) {
-                if (data.error == 0) {
-                    $this.html(data.btn_text);
-                    $this.data('robbed', data.robbed);
+                if (data.errorCode == 0) {
+                    $this.html(data.data.btn_text);
+                    $this.data('robbed', data.data.robbed);
                     var msg = robbed ? '取消抢单成功！' : '抢单成功！';
                     window.plugins.toast.showShortCenter(msg, function(){}, function(){});
-                } else if (data.msg) {
-                    window.plugins.toast.showShortCenter(data.msg, function(){}, function(){});
+                } else if (data.errorMessage) {
+                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
                 } else {
                     window.plugins.toast.showShortCenter('未知错误，请重试！', function(){}, function(){});
                 }
@@ -79,23 +79,21 @@ RobOrder.getPost = function() {
         data : {},
         dataType : 'json',
         success : function(data) {
-            if (data.error == 0) {
-                if (data.order_list) {
-                    if (data.order_list.length > 0) {
-                        $('#no_order').hide();
-                        var html = OrderTpl(data);
-                        $('#js_order_list').html(html);
-                        //将取到的数据写入localstorage
-                        localStorage.rob_order = JSON.stringify(data);
-                        Widget.initWidgets();
-                    } else {
-                        localStorage.rob_order = JSON.stringify(data);
-                        $('#js_order_list').html('');
-                        $('#no_order').show();
-                    }
+            if (data.errorCode == 0) {
+                if (data.data.order_list.length > 0) {
+                    $('#no_order').hide();
+                    var html = OrderTpl(data.data);
+                    $('#js_order_list').html(html);
+                    //将取到的数据写入localstorage
+                    localStorage.rob_order = JSON.stringify(data.data);
+                    Base.bindDomWidget($('#js_order_list'));
+                } else {
+                    localStorage.removeItem('rob_order');
+                    $('#js_order_list').html('');
+                    $('#no_order').show();
                 }
-            } else if (data.msg) {
-                window.plugins.toast.showShortCenter(data.msg, function(){}, function(){});
+            } else if (data.errorMessage) {
+                window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
             } else {
                 window.plugins.toast.showShortCenter('未知错误，请重试！', function(){}, function(){});
             }
@@ -127,6 +125,9 @@ RobOrder.orderDetail = function(config) {
     var robbed  = $el.data('robbed');
     if (time > 0) {
         var timer = setInterval(function () {
+            if (time < 0) {
+                clearInterval(timer);
+            }
             time--;
             var ts = time;//计算剩余的毫秒数
             var hh = parseInt(ts / 60 / 60 % 24, 10);//计算剩余的小时数
@@ -149,16 +150,16 @@ RobOrder.orderDetail = function(config) {
         var robbed = $this.data('robbed');
         $.ajax({
             type : 'post',
-            url  : '/index/ajaxRob/',
+            url  : '/rob/ajaxRob/',
             data : {order_id : orderId, robbed : robbed},
             dataType : 'json',
             success : function(data) {
-                if (data.error == 0) {
-                    $this.html(data.btn_text);
-                    $this.data('robbed', data.robbed);
+                if (data.errorCode == 0) {
+                    $this.html(data.data.btn_text);
+                    $this.data('robbed', data.data.robbed);
                     window.plugins.toast.showShortCenter('抢单成功！', function(){}, function(){});
-                } else if (data.msg) {
-                    window.plugins.toast.showShortCenter(data.msg, function(){}, function(){});
+                } else if (data.errorMessage) {
+                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
                 } else {
                     window.plugins.toast.showShortCenter('未知错误，请重试！', function(){}, function(){});
                 }
