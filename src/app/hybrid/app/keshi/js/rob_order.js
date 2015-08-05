@@ -114,9 +114,9 @@ RobOrder.showMap = function(config){
     // 计算地图宽度
     var wrapWidth = parseInt($('.rob-order-det-wrap').width());
     var srcStr = 'http://api.map.baidu.com/staticimage?center=' + lon + ',' + lat + '&width=' + wrapWidth + '&height=154&zoom=15&markers=' + lon + ',' + lat;
-    $mapImg.src = srcStr;
-    $mapImg.width = wrapWidth;
-    $mapImg.height = 154;
+    $mapImg.attr("src", srcStr);
+    $mapImg.attr("width", wrapWidth);
+    $mapImg.attr("height", 154);
 };
 
 RobOrder.orderDetail = function(config) {
