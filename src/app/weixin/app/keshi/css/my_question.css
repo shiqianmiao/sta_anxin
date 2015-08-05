@@ -149,9 +149,20 @@
 	font-size: 15px;
 	color: #999;
 	padding: 0 7%;
-	margin-top: 22px;
+	margin-top: 10px;
 	padding-bottom: 15px;
 	border-bottom: 1px solid #e1e1e1;
+}
+.remuneration-tip{
+	height: 20px;
+	font-size: 12px;
+	color: #999;
+	width: 84%;
+	line-height: 20px;
+	margin: 10px auto 0;
+}
+.remuneration-tip em{
+	color: red;
 }
 .btn-wrap{
 	height: 61px;
@@ -183,6 +194,7 @@
 	height: 36px;
 	width: 236px;
 	border: 1px solid #dfdfdf;
+	overflow: hidden;
 }
 .input-wrap span{
 	margin-left: 10px;
