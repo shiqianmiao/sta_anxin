@@ -183,6 +183,7 @@
 	height: 36px;
 	width: 236px;
 	border: 1px solid #dfdfdf;
+	overflow: hidden;
 }
 .input-wrap span{
 	margin-left: 10px;
