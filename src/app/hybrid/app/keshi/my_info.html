@@ -40,6 +40,25 @@
     		<h3>我的二维码</h3>
     		<img src="imgs/er2.png" class="my-er" />
     	</li>
+    	<li class="per-info sex-select">
+    		<label class="sex-label" for="sex-select-input">
+    			<h3>性别</h3>
+	    		<span class="sex"></span>
+	    		<img src="imgs/strip.png" class="right-to" />
+	    		<select class="for-sex-select" id="sex-select-input">
+	    			<option value="男">男</option>
+	    			<option value="女">女</option>
+	    		</select>
+    		</label>
+    	</li>
+    	<li class="per-info data-select">
+	    	<label for="data-select-input">
+	    		<h3>出生年月</h3>
+	    		<span class="data"></span>
+	    		<img src="imgs/strip.png" class="right-to" />
+	    		<input type="date" value=""  class="for-data-select" id="data-select-input"/>
+	    	</label>
+    	</li>
     </ul>
 
     <ul class="info2-list">
@@ -333,6 +352,18 @@
 				$('.page3').hide();
 			}, 400);
 		});
+
+		// 点选性别
+		$('#sex-select-input').on('change', function(){
+			$('.sex').html($(this).val());
+		});
+		// 点选出生年月
+		$('.for-data-select').on('change', function(){
+			$('.data').html($(this).val());
+		});
+		setInterval(function(){
+			$('.data').html($('.for-data-select').val());
+		}, 100);
 
     });
     </script>
