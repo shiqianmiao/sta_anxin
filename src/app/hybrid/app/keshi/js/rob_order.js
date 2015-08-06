@@ -60,6 +60,8 @@ RobOrder.order = function(config) {
                     $this.data('robbed', data.data.robbed);
                     var msg = robbed ? '取消抢单成功！' : '抢单成功！';
                     window.plugins.toast.showShortCenter(msg, function(){}, function(){});
+                } else if (data.errorCode == 2){
+                    $('#through-window').removeClass('window-hide');
                 } else if (data.errorMessage) {
                     window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
                 } else {
@@ -158,6 +160,8 @@ RobOrder.orderDetail = function(config) {
                     $this.html(data.data.btn_text);
                     $this.data('robbed', data.data.robbed);
                     window.plugins.toast.showShortCenter('抢单成功！', function(){}, function(){});
+                } else if (data.errorCode == 2) {
+                    $('#through-window').removeClass('window-hide');
                 } else if (data.errorMessage) {
                     window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
                 } else {

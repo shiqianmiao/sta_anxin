@@ -10,6 +10,7 @@ var $ = require('$');
 var Base = require('app/hybrid/common/base.js');
 var CustomerTpl = require('app/hybrid/app/keshi/tpl/customer_list.tpl');
 var MemberTpl = require('app/hybrid/app/keshi/tpl/member_list.tpl');
+var DetailTpl = require('app/hybrid/app/keshi/tpl/keshi_account_detail_list.tpl');
 var Widget = require('com/mobile/lib/widget/widget.js');
 var MyTeam = exports;
 
@@ -91,7 +92,68 @@ MyTeam.tab = function(config) {
         $('.tablist').hide();
         $(selector).show();
     });
-}
+};
+
+MyTeam.getAccountDetail = function(config) {
+    var $el = config.$el;
+    var $noData = $('#js_no_data');
+    var $loadMore = $('#js_load_more');
+    var $loading  = $('#js_loadind');
+    //取交易明细
+    var getDetailList = function(params, success, error) {
+        $.ajax({
+            type : 'post',
+            url  : '/keshi/ajaxAccountDetail/',
+            data : params,
+            dataType : 'json',
+            success : function(data) {
+                success(data);
+            },
+            error : function(data) {
+                error(data);
+            }
+        });
+    };
+    getDetailList({page : 1}, function(data) {
+        if (data.errorCode == 0) {
+            if (data.data.detail_list.length > 0) {
+                var html = DetailTpl(data.data);
+                $el.html(html);
+            } else {
+                $noData.show();
+            }
+            if (data.data.has_more) {
+                $loadMore.show();
+            }
+            $loading.hide();
+            $loadMore.data('page', data.data.page);
+        } else if(data.errorMessage) {
+            window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+        }
+    }, function(){
+    });
+    $loadMore.tap(function(){
+        $(this).find('img').show();
+        $(this).find('span').html('加载中...');
+        getDetailList({page : $loadMore.data('page')}, function(data) {
+            if (data.errorCode == 0) {
+                if (data.data.detail_list.length > 0) {
+                    var html = DetailTpl(data.data);
+                    $el.append(html);
+                }
+                if (data.data.has_more) {
+                    $loadMore.show();
+                } else {
+                    $loadMore.hide();
+                }
+                $loadMore.data('page', data.data.page);
+            } else if(data.errorMessage) {
+                window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+            }
+        }, function(){
+        });
+    });
+};
 
 //页面初始化函数
 MyTeam.start = function(param) {
