@@ -135,7 +135,3 @@
 .cropper-bg{
 	background: #000;
 }
-.cropper-container img{
-	max-width: 1000px!important;;
-	max-height: 1000px!important;;
-}
