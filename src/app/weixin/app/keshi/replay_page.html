@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="./css/public.css" />
     <link rel="stylesheet" href="./css/swiper.min.css" />
+    <link rel="stylesheet" href="css/cropper.min.css">
+    <link rel="stylesheet" href="css/HimgCrop.css">
     <link rel="stylesheet" href="./css/reply_page.css" />
     <link rel="stylesheet" href="./css/face.css" />
 </head>
@@ -27,7 +29,7 @@
 
     <p class="tip">* 您上传的照片仅医生可见</p>
 
-    <div class="swiper-container">
+    <div class="swiper-container images-list">
         <div class="swiper-wrapper">
             <div class="swiper-slide uplode-slide">
                 <ul class="clear uplode-list">
@@ -64,10 +66,16 @@
         <a href="#" class="to-questions"></a>
     </footer>
 
+    <!-- 查看大图的包裹层 -->
+    <div class="big-pic-wrap">
+        <span class="close-big-pic">×</span>
+        <img src="imgs/def.jpg" class="big-pic" />
+    </div>
+
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['zepto', 'lib/swiper/swiper.min.js', 'lib/qiniu/qiniu.js'], function($, Swiper, Qiniu){
+    G.use(['jquery', 'lib/swiper/swiper.min.js', 'lib/qiniu/qiniu.js', 'widget/HimgCrop/js/HimgCropJquery2.js'], function($, Swiper, Qiniu, HimgCropJquery){
 
         // 点击患者效果
         $('.patients').on('click', function(){
@@ -142,14 +150,35 @@
 
                     var oLi = document.createElement('li');
                     oLi.className = 'uplode-img borR-3';
+                    oLi.setAttribute('url', src);
                     oLi.style.background = 'url(' + src + ') no-repeat center center';
                     oLi.style.backgroundSize = 'cover';
+                    oLi.onclick = function(){
+                        // 点击查看大图
+                        var src = oLi.getAttribute('url');
+            
+                        $('.big-pic').on('load', function(){
+                            $('.big-pic-wrap').show();
+                            $('.big-pic').cropper('replace', src);
+                        });
+                        $('.big-pic-wrap').show();
+                        $('.big-pic').cropper('replace', src);
+                        // 隐藏图片列表。防止层的问题
+                        $('.images-list').hide();
+
+                    };
 
                     var oClose = document.createElement('span');
                     oClose.innerHTML = '+';
                     oClose.className = 'borR-50';
-                    oClose.onclick = function(){
+                    oClose.onclick = function(event){
                         $(this).parent().detach();
+
+                        if(event.stopPropagation){
+                            event.stopPropagation();
+                        }else{
+                            event.cancelBubble = true;
+                        }
                     }
 
                     oLi.appendChild(oClose);
@@ -216,6 +245,7 @@
             }
         });
 
+        // 点击表情
         $(document).on('touchend', function(){
              $('.swiper-container-face').removeClass('show-face');
         });
@@ -227,6 +257,30 @@
             }else{
                 event.cancelBubble = true;
             }
+        });
+
+
+
+        // 初始化大图
+        $('.big-pic').cropper({
+            aspectRatio: 2 / 2,
+            autoCropArea: 1,
+            strict: false,
+            guides: false,
+            autoCrop : false,
+            highlight: false,
+            dragCrop: false,
+            cropBoxMovable: true,
+            background: true, // 是否显示网格背景 true 是 false 不显示
+            cropBoxResizable: true,
+            guides: true
+        });
+
+        // 关闭查看大图
+        $('.close-big-pic').on('click', function(){
+            $('.big-pic-wrap').hide();
+            // 关闭大图，显示图片列表
+            $('.images-list').show();
         });
 
 

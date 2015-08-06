@@ -131,3 +131,10 @@
 	margin: 6px auto;
 	background: url(../imgs/emo3.png) no-repeat top left;
 }
+.cropper-bg{
+	background: #000;
+}
+.cropper-container img{
+	max-width: 1000px!important;;
+	max-height: 1000px!important;;
+}

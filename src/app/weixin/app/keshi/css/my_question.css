@@ -208,3 +208,6 @@
 	position: relative;
 	top: -1px;
 }
+.cropper-bg{
+	background: #000;
+}
