@@ -27,7 +27,7 @@
         </div>
     </section>
 
-    <p class="tip">* 您上传的照片仅医生可见</p>
+    <p class="tip">* 您上传的照片仅医生可见您上传的照片仅医生可见您上传的照片仅医生可见您上传的照片仅医生可见</p>
 
     <div class="swiper-container images-list">
         <div class="swiper-wrapper">
@@ -94,6 +94,7 @@
             if($(this).find('span').length){
                 $(this).html('');
             }
+
         });
 
         // 当可编辑的div失去焦点时
@@ -235,14 +236,22 @@
 
         // 点击表情按钮的时候
         $('.expression').on('touchend', function(event){
-            $('.swiper-container-face').toggleClass('show-face');
 
             var event = event || window.event;
-            if(event.stopPropagation){
-                event.stopPropagation();
-            }else{
-                event.cancelBubble = true;
-            }
+            setTimeout(function(){
+                $('.swiper-container-face').toggleClass('show-face');
+                // 如果获得焦点时内容有span元素，清空
+                if($('.textarea-div').find('span').length){
+                    $('.textarea-div').html('');
+                }
+
+                if(event.stopPropagation){
+                    event.stopPropagation();
+                }else{
+                    event.cancelBubble = true;
+                }
+            },0);
+            
         });
 
         // 点击表情

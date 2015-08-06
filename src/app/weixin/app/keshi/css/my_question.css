@@ -117,6 +117,7 @@
 }
 .reply-opa-wrap{
 	height: 34px;
+	margin-top: 13px;
 }
 .reply-opa-wrap a{
 	float: right;
@@ -127,18 +128,24 @@
 	width: 50px;
 }
 .reply-opa-wrap a:nth-of-type(1){
+	background: url(../imgs/reward.png) no-repeat left center;
+	background-size: 16px 18px;
+	margin-left: 22px;
+	width: 48px;
+}
+.reply-opa-wrap a:nth-of-type(2){
 	background: url(../imgs/flowers.png) no-repeat left center;
 	background-size: 20px 19px;
-	margin-left: 11px;
+	margin-left: 22px;
 }
-.reply-opa-wrap a:nth-of-type(1).thank-true{
+.reply-opa-wrap a:nth-of-type(2).thank-true{
 	background: url(../imgs/flowers_ing.png) no-repeat left center;
 	background-size: 20px 19px;
 }
-.reply-opa-wrap a:nth-of-type(2){
+.reply-opa-wrap a:nth-of-type(3){
 	background: url(../imgs/reply.png) no-repeat left center;
 	background-size: 17px 17px;
-	margin-left: 11px;
+	margin-left: 22px;
 }
 .songhua-win,.remuneration-win{
 	width: 275px;

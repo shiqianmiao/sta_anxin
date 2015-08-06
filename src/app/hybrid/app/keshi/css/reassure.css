@@ -298,8 +298,9 @@
 	display: none;
 }
 .reply-input{
-	width: 75%;
-	height: 34px;
+	width: 71%;
+	height: 22px;
+	padding: 10px 2% 0;
 	margin-top: 7px;
 	border: none;
 	background: #ededed;
