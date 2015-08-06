@@ -56,8 +56,8 @@
 	padding: 15px 15px 4px;
 }
 .uplode-img{
-	height: 58px;
-	width: 58px;
+	height: 90px;
+	width: 70px;
 	margin-right: 15px;
 	float: left;
 	position: relative;
@@ -79,7 +79,7 @@
 	background: rgba(0,0,0,0.5);
 	color: #fff;
 	font-size: 30px;
-	line-height: 20px;
+	line-height: 24px;
 	text-align: center;
 	right: -12px;
 	top: -12px;
@@ -98,7 +98,7 @@
 .swiper-container-face{
 	width: 100%;
 	overflow: hidden;
-	height: 180px;
+	height: 280px;
 	position: relative;
 	background: #ededed;
 	position: fixed;
@@ -122,11 +122,12 @@
 	width: 14.28%;
 	height: 42px;
 	float: left;
+	margin: 10px 0;
 }
 .emo{
-	width: 20px;
-	height: 20px;
+	width: 40px;
+	height: 40px;
 	display: block;
 	margin: 6px auto;
-	background: url(../imgs/emo.png) no-repeat top left;
+	background: url(../imgs/emo3.png) no-repeat top left;
 }

@@ -123,7 +123,7 @@
             dragdrop: true,
             chunk_size: '4mb',
             //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
-            uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:SO-rlrKaihlZ_-5PmU15WVUqM7E=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0Mzc2Mzk5Mzd9',
+            uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:S9esRitXYp7n2XiOIO02BpP4iKc=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0Mzg4NjQ2MTF9',
             domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
             auto_start: true,
             init: {
@@ -176,20 +176,17 @@
 
         for(var j = 0; j < faceNum; j++){
             if(j < 28){
-                str1 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemoji' + j + '"></i></span>';
+                str1 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemojisec' + j + '"></i></span>';
             }else if(j >= 28 && j < 56){
-                str2 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemoji' + j + '"></i></span>';
+                str2 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemojisec' + j + '"></i></span>';
             }else if(j >= 56 && j < 84){
-                str3 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemoji' + j + '"></i></span>';
+                str3 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemojisec' + j + '"></i></span>';
             }else{
-                str4 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemoji' + j + '"></i></span>';
+                str4 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemojisec' + j + '"></i></span>';
             }
            
         }
-        console.log(str1);
-        console.log(str2);
-        console.log(str3);
-        console.log(str4);
+
         $pagelist.eq(0).html(str1);
         $pagelist.eq(1).html(str2);
         $pagelist.eq(2).html(str3);
