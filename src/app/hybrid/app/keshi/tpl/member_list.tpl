@@ -6,7 +6,7 @@
             <h3><%= worker_list[i]['real_name'] %></h3>
             <p><%= worker_list[i]['work_title_text'] %></p>
         </div>
-        <span class="hua-num"><%= worker_list[i]['flower_count'] %>朵</span>
+        <span class="hua-num"><%= worker_list[i]['flower_count'] %></span>
     </a>
 </li>
 <% } %>
