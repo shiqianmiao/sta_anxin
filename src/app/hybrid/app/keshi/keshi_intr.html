@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>科室简介</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="科室简介" />
+    <meta name="description" content="科室简介" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="科室简介">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/keshi_index.css" />
+</head>
+<body>
+
+    <section class="ks-index-top">
+        <img src="imgs/ks_index_top.jpg" />
+        <section class="txt-mark-bg ks-intr-bg">
+            <h2>胸外科</h2>
+            <p class="hospital-name">北医三院</p>
+        </section>
+    </section>
+
+    <p class="ks-intr-con">天津中医药大学第一附属医院针灸专科，是“全国针灸临床研究中心”、“国家临床重点专科”、“国家教育部重点学科”、“全国中医临床研究基地(中风病)”所在地，目前是我国针灸领域最大的临床、教学、科研基地。针灸专科是我院的龙头科室，技术力量雄厚，病种专科齐全，医疗特色突出，在国内外享有极高的声誉。【医疗特色】</p>
+    <footer class="ks-intr-foot">
+        <time>更新时间：2015-09-23</time>
+        <em>更新时间：2015-09-23</em>
+    </footer>
+
+    <!-- 二维码弹窗 -->
+    <div class="alert-mark flex-center window-hide er-close-mark" id="er-window" >
+        <img src="imgs/er.jpg" class="erpic" />
+    </div>
+    <!-- 二维码弹窗 结束 -->
+
+    
+    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['zepto'], function($){
+
+        // 点击切换团队与患者
+        $('.tab-btn').on('tap', function(){
+            $('.tab-btn').removeClass('active');
+            $(this).addClass('active');
+
+            var selector = '.' + $(this).data('type') + '-list';
+
+            $('.tablist').hide();
+            $(selector).show();
+        });
+
+
+    });
+    </script>
+
+</body>
+</html>
