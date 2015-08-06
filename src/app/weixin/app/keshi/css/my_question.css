@@ -218,3 +218,42 @@
 .cropper-bg{
 	background: #000;
 }
+/* 删除弹窗 */
+.confirm-win{
+	width: 275px;
+	background: #fff;
+	overflow: hidden;
+}
+.confirm-title{
+	padding: 18px;
+	line-height: 25px;
+	font-size: 15px;
+	color: #333;
+	border-bottom: 1px solid #e1e1e1;
+}
+.confirm-foot{
+	height: 60px;
+	overflow: hidden;
+	text-align: center;
+}
+.confirm-foot a{
+	display: inline-block;
+	width: 111px;
+	height: 38px;
+	color: #fff;
+	font-size: 17px;
+	line-height: 38px;
+	text-align: center;
+	margin-top: 11px;
+}
+.confirm-yes{
+	background: #ff8900;
+	margin-right: 14px;
+}
+.confirm-no{
+	background: #b0b0b0;
+}
+/* 删除弹窗 结束 */
+.window-hide{
+	display: none;
+}

@@ -137,6 +137,16 @@
             </div>
         </div>
     </section>
+
+    <section class="alert-mark confirm-win-wrap flex-center window-hide">
+        <div class="confirm-win borR-3">
+            <h2 class="confirm-title">确认删除这个问题吗？</h2>
+            <footer class="confirm-foot">
+                <a href="javascript:;" class="confirm-yes borR-3">确定</a>
+                <a href="javascript:;" class="confirm-no borR-3">取消</a>
+            </footer>
+        </div>
+    </section>
     
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
@@ -213,6 +223,17 @@
         // 点击狠心拒绝（拒绝支付）
         $('.refused-pay').on('click', function(){
             $('.remuneration-a-win').addClass('hide-win');
+        });
+
+        // 点击删除
+        $('.delete-art').on('click', function(){
+            $('.confirm-win-wrap').removeClass('window-hide');
+        });
+        $('.confirm-no').on('click', function(){
+            $('.confirm-win-wrap').addClass('window-hide');
+        });
+        $('.confirm-yes').on('click', function(){
+            alert('相应处理');
         });
 
         
