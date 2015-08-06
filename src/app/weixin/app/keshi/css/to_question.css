@@ -55,7 +55,7 @@
 	height: 34px;
 	line-height: 34px;
 	color: #999;
-	font-size: 13px; 
+	font-size: 13px;
 }
 .more-ques a{
 	float: right;
@@ -92,8 +92,16 @@
 	height: 20px;
 	margin-top: 16px;
 }
-.ques-con-wrap time{
-	display: block;
+.ques-con-wrap time:first-of-type {
+	float: left;
+	font-size: 13px;
+	height: 13px;
+	line-height: 13px;
+	color: #999;
+	margin-top: 5px;
+}
+.ques-con-wrap time:last-of-type {
+	float: right;
 	font-size: 13px;
 	height: 13px;
 	line-height: 13px;
