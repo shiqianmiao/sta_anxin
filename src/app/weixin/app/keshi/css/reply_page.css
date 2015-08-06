@@ -46,11 +46,12 @@
 	top: 0;
 }
 .tip{
-	height: 40px;
-	line-height: 40px;
+	margin-top: 10px;
 	padding: 0 4%;
 	color: #999999;
 	font-size: 13px;
+	min-height: 20px;
+	line-height: 20px;
 }
 .uplode-list{
 	padding: 15px 15px 4px;
