@@ -1,7 +1,7 @@
 <% for(var i = 0; i < question_list.length; i++) { %>
 <li class="per-ques borR-3" data-id="<%= question_list[i].id %>" data-jslink="<%= question_list[i].detail_url %>">
     <div class="ques-title clear">
-        <a href="<%= question_list[i].customer_info.detail_url %>"><img data-flag="true" src="<%= question_list[i].customer_info.head_url %>" class="ques-head-pic" /></a>
+        <a href="<%= question_list[i].customer_info.detail_url %>"><img data-flag="true" src="<%= question_list[i].customer_info.head_url %>" class="ques-head-pic borR-50" /></a>
         <div class="title-content">
             <a href="<%= question_list[i].customer_info.detail_url %>"><span data-flag="true" ><%= question_list[i].customer_info.real_name %></span></a>
             <% if (question_list[i].answer_count == 0) { %>

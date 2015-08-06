@@ -55,13 +55,13 @@ RobOrder.order = function(config) {
             data : {order_id : orderId, robbed : robbed},
             dataType : 'json',
             success : function(data) {
-                if (data.error == 0) {
-                    $this.html(data.btn_text);
-                    $this.data('robbed', data.robbed);
+                if (data.errorCode == 0) {
+                    $this.html(data.data.btn_text);
+                    $this.data('robbed', data.data.robbed);
                     var msg = robbed ? '取消抢单成功！' : '抢单成功！';
                     window.plugins.toast.showShortCenter(msg, function(){}, function(){});
-                } else if (data.msg) {
-                    window.plugins.toast.showShortCenter(data.msg, function(){}, function(){});
+                } else if (data.errorMessage) {
+                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
                 } else {
                     window.plugins.toast.showShortCenter('未知错误，请重试！', function(){}, function(){});
                 }
@@ -79,28 +79,93 @@ RobOrder.getPost = function() {
         data : {},
         dataType : 'json',
         success : function(data) {
-            if (data.error == 0) {
-                if (data.order_list) {
-                    if (data.order_list.length > 0) {
-                        $('#no_order').hide();
-                        var html = OrderTpl(data);
-                        $('#js_order_list').html(html);
-                        //将取到的数据写入localstorage
-                        localStorage.rob_order = JSON.stringify(data);
-                        Widget.initWidgets();
-                    } else {
-                        localStorage.rob_order = JSON.stringify(data);
-                        $('#js_order_list').html('');
-                        $('#no_order').show();
-                    }
+            if (data.errorCode == 0) {
+                if (data.data.order_list.length > 0) {
+                    $('#no_order').hide();
+                    var html = OrderTpl(data.data);
+                    $('#js_order_list').html(html);
+                    //将取到的数据写入localstorage
+                    localStorage.rob_order = JSON.stringify(data.data);
+                    Base.bindDomWidget($('#js_order_list'));
+                } else {
+                    localStorage.removeItem('rob_order');
+                    $('#js_order_list').html('');
+                    $('#no_order').show();
                 }
-            } else if (data.msg) {
-                window.plugins.toast.showShortCenter(data.msg, function(){}, function(){});
+            } else if (data.errorMessage) {
+                window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
             } else {
                 window.plugins.toast.showShortCenter('未知错误，请重试！', function(){}, function(){});
             }
         },
         error : function() {}
+    });
+};
+
+//显示静态地图
+RobOrder.showMap = function(config){
+    var $el = config.$el;
+    lon = $el.data('lon');
+    lat = $el.data('lat');
+    // 百度静态地图
+    var $mapImg = $el.find('#baidu-map-img');
+    // 计算地图宽度
+    var wrapWidth = parseInt($('.rob-order-det-wrap').width());
+    var srcStr = 'http://api.map.baidu.com/staticimage?center=' + lon + ',' + lat + '&width=' + wrapWidth + '&height=154&zoom=15&markers=' + lon + ',' + lat;
+    $mapImg.attr("src", srcStr);
+    $mapImg.attr("width", wrapWidth);
+    $mapImg.attr("height", 154);
+};
+
+RobOrder.orderDetail = function(config) {
+    var $el  = $('.remaining-time');
+    var time = $el.data('remain');
+    var $timeShow = $el.find('span');
+    var orderId = $el.data('id');
+    var robbed  = $el.data('robbed');
+    if (time > 0) {
+        var timer = setInterval(function () {
+            if (time < 0) {
+                clearInterval(timer);
+            }
+            time--;
+            var ts = time;//计算剩余的毫秒数
+            var hh = parseInt(ts / 60 / 60 % 24, 10);//计算剩余的小时数
+            var mm = parseInt(ts / 60 % 60, 10);//计算剩余的分钟数
+            var ss = parseInt(ts % 60, 10);//计算剩余的秒数
+            hh = checkTime(hh);
+            mm = checkTime(mm);
+            ss = checkTime(ss);
+            $timeShow.html(hh + ':' + mm + ':' + ss);
+        }, 1000);
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    }
+    $('.js_rob').tap(function(){
+        var $this  = $(this);
+        var robbed = $this.data('robbed');
+        $.ajax({
+            type : 'post',
+            url  : '/rob/ajaxRob/',
+            data : {order_id : orderId, robbed : robbed},
+            dataType : 'json',
+            success : function(data) {
+                if (data.errorCode == 0) {
+                    $this.html(data.data.btn_text);
+                    $this.data('robbed', data.data.robbed);
+                    window.plugins.toast.showShortCenter('抢单成功！', function(){}, function(){});
+                } else if (data.errorMessage) {
+                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+                } else {
+                    window.plugins.toast.showShortCenter('未知错误，请重试！', function(){}, function(){});
+                }
+            },
+            error : function() {}
+        });
     });
 };
 

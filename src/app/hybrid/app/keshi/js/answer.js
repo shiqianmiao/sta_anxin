@@ -109,25 +109,35 @@ Answer.bindQuestionEvent = function(config) {
             return false;
         }
         var $this = $(this);
-        sendDelete = true;
-        $.ajax({
-            type : 'post',
-            url  : '/index/ajaxDelete/',
-            data : {id : id},
-            dataType : 'json',
-            success : function (data) {
-                if (data.errorCode == 0) {
-                    window.plugins.toast.showShortCenter('删除成功', function(){}, function(){});
-                    window.history.go(-1);
-                } else if (data.errorMessage) {
-                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
-                }
-                sendDelete = false;
-            },
-            error : function () {
-                sendDelete = false;
+        navigator.notification.confirm(
+            '确定删除当前问题吗？', // message
+            onConfirm,           // callback to invoke with index of button pressed
+            '删除问题',           // title
+            ['确定','取消']       // buttonLabels
+        );
+        function onConfirm(index) {
+            if (index == 1) {
+                sendDelete = true;
+                $.ajax({
+                    type : 'post',
+                    url  : '/index/ajaxDelete/',
+                    data : {id : id},
+                    dataType : 'json',
+                    success : function (data) {
+                        if (data.errorCode == 0) {
+                            window.plugins.toast.showShortCenter('删除成功', function(){}, function(){});
+                            window.history.go(-1);
+                        } else if (data.errorMessage) {
+                            window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+                        }
+                        sendDelete = false;
+                    },
+                    error : function () {
+                        sendDelete = false;
+                    }
+                });
             }
-        });
+        }
     });
 };
 
@@ -182,29 +192,39 @@ Answer.bindAnswerEvent = function(config) {
         }
         var $this = $(this);
         var answerId = $this.data('id');
-        sendDelete = true;
-        $.ajax({
-            type : 'post',
-            url  : '/index/ajaxDeleteAnswer/',
-            data : {answer_id : answerId},
-            dataType : 'json',
-            success : function (data) {
-                if (data.errorCode == 0) {
-                    $this.parents('li').remove();
-                    $el.find('.reply-title-num').html('回复（' + data.data.answer_count + '）');
-                    if (data.data.answer_count == 0) {
-                        $('#js_no_reply').removeClass('hide');
+        navigator.notification.confirm(
+            '确定删除该回答吗？', // message
+            onConfirm,           // callback to invoke with index of button pressed
+            '删除回答',           // title
+            ['确定','取消']       // buttonLabels
+        );
+        function onConfirm(index) {
+            sendDelete = true;
+            if (index == 1) {
+                $.ajax({
+                    type : 'post',
+                    url  : '/index/ajaxDeleteAnswer/',
+                    data : {answer_id : answerId},
+                    dataType : 'json',
+                    success : function (data) {
+                        if (data.errorCode == 0) {
+                            $this.parents('li').remove();
+                            $el.find('.reply-title-num').html('回复（' + data.data.answer_count + '）');
+                            if (data.data.answer_count == 0) {
+                                $('#js_no_reply').removeClass('hide');
+                            }
+                            window.plugins.toast.showShortCenter('删除成功', function(){}, function(){});
+                        } else if (data.errorMessage) {
+                            window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+                        }
+                        sendDelete = false;
+                    },
+                    error : function () {
+                        sendDelete = false;
                     }
-                    window.plugins.toast.showShortCenter('删除成功', function(){}, function(){});
-                } else if (data.errorMessage) {
-                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
-                }
-                sendDelete = false;
-            },
-            error : function () {
-                sendDelete = false;
+                });
             }
-        });
+        }
     });
 };
 
@@ -245,8 +265,12 @@ Answer.getAnswer = function(config) {
         var page = $(this).data('page');
         if (page > 0) {
             sendMore = true;
+            $loadMore.find('img').show();
+            $loadMore.find('span').html('加载中...');
             getAnswer({question_id : questionId, page : page}, function(data){
                 if (data.errorCode == 0) {
+                    $loadMore.find('img').hide();
+                    $loadMore.find('span').html('加载更多');
                     if (data.data.answer_list.length > 0) {
                         var html = AnswerTpl(data.data);
                         $el.append(html);
@@ -264,6 +288,8 @@ Answer.getAnswer = function(config) {
                 sendMore = false;
             }, function(data){
                 sendMore = false;
+                $loadMore.find('img').hide();
+                $loadMore.find('span').html('加载更多');
             });
         } else {
             window.plugins.toast.showShortCenter('参数错误！', function(){}, function(){});
