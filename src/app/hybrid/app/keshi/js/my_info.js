@@ -183,12 +183,16 @@ MyInfo.updateDesc = function(config) {
     // 点击签名或者简介的时候
     $el.find('li').on('click', function(){
         var type = $(this).data('type'),title = '';
+        var originContent = '';
         if(type == 'signature'){
             title = '签名';
+            originContent = $el.find('.signature-span').html();
+
         } else if(type == 'introduction'){
             title = '简介';
+            originContent = $el.find('.introduction-span').html();
         }
-        $page2.find('.textarea-con').val('');
+        $page2.find('.textarea-con').val(originContent);
         $page2.find('.page2-title').html(title);
         $page2.data('type', type);
         $page2.show().removeClass('pt-page-scaleUpCenter-hide').addClass('pt-page-scaleUpCenter');
@@ -197,6 +201,10 @@ MyInfo.updateDesc = function(config) {
     // 点击保存的时候
     $page2.find('.page2-save').on('click', function(){
         var content = $.trim($page2.find('.textarea-con').val());
+        if (content.length < 10) {
+            window.plugins.toast.showShortCenter('输入内容不能少于10个字符！！', function(){}, function(){});
+            return false;
+        }
         var params = {};
         if($page2.data('type') == 'signature'){
             params = {motto : content};
@@ -236,6 +244,52 @@ MyInfo.updateDesc = function(config) {
         var remainLength = allLength - curLength;
         $page2.find('.cur-length').html(curLength);
     }, 20);
+};
+
+MyInfo.updateSex = function(config) {
+    var $el = config.$el;
+    // 点选性别
+    $el.find('#sex-select-input').on('change', function() {
+        var sex = $(this).val();
+        var sexText = $el.find("option:selected").text();
+        updateProfile({sex: sex}, function (data) {
+            if (data.errorCode == 0) {
+                $el.find('.sex').html(sexText);
+                window.plugins.toast.showShortCenter('更新成功！', function () {}, function () {});
+            } else if (data.errorMessage) {
+                window.plugins.toast.showShortCenter(data.errorMessage, function () {}, function () {});
+            }
+        });
+    });
+};
+
+MyInfo.updateBirthday = function(config) {
+    var $el = config.$el;
+    // 点击时间选择
+    var showStr = '';
+    var timestamp = 0;
+    var origin = $el.data('origin');
+    $el.find('#data-select-input').on('change', function(){
+        var dataStr = $(this).val();
+        var dataArr = dataStr.split('-');
+        if (dataArr[0] > 0 && dataArr[1] > 0) {
+            showStr = dataArr[0] + '年' + dataArr[1] + '月';
+            var timeStr = dataArr[0] + '/'+ dataArr[1] + '/' + '01';
+            timestamp = new Date(timeStr).getTime() / 1000;
+        }
+    });
+    $el.find('#data-select-input').on('blur', function(){
+        if (origin != timestamp) {
+            updateProfile({birthday: timestamp}, function (data) {
+                if (data.errorCode == 0) {
+                    $el.find('.data').html(showStr);
+                    window.plugins.toast.showShortCenter('更新成功！', function () {}, function () {});
+                } else if (data.errorMessage) {
+                    window.plugins.toast.showShortCenter(data.errorMessage, function () {}, function () {});
+                }
+            });
+        }
+    });
 };
 
 var updateProfile = function(data, success, error) {

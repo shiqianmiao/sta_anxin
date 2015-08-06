@@ -199,8 +199,8 @@ Answer.bindAnswerEvent = function(config) {
             ['确定','取消']       // buttonLabels
         );
         function onConfirm(index) {
-            sendDelete = true;
             if (index == 1) {
+                sendDelete = true;
                 $.ajax({
                     type : 'post',
                     url  : '/index/ajaxDeleteAnswer/',
@@ -250,6 +250,7 @@ Answer.getAnswer = function(config) {
             } else {
                 $('#js_no_reply').removeClass('hide');
             }
+            $('#js_loadind').hide();
         } else if(data.errorMessage) {
             window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
         }
