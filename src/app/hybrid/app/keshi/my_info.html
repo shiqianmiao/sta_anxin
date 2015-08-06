@@ -24,6 +24,7 @@
     <ul class="info1-list">
     	<li class="per-info head-info">
     		<h3>头像</h3>
+    		<span class="audit">审核中</span>
     		<img src="imgs/def.jpg" class="head-pic borR-50" />
     		<img src="imgs/strip.png" class="right-to" />
     	</li>
@@ -69,7 +70,7 @@
     	</li>
     	<li class="per-info" data-type="introduction">
     		<h3>简介</h3>
-    		<span class="txt-wrap noWrapEllipsis introduction-span">护师护师护师护师护师护师护师护师护师</span>
+    		<span class="txt-wrap noWrapEllipsis introduction-span">护师护护师护师</span>
     		<img src="imgs/strip.png" class="right-to" />
     	</li>
     </ul>
@@ -106,10 +107,9 @@
 	</section>
 
 	<!-- 查看大图的包裹层 -->
-	<div class="big-pic-wrap">
-		<span class="close-big-pic">×</span>
-		<img src="imgs/def.jpg" class="big-pic" />
-	</div>
+	<section class="alert-mark big-pic-mark flex-center window-hide">
+		<img src="imgs/ks_index_top.jpg">
+	</section>
 
 	<div class="page2 pt-page-scaleUpCenter-hide" id="page-intr">
 		<header class="header">
@@ -184,39 +184,21 @@
 	        $('.upload-mark').css({top: '-100%'});
     	});
     	// 点击查看大图
-   		$('.show-big').on('touchend', showBigImg);
+   		$('.show-big').on('click', showBigImg);
    		function showBigImg(){
    			
    			var src = $('.head-pic').attr('src');
+   			$('.big-pic-mark img').attr('src', src);
+   			$('.big-pic-mark').removeClass('window-hide');
    			
-   			$('.big-pic').on('load', function(){
-   				$('.big-pic-wrap').show();
-	   			$('.big-pic').cropper('replace', src);
-   			});
-   			$('.big-pic-wrap').show();
-	   		$('.big-pic').cropper('replace', src);
    			
    		}
 
-   		// 初始化大图
-   		$('.big-pic').cropper({
-			aspectRatio: 2 / 2,
-			autoCropArea: 1,
-			strict: false,
-			guides: false,
-			autoCrop : false,
-			highlight: false,
-			dragCrop: false,
-			cropBoxMovable: true,
-			background: true, // 是否显示网格背景 true 是 false 不显示
-			cropBoxResizable: true,
-			guides: true
-		});
+   		// 关闭查看大图
+   		$('.big-pic-mark').on('click', function(){
+   			$(this).addClass('window-hide');
+   		});
 
-    	// 关闭查看大图
-    	$('.close-big-pic').on('click', function(){
-    		$('.big-pic-wrap').hide();
-    	});
 
     	var uploader = Qiniu.uploader({
 	        runtimes: 'html5,flash,html4',

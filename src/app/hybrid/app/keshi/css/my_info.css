@@ -40,6 +40,20 @@
 	top: 50%;
 	margin-top: -24px;
 }
+.audit{
+	height: 62px;
+	line-height: 62px;
+	font-size: 15px;
+	color: #ffad0f;
+	position: absolute;
+	top: 0;
+	right: 24%;
+}
+@media all and (max-width: 320px){
+	.audit{
+		right: 26%;
+	}
+}
 .name h3{
 	float: left;
 	width: 40px;
@@ -81,6 +95,7 @@
 	color: #999;
 	font-size: 15px;
 	top: 0;
+	text-align: right;
 }
 .sex-select label, .data-select label, .sex-select label{
 	display: block;
@@ -205,4 +220,10 @@
 }
 .radio-status.active{
 	background: #ffad0f;
+}
+.big-pic-mark{
+	background: #000;
+}
+.big-pic-mark img{
+	max-width: 100%;
 }
