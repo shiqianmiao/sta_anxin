@@ -126,3 +126,33 @@ body{
 	top: 0;
 	right: 0;
 }
+/* 科室简介 */
+.ks-intr-bg h2{
+	margin: 25px 0 0 4%;
+}
+.ks-intr-bg .hospital-name{
+	margin: 33px 0 0 5px;
+}
+.ks-intr-con{
+	padding: 15px 4% 20px;
+	background: #fff;
+	margin-top: 15px;
+	font-size: 13px;
+	color: #333;
+	text-indent: 2em;
+	line-height: 25px;
+}
+.ks-intr-foot{
+	height: 13px;
+	color: #999;
+	font-size: 13px;
+	background: #fff;
+	padding: 0 4% 16px;
+}
+.ks-intr-foot time{
+	float: left;
+}
+.ks-intr-foot em{
+	float: right;
+}
+/* 科室简介 结束 */
