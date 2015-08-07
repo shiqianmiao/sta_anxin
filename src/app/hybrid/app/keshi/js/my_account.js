@@ -299,6 +299,7 @@ MyAccount.getDetail = function(config) {
     var $el = config.$el;
     var $noData = $('#js_no_data');
     var $loadMore = $('#js_load_more');
+    var $loading = $('#js_loading');
     //取交易明细
     var getDetailList = function(params, success, error) {
         $.ajax({
@@ -315,6 +316,7 @@ MyAccount.getDetail = function(config) {
         });
     };
     getDetailList({page : 1}, function(data) {
+        $loading.hide();
         if (data.errorCode == 0) {
             if (data.data.detail_list.length > 0) {
                 var html = DetailTpl(data.data);
