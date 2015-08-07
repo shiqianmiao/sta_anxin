@@ -625,5 +625,8 @@ body, html{
 	width: 100%;
 }
 .info-area p:nth-of-type(2) input.no-border,.info-area.no-border{
-	border : none;
+	border: none;
+}
+.info-area p:nth-of-type(2) button.no-border, .time-wrap span.no-border{
+	border: none;
 }
