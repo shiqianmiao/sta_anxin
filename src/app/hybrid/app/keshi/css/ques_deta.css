@@ -338,8 +338,11 @@ body, html{
 	top: 0;
 	left: 0;
 	display: none;
-	background: #fff;
+	background: #000;
 	z-index: 100;
+}
+.swiper-pagination-bullet{
+	background: #fff;
 }
 .swiper-wrapper img{
 	display: block;
