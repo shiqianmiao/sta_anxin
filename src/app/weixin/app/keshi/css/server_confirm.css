@@ -67,7 +67,7 @@ body, html{
 .info-area p{
 	float: left;
 	min-height: 40px;
-	color: #2c2c2c;
+	color: #999;
 	font-size: 16px;
 	line-height: 40px;
 }
@@ -208,11 +208,12 @@ body, html{
 
 .sel-time{
 	min-height: 50px;
-	border-bottom: 1px dotted #999999;
+	border-bottom: 1px dotted #d1d1d1;
+	overflow: hidden;
 }
 .time-plug{
 	height: 30px;
-	margin-top: 13px;
+	margin-top: 10px;
 }
 .time-plug h4{
 	float: left;
@@ -221,7 +222,7 @@ body, html{
 	line-height: 30px;
 	text-indent: 0.2em;
 	font-size: 16px;
-	color: #2c2c2c;
+	color: #999;
 	text-indent: 0;
 }
 .time-wrap{
@@ -623,6 +624,6 @@ body, html{
 	left: 0;
 	width: 100%;
 }
-.info-area p:nth-of-type(2) input.no-border {
+.info-area p:nth-of-type(2) input.no-border,.info-area.no-border{
 	border : none;
 }
