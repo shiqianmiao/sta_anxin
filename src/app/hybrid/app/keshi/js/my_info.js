@@ -185,10 +185,6 @@ MyInfo.updateDesc = function(config) {
     // 点击保存的时候
     $page2.find('.page2-save').on('click', function(){
         var content = $.trim($page2.find('.textarea-con').val());
-        if (content.length < 10) {
-            window.plugins.toast.showShortCenter('输入内容不能少于10个字符！！', function(){}, function(){});
-            return false;
-        }
         var params = {};
         if($page2.data('type') == 'signature'){
             params = {motto : content};
