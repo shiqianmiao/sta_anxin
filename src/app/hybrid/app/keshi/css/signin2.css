@@ -1,11 +1,12 @@
 html,body{
 	width: 100%;
-	height: 100%;
+	height: 1334px;
 }
 #content{
-	background: url(../imgs/login-bg.jpg) no-repeat center center;
-	background-size: cover;
+	background: url(../imgs/login-bg.jpg) no-repeat;
+	background-size: 100% 100%;
 	height: 100%;
+	overflow: hidden;
 }
 .big-logo{
 	margin: 205px auto 0;
@@ -15,10 +16,17 @@ html,body{
 	width: 630px;
 	height: 66px;
 	border-bottom: 1px solid #fff;
-	background: url(../imgs/peo.png) no-repeat 8px center;
+	background: url(../imgs/peo.png) no-repeat 16px center;
 	background-size: 33px 37px;
 	position: relative;
 	margin: 0 auto;
+}
+.input-wrap:nth-of-type(2){
+	background: url(../imgs/mima.png) no-repeat 16px center;
+	background-size: 31px 37px;
+	margin-top: 51px;
+	border-bottom: none;
+	position: relative;
 }
 .user-input{
 	margin: 222px auto 0;
@@ -35,3 +43,39 @@ html,body{
 	color: #fff;
 }
 input::-webkit-input-placeholder{color:#fff;}
+.pwd-input-wrap{
+	width: 390px;
+	border-bottom: 1px solid #fff;
+	height: 100%;
+}
+.getCode{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 218px;
+	height: 88px;
+	line-height: 88px;
+	text-align: center;
+	color: #a8a0b2;
+	font-size: 30px;
+	background: #ddd7de;
+}
+.login-btn{
+	display: block;
+	width: 630px;
+	height: 88px;
+	background: #ffad0f;
+	font-size: 34px;
+	line-height: 88px;
+	text-align: center;
+	color: #fff;
+	box-shadow: 0 5px 0 #d97908;
+	margin: 80px auto 0;
+}
+.borR-3{
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
+}
