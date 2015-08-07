@@ -5,8 +5,7 @@ html, body{
 #content{
 	background: url(../imgs/login-bg.jpg) no-repeat;
 	background-size: 100% 100%;
-	position: absolute;
-	width: 84%;
+	position: relative;
 	padding: 0 8%;
 	height: 100%;
 }
@@ -33,8 +32,7 @@ html, body{
 	}
 }
 .input-wrap{
-	-position: absolute;
-	margin-top: 200px;
+	position: absolute;
 	bottom: 297px;
 	width: 84%;
 	height: 33px;
