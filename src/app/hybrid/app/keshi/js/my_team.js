@@ -16,38 +16,78 @@ var MyTeam = exports;
 
 MyTeam.getCustomer = function(config) {
     var $el = config.$el;
+    var $dataArea = $el.find('ul');
+    var $noData = $el.find('.js_no_data');
+    var $loadMore = $el.find('#js_load_more');
+    var $loading = $el.find('.js_loadind');
+    var page = 1;
+
+    //请求是否已发送
+    var send = false;
     var getCustomer = function(params, success, error) {
+        if (send) {
+            return false;
+        }
+        send = true;
         $.ajax({
             type : 'post',
             url  : '/keshi/ajaxGetCustomer/',
             data : params,
             dataType : 'json',
             success : function(data) {
-                success(data);
+                if (data.errorCode == 0) {
+                    success(data.data);
+                } else if (data.errorMessage) {
+                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+                } else {
+                    window.plugins.toast.showShortCenter('未知错误，请重试', function(){}, function(){});
+                }
+                send = false;
             },
             error : function(data) {
                 error(data);
+                send = false;
             }
         });
     };
-    getCustomer({page : 1}, function(data){
-        if (data.data.customer_list.length > 0) {
-            var html = CustomerTpl(data.data);
-            $el.html(html);
+    getCustomer({page : page}, function(data){
+        $loading.hide();
+        if (data.customer_list.length > 0) {
+            var html = CustomerTpl(data);
+            $dataArea.html(html);
         } else {
-            //$noData.removeClass('hide');
+            $noData.removeClass('hide');
         }
-        if (data.data.has_more) {
-            //$loadMore.removeClass('hide');
+        if (data.has_more) {
+            $loadMore.removeClass('hide');
         }
-        //$loadMore.data('page', data.data.page);
+        page = data.page;
     }, function(data){
+    });
 
+    $loadMore.tap(function(){
+        $loadMore.find('img').show();
+        $loadMore.find('span').html('加载中...');
+        getCustomer({page : page}, function(data){
+            $loadMore.find('img').hide();
+            $loadMore.find('span').html('加载更多');
+            if (data.customer_list.length > 0) {
+                var html = CustomerTpl(data);
+                $dataArea.append(html);
+            }
+            if (!data.has_more) {
+                $loadMore.addClass('hide');
+            }
+            page = data.page;
+        }, function(data){
+        });
     });
 };
 
 MyTeam.getMember = function(config) {
     var $el = config.$el;
+    var $dataArea = $el.find('ul');
+    var $noData = $el.find('.js_no_data');
     var getMember = function(params, success, error) {
         $.ajax({
             type : 'post',
@@ -55,7 +95,13 @@ MyTeam.getMember = function(config) {
             data : params,
             dataType : 'json',
             success : function(data) {
-                success(data);
+                if (data.errorCode == 0) {
+                    success(data.data);
+                } else if (data.errorMessage) {
+                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+                } else {
+                    window.plugins.toast.showShortCenter('未知错误，请重试', function(){}, function(){});
+                }
             },
             error : function(data) {
                 error(data);
@@ -64,13 +110,13 @@ MyTeam.getMember = function(config) {
     };
 
     getMember({page : 1}, function(data){
-        if (data.data.worker_list.length > 0) {
-            var html = MemberTpl(data.data);
-            $el.html(html);
+        if (data.worker_list.length > 0) {
+            var html = MemberTpl(data);
+            $dataArea.html(html);
         } else {
-            //$noData.removeClass('hide');
+            $noData.removeClass('hide');
         }
-        if (data.data.has_more) {
+        if (data.has_more) {
             //$loadMore.removeClass('hide');
         }
         //$loadMore.data('page', data.data.page);

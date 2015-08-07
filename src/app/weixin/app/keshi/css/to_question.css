@@ -92,16 +92,8 @@
 	height: 20px;
 	margin-top: 16px;
 }
-.ques-con-wrap time:first-of-type {
-	float: left;
-	font-size: 13px;
-	height: 13px;
-	line-height: 13px;
-	color: #999;
-	margin-top: 5px;
-}
-.ques-con-wrap time:last-of-type {
-	float: right;
+.ques-con-wrap time{
+	display: block;
 	font-size: 13px;
 	height: 13px;
 	line-height: 13px;
