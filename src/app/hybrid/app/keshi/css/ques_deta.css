@@ -1,6 +1,6 @@
-.content{
-	padding: 30px 0 0;
+body, html{
 	position: relative;
+	height: 100%;
 }
 .attention-p{
 	position: absolute;
@@ -62,9 +62,13 @@
 .add-pd{
 	padding: 0 4%;
 }
+.reply-list{
+	margin-bottom: 15px;
+}
 .poster-wrap{
 	padding: 0 4% 12px;
 	background: #fff;
+	margin-top: 15px;
 }
 .ques-title{
 	height: 37px;
@@ -300,10 +304,12 @@
 	background: #ffffff;
 	left: 0;
 	bottom: 0;
+	z-index: 20;
 }
 .reply-input{
-	width: 75%;
-	height: 34px;
+	width: 71%;
+	height: 22px;
+	padding: 10px 2% 0;
 	margin-top: 7px;
 	border: none;
 	background: #ededed;
@@ -333,6 +339,7 @@
 	left: 0;
 	display: none;
 	background: #fff;
+	z-index: 100;
 }
 .swiper-wrapper img{
 	display: block;

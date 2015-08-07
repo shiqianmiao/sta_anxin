@@ -241,7 +241,7 @@ $.extend(proto, {
 		}
 
 		// 计算速度
-		this.speed = parseInt( (this.endlocation - this.startlocation) / (this.endTime - this.startTime) * 400 );
+		this.speed = parseInt( (this.endlocation - this.startlocation) / (this.endTime - this.startTime) * 180 );
 		if(Math.abs(this.speed) < 100){
 			this.speed = 0;
 		}
@@ -405,10 +405,12 @@ $.extend(proto, {
 		
 	},
 	setTranslateY: function (obj, diff) {
-        $(obj).css({
-            "-webkit-transform": "translateY(" + diff + "px)",
-            "transform": "translateY(" + diff + "px)"
-        });
+		obj.style.webkitTransform = "translateY(" + diff + "px)";
+		obj.style.transform = "translateY(" + diff + "px)";
+        // $(obj).css({
+        //     "webkitTransform": "translateY(" + diff + "px)",
+        //     "transform": "translateY(" + diff + "px)"
+        // });
         $(obj).data('translateY', diff);
     },
     getTranslateY : function(obj){
