@@ -16,7 +16,7 @@ var MyInfo = exports;
 MyInfo.updateFacePhoto = function(config) {
     var $el = config.$el;
     var $uploadMark = $('.upload-mark');
-    var $bigPicWrap = $('.big-pic-wrap');
+    var $bigPicWrap = $('.big-pic-mark');
     var token = $el.data('token');
     // 点击头像
     $el.on('click', function(){
@@ -28,38 +28,20 @@ MyInfo.updateFacePhoto = function(config) {
         $uploadMark.css({top: '-100%'});
     });
     // 点击查看大图
-    $uploadMark.find('.show-big').on('touchend', showBigImg);
+    $uploadMark.find('.show-big').on('click', showBigImg);
     function showBigImg(){
-
-        var src = $el.find('.head-pic').attr('src');
-
-        $bigPicWrap.find('.big-pic').on('load', function(){
-            $bigPicWrap.show();
-            $bigPicWrap.find('.big-pic').cropper('replace', src);
-        });
-        $bigPicWrap.show();
-        $bigPicWrap.find('.big-pic').cropper('replace', src);
-
+        var src = $bigPicWrap.find('img').data('big');
+        $bigPicWrap.find('img').attr('src', src);
+        $bigPicWrap.removeClass('window-hide');
+        $uploadMark.css({top: '-100%'});
     }
-
-    // 初始化大图
-    $bigPicWrap.find('.big-pic').cropper({
-        aspectRatio: 2 / 2,
-        autoCropArea: 1,
-        strict: false,
-        guides: false,
-        autoCrop : false,
-        highlight: false,
-        dragCrop: false,
-        cropBoxMovable: true,
-        background: true, // 是否显示网格背景 true 是 false 不显示
-        cropBoxResizable: true,
-        guides: true
-    });
 
     // 关闭查看大图
     $bigPicWrap.find('.close-big-pic').on('click', function(){
         $('.big-pic-wrap').hide();
+    });
+    $bigPicWrap.on('click', function(){
+        $(this).addClass('window-hide');
     });
 
     var uploader = Qiniu.uploader({
@@ -113,9 +95,11 @@ MyInfo.updateFacePhoto = function(config) {
                         // 拼接七牛裁剪连接,注意裁剪顺序，先旋转
                         key = key + '?imageMogr2/rotate/' + rotate + '/thumbnail/' + imgWidth + 'x' + imgHeight + '!/crop/!' + cropWidth + 'x' + cropHeight + 'a' + cropOffsetLeft + 'a' + cropOffsetTop;
                         src = qnDomain + key;
-                        $el.find('.head-pic').attr('src', src);
                         updateProfile({face_url : key}, function(data){
                             if (data.errorCode == 0) {
+                                $el.find('.head-pic').attr('src', src);
+                                $('.big-pic-mark img').data('big', data.data.face_url);
+                                $('.head-info .audit').html('待审核');
                                 window.plugins.toast.showShortCenter('上传成功！', function(){}, function(){});
                             } else if(data.errorMessage) {
                                 window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
