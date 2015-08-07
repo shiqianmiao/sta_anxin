@@ -38,6 +38,7 @@ html, body{
 	border: 1px solid #dadada;
 	line-height: 20px;
 	color: #333;
+	font-size: 15px;
 }
 @media all and (max-width: 320px){
 	.textarea{

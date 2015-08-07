@@ -1,6 +1,5 @@
-body{
-	padding-bottom: 70px;
-
+body, html{
+	min-height: 100%;
 }
 #header-top{
 	height: 48px;
@@ -82,7 +81,7 @@ body{
 .info-area p:nth-of-type(2){
 	width: 70%;
 }
-.info-area p:nth-of-type(2) input{
+.info-area p:nth-of-type(2) input, .info-area p:nth-of-type(2) button{
 	color: #2c2c2c;
 	font-size:16px;
 	text-indent: 10px;
@@ -90,6 +89,8 @@ body{
 	height: 30px;
 	border: 1px solid #999999;
 	margin-top: 10px;
+	background-color: white;
+	-webkit-appearance: none;
 }
 .sel-addr,.sel-addr-pay{
 	min-height: 100px;
@@ -621,4 +622,7 @@ body{
 	top: 0;
 	left: 0;
 	width: 100%;
+}
+.info-area p:nth-of-type(2) input.no-border {
+	border : none;
 }
