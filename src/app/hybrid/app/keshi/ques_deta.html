@@ -23,10 +23,13 @@
         <a href="javascript:" class="er-btn"></a>
     </header>
     <div class="attention-p" hidden>
-        <p class="first-p">回答注意事项<img src="imgs/next.png" class="next-more" /><span class="p-close"></span></p>
-        <p>1. 膝盖有积液，属于正常现象，建议暂时不要运动，伤口愈合再运现象，建议暂动。</p>
-        <p>2. 现象，建议暂有积液，属于正常现象，建议暂时不要运动，伤口愈合再运现象，建议暂愈合再运现象，建议暂愈合再运现象，建议暂动。</p>
-        <p>2. 现象，建议暂有积液，属于正常现象，建议暂时不要运动，伤口愈合再运现象，建议暂愈合再运现象，建议暂愈合再运现象，建议暂动。</p>
+        <div class="ap-wrap">
+            <p class="first-p">回答注意事项<img src="imgs/next.png" class="next-more" /><span class="p-close"></span></p>
+            <p>1. 膝盖有积液，属于正常现象，建议暂时不要运动，伤口愈合再运现象，建议暂动。</p>
+            <p>2. 现象，建议暂有积液，属于正常现象，建议暂时不要运动，伤口愈合再运现象，建议暂愈合再运现象，建议暂愈合再运现象，建议暂动。</p>
+            <p>2. 现象，建议暂有积液，属于正常现象，建议暂时不要运动，伤口愈合再运现象，建议暂愈合再运现象，建议暂愈合再运现象，建议暂动。</p>
+            <p>2. 现象，建议暂有积液，属于正常现象，建议暂时不要运动，伤口愈合再运现象，建议暂愈合再运现象，建议暂愈合再运现象，建议暂动。</p>
+        </div>
     </div>
     <div id="Hwrap">
         <div id="Hscroll">
@@ -36,7 +39,7 @@
                     <div class="ques-title clear">
                         <img src="imgs/head.jpg" class="ques-head-pic" />
                         <div class="title-content">
-                            <span>王先生</span>
+                            <span>王先生</span><time>2015-6-1</time>
                             <div class="opation-wrap" data-show='false'>
                                 <div class="alert-opa borR-3">
                                     <span class="to-public">设为公开</span>
@@ -290,8 +293,16 @@
             $('#Hwrap').css({top: $('.header').height() + 30 + 'px'});
         });
         // 点击第一个p标签的时候
+        $('.first-p').data('active', false);
         $('.first-p').on('tap', function(){
-            $('.attention-p').toggleClass('show');
+            if($('.first-p').data('active')){
+                $('.attention-p').css({height: '30px'});
+            }else{
+                $('.attention-p').css({height: $('.ap-wrap').height() + 'px'});
+            }
+            $('.first-p').data('active', !$('.first-p').data('active'));
+            // 箭头方向
+            $('.next-more').toggleClass('rotate180');
         });
 
         // 点击关闭注意事项叉叉时
@@ -299,7 +310,10 @@
             // 设置高度
             $('#Hwrap').css({top: $('.header').height() + 'px'});
 
-            $('.attention-p').css({opacity: '0'});
+            $('.attention-p').css({opacity: '0', height: '30px'});
+            $('.first-p').data('active', false);
+            // 箭头方向
+            $('.next-more').removeClass('rotate180');
             setTimeout(function(){
                 $('.attention-p').css({display: 'none'});
             }, 300);

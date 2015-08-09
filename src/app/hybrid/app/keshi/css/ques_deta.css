@@ -19,8 +19,10 @@ body, html{
 	-o-transition: 0.3s;
 	transition: 0.3s;
 }
-.attention-p.show{
-	height: 282px;
+.ap-wrap{
+	padding-bottom: 12px;
+}
+.attention-p{
 	z-index: 10;
 }
 .attention-p p{
@@ -28,9 +30,6 @@ body, html{
 }
 .attention-p p:first-of-type{
 	text-align: center;
-}
-.attention-p p:last-of-type{
-	margin-bottom: 12px;
 }
 .next-more{
 	vertical-align: middle;
@@ -90,6 +89,11 @@ body, html{
 	font-size: 15px;
 	color: #333;
 	float: left;
+}
+.title-content time{
+	font-size: 13px;
+	color: #999;
+	margin-left: 1em;
 }
 .title-content em{
 	font-size: 13px;
@@ -358,4 +362,11 @@ body, html{
 }
 .window-hide{
 	display: none;
+}
+.rotate180{
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
 }
