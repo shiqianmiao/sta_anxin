@@ -1,6 +1,5 @@
-body{
-	padding-bottom: 70px;
-
+body, html{
+	min-height: 100%;
 }
 #header-top{
 	height: 48px;
@@ -68,7 +67,7 @@ body{
 .info-area p{
 	float: left;
 	min-height: 40px;
-	color: #2c2c2c;
+	color: #999;
 	font-size: 16px;
 	line-height: 40px;
 }
@@ -82,7 +81,7 @@ body{
 .info-area p:nth-of-type(2){
 	width: 70%;
 }
-.info-area p:nth-of-type(2) input{
+.info-area p:nth-of-type(2) input, .info-area p:nth-of-type(2) button{
 	color: #2c2c2c;
 	font-size:16px;
 	text-indent: 10px;
@@ -90,6 +89,8 @@ body{
 	height: 30px;
 	border: 1px solid #999999;
 	margin-top: 10px;
+	background-color: white;
+	-webkit-appearance: none;
 }
 .sel-addr,.sel-addr-pay{
 	min-height: 100px;
@@ -207,11 +208,12 @@ body{
 
 .sel-time{
 	min-height: 50px;
-	border-bottom: 1px dotted #999999;
+	border-bottom: 1px dotted #d1d1d1;
+	overflow: hidden;
 }
 .time-plug{
 	height: 30px;
-	margin-top: 13px;
+	margin-top: 10px;
 }
 .time-plug h4{
 	float: left;
@@ -220,7 +222,7 @@ body{
 	line-height: 30px;
 	text-indent: 0.2em;
 	font-size: 16px;
-	color: #2c2c2c;
+	color: #999;
 	text-indent: 0;
 }
 .time-wrap{
@@ -621,4 +623,10 @@ body{
 	top: 0;
 	left: 0;
 	width: 100%;
+}
+.info-area p:nth-of-type(2) input.no-border,.info-area.no-border{
+	border: none;
+}
+.info-area p:nth-of-type(2) button.no-border, .time-wrap span.no-border{
+	border: none;
 }
