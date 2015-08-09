@@ -97,19 +97,18 @@
 				<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
 			</div>
 
-				<ul id="thelist">
-					<li>Pretty row 1</li>
-					<li>Pretty row 2</li>
-					<li>Pretty row 3</li>
-					<li>Pretty row 4</li>
-					<li>Pretty row 5</li>
-					<li>Pretty row 6</li>
-					<li>Pretty row 7</li>
-					<li>Pretty row 8</li>
-					<li>Pretty row 9</li>
-					<li>Pretty row 10</li>
-				</ul>
-
+			<ul id="thelist">
+				<li>Pretty row 1</li>
+				<li>Pretty row 2</li>
+				<li>Pretty row 3</li>
+				<li>Pretty row 4</li>
+				<li>Pretty row 5</li>
+				<li>Pretty row 6</li>
+				<li>Pretty row 7</li>
+				<li>Pretty row 8</li>
+				<li>Pretty row 9</li>
+				<li>Pretty row 10</li>
+			</ul>
 			<div id="pullUp">
 				<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
 			</div>
@@ -178,16 +177,16 @@
 					}
 				},
 				onScrollMove: function () {
-					console.log(this.y);
-					// if (this.y > 5 && !pullDownEl.className.match('flip')) {
-					// 	pullDownEl.className = 'flip';
-					// 	pullDownEl.querySelector('.pullDownLabel').innerHTML = '松开刷新...';
-					// 	this.minScrollY = 0;
-					// } else if (this.y < 5 && pullDownEl.className.match('flip')) {
-					// 	pullDownEl.className = '';
-					// 	pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
-					// 	this.minScrollY = -pullDownOffset;
-					// } else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+					if (this.y > 5 && !pullDownEl.className.match('flip')) {
+						pullDownEl.className = 'flip';
+						pullDownEl.querySelector('.pullDownLabel').innerHTML = '松开刷新...';
+						this.minScrollY = 0;
+					} else if (this.y < 5 && pullDownEl.className.match('flip')) {
+						pullDownEl.className = '';
+						pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+						this.minScrollY = -pullDownOffset;
+					}
+					// if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
 					// 	pullUpEl.className = 'flip';
 					// 	pullUpEl.querySelector('.pullUpLabel').innerHTML = '松开刷新...';
 					// 	this.maxScrollY = this.maxScrollY;
