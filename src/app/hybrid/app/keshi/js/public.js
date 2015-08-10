@@ -13,7 +13,8 @@ Public.showQrCode = function(config) {
     var $el = config.$el;
     var qrCodeUrl = $el.data('qrcode');
     var html = '<div class="alert-mark flex-center er-close-mark" id="er-window" ><img src="' + qrCodeUrl + '" class="erpic" /></div>';
-    $el.on('tap', function(){
+    $el.on('tap', function(event){
+        event.stopPropagation();
         var $qrWindow = $('#er-window');
         if ($qrWindow.length > 0) {
             $qrWindow.removeClass('window-hide');
