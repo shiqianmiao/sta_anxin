@@ -91,7 +91,7 @@ Hiscroll.loaded = function(opations) {
 				}
 			}
 			if(self.type == 'onlyBottom' || self.type == 'double'){
-				console.log(this.y + '-' + this.maxScrollY);
+				// console.log(this.y + '-' + this.maxScrollY);
 				if (this.y < (this.maxScrollY - 30) && !pullUpEl.className.match('flip') && this.y < -pullDownOffset) {
 					pullUpEl.className = 'flip';
 					pullUpEl.querySelector('.pullUpLabel').innerHTML = '放开加载更多...';

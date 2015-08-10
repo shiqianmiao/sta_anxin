@@ -2,24 +2,25 @@ html,body{
 	background: #fff;
 }
 .dcg-top{
-	height: 67px;
+	min-height: 53px;
 	border-bottom: 1px solid #cbcbcb;
 	padding: 0 4%;
 	overflow: hidden;
+	padding-bottom: 14px;
 }
 .dcg-top h2{
 	font-size: 18px;
 	color: #333;
-	height: 18px;
-	line-height: 18px;
-	margin-top: 13px;
+	min-height: 22px;
+	line-height: 22px;
+	margin-top: 11px;
 }
 .dcg-top p{
 	font-size: 13px;
 	height: 13px;
 	line-height: 13px;
 	color: #999;
-	margin-top: 10px;
+	margin-top: 8px;
 }
 .con-wrap{
 	padding: 19px 4% 0;
@@ -84,4 +85,14 @@ html,body{
 	height: 121px;
 	right: 17px;
 	top: 65px;
+}
+.posts-wrap p{
+	font-size: 15px;
+	color: #333;
+	line-height: 22px;
+	margin-bottom: 0;
+	text-indent: 2em;
+	word-break: break-all;       /* 只对英文起作用，以字母作为换行依据。 */
+	word-wrap: break-word;   	/* 只对英文起作用，以单词作为换行依据。*/
+	white-space: pre-wrap;     /* 只对中文起作用，强制换行。*/
 }
