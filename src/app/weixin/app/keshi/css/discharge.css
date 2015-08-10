@@ -73,6 +73,12 @@ html,body{
 	background-size: 13px 14px;
 	margin-right: 20px;
 }
+.zan-active{
+	padding-left: 18px;
+	background: url(../imgs/zan_ing.png) no-repeat left center;
+	background-size: 13px 14px;
+	margin-right: 20px;
+}
 .posts-bottom{
 	width: 320px;
 	height: 202px;

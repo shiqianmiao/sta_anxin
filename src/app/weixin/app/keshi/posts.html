@@ -25,7 +25,7 @@
 　　后市策略：眼下A股市场仍然不够稳定，成交量的快速萎缩基本可以确定是存量资金的博弈，今日量能有所放大，明日沪指或将冲击4100点整数关口，后市投资者要密切关注量能的变化，量能决定反弹高度，题材股方面，重点关注国企改革，军工，高送转等主线的投资机会！</section>
     <section class="opationall-wrap">
         <a class="share" href="#">分享</a>
-        <a class="zan" href="#">1596</a>
+        <a class="zan" href="Javascript:;">1596</a>
         <span>人气：10000+</span>
     </section>
 
@@ -38,7 +38,10 @@
     <script>
     G.use(['zepto'], function($){
 
-        
+        // 点赞的时候
+        $('.zan').on('tap', function(){
+            $(this).toggleClass('zan-active');
+        });
 
     });
     </script>

@@ -72,6 +72,11 @@ a,button,input,textarea{-webkit-tap-highlight-color: rgba(255,0,0,0);}
 .noWrap{
 	white-space:nowrap;
 }
+/* 文字两端对齐 */
+.text-justify{
+	text-align:justify; 
+	text-justify:inter-ideograph;
+}
 /* 禁止换行,超出省略号 */
 .noWrapEllipsis{
 	 white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
