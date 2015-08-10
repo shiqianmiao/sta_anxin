@@ -221,6 +221,11 @@ Question.bindQuestionEvent = function(config) {
                         sendDelete = false;
                     }
                 });
+            } else {
+                $('.alert-opa').hide();
+                if($alertDom){
+                    $alertDom.data('show', false);
+                }
             }
         }
     });

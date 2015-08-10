@@ -135,8 +135,8 @@ MyTeam.tab = function(config) {
 
         var selector = '.' + $(this).data('type') + '-list';
 
-        $('.tablist').hide();
-        $(selector).show();
+        $('.tablist').parent().hide();
+        $(selector).parent().show();
     });
 };
 
