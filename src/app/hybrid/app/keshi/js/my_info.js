@@ -243,7 +243,7 @@ MyInfo.updateSex = function(config) {
     });
 };
 
-MyInfo.updateBirthday = function(config) {
+MyInfo.updateIosBirthday = function(config) {
     var $el = config.$el;
     // 点击时间选择
     var showStr = '';
@@ -252,9 +252,9 @@ MyInfo.updateBirthday = function(config) {
     $el.find('#data-select-input').on('change', function(){
         var dataStr = $(this).val();
         var dataArr = dataStr.split('-');
-        if (dataArr[0] > 0 && dataArr[1] > 0) {
-            showStr = dataArr[0] + '年' + dataArr[1] + '月';
-            var timeStr = dataArr[0] + '/'+ dataArr[1] + '/' + '01';
+        if (dataArr[0] > 0 && dataArr[1] > 0 && dataArr[2] > 0) {
+            showStr = dataArr[0] + '-' + dataArr[1] + '-' + dataArr[2];
+            var timeStr = dataArr[0] + '/'+ dataArr[1] + '/' + dataArr[2];
             timestamp = new Date(timeStr).getTime() / 1000;
         }
     });
@@ -270,6 +270,45 @@ MyInfo.updateBirthday = function(config) {
             });
         }
     });
+};
+
+MyInfo.updateArdBirthday = function(config) {
+    var $el = config.$el;
+    // 点击时间选择
+    var timestamp = 0;
+    $el.tap(function(){
+        event.stopPropagation();
+        var defaultDate = $el.data('default');
+        defaultDate = new Date (defaultDate);
+        window.plugins.datePicker.show({
+            date : defaultDate,
+            mode : 'date',
+            minDate: 0,
+            maxDate: 0,
+            androidTheme : window.datePicker.ANDROID_THEMES.THEME_HOLO_DARK
+        }, function(returnDate) {
+            var date = returnDate.getFullYear() + '-' + formatDate(returnDate.getMonth() + 1) + '-' + formatDate(returnDate.getDate());
+            timestamp = new Date(date).getTime() / 1000;
+            updateProfile({birthday: timestamp}, function (data) {
+                if (data.errorCode == 0) {
+                    $el.find('.data').html(date);
+                    $el.data('default', date);
+                    window.plugins.toast.showShortCenter('更新成功！', function () {}, function () {});
+                } else if (data.errorMessage) {
+                    window.plugins.toast.showShortCenter(data.errorMessage, function () {}, function () {});
+                }
+            });
+        });
+    });
+    function formatDate(d) {
+        var D=['00','01','02','03','04','05','06','07','08','09'];
+        d = parseInt(d);
+        if (d < 10) {
+            return D[d];
+        } else {
+            return d;
+        }
+    }
 };
 
 var updateProfile = function(data, success, error) {

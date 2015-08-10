@@ -11,6 +11,8 @@ var Base = require('app/hybrid/common/base.js');
 var AnswerTpl = require('app/hybrid/app/keshi/tpl/answer_list.tpl');
 var Widget = require('com/mobile/lib/widget/widget.js');
 var Swiper = require('lib/swiper/swiper.min.js');
+var Hscroll = require('widget/Hscroll/js/Hscroll2.js');
+var Cookie = require('com/mobile/lib/cookie/cookie.js');
 var Answer = exports;
 
 //回答注意事项，展开收起，关闭
@@ -18,14 +20,42 @@ Answer.attention = function(config) {
     var $el = config.$el;
     // 点击第一个p标签的时候
     $el.find('.first-p').on('tap', function(){
-        $el.toggleClass('show');
+        var $this = $(this);
+        if($this.data('active')){
+            $('.attention-p').css({height: '30px'});
+        }else{
+            $('.attention-p').css({height: $('.ap-wrap').height() + 'px'});
+        }
+        $this.data('active', !$this.data('active'));
+        // 箭头方向
+        $('.next-more').toggleClass('rotate180');
+    });
+
+    $('.attention-p').css({top: $('.header').height() + 'px'});
+    // 当回复框获取焦点的时候
+    $('.reply-input').on('focus', function(){
+        // 显示提示
+        $('.attention-p').css({opacity: '1', display: 'block'});
+        // 设置高度
+        $('#Hwrap').css({top: $('.header').height() + 30 + 'px'});
     });
     // 点击关闭注意事项叉叉时
     $el.find('.p-close').on('tap', function(event){
-        $el.css({opacity: '0'});
+        var count = Cookie.get('attention_close_count');
+        count = count ? parseInt(count) : 0;
+        count = count + 1;
+        Cookie.set('attention_close_count', count, {expires:3600 * 24 * 365, path: '/'});
+        // 设置高度
+        $('#Hwrap').css({top: $('.header').height() + 'px'});
+
+        $('.attention-p').css({opacity: '0', height: '30px'});
+        $('.first-p').data('active', false);
+        // 箭头方向
+        $('.next-more').removeClass('rotate180');
         setTimeout(function(){
-            $el.css({display: 'none'});
+            $('.attention-p').css({display: 'none'});
         }, 300);
+
         if(event.stopPropagation){
             event.stopPropagation();
         }else{
@@ -231,70 +261,85 @@ Answer.bindAnswerEvent = function(config) {
 Answer.getAnswer = function(config) {
     var $el = config.$el;
     var questionId = $el.data('id');
+    var page = 1;
     //从localstorage 读取数据，实现页面快速展示
     if (localStorage.answer) {
         var data = JSON.parse(localStorage.answer);
         var html = AnswerTpl(data);
         $el.html(html);
     }
-    getAnswer({question_id : questionId}, function(data){
-        if (data.errorCode == 0) {
-            if (data.data.answer_list.length > 0) {
-                var html = AnswerTpl(data.data);
-                $el.html(html);
-                Base.bindDomWidget($el);
-                if (data.data.has_more) {
-                    $('#js_load_more').removeClass('hide');
-                    $('#js_load_more').data('page', data.data.page);
-                }
-            } else {
-                $('#js_no_reply').removeClass('hide');
-            }
-            $('#js_loadind').hide();
-        } else if(data.errorMessage) {
-            window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
-        }
-    }, function(data){
-    });
-    //加载更多
-    var sendMore = false;
-    var $loadMore = $('#js_load_more');
-    $loadMore.on('tap', function(){
-        if (sendMore) {
+
+    //内部取回答函数
+    var isSend = false;
+    var getAnswer = function(params, success, error) {
+        if (isSend) {
             return false;
         }
-        var page = $(this).data('page');
-        if (page > 0) {
-            sendMore = true;
-            $loadMore.find('img').show();
-            $loadMore.find('span').html('加载中...');
-            getAnswer({question_id : questionId, page : page}, function(data){
+        isSend = true;
+        $.ajax({
+            type : 'post',
+            url  : '/index/ajaxGetAnswer/',
+            data : params,
+            dataType : 'json',
+            success : function(data) {
                 if (data.errorCode == 0) {
-                    $loadMore.find('img').hide();
-                    $loadMore.find('span').html('加载更多');
-                    if (data.data.answer_list.length > 0) {
-                        var html = AnswerTpl(data.data);
-                        $el.append(html);
-                        Base.bindDomWidget($el);
-                        $loadMore.data('page', data.data.page);
-                    }
-                    if (data.data.has_more) {
-                        $loadMore.removeClass('hide');
-                    } else {
-                        $loadMore.addClass('hide');
-                    }
+                    success(data);
                 } else if(data.errorMessage) {
                     window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
                 }
-                sendMore = false;
+                isSend = false;
+            },
+            error : function(data) {
+                error(data);
+                isSend = false;
+            }
+        });
+    };
+
+    // 只实例化对象不传配置参数的时候，指示做了一个模拟滚动，可以用来修复移动端fixed定位bug
+    var hscroll = new Hscroll({
+        loadMoreCallback : function(self){
+            // 执行上拉加载更多的操作
+            getAnswer({question_id : questionId, page : page}, function(data){
+                if (data.data.answer_list.length > 0) {
+                    var html = AnswerTpl(data.data);
+                    $el.append(html);
+                    Base.bindDomWidget($el);
+                }
+                page = data.data.page;
+                if (!data.data.has_more) {
+                    hscroll.changeTypeTo('none');
+                }
+                self.loadMoreEnd();
             }, function(data){
-                sendMore = false;
-                $loadMore.find('img').hide();
-                $loadMore.find('span').html('加载更多');
+                self.loadMoreEnd();
             });
+
+        },
+        // 选择您需要的加载类型【只要下拉刷新 - onlyTop 】【只要上拉加载更多 - onlyBottom 】【两个都要 - double 】【都不要 - none 】
+        opationType : 'onlyBottom'
+
+    });
+
+    getAnswer({question_id : questionId, page : page}, function(data){
+        //更新页码
+        page = data.data.page;
+        //有数据
+        if (data.data.answer_list.length > 0) {
+            var html = AnswerTpl(data.data);
+            $el.html(html);
+            Base.bindDomWidget($el);
         } else {
-            window.plugins.toast.showShortCenter('参数错误！', function(){}, function(){});
+            //显示无数据样式
+            $('#js_no_reply').removeClass('hide');
         }
+        //没有更多回答时，禁用上拉加载
+        if (!data.data.has_more) {
+            hscroll.changeTypeTo('none');
+        }
+        $('#js_loadind').hide();
+        hscroll.refreshEnd();
+    }, function(data){
     });
 };
 
@@ -350,23 +395,8 @@ Answer.swipeImg = function(config) {
     });
 };
 
-//内部取回答函数
-var getAnswer = function(params, success, error) {
-    $.ajax({
-        type : 'post',
-        url  : '/index/ajaxGetAnswer/',
-        data : params,
-        dataType : 'json',
-        success : function(data) {
-            success(data);
-        },
-        error : function(data) {
-            error(data);
-        }
-    });
-};
-
 //页面初始化函数
 Answer.start = function(param) {
+    $('#Hwrap').css({top: $('.header').height() + 'px'});
     Base.init(param);
 };

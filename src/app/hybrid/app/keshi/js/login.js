@@ -385,6 +385,94 @@ Login.forgetThird = function(config) {
     });
 };
 
+Login.codeLogin = function(config) {
+    var $el       = config.$el;
+    var $tel      = $el.find('#js_tel');
+    var $code     = $el.find('#js_code');
+    var $getCode  = $el.find('#js_get_code');
+    var $btnLogin = $el.find('#js_login');
+    // 点击获取验证码
+    var sendCode = false;
+    $getCode.on('tap', function(){
+        var telephone = $.trim($tel.val());
+        if (!confirmTel(telephone) || sendCode) {
+            return false;
+        }
+        sendCode = true;
+        $.ajax({
+            type : 'post',
+            url  : '/user/getLoginCode/',
+            data : {telephone : telephone},
+            dataType : 'json',
+            success : function(data) {
+                if (data.errorCode == 0) {
+                    var sec = 60, timer = null;
+                    $getCode.addClass('getCodeing');
+                    $getCode.html(sec + '秒');
+                    timer = setInterval(function(){
+                        if(sec != 0){
+                            sec--;
+                            $getCode.html(sec + '秒');
+                        }else{
+                            clearInterval(timer);
+                            $getCode.removeClass('getCodeing');
+                            $getCode.html('重新获取');
+                        }
+                    }, 1000);
+                } else if (data.errorMessage) {
+                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+                }
+                sendCode = false;
+            },
+            error : function() {
+                sendCode = false;
+            }
+        });
+    });
+
+    var sendLogin = false;
+    $btnLogin.on('tap', function(){
+        var telephone = $.trim($tel.val());
+        var code = $.trim($code.val());
+        if (!code) {
+            window.plugins.toast.showShortCenter('验证码不能为空！', function(){}, function(){});
+        }
+        if (!confirmTel(telephone) || sendLogin) {
+            return false;
+        }
+        sendLogin = true;
+        $.ajax({
+            type : 'post',
+            url  : '/user/ajaxCodeLogin/',
+            data : {telephone : telephone, code : code},
+            dataType : 'json',
+            success : function(data) {
+                if (data.errorCode == 0) {
+                    window.location.href = data.data.url;
+                } else if (data.errorMessage) {
+                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+                }
+                sendLogin = false;
+            },
+            error : function() {
+                sendLogin = false;
+            }
+        });
+    });
+
+    function confirmTel(telephone) {
+        if (!telephone) {
+            window.plugins.toast.showShortCenter('手机号不能为空！', function(){}, function(){});
+            return false;
+        }
+        if (!Util.isTel(telephone)) {
+            window.plugins.toast.showShortCenter('手机号不正确！', function(){}, function(){});
+            return false;
+        }
+        return true;
+    }
+};
+
 Login.start = function(param) {
     Base.init(param);
-}
+};

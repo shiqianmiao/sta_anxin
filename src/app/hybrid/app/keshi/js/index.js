@@ -108,6 +108,7 @@ Question.bindQuestionEvent = function(config) {
                 hscroll.changeTypeTo('onlyTop');
                 localStorage.removeItem('question');
             }
+            hscroll.refreshEnd();
         } else if(data.errorMessage) {
             window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
         }
@@ -183,6 +184,7 @@ Question.bindQuestionEvent = function(config) {
     //删除
     var sendDelete = false;
     $el.delegate('.to-delete', 'touchend', function(event){
+        event.stopPropagation();
         var $this = $(this);
         navigator.notification.confirm(
             '确定删除当前问题吗？', // message
@@ -190,6 +192,7 @@ Question.bindQuestionEvent = function(config) {
             '删除问题',           // title
             ['确定','取消']       // buttonLabels
         );
+        event.preventDefault();
         function onConfirm(index) {
             //选择了确定
             if (index == 1) {
@@ -220,7 +223,6 @@ Question.bindQuestionEvent = function(config) {
                 });
             }
         }
-        event.preventDefault();
     });
 
     // 点击回复按钮
@@ -229,7 +231,11 @@ Question.bindQuestionEvent = function(config) {
     var $replyInput = $replyBox.find('.reply-input');
     $el.delegate('.reply-num-btn','click', function(event){
         var $this = $(this);
-        questionId = $this.parents('li').data('id');
+        var newQuestionId = $this.parents('li').data('id');
+        if (questionId != newQuestionId) {
+            questionId = newQuestionId;
+            $replyInput.val('');
+        }
         $replyBox.show();
         $replyInput.focus();
         // 失去焦点
