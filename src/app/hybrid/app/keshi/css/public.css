@@ -110,6 +110,7 @@ body{
 	top: 0;
 	left: 0;
 	width: 100%;
+	z-index: 10;
 }
 .ios-padding{
 	padding-top: 64px;

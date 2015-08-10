@@ -413,6 +413,7 @@ Hmodel 样式
 	border-bottom: 1px solid #efefef;
 	height: 50px;
 	line-height: 50px;
+	position: relative;
 }
 .reg-per-input-wrap:last-of-type{
 	border: none;
@@ -433,6 +434,22 @@ Hmodel 样式
 	height: 50px;
 	border: none;
 	font-size: 15px;
+	position: relative;
+}
+.fix-number-bug{
+	height: 100%;
+	float: left;
+	position: relative;
+}
+.reg-per-input-wrap:first-of-type:after, .fix-number-bug:after{
+	content: "";
+	display: block;
+	position: absolute;
+	width: 15px;
+	height: 100%;
+	right: 0;
+	top: 0;
+	background: #fff;
 }
 .addWidth input{
 	width: 67%;
