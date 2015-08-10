@@ -2,24 +2,25 @@ html,body{
 	background: #fff;
 }
 .dcg-top{
-	height: 67px;
+	min-height: 53px;
 	border-bottom: 1px solid #cbcbcb;
 	padding: 0 4%;
 	overflow: hidden;
+	padding-bottom: 14px;
 }
 .dcg-top h2{
 	font-size: 18px;
 	color: #333;
-	height: 18px;
-	line-height: 18px;
-	margin-top: 13px;
+	min-height: 22px;
+	line-height: 22px;
+	margin-top: 11px;
 }
 .dcg-top p{
 	font-size: 13px;
 	height: 13px;
 	line-height: 13px;
 	color: #999;
-	margin-top: 10px;
+	margin-top: 8px;
 }
 .con-wrap{
 	padding: 19px 4% 0;
