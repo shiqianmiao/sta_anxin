@@ -105,6 +105,18 @@ body{
 	font-size: 18px;
 	position: relative;
 }
+.header-fixed{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.ios-padding{
+	padding-top: 64px;
+}
+.android-padding{
+	padding-top: 45px;
+}
 .header span{
 	display: inline-block;
 	height: 45px;
