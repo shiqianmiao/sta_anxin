@@ -318,6 +318,7 @@ body, html{
 	border: none;
 	background: #ededed;
 	text-indent: 4px;
+	font-size: 15px;
 }
 @media all and (max-width: 320px){
 	.reply-input{
