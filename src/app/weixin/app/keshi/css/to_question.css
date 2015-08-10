@@ -1,3 +1,12 @@
+body, html{
+	overflow: hidden;
+	background: #fff;
+	min-height: 100%;
+}
+.top-btn-wrap{
+	padding: 13px 0;
+	background: #ededed;
+}
 .search-wrap{
 	height: 60px;
 	background: #fff;
@@ -40,14 +49,14 @@
 	top: 5px;
 }
 .reg-btn{
-	margin: 13px auto 0;
+	margin: 0 auto;
 	box-shadow: 0 3px 0px 0 #d97908;
 }
 .more-ques{
 	height: 34px;
 	background: #fff;
 	border-bottom: 1px solid #cbcbcb;
-	margin-top: 15px;
+	margin-top: 2px;
 	padding: 0 4%;
 }
 .more-ques span{
