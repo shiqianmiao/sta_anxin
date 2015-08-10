@@ -40,7 +40,7 @@ builder.registerBuilder('**/*.css')
         .pipe(require('g-builder/builders/css').minify)
         .write();
 
-builder.registerBuilder('version.js')
+builder.registerBuilder('**/version.js')
         .read()
         .pipe(require('g-builder/builders/version.js'))
         .pipe(require('./builder/version.js'))
