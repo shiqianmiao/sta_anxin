@@ -417,12 +417,13 @@ Login.codeLogin = function(config) {
                             clearInterval(timer);
                             $getCode.removeClass('getCodeing');
                             $getCode.html('重新获取');
+                            sendCode = false;
                         }
                     }, 1000);
                 } else if (data.errorMessage) {
                     window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+                    sendCode = false;
                 }
-                sendCode = false;
             },
             error : function() {
                 sendCode = false;
