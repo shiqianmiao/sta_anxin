@@ -7,6 +7,11 @@ html, body{
 	height: 62px;
 	margin: 60px auto 16px;
 }
+@media all and (max-width: 320px){
+	.logo-img{
+		margin: 40px auto 0;
+	}
+}
 @media all and (max-width: 320px) and (max-height: 480px){
 	.logo-img{
 		margin: 20px auto 0;
@@ -42,7 +47,7 @@ html, body{
 }
 @media all and (max-width: 320px){
 	.textarea{
-		margin: 26px auto 0;
+		margin: 16px auto 0;
 	}
 }
 @media all and (max-width: 320px) and (max-height: 480px){
