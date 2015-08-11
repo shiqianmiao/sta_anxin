@@ -1,8 +1,9 @@
 .emo2{
-    width: 20px;
-    height: 20px;
-    background: url(../imgs/emo4.png) no-repeat top left;
+    width: 30px;
+    height: 30px;
+    background: url(../imgs/emo5.png) no-repeat top left;
     display: inline-block;
+    margin: 0 2px;
     vertical-align: middle;
 }
 .qqemoji0 {
