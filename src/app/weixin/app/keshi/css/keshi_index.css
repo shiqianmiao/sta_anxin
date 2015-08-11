@@ -255,4 +255,9 @@
 	right: 52px;
 	top: -5px;
 }
+@media all and (max-width: 320px){
+	.index2-plate li em{
+		right: 40px;
+	}
+}
 /* 新科室首页 结束 */
