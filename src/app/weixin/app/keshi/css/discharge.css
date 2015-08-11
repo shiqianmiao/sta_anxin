@@ -36,12 +36,14 @@ html,body{
 	text-indent: 2em;
 	text-align:justify; 
 	text-justify:inter-ideograph;
+	white-space:nowrap;
 }
 .con-wrap p{
 	font-size: 15px;
 	color: #333;
 	line-height: 22px;
 	margin-bottom: 23px;
+	white-space:nowrap;
 }
 .posts-wrap img{
 	max-width: 100%;
@@ -102,4 +104,5 @@ html,body{
 	text-indent: 2em;
 	text-align:justify; 
 	text-justify:inter-ideograph;
+	white-space:nowrap;
 }
