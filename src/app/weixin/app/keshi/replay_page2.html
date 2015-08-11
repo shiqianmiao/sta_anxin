@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="./css/swiper.min.css" />
     <link rel="stylesheet" href="css/cropper.min.css">
     <link rel="stylesheet" href="css/HimgCrop.css">
-    <link rel="stylesheet" href="./css/reply_page.css" />
-    <link rel="stylesheet" href="./css/face.css" />
+    <link rel="stylesheet" href="./css/reply_page2.css" />
+    <link rel="stylesheet" href="./css/face2.css" />
 </head>
 <body class="padding-bottom-60">
 
@@ -197,30 +197,15 @@
         });
 
         // 创建表情
-        var faceNum = 104;
+        var faceNum = 28;
         var $pagelist = $('.face-list');
         var str1 = '';
-        var str2 = '';
-        var str3 = '';
-        var str4 = '';
 
         for(var j = 0; j < faceNum; j++){
-            if(j < 28){
-                str1 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemojisec' + j + '"></i></span>';
-            }else if(j >= 28 && j < 56){
-                str2 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemojisec' + j + '"></i></span>';
-            }else if(j >= 56 && j < 84){
-                str3 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemojisec' + j + '"></i></span>';
-            }else{
-                str4 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemojisec' + j + '"></i></span>';
-            }
-           
+            str1 += '<span class="per-emo" data-emonum="' + j + '"><i class="emo qqemojisec' + j + '"></i></span>';
         }
 
         $pagelist.eq(0).html(str1);
-        $pagelist.eq(1).html(str2);
-        $pagelist.eq(2).html(str3);
-        $pagelist.eq(3).html(str4);
 
         // 点击每一个表情的时候
         $('.per-emo').on('click', function(){
