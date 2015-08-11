@@ -191,6 +191,7 @@ MyAccount.changeMobileFirst = function(config) {
                     window.plugins.toast.showShortCenter('验证码发送失败，请重试！', function(){}, function(){});
                 }
                 startNext = false;
+                isSend = false;
             },
             error : function() {
                 startNext = false;

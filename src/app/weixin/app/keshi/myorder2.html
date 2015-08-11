@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>订单列表</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="订单列表" />
+    <meta name="description" content="订单列表" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-title" content="订单列表">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="css/iScroll.css">
+    <link rel="stylesheet" type="text/css" href="css/myorder2.css" />
+</head>
+<body>
+
+	<div id="wrapper">
+		<div id="scroller">
+			<div id="pullDown">
+				<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+			</div>
+				<ul class="order2-list">
+					<li class="per-order2">
+						<h2 class="order2-title">等待接单（已有5人接单）</h2>
+						<div class="remaining-wrap">
+							<p class="order2-remaining-time">距离接单结束还剩：1小时30分28秒</p>
+						</div>
+						<ul class="order2-pro">
+							<li class="per-pro clear">
+								<h3>时间： </h3>
+								<p>今天10：30</p>
+							</li>
+							<li class="per-pro clear">
+								<h3>项目： </h3>
+								<p>陪诊、水电费、水电费、水电费、水电费、水电费、水电费</p>
+							</li>
+							<li class="per-pro clear">
+								<h3>地点： </h3>
+								<p>大屯里金泉家园304号楼2单元2103室</p>
+							</li>
+						</ul>
+						<footer class="order2-foot">
+							<a href="#" class="borR-3">去付款</a>
+						</footer>
+					</li>
+					<li class="per-order2">
+						<h2 class="order2-title">等待接单（已有5人接单）</h2>
+						<div class="remaining-wrap">
+							<p class="order2-remaining-time">距离接单结束还剩：1小时30分28秒</p>
+						</div>
+						<ul class="order2-pro">
+							<li class="per-pro">
+								<h3>时间： </h3>
+								<p>今天10：30</p>
+							</li>
+							<li class="per-pro">
+								<h3>项目： </h3>
+								<p>陪诊</p>
+							</li>
+							<li class="per-pro">
+								<h3>地点： </h3>
+								<p>大屯里金泉家园304号楼2单元2103室</p>
+							</li>
+						</ul>
+						<footer class="order2-foot">
+							<a href="#" class="borR-3">去付款</a>
+						</footer>
+					</li>
+					<li class="per-order2">
+						<h2 class="order2-title">等待接单（已有5人接单）</h2>
+						<div class="remaining-wrap">
+							<p class="order2-remaining-time">距离接单结束还剩：1小时30分28秒</p>
+						</div>
+						<ul class="order2-pro">
+							<li class="per-pro">
+								<h3>时间： </h3>
+								<p>今天10：30</p>
+							</li>
+							<li class="per-pro">
+								<h3>项目： </h3>
+								<p>陪诊</p>
+							</li>
+							<li class="per-pro">
+								<h3>地点： </h3>
+								<p>大屯里金泉家园304号楼2单元2103室</p>
+							</li>
+						</ul>
+						<footer class="order2-foot">
+							<a href="#" class="borR-3">去付款</a>
+						</footer>
+					</li>
+					
+				</ul>
+			<div id="pullUp">
+				<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+			</div>
+		</div>
+	</div>
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+	<script>
+	G.use(['com/mobile/widget/Hiscroll/Hiscroll.js'], function(Hiscroll){
+		Hiscroll.loaded({
+			opationType : 'onlyTop',
+			// 刷新回调
+			refreshCallback : function(myScroll){
+				setTimeout(function () {
+
+
+					Hiscroll.type = 'double';
+					Hiscroll.changeType();
+					
+					myScroll.refresh();		// 记得刷新内容(即:ajax完成)
+
+					
+
+				}, 1000);	// <-- 模拟网络拥塞 setTimeout
+			},
+			// 加载更多回调
+			loadMoreCallback : function(myScroll){
+				setTimeout(function () {
+					
+
+					myScroll.refresh();		// 记得刷新内容(即:ajax完成)
+
+					
+
+				}, 1000);	// <-- 模拟网络拥塞 setTimeout
+			}
+
+		});
+	});
+	</script>
+	
+</body>
+</html>

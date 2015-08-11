@@ -114,3 +114,13 @@ html,body{
 
 	white-space: pre-wrap;     /* 只对中文起作用，强制换行。*/
 }
+.share-window img{
+	position: absolute;
+	right: 4%;
+	top: 0;
+	width: 277px;
+	height: 87px;
+}
+.window-hide{
+	display: none;
+}

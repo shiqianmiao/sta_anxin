@@ -1,0 +1,82 @@
+html{
+	height: 100%;
+}
+.per-order2{
+	padding: 0 4% 6px;
+	background: url(../imgs/order-bottom.png) no-repeat left bottom, #fff;
+	background-size: 100% 6px;
+}
+.order2-title{
+	height: 37px;
+	border-bottom: 1px dotted #eeeeee;
+	line-height: 37px;
+	text-align: center;
+	font-size: 17px;
+	color: #333333;
+}
+.remaining-wrap{
+	text-align: center;
+}
+.order2-remaining-time{
+	display: inline-block;
+	height: 22px;
+	font-size: 13px;
+	color: #ffad0f;
+	line-height: 22px;
+	text-align: center;
+	padding: 0 13px;
+	border: 1px solid #ffad0f;
+	-webkit-border-radius: 11px;
+	-moz-border-radius: 11px;
+	-ms-border-radius: 11px;
+	-o-border-radius: 11px;
+	border-radius: 11px;
+	margin: 10px auto 0;
+}
+.per-order2{
+	margin-bottom: 15px;
+}
+.order2-pro{
+	margin-top: 7px;
+	padding-bottom: 12px;
+	border-bottom: 1px dotted #eee;
+}
+.per-pro{
+	min-height: 30px;
+	line-height: 30px;
+}
+.per-pro h3, .per-pro p{
+	float: left;
+	font-size: 15px;
+}
+.per-pro h3{
+	color: #999;
+	width: 14%;
+}
+.per-pro p{
+	width: 86%;
+	color: #333;
+}
+@media all and (max-width: 320px){
+	.per-pro h3{
+		width: 16%;
+	}
+	.per-pro p{
+		width: 84%;
+	}
+}
+.order2-foot{
+	height: 60px;
+	text-align: center;
+}
+.order2-foot a{
+	display: inline-block;
+	width: 125px;
+	height: 38px;
+	background: #ffad0f;
+	color: #fff;
+	font-size: 15px;
+	line-height: 38px;
+	text-align: center;
+	margin-top: 12px;
+}
