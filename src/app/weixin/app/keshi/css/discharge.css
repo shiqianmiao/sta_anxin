@@ -36,7 +36,11 @@ html,body{
 	text-indent: 2em;
 	text-align:justify; 
 	text-justify:inter-ideograph;
-	white-space:nowrap;
+	word-break: break-all;       /* 只对英文起作用，以字母作为换行依据。 */
+
+	word-wrap: break-word;   	/* 只对英文起作用，以单词作为换行依据。*/
+
+	white-space: pre-wrap;     /* 只对中文起作用，强制换行。*/
 }
 .con-wrap p{
 	font-size: 15px;
@@ -104,5 +108,9 @@ html,body{
 	text-indent: 2em;
 	text-align:justify; 
 	text-justify:inter-ideograph;
-	white-space:nowrap;
+	word-break: break-all;       /* 只对英文起作用，以字母作为换行依据。 */
+
+	word-wrap: break-word;   	/* 只对英文起作用，以单词作为换行依据。*/
+
+	white-space: pre-wrap;     /* 只对中文起作用，强制换行。*/
 }
