@@ -59,7 +59,7 @@ body{
 	margin-top: 11px;
 }
 .per-pro{
-	height: 30px;
+	min-height: 30px;
 	line-height: 30px;
 	font-size: 15px;
 }
@@ -67,9 +67,10 @@ body{
 	float: left;
 	font-size: 15px;
 	color: #999;
+	width: 76px;
 }
 .per-pro p{
-	float: left;
+	margin-left: 76px;
 	color: #333;
 	font-size: 15px;
 }
