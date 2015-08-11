@@ -277,8 +277,10 @@ var sendCode = function($this, mobile, code_type) {
                     }
                 }, 1000);
             } else if (data.errorMessage) {
+                isSend = false;
                 window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
             } else {
+                isSend = false;
                 window.plugins.toast.showShortCenter('验证码发送失败，请重试！', function(){}, function(){});
             }
         },
