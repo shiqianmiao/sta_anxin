@@ -8,6 +8,7 @@
 	height: 105px;
 	outline: none;
 	font-size: 13px;
+	overflow: hidden;
 }
 .textarea-div.onfocus{
 	color: #333;
