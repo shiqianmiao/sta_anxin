@@ -7,7 +7,7 @@ body{
 .hs-con-wrap{
 	height: 93px;
 	padding: 0 4%;
-	border-bottom: 1px solid #cbcbcb;
+	border-bottom: 1px solid #e1e1e1;
 }
 .head-pic{
 	float: left;
@@ -31,7 +31,6 @@ body{
 .hs-name span{
 	font-size: 15px;
 	color: #999;
-	margin-left: 
 }
 .hs-school{
 	font-size: 15px;
@@ -43,7 +42,7 @@ body{
 .opation-list li{
 	float: left;
 	width: 33.333333333%;
-	border-right: 1px solid #cbcbcb;
+	border-right: 1px solid #e1e1e1;
 	box-sizing: border-box;
 	height: 39px;
 	color: #999999;
@@ -75,7 +74,7 @@ body{
 	line-height: 29px;
 	padding: 0 4%;
 	color: #999;
-	border-bottom: 1px solid #cbcbcb;
+	border-bottom: 1px solid #e1e1e1;
 }
 .common-block p{
 	padding: 12px 5%;
@@ -118,7 +117,4 @@ body{
 	font-size: 12px;
 	color: #999;
 	margin-right: 18px;
-}
-.window-hide{
-	display: none;
 }
