@@ -30,6 +30,8 @@ Question.bindTopEvent = function(config) {
 
 Question.bindQuestionEvent = function(config) {
     var $el = config.$el;
+    //现在页面是不是公开问题页面，是的话，取消公开后，问题要从当前页面移除
+    var isopen = $el.data('isopen');
     //数据载入中div
     var $loading  = $('#js_loadind');
     var $dataArea = $el.find('.ques-list');
@@ -164,10 +166,15 @@ Question.bindQuestionEvent = function(config) {
             dataType : 'json',
             success : function (data) {
                 if (data.errorCode == 0) {
-                    $this.data('open', data.data.open);
-                    $this.html(data.data.open_text);
-                    $this.parents('.alert-opa').hide();
-                    $this.parents('.alert-opa').data('show', false);
+                    //当前页面是公开问题页面，且当前操作是取消公开
+                    if (isopen && open == 2) {
+                        $this.parents('li').remove();
+                    } else {
+                        $this.data('open', data.data.open);
+                        $this.html(data.data.open_text);
+                        $this.parents('.alert-opa').hide();
+                        $this.parents('.alert-opa').data('show', false);
+                    }
                     window.plugins.toast.showShortCenter('设置成功', function(){}, function(){});
                 } else if (data.errorMessage) {
                     window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
