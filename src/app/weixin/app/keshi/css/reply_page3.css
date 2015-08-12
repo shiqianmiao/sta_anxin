@@ -99,7 +99,7 @@
 .swiper-container-face{
 	width: 100%;
 	overflow: hidden;
-	height: 250px;
+	height: 280px;
 	position: relative;
 	background: #ededed;
 	position: fixed;
@@ -130,7 +130,7 @@
 	height: 30px;
 	display: block;
 	margin: 6px auto;
-	background: url(../imgs/emoa.png) no-repeat top left;
+	background: url(../imgs/emo5.png) no-repeat top left;
 }
 .cropper-bg{
 	background: #000;
