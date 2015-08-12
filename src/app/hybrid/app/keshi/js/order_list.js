@@ -77,11 +77,11 @@ OrderList.order = function(config) {
             data : {orderId : orderId, type : type, reason : reason, detail_reason : reasonDetail},
             dataType : 'json',
             success : function(data) {
-                if (data.data.errorCode == 0) {
+                if (data.errorCode == 0) {
                     window.plugins.toast.showShortCenter('操作成功！', function(){}, function(){});
                     window.location.reload();
                 } else {
-                    window.plugins.toast.showShortCenter(data.data.errorMessage, function(){}, function(){});
+                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
                 }
                 isSubmit = false;
             },
