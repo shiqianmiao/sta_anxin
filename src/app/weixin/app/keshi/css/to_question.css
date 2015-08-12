@@ -55,7 +55,7 @@ body, html{
 .more-ques{
 	height: 34px;
 	background: #fff;
-	border-bottom: 1px solid #cbcbcb;
+	border-bottom: 1px solid #f1f1f1;
 	margin-top: 2px;
 	padding: 0 4%;
 }
@@ -78,7 +78,7 @@ body, html{
 }
 .per-ques{
 	padding: 0 4%;
-	border-bottom: 1px solid #d9d8d8;
+	border-bottom: 1px solid #f1f1f1;
 	height: 70px;
 }
 .head-pic{
@@ -104,8 +104,6 @@ body, html{
 .ques-con-wrap time{
 	display: block;
 	font-size: 14px;
-	height: 13px;
-	line-height: 13px;
 	color: #999;
 	margin-top: 5px;
 }
