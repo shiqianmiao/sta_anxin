@@ -1,3 +1,6 @@
+html,body{
+	height: 100%;
+}
 .ks-index-top{
 	/*position: absolute;
 	z-index: -1;
@@ -226,7 +229,13 @@
 	width: 109px;
 	height: 109px;
 	background: url(../imgs/index_plate.png) no-repeat;
-	margin: 26px auto 0;
+	margin: 55px auto 0;
+	background-size: 218px 218px;
+}
+@media all and (max-width: 320px){
+	.plate-bg{
+		margin: 36px auto 0;
+	}
 }
 .plate-bg1{
 	background-position: 0 0;
@@ -239,6 +248,29 @@
 }
 .plate-bg4{
 	background-position: -109px -109px;
+}
+@media all and (max-width: 320px) and (max-height: 480px){
+	.index2-plate li{
+		height: 151px;	}
+	.plate-bg{
+		width: 73px;
+		height: 73px;
+		background: url(../imgs/index_plate.png) no-repeat;
+		margin: 20px auto 0;
+		background-size: 146px 146px;
+	}
+	.plate-bg1{
+		background-position: 0 0;
+	}
+	.plate-bg2{
+		background-position: -73px 0;
+	}
+	.plate-bg3{
+		background-position: 0 -73px;
+	}
+	.plate-bg4{
+		background-position: -73px -73px;
+	}
 }
 .index2-plate li h2{
 	font-size: 16px;
