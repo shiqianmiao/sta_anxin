@@ -29,7 +29,6 @@ body, html{
 	position: relative;
 }
 .wx-pay{
-	background: url(../imgs/strip.png) no-repeat right center;
 	background-size: 7px 13px;
 }
 .envelope-title,.wx-title{
