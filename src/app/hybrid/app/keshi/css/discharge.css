@@ -1,0 +1,126 @@
+html,body{
+	background: #fff;
+}
+.dcg-top{
+	min-height: 53px;
+	border-bottom: 1px solid #cbcbcb;
+	padding: 0 4%;
+	overflow: hidden;
+	padding-bottom: 14px;
+}
+.dcg-top h2{
+	font-size: 18px;
+	color: #333;
+	min-height: 22px;
+	line-height: 22px;
+	margin-top: 11px;
+}
+.dcg-top p{
+	font-size: 13px;
+	height: 13px;
+	line-height: 13px;
+	color: #999;
+	margin-top: 8px;
+}
+.con-wrap{
+	padding: 19px 4% 0;
+}
+.posts-body{
+	padding-bottom: 10px;
+}
+.posts-wrap{
+	font-size: 15px;
+	color: #333;
+	line-height: 22px;
+	margin-bottom: 23px;
+	text-indent: 2em;
+	text-align:justify; 
+	text-justify:inter-ideograph;
+	word-break: break-all;       /* 只对英文起作用，以字母作为换行依据。 */
+
+	word-wrap: break-word;   	/* 只对英文起作用，以单词作为换行依据。*/
+
+	white-space: pre-wrap;     /* 只对中文起作用，强制换行。*/
+}
+.con-wrap p{
+	font-size: 15px;
+	color: #333;
+	line-height: 22px;
+	margin-bottom: 23px;
+	white-space:nowrap;
+}
+.posts-wrap img{
+	max-width: 100%;
+	display: block;
+	margin: 10px auto;
+}
+.opationall-wrap{
+	height: 30px;
+	padding: 0 4%;
+}
+.opationall-wrap a,.opationall-wrap span{
+	float: right;
+	height: 30px;
+	line-height: 30px;
+	font-size: 13px;
+	color: #999;
+}
+.opationall-wrap span{
+	margin-right: 20px;
+}
+.share{
+	padding-left: 19px;
+	background: url(../imgs/share.png) no-repeat left center;
+	background-size: 14px 15px;
+}
+.zan{
+	padding-left: 18px;
+	background: url(../imgs/zan.png) no-repeat left center;
+	background-size: 13px 14px;
+	margin-right: 20px;
+}
+.zan-active{
+	padding-left: 18px;
+	background: url(../imgs/zan_ing.png) no-repeat left center;
+	background-size: 13px 14px;
+	margin-right: 20px;
+}
+.posts-bottom{
+	width: 320px;
+	height: 202px;
+	background: url(../imgs/posts_btm.png) no-repeat;
+	background-size: 100% 100%;
+	margin: 20px auto;
+	position: relative;
+}
+.posts-bottom img{
+	position: absolute;
+	width: 121px;
+	height: 121px;
+	right: 17px;
+	top: 65px;
+}
+.posts-wrap p{
+	font-size: 15px;
+	color: #333;
+	line-height: 22px;
+	margin-bottom: 0;
+	text-indent: 2em;
+	text-align:justify; 
+	text-justify:inter-ideograph;
+	word-break: break-all;       /* 只对英文起作用，以字母作为换行依据。 */
+
+	word-wrap: break-word;   	/* 只对英文起作用，以单词作为换行依据。*/
+
+	white-space: pre-wrap;     /* 只对中文起作用，强制换行。*/
+}
+.share-window img{
+	position: absolute;
+	right: 4%;
+	top: 0;
+	width: 277px;
+	height: 87px;
+}
+.window-hide{
+	display: none;
+}
