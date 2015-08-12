@@ -42,7 +42,7 @@
                         <div class="ques-title clear">
                             <img src="imgs/head.jpg" class="ques-head-pic" />
                             <div class="title-content">
-                                <span>王先生</span>
+                                <span>王先生1</span>
                                 <p class="answer-label">待回答</p>
                                 <div class="opation-wrap">
                                     <div class="alert-opa borR-3" data-show="false">
@@ -62,7 +62,7 @@
                         <div class="ques-title clear">
                             <img src="imgs/head.jpg" class="ques-head-pic" />
                             <div class="title-content">
-                                <span>王先生</span>
+                                <span>王先生2</span>
                                 <p class="answer-label">待回答</p>
                                 <div class="opation-wrap">
                                     <div class="alert-opa borR-3" data-show="false">
@@ -82,7 +82,7 @@
                         <div class="ques-title clear">
                             <img src="imgs/head.jpg" class="ques-head-pic" />
                             <div class="title-content">
-                                <span>王先生</span>
+                                <span>王先生3</span>
                                 <p class="answer-label">待回答</p>
                                 <div class="opation-wrap">
                                     <div class="alert-opa borR-3" data-show="false">
@@ -102,7 +102,7 @@
                         <div class="ques-title clear">
                             <img src="imgs/head.jpg" class="ques-head-pic" />
                             <div class="title-content">
-                                <span>王先生</span>
+                                <span>王先生4</span>
                                 <p class="answer-label">待回答</p>
                                 <div class="opation-wrap">
                                     <div class="alert-opa borR-3" data-show="false">
@@ -304,12 +304,7 @@
         // 点击回复按钮
         $('.reply-num-btn').on('click', function(event){
             $('.reply-box').show();
-
-            setTimeout(function(){
-                $('.reply-input').focus();
-            }, 200);
-            
-            
+            $('.reply-input').focus();
             
             // 失去焦点
             $('.reply-input').on('blur', function(){
@@ -322,6 +317,11 @@
             }else{
                 event.cancelBubble = true;
             }
+        });
+
+
+        $(window).on('scroll', function(){
+            alert(4);
         });
 
         
