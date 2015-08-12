@@ -1,0 +1,215 @@
+body{
+	padding-bottom: 38px;
+}
+.order-det-sec{
+	padding: 0 4% 15px;
+	background: #fff;
+}
+.order-det-title{
+	height: 47px;
+	border-bottom: 1px dotted #eeeeee;
+	position: relative;
+}
+.order-det-title h3{
+	height: 100%;
+	color: #333;
+	font-size: 15px;
+	line-height: 47px;
+	font-weight: bold;
+	/*text-align: center;*/
+}
+.order-det-title h3 em{
+	font-size: 8px;
+}
+.order-det-title a{
+	float: right;
+	width: 80px;
+	height: 27px;
+	top: 10px;
+	right: 0;
+	border: 1px solid #eee;
+	line-height: 27px;
+	text-align: center;
+	font-size: 13px;
+	color: #999999;
+	position: absolute;
+}
+.order-det-title a:active{
+	box-shadow: 0 0 2px #999;
+}
+.remaining{
+	text-align: center;
+	margin-top: 15px;
+}
+.remaining-time{
+	display: inline-block;
+	height: 22px;
+	padding: 0 13px;
+	-webkit-border-radius: 11px;
+	-moz-border-radius: 11px;
+	-ms-border-radius: 11px;
+	-o-border-radius: 11px;
+	border-radius: 11px;
+	border: 1px solid #ffad0f;
+	color: #ffad0f;
+	line-height: 22px;
+	text-align: center;
+}
+.order-pro{
+	margin-top: 11px;
+}
+.per-pro{
+	min-height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+}
+.per-pro h3{
+	float: left;
+	font-size: 15px;
+	color: #999;
+	width: 76px;
+}
+.per-pro p{
+	margin-left: 76px;
+	color: #333;
+	font-size: 15px;
+}
+.letter-span{
+	letter-spacing: 5px;
+}
+.nurse-list{
+	margin-top: 15px;
+	background: #fff;
+}
+.list-title{
+	height: 43px;
+	text-align: center;
+	line-height: 43px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #333;
+	border-bottom: 1px solid #e5e5e5;
+}
+.nurse-list-wrap{
+	padding: 0 4%;
+	margin-bottom: 15px;
+}
+.per-nurse{
+	height: 71px;
+	border-bottom: 1px solid #e5e5e5;
+	position: relative;
+}
+.per-nurse:last-of-type{
+	border: none;
+}
+.nurse-intr{
+	float: left;
+	width: 72%;
+	height: 100%;
+}
+.head-pic{
+	float: left;
+	width: 55px;
+	height: 55px;
+	margin-top: 8px;
+	margin-left: 1px;
+}
+.intr-info{
+	margin-left: 28%;
+	height: 100%;
+}
+.intr-info p:first-of-type{
+	margin-top: 9px;
+}
+.intr-info p{
+	line-height: 25px;
+	font-size: 15px;
+}
+.intr-info p em{
+	color: #999;
+}
+.intr-info p span{
+	color: #ff3c00;
+}
+.select-btn{
+	width: 90px;
+	height: 40px;
+	background: #ffad0f;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	font-size: 15px;
+	float: right;
+	margin-top: 15px;
+}
+.phone-call{
+	float: right;
+	width: 70px;
+	border-left: 1px solid #e9e9e9;
+	background: url(../imgs/tel.png) no-repeat center center;
+	background-size: 20px 23px;
+	height: 100%;
+}
+.nurse-list-wrap2{
+	padding-right: 0;
+}
+.nurse-list-btn{
+	display: block;
+	width: 92%;
+	height: 38px;
+	line-height: 38px;
+	text-align: center;
+	color: #fff;
+	font-size: 15px;
+	margin: 38px auto 0;
+	background: #ffad0f;
+}
+.det-pro-list{
+	margin-top: 15px;
+	border-top: 1px dotted #eeeeee;
+	border-bottom: 1px dotted #eeeeee;
+	padding: 10px 0 5px;
+}
+.per-det-pro{
+	height: 30px;
+	line-height: 30px;
+	color: #333333;
+}
+.per-det-pro h3{
+	float: left;
+	height: 30px;
+	font-size: 15px;
+}
+.per-det-pro p{
+	float: right;
+	font-size: 15px;
+}
+.per-det-pro p em, .total-of em{
+	color: #ff3c00;
+}
+.total-of{
+	height: 15px;
+	line-height: 15px;
+	font-size: 15px;
+	text-align: right;
+	margin-top: 15px;
+}
+.star-list{
+	height: 18px;
+}
+.star-wrap{
+	padding: 15px 4% 18px;
+}
+.star-list img{
+	width: 18px;
+	height: 18px;
+	margin-right: 9px;
+}
+.review-p{
+	font-size: 15px;
+	color: #333333;
+	margin-top: 14px;
+}
+.worker-a {
+	color: #333333;
+}
