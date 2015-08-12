@@ -24,7 +24,7 @@
 	position: absolute;
 	height: 36px;
 	line-height: 36px;
-	font-size: 12px;
+	font-size: 13px;
 	color: #999999;
 	z-index: 1;
 	background: #ededed;
@@ -44,7 +44,7 @@
 	background-size: 100% 100%;
 }
 .txt-mark-bg h2{
-	font-size: 20px;
+	font-size: 21px;
 	font-weight: bold;
 	color: #fff;
 	float: left;
@@ -54,7 +54,7 @@
 	text-shadow: 1px 2px 2px #363032;
 }
 .hospital-name{
-	font-size: 15px;
+	font-size: 16px;
 	text-shadow: 1px 2px 2px #363032;
 	height: 15px;
 	line-height: 15px;
@@ -65,7 +65,7 @@
 	float: right;
 }
 .hospital-intr{
-	font-size: 13px;
+	font-size: 14px;
 	color: #fff;
 	text-shadow: 1px 2px 2px #363032;
 	height: 15px;
@@ -84,7 +84,7 @@
 	width: 33.333333333%;
 	text-align: center;
 	line-height: 43px;
-	font-size: 15px;
+	font-size: 16px;
 	color: #333333;
 	position: relative;
 }
@@ -137,7 +137,7 @@
 	overflow: hidden;
 }
 .per-pro h3{
-	font-size: 15px;
+	font-size: 16px;
 	color: #333333;
 	height: 15px;
 	line-height: 15px;
@@ -147,7 +147,7 @@
 }
 .per-pro time{
 	display: block;
-	font-size: 13px;
+	font-size: 14px;
 	height: 13px;
 	line-height: 13px;
 	color: #999999;
@@ -159,7 +159,7 @@
 }
 .attention{
 	padding: 0 5%;
-	font-size: 15px;
+	font-size: 16px;
 	color: #999999;
 	margin-top: 20px;
 }
@@ -177,7 +177,7 @@
 	line-height: 37px;
 	position: relative;
 	color: #999999;
-	font-size: 17px;
+	font-size: 18px;
 	text-indent: 45px;
 }
 .no-tip .radio{
@@ -201,7 +201,7 @@
 	color: #fff;
 	text-align: center;
 	line-height: 38px;
-	font-size: 17px;
+	font-size: 18px;
 }
 .hide-win{
 	display: none;
@@ -241,7 +241,7 @@
 	background-position: -109px -109px;
 }
 .index2-plate li h2{
-	font-size: 15px;
+	font-size: 16px;
 	height: 15px;
 	line-height: 15px;
 	color: #333;

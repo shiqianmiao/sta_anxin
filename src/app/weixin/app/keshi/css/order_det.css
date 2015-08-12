@@ -13,13 +13,13 @@ body{
 .order-det-title h3{
 	height: 100%;
 	color: #333;
-	font-size: 15px;
+	font-size: 16px;
 	line-height: 47px;
 	font-weight: bold;
 	/*text-align: center;*/
 }
 .order-det-title h3 em{
-	font-size: 8px;
+	font-size: 9px;
 }
 .order-det-title a{
 	float: right;
@@ -30,7 +30,7 @@ body{
 	border: 1px solid #eee;
 	line-height: 27px;
 	text-align: center;
-	font-size: 13px;
+	font-size: 14px;
 	color: #999999;
 	position: absolute;
 }
@@ -61,18 +61,18 @@ body{
 .per-pro{
 	min-height: 30px;
 	line-height: 30px;
-	font-size: 15px;
+	font-size: 16px;
 }
 .per-pro h3{
 	float: left;
-	font-size: 15px;
+	font-size: 16px;
 	color: #999;
 	width: 76px;
 }
 .per-pro p{
 	margin-left: 76px;
 	color: #333;
-	font-size: 15px;
+	font-size: 16px;
 }
 .letter-span{
 	letter-spacing: 5px;
@@ -85,7 +85,7 @@ body{
 	height: 43px;
 	text-align: center;
 	line-height: 43px;
-	font-size: 15px;
+	font-size: 16px;
 	font-weight: bold;
 	color: #333;
 	border-bottom: 1px solid #e5e5e5;
@@ -123,7 +123,7 @@ body{
 }
 .intr-info p{
 	line-height: 25px;
-	font-size: 15px;
+	font-size: 16px;
 }
 .intr-info p em{
 	color: #999;
@@ -138,7 +138,7 @@ body{
 	color: #fff;
 	line-height: 40px;
 	text-align: center;
-	font-size: 15px;
+	font-size: 16px;
 	float: right;
 	margin-top: 15px;
 }
@@ -160,7 +160,7 @@ body{
 	line-height: 38px;
 	text-align: center;
 	color: #fff;
-	font-size: 15px;
+	font-size: 16px;
 	margin: 38px auto 0;
 	background: #ffad0f;
 }
@@ -178,11 +178,11 @@ body{
 .per-det-pro h3{
 	float: left;
 	height: 30px;
-	font-size: 15px;
+	font-size: 16px;
 }
 .per-det-pro p{
 	float: right;
-	font-size: 15px;
+	font-size: 16px;
 }
 .per-det-pro p em, .total-of em{
 	color: #ff3c00;
@@ -190,7 +190,7 @@ body{
 .total-of{
 	height: 15px;
 	line-height: 15px;
-	font-size: 15px;
+	font-size: 16px;
 	text-align: right;
 	margin-top: 15px;
 }
@@ -206,7 +206,7 @@ body{
 	margin-right: 9px;
 }
 .review-p{
-	font-size: 15px;
+	font-size: 16px;
 	color: #333333;
 	margin-top: 14px;
 }

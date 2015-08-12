@@ -9,14 +9,14 @@ html,body{
 	padding-bottom: 14px;
 }
 .dcg-top h2{
-	font-size: 18px;
+	font-size: 19px;
 	color: #333;
 	min-height: 22px;
 	line-height: 22px;
 	margin-top: 11px;
 }
 .dcg-top p{
-	font-size: 13px;
+	font-size: 14px;
 	height: 13px;
 	line-height: 13px;
 	color: #999;
@@ -62,7 +62,7 @@ html,body{
 	float: right;
 	height: 30px;
 	line-height: 30px;
-	font-size: 13px;
+	font-size: 15px;
 	color: #999;
 }
 .opationall-wrap span{
@@ -103,7 +103,7 @@ html,body{
 .posts-wrap p{
 	font-size: 15px;
 	color: #333;
-	line-height: 22px;
+	line-height: 24px;
 	margin-bottom: 0;
 	text-indent: 2em;
 	text-align:justify; 

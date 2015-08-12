@@ -21,7 +21,7 @@ body{
 	}
 }
 .top-statements{
-	font-size: 18px;
+	font-size: 19px;
 	color: #2c2c2c;
 	text-align: center;
 	
@@ -59,7 +59,7 @@ body{
 	height: 130px;
 	margin: 0 auto;
 	padding: 5% 3%;
-	font-size: 15px;
+	font-size: 16px;
 }
 @media all and (orientation : landscape) { 
 	/* 横屏的时候 */
@@ -78,7 +78,7 @@ body{
 	line-height: 48px;
 	text-align: center;
 	color: #fff;
-	font-size: 18px;
+	font-size: 19px;
 	margin: 40px auto 0;
 }
 .commit-true{
@@ -115,7 +115,7 @@ body{
 	left: 10%;
 }
 #success-win p{
-	font-size: 18px;
+	font-size: 19px;
 	color: #2c2c2c;
 	margin-left: 30%;
 }

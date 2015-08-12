@@ -11,7 +11,7 @@ html{
 	border-bottom: 1px dotted #eeeeee;
 	line-height: 37px;
 	text-align: center;
-	font-size: 17px;
+	font-size: 18px;
 	color: #333333;
 }
 .remaining-wrap{
@@ -20,7 +20,7 @@ html{
 .order2-remaining-time{
 	display: inline-block;
 	height: 22px;
-	font-size: 13px;
+	font-size: 14px;
 	color: #ffad0f;
 	line-height: 22px;
 	text-align: center;
@@ -47,7 +47,7 @@ html{
 }
 .per-pro h3, .per-pro p{
 	float: left;
-	font-size: 15px;
+	font-size: 16px;
 }
 .per-pro h3{
 	color: #999;
@@ -75,7 +75,7 @@ html{
 	height: 38px;
 	background: #ffad0f;
 	color: #fff;
-	font-size: 15px;
+	font-size: 16px;
 	line-height: 38px;
 	text-align: center;
 	margin-top: 12px;
