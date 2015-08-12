@@ -237,6 +237,16 @@ html,body{
 		margin: 36px auto 0;
 	}
 }
+@media all and (min-width: 320px) and (max-width: 360px){
+	.plate-bg{
+		margin: 26px auto 0;
+	}
+}
+@media all and (min-width: 414px){
+	.plate-bg{
+		margin: 86px auto 0;
+	}
+}
 .plate-bg1{
 	background-position: 0 0;
 }
