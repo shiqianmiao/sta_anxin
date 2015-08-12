@@ -12,7 +12,7 @@ body{
 	position: relative;
 }
 .txt-mark-bg{
-	height: 60px;
+	height: 62px;
 	width: 100%;
 	position: absolute;
 	bottom: 0;
@@ -36,8 +36,10 @@ body{
 	height: 15px;
 	line-height: 15px;
 	float: left;
-	margin: 17px 0 0 5px;
 	color: #fff;
+}
+.ksintr{
+	float: right;
 }
 .hospital-intr{
 	font-size: 13px;
@@ -128,10 +130,12 @@ body{
 }
 /* 科室简介 */
 .ks-intr-bg h2{
-	margin: 25px 0 0 4%;
+	margin: 9px 0 0 4%;
+	float: none;
 }
 .ks-intr-bg .hospital-name{
-	margin: 33px 0 0 5px;
+	margin: 6px 0 0 4%;
+	float: none;
 }
 .ks-intr-con{
 	padding: 15px 4% 20px;
