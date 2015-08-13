@@ -16,34 +16,7 @@
 <body>
 
     <ul class="date-title">
-        <li class="active">
-            <h2>明天</h2>
-            <p>08/15</p>
-        </li>
-        <li>
-            <h2>后天</h2>
-            <p>08/16</p>
-        </li>
-        <li>
-            <h2>周一</h2>
-            <p>08/17</p>
-        </li>
-        <li>
-            <h2>周二</h2>
-            <p>08/18</p>
-        </li>
-        <li>
-            <h2>周三</h2>
-            <p>08/19</p>
-        </li>
-        <li>
-            <h2>周四</h2>
-            <p>08/19</p>
-        </li>
-        <li>
-            <h2>周五</h2>
-            <p>08/20</p>
-        </li>
+    <!-- js动态创建 -->
     </ul>
 
     <table class="time-table">
@@ -97,17 +70,76 @@
         // 设置td的高
         $('.time-table td').css({height: $('.time-table td').width() + 'px'});
 
-        // 点击标题日期的时候
-        $('.date-title li').on('tap', function(){
-            $('.date-title li').removeClass('active');
-            $(this).addClass('active');
-        });
-
         // 实例化下面的对象后，就给定了只有在 startTime ~ endTime 之间的时间是可用的
         var a = Optionaltime({
             startTime : "2016/01/29 12:00", // 时间下限
             endTime : "2016/02/4 20:00" // 时间上限
         });
+
+
+        // 计算title 日期
+        var dateTitleArr = [];
+        var label = 0; // 标志明天后天的
+        // 获取可用的年
+        var y = a.getYear();
+        for(var oy = y.min; oy <= y.max; oy++){
+            // 根据年获取可用的月
+            var m = a.getMonth(oy);
+            for(var om = m.min; om <= m.max; om++){
+                // 获取可用的天
+                var d = a.getDay(oy, om);
+                for(var od = d.min; od <= d.max; od++){
+                    // 根据年月日获取星期几
+                    var weeks = a.getWeekByDay(oy + '-' + om + '-' + od);
+                    var omm = om < 10 ? '0' + om : om;
+                    var odd = od < 10 ? '0' + od : od;
+                    switch(label){
+                        case 0 :
+                        weeksNum = '明天';
+                        break;
+                        case 1 : 
+                        weeksNum = '后天';
+                        break;
+                        default :
+                        weeksNum = weeks;
+                        break;
+                    }
+                    // omm + '/' + odd + '...' + weeks
+                    dateTitleArr.push({
+                        date : omm + '/' + odd,
+                        week : weeksNum
+                    });
+
+                    label++;
+                }
+            }
+        }
+
+        // console.log(dateTitleArr);
+        // 动态创建title
+        var titleDomStr = '';
+        for(var i = 0; i < dateTitleArr.length; i++){
+            if(i == 0){
+                titleDomStr += '<li class="active">'
++                            '<h2>' + dateTitleArr[i].week + '</h2>'
++                            '<p>' + dateTitleArr[i].date + '</p>'
++                        '</li>';
+            }else{
+                titleDomStr += '<li>'
++                            '<h2>' + dateTitleArr[i].week + '</h2>'
++                            '<p>' + dateTitleArr[i].date + '</p>'
++                        '</li>';
+            }
+            
+        }
+        $('.date-title').html(titleDomStr);
+
+        // 点击标题日期的时候
+        $('.date-title li').on('tap', function(){
+            $('.date-title li').removeClass('active');
+            $(this).addClass('active');
+        });
+        
 
     });
     </script>

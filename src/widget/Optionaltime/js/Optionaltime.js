@@ -335,7 +335,17 @@ $.extend(Optionaltime.fn, {
 		month = parseInt(month,10); //parseInt(number,type)这个函数后面如果不跟第2个参数来表示进制的话，默认是10进制。 
 		var temp = new Date(year,month,0); 
 		return temp.getDate(); 
-	}
+	},
+	/** 
+	 * @desc 根据年月日获取星期几
+	 * @param (number) dayValue : “2014-01-01”
+	 * @return (number) : 星期数
+	 */
+	getWeekByDay : function(dayValue){ //dayValue=“2014-01-01”
+        var day = new Date(Date.parse(dayValue.replace(/-/g, '/'))); //将日期值格式化 
+        var today = new Array("周日","周一","周二","周三","周四","周五","周六"); //创建星期数组
+        return today[day.getDay()];  //返一个星期中的某一天，其中0为星期日 
+    }
 
 
 });
