@@ -13,15 +13,15 @@
 	G.use(['widget/Optionaltime/js/Optionaltime.js'], function(Optionaltime){
 		// 实例化下面的对象后，就跟定了只有在 startTime ~ endTime 之间的时间是可用的
 		var a = Optionaltime({
-			startTime : "2015/01/29 12:34:08", // 时间下限
-			endTime : "2019/04/29 12:34:38"	// 时间上限
+			startTime : "2016/01/29 12:00", // 时间下限
+			endTime : "2016/02/4 20:00"	// 时间上限
 		});
 		var y = a.getYear();	// 获取可用的年份，返回的是json数据，包含min和max两个属性，分别表示最小的可用年份和最大的可用年份
 		var m = a.getMonth(2016);	// 根据年份获取可用的月份，返回的是json数据，包含min和max两个属性，分别表示最小的可用月份和最大的可用月份
-		var d = a.getDay(2019, 2);	// 根据年份、月份获取可用的天，返回的是json数据，包含min和max两个属性，分别表示最小的可用天（即几号）和最大的可用天（即几号）
-		var h = a.getHour(2019, 4, 29);	// 根据年份、月份、日 获取可用的小时，返回的是json数据，包含min和max两个属性，分别表示最小的可用小时和最大的可用小时
-		var min = a.getMin(2019, 4, 29, 12);// 根据年份、月份、日、小时 获取可用的分，返回的是json数据，包含min和max两个属性，分别表示最小的可用分钟和最大的可用分钟
-		var s = a.getSec(2019, 4, 29, 12, 34);// 根据年份、月份、日、小时、分钟 获取可用的秒，返回的是json数据，包含min和max两个属性，分别表示最小的可用秒钟和最大的可用秒钟
+		var d = a.getDay(2016, 2);	// 根据年份、月份获取可用的天，返回的是json数据，包含min和max两个属性，分别表示最小的可用天（即几号）和最大的可用天（即几号）
+		var h = a.getHour(2016, 2, 3);	// 根据年份、月份、日 获取可用的小时，返回的是json数据，包含min和max两个属性，分别表示最小的可用小时和最大的可用小时
+		var min = a.getMin(2016, 2, 3, 12);// 根据年份、月份、日、小时 获取可用的分，返回的是json数据，包含min和max两个属性，分别表示最小的可用分钟和最大的可用分钟
+		var s = a.getSec(2016, 2, 3, 12, 34);// 根据年份、月份、日、小时、分钟 获取可用的秒，返回的是json数据，包含min和max两个属性，分别表示最小的可用秒钟和最大的可用秒钟
 		console.log(y);
 		console.log(m);
 		console.log(d);

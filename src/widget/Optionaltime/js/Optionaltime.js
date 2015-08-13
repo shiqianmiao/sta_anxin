@@ -90,14 +90,19 @@ $.extend(Optionaltime.fn, {
 		}
 
 		if(year >= available_year.min && year <= available_year.max){
-			if(year == available_year.min){
+			if(year == available_year.min && year != available_year.max){
 				return {
 					min : sTJ.month,
 					max : 12
 				}
-			}else if(year == available_year.max){
+			}else if(year == available_year.max && year != available_year.min){
 				return {
 					min : 1,
+					max : eTJ.month
+				}
+			}else if(year == available_year.max && year == available_year.min){
+				return {
+					min : sTJ.month,
 					max : eTJ.month
 				}
 			}else{
