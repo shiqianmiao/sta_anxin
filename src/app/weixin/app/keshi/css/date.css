@@ -1,0 +1,56 @@
+html, body{
+	background: #fff;
+}
+.date-title{
+	height: 64px;
+	overflow: hidden;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -o-box;
+	display: box;
+	-webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    -o-box-pack: justify;
+    box-pack: justify;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -o-box-align: center;
+    box-align: center;
+    padding: 0 10px;
+}
+.date-title li{
+	width: 41px;
+	height: 41px;
+	color: #999999;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+	text-align: center;
+}
+.date-title li.active{
+	background: #ffad0f;
+	color: #fff;
+}
+.date-title li h2, .date-title li p{
+	height: 13px;
+	line-height: 13px;
+	font-size: 13px;
+	margin-top: 5px;
+}
+.date-title li p{
+	margin-top: 3px;
+}
+.time-table{
+	width: 100%;
+}
+.time-table td{
+	border: 1px solid #b5babe;
+	text-align: center;
+	color: #333333;
+	font-size: 14px;
+}

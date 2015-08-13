@@ -18,14 +18,14 @@ html, body{
 	}
 }
 .title{
-	font-size: 18px;
+	font-size: 19px;
 	text-align: center;
 	height: 18px;
 	line-height: 18px;
 	color: #999;
 }
 .tel{
-	font-size: 30px;
+	font-size: 31px;
 	height: 30px;
 	color: #ffad0f;
 	line-height: 30px;
@@ -43,7 +43,7 @@ html, body{
 	border: 1px solid #dadada;
 	line-height: 20px;
 	color: #333;
-	font-size: 15px;
+	font-size: 16px;
 }
 @media all and (max-width: 320px){
 	.textarea{

@@ -16,18 +16,18 @@ html{
 	color: #fff;
 }
 #top h2{
-	font-size: 20px;
+	font-size: 21px;
 	font-weight: normal;
 }
 #top p{
-	font-size: 14px;
+	font-size: 15px;
 	line-height: 26px;
 }
 #top p:nth-of-type(1){
 	margin-top: 10px;
 }
 #top p:last-of-type{
-	font-size: 15px;
+	font-size: 16px;
 	color: #ffad0f;
 	height: 35px;
 	width: 90%;
@@ -41,11 +41,11 @@ html{
 	border-bottom: 1px solid #cbcbcb;
 	line-height: 47px;
 	color: #ffad0f;
-	font-size: 18px;
+	font-size: 19px;
 	background: #fff;
 }
 #top p:last-of-type em{
-	font-size: 18px;
+	font-size: 19px;
 	color: #ff4500;
 	font-weight: bold;
 }
@@ -71,16 +71,16 @@ html{
 }
 .con-wrap h3{
 	color: #2c2c2c;
-	font-size: 16px;
+	font-size: 17px;
 	font-weight: normal;
 	line-height: 30px;
 }
 .con-wrap h3 em{
-	font-size: 14px;
+	font-size: 15px;
 	color: #999999;
 }
 .con-wrap p{
-	font-size: 16px;
+	font-size: 17px;
 	color: #ff4500;
 	line-height: 30px;
 }
@@ -89,7 +89,7 @@ html{
 	background: none;
 	clear: both;
 	color: #999999;
-	font-size: 12px;
+	font-size: 13px;
 }
 
 .addimg-wrap{
@@ -114,7 +114,7 @@ html{
 	width: 35%;
 	height: 64px;
 	line-height: 64px;
-	font-size: 16px;
+	font-size: 17px;
 	text-align: center;
 	color: #2c2c2c;
 	position: relative;
@@ -144,7 +144,7 @@ html{
 	line-height: 26px;
 	text-align: center;
 	color: #999999;
-	font-size: 34px;
+	font-size: 35px;
 	left: 10px;
 	top: 16px;
 }
@@ -159,7 +159,7 @@ html{
 	line-height: 30px;
 	text-align: center;
 	color: #ff4500;
-	font-size: 34px;
+	font-size: 35px;
 	right: 10px;
 	top: 16px;
 }
@@ -171,9 +171,11 @@ html{
 	width: 100%;
 	height: 50px;
 	line-height: 50px;
-	background: #4b5057;
-	font-size: 16px;
-	color: #fff;
+	background: #f9f9f9;
+	font-size: 17px;
+	color: #ff5a00;
+	z-index: 1000;
+	border-top: 1px solid #dadada;
 }
 #sel-true{
 	display: none;
@@ -187,16 +189,20 @@ html{
 	float: left;
 }
 .button-wrap{
-	float: left;
-	width: 30%;
+	position: absolute;
+	width: 117px;
+	top: 0;
+	right: 15px;
+	margin-top: 6px;
 }
 .button-wrap a{
 	display: block;
 	width: 100%;
-	height: 50px;
-	line-height: 50px;
+	height: 38px;
+	line-height: 38px;
 	color: #fff;
-	font-size: 16px;
+	font-size: 17px;
 	text-align: center;
 	background: #ff5a00;
+	border-radius: 3px;
 }

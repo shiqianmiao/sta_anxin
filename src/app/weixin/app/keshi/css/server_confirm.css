@@ -1,6 +1,9 @@
 body, html{
 	min-height: 100%;
 }
+body{
+	padding-bottom : 40px;
+}
 #header-top{
 	height: 48px;
 	width: 100%;
@@ -9,7 +12,7 @@ body, html{
 	left: 0;
 	line-height: 48px;
 	text-align: center;
-	font-size: 20px;
+	font-size: 21px;
 	background: #fff;
 	z-index: 1000;
 }
@@ -35,11 +38,11 @@ body, html{
 	color: #fff;
 }
 #top h2{
-	font-size: 20px;
+	font-size: 21px;
 	font-weight: normal;
 }
 #top p{
-	font-size: 14px;
+	font-size: 15px;
 	line-height: 26px;
 }
 #top p:nth-of-type(1){
@@ -54,7 +57,7 @@ body, html{
 #content .error-output{
 	height: 40px;
 	color: #e30010;
-	font-size: 16px;
+	font-size: 17px;
 	line-height: 50px;
 }
 #content .error-target *{
@@ -68,7 +71,7 @@ body, html{
 	float: left;
 	min-height: 40px;
 	color: #999;
-	font-size: 16px;
+	font-size: 17px;
 	line-height: 40px;
 }
 .info-area p.cp{
@@ -83,7 +86,7 @@ body, html{
 }
 .info-area p:nth-of-type(2) input, .info-area p:nth-of-type(2) button{
 	color: #2c2c2c;
-	font-size:16px;
+	font-size:17px;
 	text-indent: 10px;
 	width: 100%;
 	height: 30px;
@@ -105,7 +108,7 @@ body, html{
 	width: 30%;
 	line-height: 100px;
 	text-indent: 0.2em;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 }
 .sel-addr-pay h4{
@@ -122,7 +125,7 @@ body, html{
 	float: left;
 	width: 70%;
 	min-height: 50px;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 }
 .addr-plug-pay p{
@@ -171,13 +174,13 @@ body, html{
 }
 @media all and (min-width: 370px){
 	.city-wrap-div select,.road-wrap-div select{
-		font-size: 15px;
+		font-size: 16px;
 		color: #2c2c2c;
 		text-indent: 5%;
 		top: 4px;
 	}
 	.addr-sel span,.city-wrap-div,.road-wrap-div{
-		font-size: 15px;
+		font-size: 16px;
 	}
 }
 .road-wrap-div{
@@ -203,7 +206,7 @@ body, html{
 	border: 1px solid #999999;
 	color: #2c2c2c;
 	text-indent: 10px;
-	font-size: 16px;
+	font-size: 17px;
 }
 
 .sel-time{
@@ -221,7 +224,7 @@ body, html{
 	width: 30%;
 	line-height: 30px;
 	text-indent: 0.2em;
-	font-size: 16px;
+	font-size: 17px;
 	color: #999;
 	text-indent: 0;
 }
@@ -233,7 +236,7 @@ body, html{
 .time-wrap-pay{
 	float: left;
 	width: 70%;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 }
 .time-wrap-pay em{
@@ -249,7 +252,7 @@ body, html{
 	color: #2c2c2c;
 	line-height: 28px;
 	text-align: center;
-	font-size: 16px;
+	font-size: 17px;
 }
 .time-wrap span:first-of-type{
 	width: 70%;
@@ -260,7 +263,7 @@ body, html{
 	margin-right: 0;
 }
 .sel-time p{
-	font-size: 13px;
+	font-size: 14px;
 	color: #999999;
 	margin-top: 12px;
 }
@@ -278,18 +281,18 @@ body, html{
 	width: 30%;
 	line-height: 30px;
 	text-indent: 0.2em;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 	text-indent: 0;
 }
 .sex-btn{
 	float: left;
 	width: 70%;
-	font-size: 16px;
+	font-size: 17px;
 }
 .sex-btn-pay{
 	line-height: 30px;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 }
 .sex-btn span{
@@ -314,11 +317,11 @@ body, html{
 	width: 30%;
 	line-height: 30px;
 	text-indent: 0.2em;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 }
 #note-input{
-	font-size: 16px;
+	font-size: 17px;
 }
 
 .server-wrap{
@@ -332,14 +335,14 @@ body, html{
 	line-height: 64px;
 }
 .statistical{
-	font-size: 18px;
+	font-size: 19px;
 }
 .info-sec,.info-sec-next{
 	float: left;
 	width: 64%;
 	min-height: 64px;
 	line-height: 64px;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 }
 .info-sec p{
@@ -363,7 +366,7 @@ body, html{
 	display: block;
 	clear: both;
 	line-height: 20px;
-	font-size: 12px;
+	font-size: 13px;
 	color: #999999;
 	position: relative;
 	top: -14px;
@@ -376,7 +379,7 @@ body, html{
 	width: 36%;
 	height: 64px;
 	line-height: 64px;
-	font-size: 16px;
+	font-size: 17px;
 	text-align: center;
 	color: #2c2c2c;
 	position: relative;
@@ -389,7 +392,7 @@ body, html{
 	line-height: 26px;
 	text-align: center;
 	color: #ff4500;
-	font-size: 34px;
+	font-size: 35px;
 	left: 10px;
 	top: 16px;
 }
@@ -401,7 +404,7 @@ body, html{
 	line-height: 30px;
 	text-align: center;
 	color: #ff4500;
-	font-size: 34px;
+	font-size: 35px;
 	right: 10px;
 	top: 16px;
 }
@@ -409,7 +412,7 @@ body, html{
 	height: 45px;
 	padding: 0 5%;
 	line-height: 45px;
-	font-size: 18px;
+	font-size: 19px;
 	text-align: right;
 }
 .statistical span{
@@ -428,7 +431,7 @@ body, html{
 	margin: 0 auto;
 	line-height: 58px;
 	background: #fff;
-	font-size: 18px;
+	font-size: 19px;
 	border-bottom: 1px dotted #ccc;
 }
 .breaks-name{
@@ -447,9 +450,11 @@ body, html{
 	width: 100%;
 	height: 50px;
 	line-height: 50px;
-	background: #4b5057;
-	font-size: 16px;
-	color: #fff;
+	background: #f9f9f9;
+	font-size: 17px;
+	color: #ff5a00;
+	z-index: 1000;
+	border-top: 1px solid #dadada;
 }
 #sel-true{
 	display: block;
@@ -464,18 +469,22 @@ body, html{
 	float: left;
 }
 .button-wrap{
-	float: left;
-	width: 30%;
+	position: absolute;
+	width: 117px;
+	top: 0;
+	right: 15px;
+	margin-top: 6px;
 }
 .button-wrap a{
 	display: block;
 	width: 100%;
-	height: 50px;
-	line-height: 50px;
+	height: 38px;
+	line-height: 38px;
 	color: #fff;
-	font-size: 16px;
+	font-size: 17px;
 	text-align: center;
 	background: #ff5a00;
+	border-radius: 3px;
 }
 
 .complete-foot, .toevaluate-foot, .gopayment-foot, .other-footer {
@@ -491,7 +500,7 @@ body, html{
   width: 46%;
   line-height: 40px;
   color: #fff;
-  font-size: 16px;
+  font-size: 17px;
   background: #ffad0f;
 }
 .complete-foot a {
@@ -505,7 +514,7 @@ body, html{
   margin: 0 auto;
   line-height: 40px;
   color: #ffad0f;
-  font-size: 16px;
+  font-size: 17px;
   background: #fff;
   border: 1px solid #ffad0f;
 }
@@ -541,7 +550,7 @@ body, html{
 	border-bottom: 1px solid #63b100;
 	line-height: 39px;
 	text-align: center;
-	font-size: 16px;
+	font-size: 17px;
 }
 .con-area{
 	height: 240px;
@@ -596,7 +605,7 @@ body, html{
 	top: 50%;
 	left: 50%;
 	background: #fff;
-	font-size: 16px;
+	font-size: 17px;
 	text-align: center;
 	overflow: hidden;
 	z-index: 20000;

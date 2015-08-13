@@ -17,11 +17,11 @@ html, body{
 .from-user{
 	height: 15px;
 	line-height: 15px;
-	font-size: 15px;
+	font-size: 16px;
 	color: #333;
 }
 .msg-fragment{
-	font-size: 15px;
+	font-size: 16px;
 	color: #999;
 	line-height: 22px;
 	margin-top: 12px;
@@ -30,7 +30,7 @@ html, body{
 	height: 34px;
 	text-align: right;
 	line-height: 34px;
-	font-size: 15px;
+	font-size: 16px;
 	color: #999;
 	display: block;
 }
@@ -41,7 +41,7 @@ html, body{
 	width: 77px;
 	height: 100%;
 	background: #ff3b30;
-	font-size: 15px;
+	font-size: 16px;
 	color: #fff;
 	z-index: 0;
 }
@@ -61,7 +61,7 @@ html, body{
 .msgdet-time{
 	display: inline-block;
 	height: 20px;
-	font-size: 12px;
+	font-size: 13px;
 	padding: 0 5px;
 	background: #cecece;
 	color: #fff;
@@ -85,7 +85,7 @@ html, body{
 	border: 1px solid #d0d0d0;
 	padding: 11px 16px;
 	margin-left: 63px;
-	font-size: 15px;
+	font-size: 16px;
 	color: #333;
 	line-height: 22px;
 	background: #fff;
@@ -105,7 +105,7 @@ html, body{
 		border: 1px solid #d0d0d0;
 		padding: 11px 16px;
 		margin-left: 63px;
-		font-size: 15px;
+		font-size: 16px;
 		color: #333;
 		line-height: 22px;
 		background: #fff;
