@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>出入院宣教</title>
+    <title>选择日期</title>
     <meta charset="utf-8">
-    <meta name="keywords" content="出入院宣教" />
-    <meta name="description" content="出入院宣教" />
+    <meta name="keywords" content="选择日期" />
+    <meta name="description" content="选择日期" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-title" content="出入院宣教">
+    <meta name="apple-mobile-web-app-title" content="选择日期">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
 
@@ -14,71 +14,36 @@
     <link rel="stylesheet" type="text/css" href="./css/date.css" />
 </head>
 <body>
+<input type="button" value="选择时间" class="st" />
 
+
+<section class="select-date-window alert-mark">
     <ul class="date-title">
     <!-- js动态创建 -->
     </ul>
 
     <table class="time-table">
-        <tr>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-        </tr>
-        <tr>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-        </tr>
-        <tr>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-        </tr>
-        <tr>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-        </tr>
-        <tr>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-            <td>10:00</td>
-        </tr>
+    <!-- js动态创建 -->
     </table>
+</section>
+    
 
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
     G.use(['zepto', 'widget/Optionaltime/js/Optionaltime.js'], function($, Optionaltime){
 
-        // 设置td的高
-        $('.time-table td').css({height: $('.time-table td').width() + 'px'});
-
+        
         // 实例化下面的对象后，就给定了只有在 startTime ~ endTime 之间的时间是可用的
         var a = Optionaltime({
-            startTime : "2016/01/29 12:00", // 时间下限
+            startTime : "2016/01/29 09:00", // 时间下限
             endTime : "2016/02/4 20:00" // 时间上限
         });
 
 
         // 计算title 日期
         var dateTitleArr = [];
+        var startHours = 0;
         var label = 0; // 标志明天后天的
         // 获取可用的年
         var y = a.getYear();
@@ -96,6 +61,8 @@
                     switch(label){
                         case 0 :
                         weeksNum = '明天';
+                        h = a.getHour(oy, om, od);
+                        startHours = h.min;
                         break;
                         case 1 : 
                         weeksNum = '后天';
@@ -106,6 +73,9 @@
                     }
                     // omm + '/' + odd + '...' + weeks
                     dateTitleArr.push({
+                        year : oy,
+                        month : omm,
+                        day : odd,
                         date : omm + '/' + odd,
                         week : weeksNum
                     });
@@ -120,12 +90,12 @@
         var titleDomStr = '';
         for(var i = 0; i < dateTitleArr.length; i++){
             if(i == 0){
-                titleDomStr += '<li class="active">'
+                titleDomStr += '<li data-one="true" class="active" data-year="' + dateTitleArr[i].year + '" data-month="' + dateTitleArr[i].month + '" data-day="' + dateTitleArr[i].day + '">'
 +                            '<h2>' + dateTitleArr[i].week + '</h2>'
 +                            '<p>' + dateTitleArr[i].date + '</p>'
 +                        '</li>';
             }else{
-                titleDomStr += '<li>'
+                titleDomStr += '<li data-one="false" data-year="' + dateTitleArr[i].year + '" data-month="' + dateTitleArr[i].month + '" data-day="' + dateTitleArr[i].day + '">'
 +                            '<h2>' + dateTitleArr[i].week + '</h2>'
 +                            '<p>' + dateTitleArr[i].date + '</p>'
 +                        '</li>';
@@ -134,14 +104,93 @@
         }
         $('.date-title').html(titleDomStr);
 
+        
+        // 创建小时
+        function createHours(startHours, endHours){
+            // $('.time-table').empty();
+            var str = '<tr>';
+            var smallhour;
+            for(var i = startHours * 60, k = 1; i <= endHours * 60; i += 30, k++){
+                // console.log(k % 6);
+                (function(k){
+                    if(i % 60 == 30){
+                        smallhour = parseInt(i / 60);
+                        smallhour = smallhour < 10 ? '0' + smallhour + ':30' : smallhour + ':30';
+                    }else{
+                        smallhour = parseInt(i / 60);
+                        smallhour = smallhour < 10 ? '0' + smallhour + ':00' : smallhour + ':00';
+                    }
+
+                    if(k % 6){
+                        
+                        str += '<td>' + smallhour + '</td>';
+
+                    }else{
+                        
+                        str += '<td>' + smallhour + '</td>';
+                        str += '</tr><tr>';
+                        
+                    }
+                })(k);
+                
+            }
+
+            $('.time-table').html(str);
+
+            // 点击时间
+            $('.time-table td').on('tap', function(){
+                // 拼接字符串
+                var $li = $('.date-title li.active');
+                alert($li.data('year') + '-' + $li.data('month') + '-' + $li.data('day') + ' ' + $(this).html());
+            });
+        }
+
+        
+        createHours(10, 20);
         // 点击标题日期的时候
         $('.date-title li').on('tap', function(){
             $('.date-title li').removeClass('active');
             $(this).addClass('active');
+
+            if($(this).data('one') == true){
+                createHours(10, 20);
+            }else{
+                createHours(8, 20);
+            }
+
+            // 设置td的高
+            $('.time-table td').css({height: $('.time-table td').width() + 'px'});
+            
         });
+
+        // 设置td的高
+        $('.time-table td').css({height: $('.time-table td').width() + 'px'});
         
 
+
+
+
+        $('.st').on('tap', function(){
+            $('.select-date-window').css({left:0});
+        });
+
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
 
 </body>

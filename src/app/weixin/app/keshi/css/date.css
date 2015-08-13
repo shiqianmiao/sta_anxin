@@ -53,4 +53,10 @@ html, body{
 	text-align: center;
 	color: #333333;
 	font-size: 14px;
+	width: 16.6666666%;
+}
+.select-date-window{
+	background: #fff;
+	left: 100%;
+	transition: 0.3s;
 }
