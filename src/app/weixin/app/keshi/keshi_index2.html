@@ -16,7 +16,7 @@
 <body class="white">
 
     <section class="ks-index-top">
-        <img src="imgs/ks_index_top.jpg" />
+        <img src="imgs/ks_index_top.jpg" class="head-img" />
         <section class="txt-mark-bg">
             <h2>胸外科</h2>
             <p class="noWrapEllipsis hospital-intr"><em class="hospital-name">北医三aa院</em><em class="ksintr">科室简介>></em></p>
@@ -50,6 +50,7 @@
     <script>
     G.use(['zepto'], function($){
 
+        $('.head-img').css({height: $('.head-img').width() * 406 / 750 + 'px'});
 
 
     });

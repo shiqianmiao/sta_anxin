@@ -7,13 +7,13 @@
 	position: absolute;
 	height: 15px;
 	line-height: 15px;
-	font-size: 15px;
+	font-size: 16px;
 	color: #fff;
 	top: 24px;
 	left: 15px;
 }
 .enve-top p{
-	font-size: 40px;
+	font-size: 41px;
 	height: 40px;
 	line-height: 40px;
 	color: #fff;
@@ -23,7 +23,7 @@
 	bottom: 24px;
 }
 .enve-top p em{
-	font-size: 20px;
+	font-size: 21px;
 }
 .enve-record{
 	margin-top: 15px;
@@ -37,14 +37,14 @@
 	position: relative;
 }
 .per-record h3{
-	font-size: 15px;
+	font-size: 16px;
 	color: #333;
 	height: 15px;
 	line-height: 15px;
 	margin-top: 18px;
 }
 .per-record time{
-	font-size: 13px;
+	font-size: 14px;
 	color: #999;
 	height: 13px;
 	line-height: 13px;
@@ -58,5 +58,5 @@
 	top: 0;
 	width: 70px;
 	color: #ff3000;
-	font-size: 15px;
+	font-size: 16px;
 }

@@ -12,7 +12,7 @@ body{
 	left: 0;
 	line-height: 48px;
 	text-align: center;
-	font-size: 20px;
+	font-size: 21px;
 	background: #fff;
 	z-index: 1000;
 }
@@ -38,11 +38,11 @@ body{
 	color: #fff;
 }
 #top h2{
-	font-size: 20px;
+	font-size: 21px;
 	font-weight: normal;
 }
 #top p{
-	font-size: 14px;
+	font-size: 15px;
 	line-height: 26px;
 }
 #top p:nth-of-type(1){
@@ -57,7 +57,7 @@ body{
 #content .error-output{
 	height: 40px;
 	color: #e30010;
-	font-size: 16px;
+	font-size: 17px;
 	line-height: 50px;
 }
 #content .error-target *{
@@ -71,7 +71,7 @@ body{
 	float: left;
 	min-height: 40px;
 	color: #999;
-	font-size: 16px;
+	font-size: 17px;
 	line-height: 40px;
 }
 .info-area p.cp{
@@ -86,7 +86,7 @@ body{
 }
 .info-area p:nth-of-type(2) input, .info-area p:nth-of-type(2) button{
 	color: #2c2c2c;
-	font-size:16px;
+	font-size:17px;
 	text-indent: 10px;
 	width: 100%;
 	height: 30px;
@@ -108,7 +108,7 @@ body{
 	width: 30%;
 	line-height: 100px;
 	text-indent: 0.2em;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 }
 .sel-addr-pay h4{
@@ -125,7 +125,7 @@ body{
 	float: left;
 	width: 70%;
 	min-height: 50px;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 }
 .addr-plug-pay p{
@@ -174,13 +174,13 @@ body{
 }
 @media all and (min-width: 370px){
 	.city-wrap-div select,.road-wrap-div select{
-		font-size: 15px;
+		font-size: 16px;
 		color: #2c2c2c;
 		text-indent: 5%;
 		top: 4px;
 	}
 	.addr-sel span,.city-wrap-div,.road-wrap-div{
-		font-size: 15px;
+		font-size: 16px;
 	}
 }
 .road-wrap-div{
@@ -206,7 +206,7 @@ body{
 	border: 1px solid #999999;
 	color: #2c2c2c;
 	text-indent: 10px;
-	font-size: 16px;
+	font-size: 17px;
 }
 
 .sel-time{
@@ -224,7 +224,7 @@ body{
 	width: 30%;
 	line-height: 30px;
 	text-indent: 0.2em;
-	font-size: 16px;
+	font-size: 17px;
 	color: #999;
 	text-indent: 0;
 }
@@ -236,7 +236,7 @@ body{
 .time-wrap-pay{
 	float: left;
 	width: 70%;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 }
 .time-wrap-pay em{
@@ -252,7 +252,7 @@ body{
 	color: #2c2c2c;
 	line-height: 28px;
 	text-align: center;
-	font-size: 16px;
+	font-size: 17px;
 }
 .time-wrap span:first-of-type{
 	width: 70%;
@@ -263,7 +263,7 @@ body{
 	margin-right: 0;
 }
 .sel-time p{
-	font-size: 13px;
+	font-size: 14px;
 	color: #999999;
 	margin-top: 12px;
 }
@@ -281,18 +281,18 @@ body{
 	width: 30%;
 	line-height: 30px;
 	text-indent: 0.2em;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 	text-indent: 0;
 }
 .sex-btn{
 	float: left;
 	width: 70%;
-	font-size: 16px;
+	font-size: 17px;
 }
 .sex-btn-pay{
 	line-height: 30px;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 }
 .sex-btn span{
@@ -317,11 +317,11 @@ body{
 	width: 30%;
 	line-height: 30px;
 	text-indent: 0.2em;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 }
 #note-input{
-	font-size: 16px;
+	font-size: 17px;
 }
 
 .server-wrap{
@@ -335,14 +335,14 @@ body{
 	line-height: 64px;
 }
 .statistical{
-	font-size: 18px;
+	font-size: 19px;
 }
 .info-sec,.info-sec-next{
 	float: left;
 	width: 64%;
 	min-height: 64px;
 	line-height: 64px;
-	font-size: 16px;
+	font-size: 17px;
 	color: #2c2c2c;
 }
 .info-sec p{
@@ -366,7 +366,7 @@ body{
 	display: block;
 	clear: both;
 	line-height: 20px;
-	font-size: 12px;
+	font-size: 13px;
 	color: #999999;
 	position: relative;
 	top: -14px;
@@ -379,7 +379,7 @@ body{
 	width: 36%;
 	height: 64px;
 	line-height: 64px;
-	font-size: 16px;
+	font-size: 17px;
 	text-align: center;
 	color: #2c2c2c;
 	position: relative;
@@ -392,7 +392,7 @@ body{
 	line-height: 26px;
 	text-align: center;
 	color: #ff4500;
-	font-size: 34px;
+	font-size: 35px;
 	left: 10px;
 	top: 16px;
 }
@@ -404,7 +404,7 @@ body{
 	line-height: 30px;
 	text-align: center;
 	color: #ff4500;
-	font-size: 34px;
+	font-size: 35px;
 	right: 10px;
 	top: 16px;
 }
@@ -412,7 +412,7 @@ body{
 	height: 45px;
 	padding: 0 5%;
 	line-height: 45px;
-	font-size: 18px;
+	font-size: 19px;
 	text-align: right;
 }
 .statistical span{
@@ -431,7 +431,7 @@ body{
 	margin: 0 auto;
 	line-height: 58px;
 	background: #fff;
-	font-size: 18px;
+	font-size: 19px;
 	border-bottom: 1px dotted #ccc;
 }
 .breaks-name{
@@ -451,7 +451,7 @@ body{
 	height: 50px;
 	line-height: 50px;
 	background: #4b5057;
-	font-size: 16px;
+	font-size: 17px;
 	color: #fff;
 }
 #sel-true{
@@ -476,7 +476,7 @@ body{
 	height: 50px;
 	line-height: 50px;
 	color: #fff;
-	font-size: 16px;
+	font-size: 17px;
 	text-align: center;
 	background: #ff5a00;
 }
@@ -494,7 +494,7 @@ body{
   width: 46%;
   line-height: 40px;
   color: #fff;
-  font-size: 16px;
+  font-size: 17px;
   background: #ffad0f;
 }
 .complete-foot a {
@@ -508,7 +508,7 @@ body{
   margin: 0 auto;
   line-height: 40px;
   color: #ffad0f;
-  font-size: 16px;
+  font-size: 17px;
   background: #fff;
   border: 1px solid #ffad0f;
 }
@@ -544,7 +544,7 @@ body{
 	border-bottom: 1px solid #63b100;
 	line-height: 39px;
 	text-align: center;
-	font-size: 16px;
+	font-size: 17px;
 }
 .con-area{
 	height: 240px;
@@ -599,7 +599,7 @@ body{
 	top: 50%;
 	left: 50%;
 	background: #fff;
-	font-size: 16px;
+	font-size: 17px;
 	text-align: center;
 	overflow: hidden;
 	z-index: 20000;

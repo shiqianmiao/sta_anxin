@@ -6,7 +6,7 @@ html, body{
 	border-bottom: 1px solid #cbcbcb;
 	line-height: 76px;
 	color: #333;
-	font-size: 15px;
+	font-size: 16px;
 	padding: 0 4%;
 	background: #fff;
 	position: relative;
@@ -39,7 +39,7 @@ html, body{
 	display: inline-block;
 	height: 32px;
 	line-height: 32px;
-	font-size: 15px;
+	font-size: 16px;
 	color: #fff;
 	padding: 0 30px;
 	background: #34c445;

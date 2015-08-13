@@ -5,7 +5,7 @@
 	overflow: hidden;
 }
 .top-bg h2{
-	font-size: 40px;
+	font-size: 41px;
 	font-weight: bold;
 	color: #fff;
 	text-align: center;
@@ -14,7 +14,7 @@
 	margin-top: 28px;
 }
 .top-bg p{
-	font-size: 20px;
+	font-size: 21px;
 	color: #fff;
 	text-align: center;
 	margin-top: 18px;
@@ -29,24 +29,24 @@
 }
 .con-wrap h3{
 	color: #2c2c2c;
-	font-size: 16px;
+	font-size: 17px;
 	font-weight: normal;
 	line-height: 30px;
 }
 .con-wrap h3 em{
-	font-size: 14px;
+	font-size: 15px;
 	color: #999999;
 }
 .con-wrap-2{
 	position: relative;
 }
 .con-wrap p,.con-wrap-2 p{
-	font-size: 16px;
+	font-size: 17px;
 	color: #ff4500;
 	line-height: 30px;
 }
 .ys-intr{
-	font-size: 13px;
+	font-size: 14px;
 	color: #999999;
 	line-height: 20px;
 }
@@ -54,7 +54,7 @@
 	float: left;
 	width: 65%;
 	line-height: 45px;
-	font-size: 15px;
+	font-size: 16px;
 }
 .con-wrap-2 p em{
 	color: #999999;
@@ -68,7 +68,7 @@
 	background: none;
 	clear: both;
 	color: #999999;
-	font-size: 12px;
+	font-size: 13px;
 }
 
 .addimg-wrap{
@@ -94,7 +94,7 @@
 	width: 35%;
 	height: 45px;
 	line-height: 64px;
-	font-size: 16px;
+	font-size: 17px;
 	text-align: center;
 	color: #2c2c2c;
 	position: absolute;
@@ -121,7 +121,7 @@
 	line-height: 26px;
 	text-align: center;
 	color: #999999;
-	font-size: 34px;
+	font-size: 35px;
 	left: 10px;
 	bottom: 6px;
 }
@@ -142,7 +142,7 @@
 	line-height: 30px;
 	text-align: center;
 	color: #ff4500;
-	font-size: 34px;
+	font-size: 35px;
 	right: 10px;
 	bottom: 6px;
 }
@@ -155,7 +155,7 @@
 	height: 50px;
 	line-height: 50px;
 	background: #4b5057;
-	font-size: 16px;
+	font-size: 17px;
 	color: #fff;
 }
 #sel-true{
@@ -179,7 +179,7 @@
 	height: 50px;
 	line-height: 50px;
 	color: #fff;
-	font-size: 16px;
+	font-size: 17px;
 	text-align: center;
 	background: #ff5a00;
 }

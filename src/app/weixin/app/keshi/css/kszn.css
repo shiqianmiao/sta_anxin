@@ -20,12 +20,12 @@ body, html{
 .zn-content h2{
 	line-height: 23px;
 	color: #333;
-	font-size: 15px;
+	font-size: 16px;
 	margin-top: 6px;
 	min-height: 46px;
 }
 .zn-content time{
-	font-size: 13px;
+	font-size: 14px;
 	height: 13px;
 	line-height: 13px;
 	color: #999;
