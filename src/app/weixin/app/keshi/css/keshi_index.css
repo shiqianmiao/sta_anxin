@@ -226,11 +226,18 @@ html,body{
 	position: relative;
 }
 .plate-bg{
+	height: 109px;
+	position: relative;
+	margin: 55px auto 0;
+	
+}
+.plate-bg a{
 	width: 109px;
 	height: 109px;
+	display: block;
 	background: url(../imgs/index_plate.png) no-repeat;
-	margin: 55px auto 0;
 	background-size: 218px 218px;
+	margin: 0 auto;
 }
 @media all and (max-width: 320px){
 	.plate-bg{
@@ -247,38 +254,53 @@ html,body{
 		margin: 86px auto 0;
 	}
 }
-.plate-bg1{
+.plate-bg1:after, .plate-bg3:after{
+	content: "";
+	position: absolute;
+	width: 1px;
+	height: 16px;
+	right: 0;
+	top: 50%;
+	margin-top: -8px;
+	background: #d8d8d8;
+}
+.plate-bg1 a{
 	background-position: 0 0;
 }
-.plate-bg2{
+.plate-bg2 a{
 	background-position: -109px 0;
 }
-.plate-bg3{
+.plate-bg3 a{
 	background-position: 0 -109px;
 }
-.plate-bg4{
+.plate-bg4 a{
 	background-position: -109px -109px;
 }
 @media all and (max-width: 320px) and (max-height: 480px){
 	.index2-plate li{
-		height: 151px;	}
+		height: 151px;	
+	}
 	.plate-bg{
+		height: 73px;
+		margin: 20px auto 0;
+	}
+	.plate-bg a{
 		width: 73px;
 		height: 73px;
+		display: block;
 		background: url(../imgs/index_plate.png) no-repeat;
-		margin: 20px auto 0;
 		background-size: 146px 146px;
 	}
-	.plate-bg1{
+	.plate-bg1 a{
 		background-position: 0 0;
 	}
-	.plate-bg2{
+	.plate-bg2 a{
 		background-position: -73px 0;
 	}
-	.plate-bg3{
+	.plate-bg3 a{
 		background-position: 0 -73px;
 	}
-	.plate-bg4{
+	.plate-bg4 a{
 		background-position: -73px -73px;
 	}
 }
