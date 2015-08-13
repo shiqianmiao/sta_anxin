@@ -16,7 +16,7 @@
 <body>
 
     <ul class="date-title">
-        <li>
+        <li class="active">
             <h2>明天</h2>
             <p>08/15</p>
         </li>
@@ -24,7 +24,7 @@
             <h2>后天</h2>
             <p>08/16</p>
         </li>
-        <li class="active">
+        <li>
             <h2>周一</h2>
             <p>08/17</p>
         </li>
@@ -92,9 +92,22 @@
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['zepto'], function($){
+    G.use(['zepto', 'widget/Optionaltime/js/Optionaltime.js'], function($, Optionaltime){
 
-        
+        // 设置td的高
+        $('.time-table td').css({height: $('.time-table td').width() + 'px'});
+
+        // 点击标题日期的时候
+        $('.date-title li').on('tap', function(){
+            $('.date-title li').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        // 实例化下面的对象后，就给定了只有在 startTime ~ endTime 之间的时间是可用的
+        var a = Optionaltime({
+            startTime : "2016/01/29 12:00", // 时间下限
+            endTime : "2016/02/4 20:00" // 时间上限
+        });
 
     });
     </script>

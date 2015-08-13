@@ -50,4 +50,7 @@ html, body{
 }
 .time-table td{
 	border: 1px solid #b5babe;
+	text-align: center;
+	color: #333333;
+	font-size: 14px;
 }

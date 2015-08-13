@@ -71,7 +71,6 @@ body{
 .commit{
 	display: block;
 	border: none;
-	-webkit-appearance: none;
 	width: 90%;
 	background: #c8c8c8;
 	height: 48px;
@@ -80,9 +79,22 @@ body{
 	color: #fff;
 	font-size: 19px;
 	margin: 40px auto 0;
+	-webkit-appearance:none;
+	appearance:none;
+	outline:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
 }
+input{
+	-webkit-appearance:none;
+	appearance:none;
+	outline:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);}
 .commit-true{
 	background: #ffad0f;
+	-webkit-appearance:none;
+	appearance:none;
+	outline:none;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
 /* 提交成功弹窗 */
