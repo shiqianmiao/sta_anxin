@@ -63,14 +63,14 @@ body, html{
 	float: left;
 	height: 34px;
 	line-height: 34px;
-	color: #999;
+	color: #ffad0f;
 	font-size: 14px;
 }
 .more-ques a{
 	float: right;
 	height: 34px;
 	line-height: 34px;
-	color: #ffad0f;
+	color: #999;
 	font-size: 14px;
 }
 .ques-list{
