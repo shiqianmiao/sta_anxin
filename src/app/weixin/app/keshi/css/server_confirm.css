@@ -1,6 +1,9 @@
 body, html{
 	min-height: 100%;
 }
+body{
+	padding-bottom : 40px;
+}
 #header-top{
 	height: 48px;
 	width: 100%;
