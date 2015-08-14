@@ -147,7 +147,7 @@ Question.bindQuestionEvent = function(config) {
         if($alertDom){
             $alertDom.data('show', false);
         }
-        cordova.exec(function(){}, function(){}, "FixedInput", 'hide', [""]);
+        navigator.fixedInput.hide();
     });
 
     //设置公开
@@ -250,7 +250,7 @@ Question.bindQuestionEvent = function(config) {
             if (questionId != newQuestionId) {
                 questionId = newQuestionId;
             }
-            cordova.exec(function(content){
+            navigator.fixedInput.show(function(content){
                 ajaxSendReply(questionId, content, function(data){
                     var $li = $el.find('li[data-id="' + questionId + '"]');
                     if ($li) {
@@ -258,7 +258,7 @@ Question.bindQuestionEvent = function(config) {
                         $li.find('.reply-num-btn').html('回复 ' + data.data.answer_count);
                     }
                 });
-            }, function(){}, "FixedInput", 'showAndFocus', [""]);
+            }, "");
         } else {
             //与上次点的回复按钮不一样时，清空数据
             if (questionId != newQuestionId) {
