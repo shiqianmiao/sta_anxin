@@ -36,8 +36,8 @@
         
         // 实例化下面的对象后，就给定了只有在 startTime ~ endTime 之间的时间是可用的
         var a = Optionaltime({
-            startTime : "2016/01/29 09:30", // 时间下限
-            endTime : "2016/02/4 20:00" // 时间上限
+            startTime : "2015/08/15 09:30", // 时间下限
+            endTime : "2015/08/21 20:00" // 时间上限
         });
 
 
@@ -53,6 +53,7 @@
             for(var om = m.min; om <= m.max; om++){
                 // 获取可用的天
                 var d = a.getDay(oy, om);
+                console.log(d);
                 for(var od = d.min; od <= d.max; od++){
                     // 根据年月日获取星期几
                     var weeks = a.getWeekByDay(oy + '-' + om + '-' + od);

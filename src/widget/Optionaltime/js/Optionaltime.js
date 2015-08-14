@@ -131,7 +131,12 @@ $.extend(Optionaltime.fn, {
 			if(month >= available_month.min && month <= available_month.max){
 				//console.log(this.getDaysInMonth(year, month));
 				var curDays = this.getDaysInMonth(year, month);
-				if(year == sTJ.year && month == sTJ.month){
+				if(year == sTJ.year && month == sTJ.month && year == eTJ.year && month == eTJ.month){
+					return {
+						min : sTJ.day,
+						max : eTJ.day
+					}
+				}else if(year == sTJ.year && month == sTJ.month){
 					return {
 						min : sTJ.day,
 						max : curDays
