@@ -146,6 +146,7 @@ Question.bindQuestionEvent = function(config) {
         $('.alert-opa').hide();
         if($alertDom){
             $alertDom.data('show', false);
+            cordova.exec(function(){}, function(){}, "FixedInput", 'hide', [""]);
         }
     });
 
