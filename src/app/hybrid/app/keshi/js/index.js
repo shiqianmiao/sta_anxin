@@ -146,8 +146,8 @@ Question.bindQuestionEvent = function(config) {
         $('.alert-opa').hide();
         if($alertDom){
             $alertDom.data('show', false);
-            cordova.exec(function(){}, function(){}, "FixedInput", 'hide', [""]);
         }
+        cordova.exec(function(){}, function(){}, "FixedInput", 'hide', [""]);
     });
 
     //设置公开
@@ -247,6 +247,9 @@ Question.bindQuestionEvent = function(config) {
         var $this = $(this);
         var newQuestionId = $this.parents('li').data('id');
         if ($platform == 'ios') {
+            if (questionId != newQuestionId) {
+                questionId = newQuestionId;
+            }
             cordova.exec(function(content){
                 ajaxSendReply(questionId, content, function(data){
                     var $li = $el.find('li[data-id="' + questionId + '"]');
