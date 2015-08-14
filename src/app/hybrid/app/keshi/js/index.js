@@ -36,6 +36,7 @@ Question.bindQuestionEvent = function(config) {
     var $loading  = $('#js_loadind');
     var $dataArea = $el.find('.ques-list');
     var $noData   = $el.find('#js_no_data');
+    var $platform = $el.data('platform');
     //从localstorage载入数据
     if (localStorage.question) {
         var data = JSON.parse(localStorage.question);
@@ -244,31 +245,57 @@ Question.bindQuestionEvent = function(config) {
     $el.delegate('.reply-num-btn','click', function(event){
         var $this = $(this);
         var newQuestionId = $this.parents('li').data('id');
-        if (questionId != newQuestionId) {
-            questionId = newQuestionId;
-            $replyInput.val('');
-        }
-        $replyBox.show();
-        $replyInput.focus();
-        // 失去焦点
-        $replyInput.on('blur', function(){
-            $replyBox.hide();
-            $replyInput.off('blur');
-        });
-        if(event.stopPropagation){
-            event.stopPropagation();
-        }else{
-            event.cancelBubble = true;
+        if ($platform == 'ios') {
+            cordova.exec(function(content){
+                ajaxSendReply(questionId, content, function(data){
+                    var $li = $el.find('li[data-id="' + questionId + '"]');
+                    if ($li) {
+                        $li.find('.answer-label').remove();
+                        $li.find('.reply-num-btn').html('回复 ' + data.data.answer_count);
+                    }
+                });
+            }, function(){}, "FixedInput", 'showAndFocus', [""]);
+        } else {
+            //与上次点的回复按钮不一样时，清空数据
+            if (questionId != newQuestionId) {
+                questionId = newQuestionId;
+                $replyInput.val('');
+            }
+            $replyBox.show();
+            $replyInput.focus();
+            // 失去焦点
+            $replyInput.on('blur', function(){
+                $replyBox.hide();
+                $replyInput.off('blur');
+            });
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble = true;
+            }
         }
     });
 
-    var sendComment = false;
     $replyBox.find('.reply-btn').on('touchend', function(event){
         event.stopPropagation();
+        var content = $.trim($replyInput.val());
+        ajaxSendReply(questionId, content, function(data){
+            var $li = $el.find('li[data-id="' + questionId + '"]');
+            if ($li) {
+                $li.find('.answer-label').remove();
+                $li.find('.reply-num-btn').html('回复 ' + data.data.answer_count);
+            }
+            $replyInput.val('');
+            $replyInput.blur();
+        });
+        event.preventDefault();
+    });
+
+    var sendComment = false;
+    function ajaxSendReply(questionId, content, success) {
         if (sendComment) {
             return false;
         }
-        var content = $.trim($replyInput.val());
         if (!(questionId > 0) || !content) {
             window.plugins.toast.showShortCenter('参数错误', function(){}, function(){});
             return false;
@@ -281,13 +308,7 @@ Question.bindQuestionEvent = function(config) {
             dataType : 'json',
             success : function (data) {
                 if (data.errorCode == 0) {
-                    $li = $el.find('li[data-id="' + questionId + '"]');
-                    if ($li) {
-                        $li.find('.answer-label').remove();
-                        $li.find('.reply-num-btn').html('回复 ' + data.data.answer_count);
-                    }
-                    $replyInput.val('');
-                    $replyInput.blur();
+                    success(data);
                     window.plugins.toast.showShortCenter('回复成功', function(){}, function(){});
                 } else if (data.errorMessage) {
                     window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
@@ -298,8 +319,7 @@ Question.bindQuestionEvent = function(config) {
                 sendComment = false;
             }
         });
-        event.preventDefault();
-    });
+    }
 };
 
 //内部取问题函数
