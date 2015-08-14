@@ -20,6 +20,10 @@ Base.init = function (param) {
     setTimeout(function() {
         navigator.splashscreen.hide();
     }, 1000);
+    //关闭浮动输入框
+    if (navigator.fixedInput) {
+        navigator.fixedInput.hide();
+    }
 };
 
 //对widget.initWidget的封装，用户绑定异步载入元素的widget
