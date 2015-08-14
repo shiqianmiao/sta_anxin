@@ -31,6 +31,7 @@ html, body{
 	-o-border-radius: 8px;
 	border-radius: 8px;
 	text-align: center;
+	overflow: hidden;
 }
 .date-title li.active{
 	background: #ffad0f;
