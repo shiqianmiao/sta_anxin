@@ -159,9 +159,9 @@
             $(this).css({background: sourceUrl, backgroundSize: 'cover'});
         });
         // 点击查看大图
-        $('.change-bg-pic').on('touchend', showBigImg);
-        function showBigImg(){
-            
+        $('.change-bg-pic').on('click', showBigImg);
+        function showBigImg(event){
+
             var src = $(this).data('url');
             
             $('.big-pic').on('load', function(){
@@ -170,7 +170,7 @@
             });
             $('.big-pic-wrap').show();
             $('.big-pic').cropper('replace', src);
-            
+
         }
 
         // 初始化大图
@@ -187,11 +187,14 @@
             cropBoxResizable: true,
             guides: true
         });
-
+        
         // 关闭查看大图
         $('.close-big-pic').on('click', function(){
             $('.big-pic-wrap').hide();
         });
+
+
+        
 
         // 点击感谢的时候
         $('.to-thank').on('click', function(){
