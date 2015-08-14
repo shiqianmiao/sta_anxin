@@ -114,6 +114,12 @@ body, html{
 	font-weight: bold;
 }
 /* 个人问题页样式 people_ques.html */
+.ques-body{
+	background: #ebebeb;
+}
+.peo-pues-list{
+	margin-top: 15px;
+}
 .peo-ques-wrap{
 	height: 60px;
 	background: #fff;
@@ -128,6 +134,12 @@ body, html{
 	height: 38px;
 	vertical-align: middle;
 	margin-right: 2px;
+	float: left;
+	margin-top: 16px;
+}
+.ques-div{
+	margin-left: 38px;
+	padding-left: 10px;
 }
 .peo-per-ques{
 	margin-left: 0;
