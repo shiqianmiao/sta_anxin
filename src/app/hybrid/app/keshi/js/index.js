@@ -251,6 +251,7 @@ Question.bindQuestionEvent = function(config) {
                 questionId = newQuestionId;
             }
             navigator.fixedInput.showAndFocus(function(content){
+                navigator.fixedInput.hide();
                 ajaxSendReply(questionId, content, function(data){
                     var $li = $el.find('li[data-id="' + questionId + '"]');
                     if ($li) {
