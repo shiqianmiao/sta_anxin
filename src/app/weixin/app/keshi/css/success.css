@@ -1,0 +1,42 @@
+html,body{
+	height: 100%;
+	background: #fff;
+}
+.content{
+	height: 100%;
+	width: 100%;
+}
+.tip{
+	width: 108px;
+	height: 108px;
+	background: #ffad0f;
+	border: 8px solid #ffde9f;
+	margin: 0 auto;
+}
+.tip h2{
+	font-size: 30px;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+}
+.tip h2:nth-of-type(1){
+	margin-top: 20px;
+}
+.tip h2:nth-of-type(2){
+	margin-top: 5px;
+}
+.tip-p{
+	font-size: 16px;
+	color: #333;
+	text-align: center;
+	height: 16px;
+	line-height: 16px;
+}
+.tip-p:nth-of-type(1){
+	margin-top: 22px;
+}
+.tip-p:nth-of-type(2){
+	margin-top: 11px;
+}
