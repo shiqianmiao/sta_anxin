@@ -10,7 +10,7 @@
             <% } %>
         </div>
     </header>
-    <p class="reply-content"><% if(answer_list[i]['to_user'].hasOwnProperty('real_name') > 0) { %><span class="aite">@<%= answer_list[i]['to_user']['real_name'] %>：</span> <%}%><%= answer_list[i]['content'] %></p>
+    <p class="reply-content"><%= answer_list[i]['content'] %></p>
     <% if (answer_list[i]['images'].length > 0){ %>
     <ul class="pic-list clear add-pd" data-widget="app/hybrid/app/keshi/js/answer.js#swipeImg">
         <% for(var j = 0; j < answer_list[i]['images'].length; j++) { %>
