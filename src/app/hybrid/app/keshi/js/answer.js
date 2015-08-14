@@ -171,49 +171,8 @@ Answer.bindQuestionEvent = function(config) {
     });
 };
 
-Answer.bindAnswerEvent = function(config) {
+Answer.delegateDelete = function(config) {
     var $el = config.$el;
-    var questionId = $el.data('id');
-    //问题回复
-    var $replyBox = $('.reply-box');
-    var $replyInput = $replyBox.find('.reply-input');
-    var sendComment = false;
-    $replyBox.find('.reply-btn').on('tap', function(){
-        if (sendComment) {
-            return false;
-        }
-        var content = $.trim($replyInput.val());
-        if (!content) {
-            window.plugins.toast.showShortCenter('回复内容不能为空！', function(){}, function(){});
-            return false;
-        }
-        sendComment = true;
-        $.ajax({
-            type : 'post',
-            url  : '/index/ajaxAnswer/',
-            data : {question_id : questionId, content : content},
-            dataType : 'json',
-            success : function (data) {
-                if (data.errorCode == 0) {
-                    $el.find('.reply-title-num').html('回复（' + data.data.answer_count + '）');
-                    $replyInput.val('');
-                    $replyInput.blur();
-                    //将回复内容添加到顶部
-                    var html = AnswerTpl(data.data);
-                    $el.find('ul').prepend(html);
-                    $('#js_no_reply').addClass('hide');
-                    window.plugins.toast.showShortCenter('回复成功', function(){}, function(){});
-                } else if (data.errorMessage) {
-                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
-                }
-                sendComment = false;
-            },
-            error : function () {
-                sendComment = false;
-            }
-        });
-    });
-
     //删除
     var sendDelete = false;
     $el.delegate('.delete-btn', 'tap', function(){
@@ -257,6 +216,75 @@ Answer.bindAnswerEvent = function(config) {
         }
     });
 };
+
+//安卓回复绑定函数
+Answer.ardReply = function(config) {
+    var $el = config.$el;
+    var questionId = $el.data('id');
+    //问题回复
+    var $replyBox = $('.reply-box');
+    var $replyInput = $replyBox.find('.reply-input');
+    var $replyNum = $('.reply-title-num');
+    $replyBox.find('.reply-btn').on('tap', function(){
+        var content = $.trim($replyInput.val());
+        ajaxSendReply(questionId, content, function(data){
+            $replyNum.html('回复（' + data.data.answer_count + '）');
+            $replyInput.val('');
+            $replyInput.blur();
+            //将回复内容添加到顶部
+            var html = AnswerTpl(data.data);
+            $('.reply-list').prepend(html);
+            $('#js_no_reply').addClass('hide');
+        });
+    });
+};
+//ios回复绑定函数
+Answer.iosReply = function(config) {
+    var $el = config.$el;
+    var questionId = $el.data('id');
+    //问题回复
+    var $replyNum = $('.reply-title-num');
+
+    cordova.exec(function(content){
+        ajaxSendReply(questionId, content, function(data){
+            $replyNum.html('回复（' + data.data.answer_count + '）');
+            //将回复内容添加到顶部
+            var html = AnswerTpl(data.data);
+            $('.reply-list').prepend(html);
+            $('#js_no_reply').addClass('hide');
+        });
+    }, function(){}, "FixedInput", 'show');
+};
+
+var sendComment = false;
+function ajaxSendReply (questionId, content, success) {
+    if (sendComment) {
+        return false;
+    }
+    if (!content) {
+        window.plugins.toast.showShortCenter('回复内容不能为空！', function(){}, function(){});
+        return false;
+    }
+    sendComment = true;
+    $.ajax({
+        type : 'post',
+        url  : '/index/ajaxAnswer/',
+        data : {question_id : questionId, content : content},
+        dataType : 'json',
+        success : function (data) {
+            if (data.errorCode == 0) {
+                success(data);
+                window.plugins.toast.showShortCenter('回复成功', function(){}, function(){});
+            } else if (data.errorMessage) {
+                window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
+            }
+            sendComment = false;
+        },
+        error : function () {
+            sendComment = false;
+        }
+    });
+}
 
 Answer.getAnswer = function(config) {
     var $el = config.$el;
