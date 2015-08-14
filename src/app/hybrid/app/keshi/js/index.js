@@ -250,7 +250,7 @@ Question.bindQuestionEvent = function(config) {
             if (questionId != newQuestionId) {
                 questionId = newQuestionId;
             }
-            navigator.fixedInput.show(function(content){
+            navigator.fixedInput.showAndFocus(function(content){
                 ajaxSendReply(questionId, content, function(data){
                     var $li = $el.find('li[data-id="' + questionId + '"]');
                     if ($li) {

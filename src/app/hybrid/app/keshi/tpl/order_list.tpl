@@ -21,10 +21,12 @@
             <li><%= order_list[i].mobile %></li>
             <li><a class="addr-link" href="<%= order_list[i].map_url %>"><%= order_list[i].address_text %><img src="http://s1.anxinsta.com/app/hybrid/app/keshi/imgs/addr.png" class="addr-icon" /></a></li>
         </ul>
-        <h3>备注信息：</h3>
-        <ul class="intr-list">
-            <li><%= order_list[i].mark %></li>
-        </ul>
+        <% if(order_list[i].mark) { %>
+            <h3>备注信息：</h3>
+            <ul class="intr-list">
+                <li><%= order_list[i].mark %></li>
+            </ul>
+        <% } %>
         <h3>订单金额：</h3>
         <em class="price">￥<%= order_list[i].price %> <%= order_list[i].pay_way %></em>
     </div>
