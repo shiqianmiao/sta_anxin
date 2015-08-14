@@ -253,7 +253,7 @@ Answer.iosReply = function(config) {
             $('.reply-list').prepend(html);
             $('#js_no_reply').addClass('hide');
         });
-    }, function(){}, "FixedInput", 'show');
+    }, function(){}, "FixedInput", 'show', [""]);
 };
 
 var sendComment = false;
