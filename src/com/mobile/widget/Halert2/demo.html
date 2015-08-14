@@ -59,10 +59,10 @@
 
 
 
-	<script src="http://sta.anxin365.com/g.js"></script>
-	<script src="http://sta.anxin365.com/config.js"></script>
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
 	<script>
-	G.use(['widget/Halert/js/Halert.js'], function(Halert){
+	G.use(['com/mobile/widget/Halert2/js/Halert.js'], function(Halert){
 
 
 		// ================================================================
@@ -99,11 +99,11 @@
 
 
 		var halert = new Halert({
-			content : str,
+			content : '订单取消成功订单取消',
 			contentAlign : 'left',
 			titleAlign : 'center',
 			confirmBtnCallback : function(self){
-				alert($('.cancel-list li.checked').html());
+				self.hide();
 			}
 		});
 
