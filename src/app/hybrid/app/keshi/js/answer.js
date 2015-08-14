@@ -244,8 +244,7 @@ Answer.iosReply = function(config) {
     var questionId = $el.data('id');
     //问题回复
     var $replyNum = $('.reply-title-num');
-
-    cordova.exec(function(content){
+    navigator.fixedInput.show(function(content){
         ajaxSendReply(questionId, content, function(data){
             $replyNum.html('回复（' + data.data.answer_count + '）');
             //将回复内容添加到顶部
@@ -253,7 +252,7 @@ Answer.iosReply = function(config) {
             $('.reply-list').prepend(html);
             $('#js_no_reply').addClass('hide');
         });
-    }, function(){}, "FixedInput", 'show', [""]);
+    }, "");
 };
 
 var sendComment = false;
