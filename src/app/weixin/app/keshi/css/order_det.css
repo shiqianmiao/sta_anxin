@@ -1,5 +1,5 @@
-body{
-	padding-bottom: 38px;
+html,body{
+	min-height: 100%;
 }
 .order-det-sec{
 	padding: 0 4% 15px;

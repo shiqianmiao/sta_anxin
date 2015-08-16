@@ -13,7 +13,7 @@ var Halert = function(opations){
 	this.alert = null;
 	// 配置参数
 	this.settings = {
-		width: '90%',
+		width: '274px',
 		title : '提示',
 		content : '这是一个弹窗组件',
 		confirmBtnContent : '确定',
@@ -90,7 +90,7 @@ $.extend(proto, {
 			zIndex : 20000,
 			top : '50%',
 			overflow : 'hidden',
-			borderRadius : '8px',
+			borderRadius : '3px',
 			color : this.settings.fontColor
 		});
 
@@ -108,27 +108,27 @@ $.extend(proto, {
 
 		// 创建内容
 		var content = $('<div></div>').css({
-			padding : '20px 5%',
+			padding : '20px 6.5%',
 			lineHeight : '24px',
 			textAlign : this.settings.contentAlign,
-			fontSize : '18px'
+			fontSize : '16px'
 		}).html(this.settings.content);
 
 		// 创建脚部
 		var footer = $('<footer></footer>').css({
-			height : '50px',
+			height : '61px',
 			borderTop : '1px solid #dddddd',
-			background : '#f5f5f5'
+			textAlign : 'center'
 		});
 		// 创建按钮
-		var yesBtn = $('<a></a>').css({float : 'right',padding : '0 20px',height : '30px',lineHeight:'30px',background : '#56ac56',textAlign : 'center',color : '#fff',margin:'10px 20px 0 0',border:'1px solid #52a552', borderRadius:"8px"})
+		var yesBtn = $('<a></a>').css({display:'inline-block',width: '111px',height : '38px',lineHeight:'38px',background : '#ff8900',textAlign : 'center',color : '#fff',marginTop:'11px',marginRight:'14px', borderRadius:"3px"})
 								 .html(this.settings.confirmBtnContent)
 		  						 .on('click', function(){
 		  						 	if(self.settings.confirmBtnCallback){
 		  						 		self.settings.confirmBtnCallback(self);
 		  						 	}
 		  						 });
-		var noBtn = $('<a></a>').css({float : 'right',padding : '0 20px',height : '30px',lineHeight:'30px',background : '#f3f3f3',textAlign : 'center',margin:'10px 20px 0 0',color : this.settings.fontColor,border:'1px solid #cccccc', borderRadius:"8px"})
+		var noBtn = $('<a></a>').css({display:'inline-block',width: '111px',height : '38px',lineHeight:'38px',background : '#b0b0b0',textAlign : 'center',color : '#fff',marginTop:'11px', borderRadius:"3px"})
 								.html(this.settings.cancelBtnContent)
 								.on('click', function(){
 									if(self.settings.cancelBtnCallback){
@@ -144,7 +144,7 @@ $.extend(proto, {
 		}
 		
 
-		this.alert.append(title);
+		// this.alert.append(title);
 		this.alert.append(content);
 		this.alert.append(footer);
 

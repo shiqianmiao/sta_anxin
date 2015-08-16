@@ -9,7 +9,8 @@ var $ = require('$');
 
 var Hmodel = function(opations){
 
-	this.obj = null; // 模态框P标签 id=Hmodel
+	this.obj = null; // 模态框div标签 id=Hmodel
+	this.objp = null; // 模态框P标签 
 	this.showStatus = false; // 是否显示的状态
 	this.timer = null;
 
@@ -44,22 +45,12 @@ $.extend(proto, {
 	 *
 	 */
 	createDom : function(){
-		this.obj = $('<p id="Hmodel"></p>');
+		this.obj = $('<div id="Hmodel" class="modelhide"></div>');
+		this.objp = $('<p></p>');
+		$(this.obj).append(this.objp);
 		$('body').append(this.obj);
 	},
-	/**
-	 * @desc 设置位置
-	 *
-	 */
-	setXY : function(){
-		var W = $(this.obj).width();
-		var H = $(this.obj).height();
 
-		this.obj.css({
-			marginTop : -H / 2 + 'px',
-			marginLeft : -W / 2 + 'px'
-		});
-	},
 	/**
 	 * @desc 显示
 	 * @param (String) str ： 提醒语句
@@ -68,12 +59,10 @@ $.extend(proto, {
 	show : function(str){
 		var self = this;
 
-		this.obj.html(str);
+		this.objp.html(str);
 		this.obj.addClass('show');
 		this.obj.removeClass('hide');
-		this.obj.show();
-		
-		this.setXY();
+		this.obj.removeClass('modelhide');
 
 		clearTimeout(this.timer);
 		this.timer = setTimeout(function(){
@@ -81,7 +70,7 @@ $.extend(proto, {
 
 			clearTimeout(self.timer);
 			self.timer = setTimeout(function(){
-				self.obj.hide();
+				self.obj.addClass('modelhide');
 			}, 700);
 
 		}, this.settings.showTime);

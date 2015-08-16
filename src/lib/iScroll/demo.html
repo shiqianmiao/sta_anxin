@@ -110,7 +110,7 @@
 				<li>Pretty row 10</li>
 			</ul>
 			<div id="pullUp">
-				<span class="pullUpIcon"></span><span class="pullUpLabel">点击加载更多...</span>
+				<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
 			</div>
 		</div>
 	</div>
@@ -186,15 +186,15 @@
 						pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
 						this.minScrollY = -pullDownOffset;
 					}
-					// if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
-					// 	pullUpEl.className = 'flip';
-					// 	pullUpEl.querySelector('.pullUpLabel').innerHTML = '松开刷新...';
-					// 	this.maxScrollY = this.maxScrollY;
-					// } else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
-					// 	pullUpEl.className = '';
-					// 	pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
-					// 	this.maxScrollY = pullUpOffset;
-					// }
+					if (this.y < (this.maxScrollY - 30) && !pullUpEl.className.match('flip') && this.y < -pullDownOffset) {
+						pullUpEl.className = 'flip';
+						pullUpEl.querySelector('.pullUpLabel').innerHTML = '放开加载更多...';
+						// this.maxScrollY = this.maxScrollY;
+					} else if (this.y > (this.maxScrollY + 10) && pullUpEl.className.match('flip')) {
+						pullUpEl.className = '';
+						pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+						this.maxScrollY = pullUpOffset;
+					}
 				},
 				onScrollEnd: function () {
 					if (pullDownEl.className.match('flip')) {
