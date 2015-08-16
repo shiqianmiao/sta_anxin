@@ -259,7 +259,7 @@ MyInfo.updateIosBirthday = function(config) {
         }
     });
     $el.find('#data-select-input').on('blur', function(){
-        if (origin != timestamp) {
+        if (origin != timestamp && timestamp != 0) {
             updateProfile({birthday: timestamp}, function (data) {
                 if (data.errorCode == 0) {
                     $el.find('.data').html(showStr);
