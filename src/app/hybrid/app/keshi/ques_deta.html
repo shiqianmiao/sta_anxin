@@ -135,7 +135,7 @@
     </div>
 
     <div class="reply-box">
-        <textarea type="text" class="reply-input borR-3"></textarea>
+        <div class="reply-input borR-3" contenteditable="true"></div>
         <span class="reply-btn borR-3">回复</span>
     </div>
 
@@ -351,6 +351,12 @@
 
         $('#Hwrap').css({top: $('.header').height() + 'px'});
         $('.attention-p').css({top: $('.header').height() + 'px'});
+
+        // 计算输入框高度
+        setInterval(function(){
+            $('.reply-box').css({height: parseInt($('.reply-input').height()) + 16 + 'px' });
+            console.log($('.reply-input').height());
+        }, 20);
         
     });
     </script>

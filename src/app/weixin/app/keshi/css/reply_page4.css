@@ -8,6 +8,7 @@
 	height: 105px;
 	outline: none;
 	font-size: 14px;
+	overflow: hidden;
 }
 .textarea-div.onfocus{
 	color: #333;
@@ -99,7 +100,7 @@
 .swiper-container-face{
 	width: 100%;
 	overflow: hidden;
-	height: 280px;
+	height: 250px;
 	position: relative;
 	background: #ededed;
 	position: fixed;
@@ -130,7 +131,7 @@
 	height: 30px;
 	display: block;
 	margin: 6px auto;
-	background: url(../imgs/emo6.png) no-repeat top left;
+	background: url(../imgs/emoa.png) no-repeat top left;
 }
 .cropper-bg{
 	background: #000;
