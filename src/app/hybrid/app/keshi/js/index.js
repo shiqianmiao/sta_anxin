@@ -266,13 +266,13 @@ Question.bindQuestionEvent = function(config) {
                 questionId = newQuestionId;
                 $replyInput.val('');
             }
-            $replyBox.show();
+            $replyBox.css({left:'0'});
             $replyInput.focus();
-            // 失去焦点
-            $replyInput.on('blur', function(){
-                $replyBox.hide();
-                $replyInput.off('blur');
-            });
+            //// 失去焦点
+            //$replyInput.on('blur', function(){
+            //    $replyBox.hide();
+            //    $replyInput.off('blur');
+            //});
             if(event.stopPropagation){
                 event.stopPropagation();
             }else{
@@ -280,6 +280,11 @@ Question.bindQuestionEvent = function(config) {
             }
         }
     });
+
+    // 计算输入框高度
+    setInterval(function(){
+        $replyBox.css({height: parseInt($replyInput.height()) + 16 + 'px' });
+    }, 20);
 
     $replyBox.find('.reply-btn').on('touchend', function(event){
         event.stopPropagation();
