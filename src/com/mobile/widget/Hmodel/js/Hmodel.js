@@ -46,8 +46,10 @@ $.extend(proto, {
 	 */
 	createDom : function(){
 		this.obj = $('<div id="Hmodel" class="modelhide"></div>');
+		this.pwrap = $('<div></div>');
 		this.objp = $('<p></p>');
-		$(this.obj).append(this.objp);
+		$(this.pwrap).append(this.objp);
+		$(this.obj).append(this.pwrap);
 		$('body').append(this.obj);
 	},
 
