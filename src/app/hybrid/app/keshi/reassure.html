@@ -41,7 +41,7 @@
         <div id="Hscroll">
             <header class="Hs-header"><span class="pullDownIcon"></span><em>下拉刷新</em></header>
                 
-                <div class="load-more"><img src="imgs/load.gif"></div>
+                <!-- <div class="load-more"><img src="imgs/load.gif"></div> -->
                 <ul class="ques-list">
                     <li class="per-ques borR-3">
                         <div class="ques-title clear">
@@ -136,7 +136,7 @@
     </footer>
 
     <!-- 完善信息弹窗 -->
-    <div class="alert-mark flex-center window-hide" id="through-window">
+    <!-- <div class="alert-mark flex-center window-hide" id="through-window">
         <section class="window borR-3">
             <a href="javascript:;" class="close-btn through-close borR-50">×</a>
             <div class="win-top">
@@ -151,7 +151,7 @@
                 <a href="#">去完善个人信息</a>
             </footer>
         </section>
-    </div>
+    </div> -->
     <!-- 完善信息弹窗 结束 -->
 
     <!-- 二维码弹窗 -->
@@ -175,7 +175,7 @@
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js', 'widget/Hscroll/js/Hscroll2.js', 'widget/waitLoading/js/waitLoading.js'], function($, Client, Hscroll, waitLoading){
+    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js', 'widget/Hscroll/js/Hscroll2.js', 'widget/waitLoading/js/waitLoading.js', 'com/mobile/widget/Halert2/js/Halert.js'], function($, Client, Hscroll, waitLoading){
 
         // 实例化等待加载遮罩
         // var WL = new waitLoading();
@@ -245,8 +245,8 @@
         });
 
 
-        // 弹出完善信息
-        //alertWin('#through-window', '.through-close');
+        // // 弹出完善信息
+        // alertWin('#through-window', '.through-close');
         // 点击头部二维码btn，弹出二维码弹窗
         $('.er-btn').on('tap', function(){
             alertWin('#er-window', '.er-close-mark');
@@ -280,7 +280,7 @@
 
         // 初始化刷新的top
         //$('#Hwrap').css({top: $('.header').innerHeight() + 'px'});
-        $('#Hwrap').css({height: $(window).height() - $('.header').height() - 60 + 'px'});
+        $('#Hwrap').css({height: $(window).height() - $('.header').height() - 48 + 'px'});
         // 只实例化对象不传配置参数的时候，指示做了一个模拟滚动，可以用来修复移动端fixed定位bug
         var hscroll = new Hscroll({
             refreshCallback : function(self){

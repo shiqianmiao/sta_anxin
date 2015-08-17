@@ -88,20 +88,8 @@
 		// hide() -------------->移除
 
 
-		var str = '<ul class="cancel-list">'
-+				  '<li><span></span>客人没在家or没时间</li>'
-+				  '<li><span></span>客人下错单了</li>'
-+				  '<li><span></span>客人中途XXX了</li>'
-+				  '<li><span></span>客人被陈朝阳打进医院了，客人被陈朝阳打进医院了</li>'
-+				  '</ul>'
-+				  '<h6 class="tip"><em>*</em>如果是您没有时间，请联系客服换人，不要取消订单！！！</h6>';
-
-
-
 		var halert = new Halert({
 			content : '订单取消成功订单取消',
-			contentAlign : 'left',
-			titleAlign : 'center',
 			confirmBtnCallback : function(self){
 				self.hide();
 			}

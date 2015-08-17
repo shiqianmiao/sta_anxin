@@ -121,14 +121,14 @@ $.extend(proto, {
 			textAlign : 'center'
 		});
 		// 创建按钮
-		var yesBtn = $('<a></a>').css({display:'inline-block',width: '111px',height : '38px',lineHeight:'38px',background : '#ff8900',textAlign : 'center',color : '#fff',marginTop:'11px',marginRight:'14px', borderRadius:"3px", fontSize: '18px'})
+		var yesBtn = $('<a></a>').css({display:'inline-block',width: '111px',height : '38px',lineHeight:'38px',background : '#ff8900',textAlign : 'center',color : '#fff',marginTop:'11px', borderRadius:"3px", fontSize: '18px'})
 								 .html(this.settings.confirmBtnContent)
 		  						 .on('click', function(){
 		  						 	if(self.settings.confirmBtnCallback){
 		  						 		self.settings.confirmBtnCallback(self);
 		  						 	}
 		  						 });
-		var noBtn = $('<a></a>').css({display:'inline-block',width: '111px',height : '38px',lineHeight:'38px',background : '#b0b0b0',textAlign : 'center',color : '#fff',marginTop:'11px', borderRadius:"3px", fontSize: '18px'})
+		var noBtn = $('<a></a>').css({display:'inline-block',width: '111px',height : '38px',lineHeight:'38px',background : '#b0b0b0',textAlign : 'center',color : '#fff',marginTop:'11px',marginRight:'14px', borderRadius:"3px", fontSize: '18px'})
 								.html(this.settings.cancelBtnContent)
 								.on('click', function(){
 									if(self.settings.cancelBtnCallback){
@@ -136,14 +136,13 @@ $.extend(proto, {
 									}
 								});
 
-		if(this.settings.showYesBtn){
-			footer.append(yesBtn);
-		}
 		if(this.settings.showNoBtn){
 			footer.append(noBtn);
 		}
+		if(this.settings.showYesBtn){
+			footer.append(yesBtn);
+		}
 		
-
 		// this.alert.append(title);
 		this.alert.append(content);
 		this.alert.append(footer);

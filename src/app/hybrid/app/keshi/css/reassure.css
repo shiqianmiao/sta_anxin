@@ -62,6 +62,9 @@
 	padding-top: 8px;
 	margin-top: 16px;
 }
+.per-ques:last-of-type{
+	margin-bottom: 16px;
+}
 .ques-title{
 	height: 37px;
 	padding: 0 12px;
@@ -305,6 +308,7 @@
 	margin-top: 8px;
 	border: none;
 	background: #ededed;
+	font-size: 15px;
 }
 @media all and (max-width: 320px){
 	.reply-input{
