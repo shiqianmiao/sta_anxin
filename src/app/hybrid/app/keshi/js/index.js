@@ -44,7 +44,7 @@ Question.bindQuestionEvent = function(config) {
         $dataArea.html(html);
         $loading.hide();
     }
-    $el.css({height: $(window).height() - $('.header').height() - 60 + 'px'});
+    $el.css({height: $(window).height() - $('.header').height() - 48 + 'px'});
     // 只实例化对象不传配置参数的时候，指示做了一个模拟滚动，可以用来修复移动端fixed定位bug
     var hscroll = new Hscroll({
         refreshCallback : function(self){
@@ -238,98 +238,6 @@ Question.bindQuestionEvent = function(config) {
             }
         }
     });
-
-    // 点击回复按钮
-    var questionId = 0;
-    var $replyBox = $('.reply-box');
-    var $replyInput = $replyBox.find('.reply-input');
-    $el.delegate('.reply-num-btn','click', function(event){
-        var $this = $(this);
-        var newQuestionId = $this.parents('li').data('id');
-        if ($platform == 'ios') {
-            if (questionId != newQuestionId) {
-                questionId = newQuestionId;
-            }
-            navigator.fixedInput.showAndFocus(function(content){
-                navigator.fixedInput.hide();
-                ajaxSendReply(questionId, content, function(data){
-                    var $li = $el.find('li[data-id="' + questionId + '"]');
-                    if ($li) {
-                        $li.find('.answer-label').remove();
-                        $li.find('.reply-num-btn').html('回复 ' + data.data.answer_count);
-                    }
-                });
-            }, "");
-        } else {
-            //与上次点的回复按钮不一样时，清空数据
-            if (questionId != newQuestionId) {
-                questionId = newQuestionId;
-                $replyInput.html();
-            }
-            $replyBox.css({left:'0'});
-            $replyInput.focus();
-            //// 失去焦点
-            //$replyInput.on('blur', function(){
-            //    $replyBox.hide();
-            //    $replyInput.off('blur');
-            //});
-            if(event.stopPropagation){
-                event.stopPropagation();
-            }else{
-                event.cancelBubble = true;
-            }
-        }
-    });
-
-    // 计算输入框高度
-    setInterval(function(){
-        $replyBox.css({height: parseInt($replyInput.height()) + 16 + 'px' });
-    }, 20);
-
-    $replyBox.find('.reply-btn').on('touchend', function(event){
-        event.stopPropagation();
-        var content = $.trim($replyInput.html());
-        ajaxSendReply(questionId, content, function(data){
-            var $li = $el.find('li[data-id="' + questionId + '"]');
-            if ($li) {
-                $li.find('.answer-label').remove();
-                $li.find('.reply-num-btn').html('回复 ' + data.data.answer_count);
-            }
-            $replyInput.html('');
-            $replyInput.blur();
-        });
-        event.preventDefault();
-    });
-
-    var sendComment = false;
-    function ajaxSendReply(questionId, content, success) {
-        if (sendComment) {
-            return false;
-        }
-        if (!(questionId > 0) || !content) {
-            window.plugins.toast.showShortCenter('参数错误', function(){}, function(){});
-            return false;
-        }
-        sendComment = true;
-        $.ajax({
-            type : 'post',
-            url  : '/index/ajaxAnswer/',
-            data : {question_id : questionId, content : content},
-            dataType : 'json',
-            success : function (data) {
-                if (data.errorCode == 0) {
-                    success(data);
-                    window.plugins.toast.showShortCenter('回复成功', function(){}, function(){});
-                } else if (data.errorMessage) {
-                    window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
-                }
-                sendComment = false;
-            },
-            error : function () {
-                sendComment = false;
-            }
-        });
-    }
 };
 
 //内部取问题函数

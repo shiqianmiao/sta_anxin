@@ -226,7 +226,7 @@ Answer.ardReply = function(config) {
     var $replyInput = $replyBox.find('.reply-input');
     var $replyNum = $('.reply-title-num');
     $replyBox.find('.reply-btn').on('tap', function(){
-        var content = $.trim($replyInput.val());
+        var content = $.trim($replyInput.html());
         ajaxSendReply(questionId, content, function(data){
             $replyNum.html('回复（' + data.data.answer_count + '）');
             $replyInput.val('');
@@ -237,6 +237,10 @@ Answer.ardReply = function(config) {
             $('#js_no_reply').addClass('hide');
         });
     });
+    // 计算输入框高度
+    setInterval(function(){
+        $replyBox.css({height: parseInt($replyInput.height()) + 16 + 'px' });
+    }, 20);
 };
 //ios回复绑定函数
 Answer.iosReply = function(config) {
