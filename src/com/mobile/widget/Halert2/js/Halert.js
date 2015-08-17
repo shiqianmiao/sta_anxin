@@ -74,7 +74,7 @@ $.extend(proto, {
 		this.mask = $('<section></section>').css({
 			position : 'fixed',
 			width : '100%',
-			height : $(document).height() + 'px',
+			height : '100%',
 			background : 'rgba(0,0,0,0.5)',
 			zIndex : 20000,
 			top : '0',

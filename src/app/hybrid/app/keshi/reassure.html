@@ -175,7 +175,7 @@
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js', 'widget/Hscroll/js/Hscroll2.js', 'widget/waitLoading/js/waitLoading.js', 'com/mobile/widget/Halert2/js/Halert.js'], function($, Client, Hscroll, waitLoading){
+    G.use(['zepto', 'widget/clientCheck/js/clientCheck.js', 'widget/Hscroll/js/Hscroll2.js', 'widget/waitLoading/js/waitLoading.js', 'com/mobile/widget/Halert2/js/Halert.js'], function($, Client, Hscroll, waitLoading, Halert){
 
         // 实例化等待加载遮罩
         // var WL = new waitLoading();
@@ -198,6 +198,17 @@
         // setTimeout(function(){
         //     WL.hide(300);
         // }, 2000);
+
+        var halert = new Halert({
+            content : '延伸护理接单需要完整的个人信息，这样能给人亲切感和可信度，现在就去个人中心完善吧!',
+            confirmBtnContent : '去完善',
+            cancelBtnContent : '以后再说',
+            confirmBtnCallback : function(self){
+                self.hide();
+            }
+        });
+
+        halert.show();
         
         var $alertDom = null;
         // 点击操作按钮时候
