@@ -62,7 +62,7 @@ MyAnswer.getAnswerRecord = function(config) {
         $loading.hide();
     });
 
-    $loadMore.tap(function(){
+    $loadMore.click(function(){
         $(this).find('img').show();
         $(this).find('span').html('加载中...');
         getQuestion({page : $loadMore.data('page'), worker_id : workerId}, function(data) {
