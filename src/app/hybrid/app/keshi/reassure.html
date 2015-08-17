@@ -167,7 +167,7 @@
     </section> -->
 
     <div class="reply-box">
-        <textarea type="text" class="reply-input borR-3"></textarea>
+        <div class="reply-input borR-3" contenteditable="true"></div>
         <span class="reply-btn borR-3">回复</span>
     </div>
     
@@ -305,17 +305,15 @@
 
         });
 
-
         // 点击回复按钮
         $('.reply-num-btn').on('click', function(event){
-            $('.reply-box').show();
+            $('.reply-box').css({left:'0'});
             $('.reply-input').focus();
-            
-            // 失去焦点
-            $('.reply-input').on('blur', function(){
-                $('.reply-box').hide();
-                $('.reply-input').off('blur');
-            });
+            // // 失去焦点
+            // $('.reply-input').on('blur', function(){
+            //     $('.reply-box').css({left:'100%'});
+            //     $('.reply-input').off('blur');
+            // });
 
             if(event.stopPropagation){
                 event.stopPropagation();
@@ -323,6 +321,11 @@
                 event.cancelBubble = true;
             }
         });
+
+        setInterval(function(){
+            $('.reply-box').css({height: parseInt($('.reply-input').height()) + 16 + 'px' });
+            console.log($('.reply-input').height());
+        }, 20);
 
 
         $(window).on('scroll', function(){
