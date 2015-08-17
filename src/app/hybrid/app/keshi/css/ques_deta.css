@@ -311,13 +311,14 @@ body, html{
 	z-index: 20;
 }
 .reply-input{
+	display: inline-block;
+	outline: none;
 	width: 71%;
-	height: 22px;
+	min-height: 22px;
 	padding: 10px 2% 0;
-	margin-top: 7px;
+	margin-top: 8px;
 	border: none;
 	background: #ededed;
-	text-indent: 4px;
 	font-size: 15px;
 }
 @media all and (max-width: 320px){
@@ -326,7 +327,9 @@ body, html{
 	}
 }
 .reply-btn{
-	float: right;
+	position: absolute;
+	right: 4%;
+	bottom: 8px;
 	height: 34px;
 	margin-top: 7px;
 	width: 71px;
