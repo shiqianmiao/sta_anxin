@@ -264,7 +264,7 @@ Question.bindQuestionEvent = function(config) {
             //与上次点的回复按钮不一样时，清空数据
             if (questionId != newQuestionId) {
                 questionId = newQuestionId;
-                $replyInput.val('');
+                $replyInput.html();
             }
             $replyBox.css({left:'0'});
             $replyInput.focus();
@@ -288,14 +288,14 @@ Question.bindQuestionEvent = function(config) {
 
     $replyBox.find('.reply-btn').on('touchend', function(event){
         event.stopPropagation();
-        var content = $.trim($replyInput.val());
+        var content = $.trim($replyInput.html());
         ajaxSendReply(questionId, content, function(data){
             var $li = $el.find('li[data-id="' + questionId + '"]');
             if ($li) {
                 $li.find('.answer-label').remove();
                 $li.find('.reply-num-btn').html('回复 ' + data.data.answer_count);
             }
-            $replyInput.val('');
+            $replyInput.html('');
             $replyInput.blur();
         });
         event.preventDefault();
