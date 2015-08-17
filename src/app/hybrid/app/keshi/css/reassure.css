@@ -179,16 +179,16 @@
 	margin-left: 4%;
 }
 .reply-num-btn{
-	width: 80px;
-	height: 33px;
-	background: #ffad0f;
-	color: #fff;
-	line-height: 33px;
-	top: 9px;
-	right: 12px;
+	height: 52px;
 	position: absolute;
-	text-align: center;
-	font-size: 15px;
+	top: 0;
+	right: 18px;
+	line-height: 52px;
+	font-size: 14px;
+	color: #999999;
+	padding-left: 22px;
+	background: url(../imgs/reply.png) no-repeat left center;
+	background-size: 16px 17px;
 }
 
 /* 弹窗公共样式 */

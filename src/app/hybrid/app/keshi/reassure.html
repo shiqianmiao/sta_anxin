@@ -60,7 +60,7 @@
                         <p class="ques-txt">膝盖有积液，走路不怎么感觉到就是蹲下觉得膝盖部位发涨、麻木，站起来费劲，这是什么原因呢？</p>
                         <footer class="ques-footer">
                             <time class="ques-time">1分钟前</time>
-                            <a href="#" class="reply-num-btn borR-3">回复 0</a>
+                            <a href="#" class="reply-num-btn borR-3">10</a>
                         </footer>
                     </li>
                     <li class="per-ques borR-3">
@@ -80,7 +80,7 @@
                         <p class="ques-txt">膝盖有积液，走路不怎么感觉到就是蹲下觉得膝盖部位发涨、麻木，站起来费劲，这是什么原因呢？</p>
                         <footer class="ques-footer">
                             <time class="ques-time">1分钟前</time>
-                            <a href="#" class="reply-num-btn borR-3">回复 0</a>
+                            <a href="#" class="reply-num-btn borR-3">10</a>
                         </footer>
                     </li>
                     <li class="per-ques borR-3">
@@ -100,7 +100,7 @@
                         <p class="ques-txt">膝盖有积液，走路不怎么感觉到就是蹲下觉得膝盖部位发涨、麻木，站起来费劲，这是什么原因呢？</p>
                         <footer class="ques-footer">
                             <time class="ques-time">1分钟前</time>
-                            <a href="#" class="reply-num-btn borR-3">回复 0</a>
+                            <a href="#" class="reply-num-btn borR-3">10</a>
                         </footer>
                     </li>
                     <li class="per-ques borR-3">
@@ -120,7 +120,7 @@
                         <p class="ques-txt">膝盖有积液，走路不怎么感觉到就是蹲下觉得膝盖部位发涨、麻木，站起来费劲，这是什么原因呢？</p>
                         <footer class="ques-footer">
                             <time class="ques-time">1分钟前</time>
-                            <a href="#" class="reply-num-btn borR-3">回复 0</a>
+                            <a href="#" class="reply-num-btn borR-3">10</a>
                         </footer>
                     </li>
                 </ul>
@@ -317,27 +317,27 @@
         });
 
         // 点击回复按钮
-        $('.reply-num-btn').on('click', function(event){
-            $('.reply-box').css({left:'0'});
-            $('.reply-input').focus();
-            // // 失去焦点
-            // $('.reply-input').on('blur', function(){
-            //     $('.reply-box').css({left:'100%'});
-            //     $('.reply-input').off('blur');
-            // });
+        // $('.reply-num-btn').on('click', function(event){
+        //     $('.reply-box').css({left:'0'});
+        //     $('.reply-input').focus();
+        //     // // 失去焦点
+        //     // $('.reply-input').on('blur', function(){
+        //     //     $('.reply-box').css({left:'100%'});
+        //     //     $('.reply-input').off('blur');
+        //     // });
 
-            if(event.stopPropagation){
-                event.stopPropagation();
-            }else{
-                event.cancelBubble = true;
-            }
-        });
+        //     if(event.stopPropagation){
+        //         event.stopPropagation();
+        //     }else{
+        //         event.cancelBubble = true;
+        //     }
+        // });
 
-        // 计算输入框高度
-        setInterval(function(){
-            $('.reply-box').css({height: parseInt($('.reply-input').height()) + 16 + 'px' });
-            console.log($('.reply-input').height());
-        }, 20);
+        // // 计算输入框高度
+        // setInterval(function(){
+        //     $('.reply-box').css({height: parseInt($('.reply-input').height()) + 16 + 'px' });
+        //     console.log($('.reply-input').height());
+        // }, 20);
 
 
         $(window).on('scroll', function(){
