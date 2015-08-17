@@ -241,12 +241,12 @@ html,body{
 }
 @media all and (max-width: 320px){
 	.plate-bg{
-		margin: 36px auto 0;
+		margin: 30px auto 0;
 	}
 }
 @media all and (min-width: 320px) and (max-width: 360px){
 	.plate-bg{
-		margin: 26px auto 0;
+		margin: 10px auto 0;
 	}
 }
 @media all and (min-width: 414px){
