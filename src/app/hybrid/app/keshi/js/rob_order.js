@@ -10,6 +10,7 @@ var $ = require('$');
 var Base = require('app/hybrid/common/base.js');
 var OrderTpl = require('app/hybrid/app/keshi/tpl/rob_order.tpl');
 var Widget = require('com/mobile/lib/widget/widget.js');
+var Halert = require('com/mobile/widget/Halert2/js/Halert.js');
 
 var RobOrder = exports;
 
@@ -46,6 +47,16 @@ RobOrder.order = function(config) {
             return i;
         }
     }
+
+    var halert = new Halert({
+        content : '延伸护理接单需要完整的个人信息，这样能给人亲切感和可信度，现在就去个人中心完善吧!',
+        confirmBtnContent : '去完善',
+        cancelBtnContent : '以后再说',
+        confirmBtnCallback : function(self){
+            location.href = '/my/info/';
+        }
+    });
+
     $robButton.tap(function(){
         var $this  = $(this);
         var robbed = $this.data('robbed');
@@ -61,7 +72,7 @@ RobOrder.order = function(config) {
                     var msg = robbed ? '取消抢单成功！' : '抢单成功！';
                     window.plugins.toast.showShortCenter(msg, function(){}, function(){});
                 } else if (data.errorCode == 2){
-                    $('#through-window').removeClass('window-hide');
+                    halert.show();
                 } else if (data.errorMessage) {
                     window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
                 } else {
@@ -147,6 +158,16 @@ RobOrder.orderDetail = function(config) {
             return i;
         }
     }
+
+    var halert = new Halert({
+        content : '延伸护理接单需要完整的个人信息，这样能给人亲切感和可信度，现在就去个人中心完善吧!',
+        confirmBtnContent : '去完善',
+        cancelBtnContent : '以后再说',
+        confirmBtnCallback : function(self){
+            location.href = '/my/info/';
+        }
+    });
+
     $('.js_rob').tap(function(){
         var $this  = $(this);
         var robbed = $this.data('robbed');
@@ -161,7 +182,7 @@ RobOrder.orderDetail = function(config) {
                     $this.data('robbed', data.data.robbed);
                     window.plugins.toast.showShortCenter('抢单成功！', function(){}, function(){});
                 } else if (data.errorCode == 2) {
-                    $('#through-window').removeClass('window-hide');
+                    halert.show();
                 } else if (data.errorMessage) {
                     window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
                 } else {

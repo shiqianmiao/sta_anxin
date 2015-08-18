@@ -21,7 +21,7 @@
     <p class="ques-txt"><%= question_list[i].content %></p>
     <footer class="ques-footer">
         <time class="ques-time"><%= question_list[i].create_time %></time>
-        <a href="javascript:;" class="reply-num-btn borR-3" data-flag="true" >回复 <%= question_list[i].answer_count %></a>
+        <a href="javascript:;" class="reply-num-btn borR-3" ><%= question_list[i].answer_count %></a>
     </footer>
 </li>
 <% } %>
