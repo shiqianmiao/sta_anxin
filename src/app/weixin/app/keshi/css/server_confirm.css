@@ -78,11 +78,11 @@ body{
 	line-height: 50px;
 }
 .info-area p:nth-of-type(1){
-	width: 30%;
+	width: 33%;
 	line-height: 50px;
 }
 .info-area p:nth-of-type(2){
-	width: 70%;
+	width: 67%;
 }
 .info-area p:nth-of-type(2) input, .info-area p:nth-of-type(2) button{
 	color: #2c2c2c;
@@ -474,6 +474,12 @@ body{
 	top: 0;
 	right: 15px;
 	margin-top: 6px;
+}
+@media all and (max-width:320px) {
+	.button-wrap{
+		width: 90px;
+	}
+	
 }
 .button-wrap a{
 	display: block;
