@@ -10,7 +10,7 @@
         <ul class="intr-list">
             <li><%= order_list[i].service_time_text %></li>
             <% for(var j = 0; j < order_list[i].service_item_list.length; j++) { %>
-                <li class="text-indent-8"><%= order_list[i].service_item_list[j] %></li>
+                <li><%= order_list[i].service_item_list[j] %></li>
             <% } %>
         </ul>
     </div>
