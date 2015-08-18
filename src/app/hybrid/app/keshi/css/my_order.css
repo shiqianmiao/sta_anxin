@@ -250,14 +250,17 @@ body, html{
 }
 .pay-win li{
 	height: 50px;
-	text-align: center;
+	text-align: left;
 	line-height: 50px;
 	color: #333;
-	font-size: 15px;
+	font-size: 16px;
 	border-top: 1px solid #e1e1e1;
+	padding: 0 20px;
 }
 .pay-win li.active{
 	color: #ff8900;
+	background: url(../imgs/select.png) no-repeat 238px center;
+	background-size: 17px 10px;
 }
 .pay-win footer{
 	height: 61px;
