@@ -40,6 +40,7 @@ body, html{
 	height: 24px;
 	line-height: 24px;
 	margin-top: 9px;
+	margin-bottom: 14px;
 }
 .order-name{
 	display: inline-block;
@@ -51,6 +52,14 @@ body, html{
 	overflow:hidden; 
 	text-overflow:ellipsis;
 }
+.service-opa{
+	color: #333;
+	height: 17px;
+	line-height: 17px;
+	font-size: 17px;
+	font-weight: normal;
+	margin-bottom: 11px;
+}
 @media all and (max-width: 320px){
 	.order-name{
 		width: 50%;
@@ -58,7 +67,7 @@ body, html{
 }
 .order-time{
 	display: inline-block;
-	float: right;
+	float: left;
 	height: 24px;
 	line-height: 24px;
 	text-align: center;
@@ -77,19 +86,33 @@ body, html{
 	-o-border-radius: 12px;
 	border-radius: 12px;
 }
+.red-point{
+	position: relative;
+}
+.red-point em{
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #ff2020;
+	right: -8px;
+	top: 0px;
+}
 .addr{
 	font-size: 15px;
 	color: #999999;
 	margin-top: 10px;
+	margin-bottom: 15px;
 }
 .remaining *{
 	display: inline-block;
 }
 .remaining{
-	height: 38px;
-	line-height: 38px;
+	height: 24px;
+	line-height: 24px;
 	font-size: 15px;
 	color: #999999;
+	float: right;
 }
 .remaining-time{
 	color: #ffad0f;

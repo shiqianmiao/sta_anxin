@@ -184,7 +184,7 @@ html{
 	text-align: center;
 }
 .cart{
-	width: 60%;
+	width: 100%;
 	padding: 0 5%;
 	float: left;
 }
@@ -205,4 +205,9 @@ html{
 	text-align: center;
 	background: #ff5a00;
 	border-radius: 3px;
+}
+@media all and (max-width: 320px){
+	.button-wrap{
+		width: 90px;
+	}
 }
