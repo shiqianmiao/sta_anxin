@@ -128,7 +128,7 @@
             dragdrop: true,
             chunk_size: '4mb',
             //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
-            uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:S9esRitXYp7n2XiOIO02BpP4iKc=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0Mzg4NjQ2MTF9',
+            uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:o_aeVnM6SEp3_jc5kBeTaMl08Qg=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0Mzk5NzI3MzV9',
             domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
             auto_start: true,
             init: {
@@ -139,11 +139,15 @@
                     var timestamp = new Date().getTime();
                     return key + timestamp;
                 },
+                'UploadProgress': function(up, file) {
+                       // 上传过程中
+
+                },
                 'FileUploaded': function(up, file, info) {
 
                     var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
                     
-                    console.log(src);
+                    // console.log(src);
 
                     var oLi = document.createElement('li');
                     oLi.className = 'uplode-img borR-3';
