@@ -201,6 +201,10 @@ body{
 	position: relative;
 	/*background: url(../imgs/strip.png) no-repeat;*/
 }
+.per-stripbtn p{
+	float: left;
+	position: relative;
+}
 .per-stripbtn a{
 	display: block;
 	color: #333333;
@@ -210,6 +214,14 @@ body{
 	font-style: 13px;
 	color: #b0b0b0;
 	right: 26px;
+}
+.per-stripbtn i{
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	background: #ff2020;
+	right: -10px;
+	top: 10px;
 }
 .per-stripbtn em.no{
 	color: #b0b0b0
