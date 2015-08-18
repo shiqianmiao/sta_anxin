@@ -108,6 +108,7 @@ body, html{
 }
 .opation-footer a.do-service{
 	background: #ffad0f;
+	margin-right: 13px;
 }
 .opation-footer a.cancel-order{
 	background: #b0b0b0;
