@@ -199,12 +199,12 @@ Question.bindQuestionEvent = function(config) {
             '确定删除当前问题吗？', // message
             onConfirm,           // callback to invoke with index of button pressed
             '删除问题',           // title
-            ['确定','取消']       // buttonLabels
+            ['取消','确定']       // buttonLabels
         );
         event.preventDefault();
         function onConfirm(index) {
             //选择了确定
-            if (index == 1) {
+            if (index == 2) {
                 if (sendDelete) {
                     return false;
                 }
