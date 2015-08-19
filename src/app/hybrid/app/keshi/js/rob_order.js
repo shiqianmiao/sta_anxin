@@ -69,7 +69,7 @@ RobOrder.order = function(config) {
                 if (data.errorCode == 0) {
                     $this.html(data.data.btn_text);
                     $this.data('robbed', data.data.robbed);
-                    var msg = robbed ? '取消抢单成功！' : '抢单成功！';
+                    var msg = robbed ? '操作成功！' : '您已成功参与抢单，请耐心等候客户决定';
                     window.plugins.toast.showShortCenter(msg, function(){}, function(){});
                 } else if (data.errorCode == 2){
                     halert.show();
