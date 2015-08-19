@@ -143,10 +143,10 @@ Answer.bindQuestionEvent = function(config) {
             '确定删除当前问题吗？', // message
             onConfirm,           // callback to invoke with index of button pressed
             '删除问题',           // title
-            ['确定','取消']       // buttonLabels
+            ['取消','确定']       // buttonLabels
         );
         function onConfirm(index) {
-            if (index == 1) {
+            if (index == 2) {
                 sendDelete = true;
                 $.ajax({
                     type : 'post',
@@ -185,10 +185,10 @@ Answer.delegateDelete = function(config) {
             '确定删除该回答吗？', // message
             onConfirm,           // callback to invoke with index of button pressed
             '删除回答',           // title
-            ['确定','取消']       // buttonLabels
+            ['取消','确定']       // buttonLabels
         );
         function onConfirm(index) {
-            if (index == 1) {
+            if (index == 2) {
                 sendDelete = true;
                 $.ajax({
                     type : 'post',
