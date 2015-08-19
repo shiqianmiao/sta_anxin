@@ -117,7 +117,11 @@
             mousewheelControl: true,
             freeMode: true
         });
+
+        
         // 上传图片
+        var loading = null; // 保存loading DOM
+
         var uploader = Qiniu.uploader({
             runtimes: 'html5,flash,html4',
             browse_button: 'pickfiles',
@@ -128,7 +132,7 @@
             dragdrop: true,
             chunk_size: '4mb',
             //uptoken_url: 'http://192.168.2.107/test/qiniu/demo/views/a.php',
-            uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:S9esRitXYp7n2XiOIO02BpP4iKc=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0Mzg4NjQ2MTF9',
+            uptoken: 'rsjgE_LBEsVfx4tXJbL1KVr2HColENU3mxAFEMUF:o_aeVnM6SEp3_jc5kBeTaMl08Qg=:eyJzY29wZSI6ImFueGluMzY1IiwiZGVhZGxpbmUiOjE0Mzk5NzI3MzV9',
             domain: '7u2mgp.com2.z0.glb.qiniucdn.com',
             auto_start: true,
             init: {
@@ -139,49 +143,68 @@
                     var timestamp = new Date().getTime();
                     return key + timestamp;
                 },
+                'UploadProgress': function(up, file) {
+
+                    $(loading).detach();
+                    // 上传过程中
+                    loading = document.createElement('li');
+                    loading.className = 'uplode-img borR-3';
+                    loading.style.background = 'url(imgs/load.gif) no-repeat center center';
+                    loading.style.backgroundSize = '20px 20px';
+
+                    $('.uplode-list').append(loading);
+
+                },
                 'FileUploaded': function(up, file, info) {
 
                     var src = 'http://7u2mgp.com2.z0.glb.qiniucdn.com/' + JSON.parse(info).key;
                     
-                    console.log(src);
+                    // console.log(src);
 
-                    var oLi = document.createElement('li');
-                    oLi.className = 'uplode-img borR-3';
-                    oLi.setAttribute('url', src);
-                    oLi.style.background = 'url(' + src + ') no-repeat center center';
-                    oLi.style.backgroundSize = 'cover';
-                    oLi.onclick = function(){
-                        // 点击查看大图
-                        var src = oLi.getAttribute('url');
-            
-                        $('.big-pic').on('load', function(){
+                    var loadImg = document.createElement('img');
+                    loadImg.src = src;
+                    loadImg.onload = function(){
+
+                        $(loading).detach();
+                        
+                        var oLi = document.createElement('li');
+                        oLi.className = 'uplode-img borR-3';
+                        oLi.setAttribute('url', src);
+                        oLi.style.background = 'url(' + src + ') no-repeat center center';
+                        oLi.style.backgroundSize = 'cover';
+                        oLi.onclick = function(){
+                            // 点击查看大图
+                            var src = oLi.getAttribute('url');
+                
+                            $('.big-pic').on('load', function(){
+                                $('.big-pic-wrap').show();
+                                $('.big-pic').cropper('replace', src);
+                            });
                             $('.big-pic-wrap').show();
                             $('.big-pic').cropper('replace', src);
-                        });
-                        $('.big-pic-wrap').show();
-                        $('.big-pic').cropper('replace', src);
-                        // 隐藏图片列表。防止层的问题
-                        $('.images-list').hide();
+                            // 隐藏图片列表。防止层的问题
+                            $('.images-list').hide();
 
-                    };
+                        };
 
-                    var oClose = document.createElement('span');
-                    oClose.innerHTML = '+';
-                    oClose.className = 'borR-50';
-                    oClose.onclick = function(event){
-                        $(this).parent().detach();
+                        var oClose = document.createElement('span');
+                        oClose.innerHTML = '+';
+                        oClose.className = 'borR-50';
+                        oClose.onclick = function(event){
+                            $(this).parent().detach();
 
-                        if(event.stopPropagation){
-                            event.stopPropagation();
-                        }else{
-                            event.cancelBubble = true;
+                            if(event.stopPropagation){
+                                event.stopPropagation();
+                            }else{
+                                event.cancelBubble = true;
+                            }
                         }
+
+                        oLi.appendChild(oClose);
+
+                        $('.uplode-list').append(oLi);
                     }
 
-                    oLi.appendChild(oClose);
-
-                    $('.uplode-list').append(oLi);
-                    
                 }
             }
         });
