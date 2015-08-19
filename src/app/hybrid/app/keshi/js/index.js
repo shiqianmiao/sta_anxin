@@ -37,6 +37,8 @@ Question.bindQuestionEvent = function(config) {
     var $dataArea = $el.find('.ques-list');
     var $noData   = $el.find('#js_no_data');
     var $platform = $el.data('platform');
+
+    var page = 1;
     //从localstorage载入数据
     if (localStorage.question) {
         var data = JSON.parse(localStorage.question);
@@ -68,7 +70,7 @@ Question.bindQuestionEvent = function(config) {
         },
         loadMoreCallback : function(self){
             // 执行上拉加载更多的操作
-            getQuestion({question_ids : questionIds, max_time : maxTime}, function(data){
+            getQuestion({question_ids : questionIds, max_time : maxTime, page : page}, function(data){
                 if (data.errorCode == 0) {
                     if (data.data.question_list.length > 0) {
                         questionIds  = data.data.question_ids;
@@ -76,10 +78,11 @@ Question.bindQuestionEvent = function(config) {
                         var html = QuestionTpl(data.data);
                         $dataArea.append(html);
                     }
-                    if (data.data.question_list.length < data.data.limit) {
+                    if (!data.data.has_more) {
                         //没有
                         self.changeTypeTo('onlyTop');
                     }
+                    page = data.data.page;
                 } else if(data.errorMessage) {
                     window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
                 }
@@ -102,7 +105,7 @@ Question.bindQuestionEvent = function(config) {
                 var html = QuestionTpl(data.data);
                 $('.ques-list').html(html);
                 localStorage.question = JSON.stringify(data.data);
-                if (data.data.question_list.length < data.data.limit) {
+                if (!data.data.has_more) {
                     hscroll.changeTypeTo('onlyTop');
                 }
             } else {
@@ -111,6 +114,7 @@ Question.bindQuestionEvent = function(config) {
                 hscroll.changeTypeTo('onlyTop');
                 localStorage.removeItem('question');
             }
+            page = data.data.page;
             hscroll.refreshEnd();
         } else if(data.errorMessage) {
             window.plugins.toast.showShortCenter(data.errorMessage, function(){}, function(){});
