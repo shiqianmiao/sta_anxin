@@ -229,7 +229,7 @@ Answer.ardReply = function(config) {
         var content = $.trim($replyInput.html());
         ajaxSendReply(questionId, content, function(data){
             $replyNum.html('回复（' + data.data.answer_count + '）');
-            $replyInput.val('');
+            $replyInput.html('');
             $replyInput.blur();
             //将回复内容添加到顶部
             var html = AnswerTpl(data.data);
