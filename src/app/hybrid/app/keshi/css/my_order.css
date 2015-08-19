@@ -289,10 +289,10 @@ body, html{
 	font-size: 15px;
 }
 .pay-win footer a:first-of-type{
-	background: #ff8900;
+	background: #b0b0b0;
 	margin-right: 13px;
 }
 .pay-win footer a:last-of-type{
-	background: #b0b0b0;
+	background: #ff8900;
 }
 /* 支付弹窗 结束 */
