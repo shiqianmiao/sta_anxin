@@ -37,6 +37,18 @@ body, html{
 	background-size: 375px 6px;
 	margin-bottom: 15px;
 }
+.red-point{
+	position: relative;
+}
+.red-point em{
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #ff2020;
+	right: -8px;
+	top: 0px;
+}
 .time-wrap{
 	padding-top: 12px;
 }
