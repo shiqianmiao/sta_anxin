@@ -51,3 +51,18 @@
 	left: 80px;
 	bottom: 20px;
 }
+/* 关于我们页面样式 */
+.about-pic{
+	height: 194px;
+	background: url(../imgs/ad.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+.about-intr-wrap{
+	padding: 26px 4%;
+}
+.about-intr{
+	font-size: 14px;
+	color: #333;
+	line-height: 24px;
+}
+/* 关于我们页面样式 结束 */
