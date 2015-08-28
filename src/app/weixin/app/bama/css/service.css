@@ -66,3 +66,58 @@
 	line-height: 24px;
 }
 /* 关于我们页面样式 结束 */
+/* 服务详情页面样式 */
+.det-title{
+	font-size: 21px;
+	height: 21px;
+	line-height: 21px;
+	color: #333333;
+	text-align: center;
+	margin-top: 18px;
+}
+.det-price{
+	height: 19px;
+	line-height: 19px;
+	font-size: 19px;
+	color: #ff3600;
+	text-align: center;
+	margin-top: 11px;
+	margin-bottom: 40px;
+}
+.det-p-wrap{
+	padding: 0 4%;
+}
+.det-p-wrap p{
+	font-size: 16px;
+	color: #333;
+	line-height: 23px;
+	padding-left: 20px;
+	text-align: justify;
+	position: relative;
+	margin-bottom: 30px;
+}
+.det-p-wrap p:last-of-type{
+	margin-bottom: 0;
+}
+.det-p-wrap p:before{
+	content: "";
+	position: absolute;
+	width: 7px;
+	height: 7px;
+	background: #ff3600;
+	border-radius: 50%;
+	left: 3px;
+	top: 7px;
+}
+.det-btn{
+	background: #ffad0f;
+	color: #fff;
+	line-height: 40px;
+	height: 40px;
+	text-align: center;
+	font-size: 16px;
+	display: block;
+	width: 92%;
+	margin: 52px auto 0;
+}
+/* 服务详情页面样式 结束 */
