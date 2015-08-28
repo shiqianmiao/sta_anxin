@@ -1,0 +1,81 @@
+html{
+	background: #efeff3;
+}
+.title{
+	height: 33px;
+	background: #efeff3;
+	font-size: 14px;
+	color: #999999;
+	line-height: 33px;
+	padding: 0 16px;
+}
+.form-list{
+	background: #fff;
+}
+.per-input{
+	padding: 0 16px;
+	height: 44px;
+	border-bottom: 1px solid #dddddd;
+}
+.per-input:last-of-type{
+	border-bottom: none;
+}
+.per-input h2{
+	float: left;
+	font-size: 16px;
+	color: #999999;
+	line-height: 44px;
+	width: 64px;
+}
+.letter-spacing{
+	letter-spacing: 1px;
+}
+.select-project{
+	margin-left: 64px;
+	height: 44px;
+	background: url(../imgs/strip.png) no-repeat right center;
+	background-size: 9px 17px;
+	position: relative;
+}
+.ser-name{
+	position: absolute;
+	height: 44px;
+	line-height: 44px;
+	right: 20px;
+	top: 0;
+	font-size: 16px;
+	color: #333333;
+}
+.input-wrap{
+	height: 44px;
+	margin-left: 64px;
+}
+.input-wrap input{
+	display: block;
+	width: 100%;
+	height: 44px;
+	border: none;
+	font-size: 16px;
+	color: #333333;
+	line-height: 44px;
+	text-align: right;
+}
+.global-btn{
+	background: #ffad0f;
+	color: #fff;
+	line-height: 40px;
+	height: 40px;
+	text-align: center;
+	font-size: 16px;
+	display: block;
+	width: 92%;
+	margin: 52px auto 0;
+}
+.tel{
+	display: block;
+	color: #ffad0f;
+	font-size: 16px;
+	text-decoration: underline;
+	text-align: center;
+	margin-top: 22px;
+}
