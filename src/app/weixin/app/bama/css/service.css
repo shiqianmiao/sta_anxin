@@ -1,3 +1,6 @@
+.other-body{
+	background: #efeff3;
+}
 .top{
 	height: 105px;
 	background: url(../imgs/top.jpg) no-repeat;
@@ -121,3 +124,58 @@
 	margin: 52px auto 0;
 }
 /* 服务详情页面样式 结束 */
+/* 优惠活动页面样式 */
+.yh-top{
+	height: 172px;
+	background: url(../imgs/youhui.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+.yh-intr{
+	height: 218px;
+	background: #fff;
+}
+@media all and (max-width: 320px){
+	.yh-intr{
+		height: 198px;
+	}
+}
+@media all and (max-width: 320px) and (max-height: 480px){
+	.yh-intr{
+		height: 168px;
+	}
+}
+.yh-intr p{
+	font-size: 23px;
+	color: #ffad0f;
+}
+.yh-intr h2{
+	font-size: 45px;
+	color: #ffad0f;
+}
+.yh-tel-txt{
+	font-size: 23px;
+	color: #ffad0f;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 47px;
+	margin-bottom: 22px;
+}
+@media all and (max-width: 320px){
+	.yh-tel-txt{
+		margin-top: 27px;
+		margin-bottom: 12px;
+	}
+}
+.yh-btn{
+	display: block;
+	text-align: center;
+	color: #fff;
+	height: 43px;
+	line-height: 43px;
+	font-size: 21px;
+	width: 275px;
+	margin: 0 auto 20px;
+	background: url(../imgs/btn-bg.png) no-repeat;
+	background-size: 100% 100%;
+}
+/* 优惠活动页面样式 结束 */
