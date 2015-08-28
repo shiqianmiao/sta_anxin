@@ -1,0 +1,53 @@
+.top{
+	height: 105px;
+	background: url(../imgs/top.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+.ser-list{
+	padding: 0 16px;
+}
+.per-ser{
+	margin-top: 14px;
+	height: 95px;
+}
+.per-ser a{
+	display: block;
+	height: 100%;
+	position: relative;
+}
+.per-ser:nth-of-type(1){
+	background: url(../imgs/a.png) no-repeat 19px center, #52c8ff;
+	background-size: 53px 60px;
+}
+.per-ser:nth-of-type(2){
+	background: url(../imgs/b.png) no-repeat 27px center, #31c6cc;
+	background-size: 37px 57px;
+}
+.per-ser:nth-of-type(3){
+	background: url(../imgs/c.png) no-repeat 19px center, #ff9ab2;
+	background-size: 53px 60px;
+}
+.name{
+	font-size: 26px;
+	color: #fff;
+	font-weight: bold;
+	height: 26px;
+	line-height: 26px;
+	position: absolute;
+	left: 89px;
+	top: 21px;
+}
+@media all and (max-width: 320px){
+	.name{
+		font-size: 24px;
+	}
+}
+.price{
+	color: #fff;
+	font-size: 19px;
+	height: 19px;
+	line-height: 19px;
+	position: absolute;
+	left: 80px;
+	bottom: 20px;
+}

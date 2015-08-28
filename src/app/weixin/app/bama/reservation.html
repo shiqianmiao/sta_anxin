@@ -10,6 +10,7 @@
     <meta name="format-detection" content="email=no" />
 
     <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/Hselect.css">
     <link rel="stylesheet" type="text/css" href="./css/reservation.css" />
 </head>
 <body>
@@ -19,7 +20,7 @@
     <ul class="form-list">
         <li class="per-input clear">
             <h2>服务项目</h2>
-            <div class="select-project"><a href="#" class="ser-name">小帮手增值服务</a></div>
+            <div class="select-project"><a href="javascript:;" class="ser-name">小帮手增值服务</a></div>
         </li>
         <li class="per-input clear">
             <h2 class="letter-spacing">联 系 人</h2>
@@ -38,13 +39,28 @@
     <a href="#" class="global-btn borR-3">提交</a>
 
     <a href="tel:400-614-9398" class="tel">咨询电话 : 400-614-9398</a>
+
+    <div hidden id="k-box" data-hprevselect="-1">
+        <li class="H-effective">小帮手增值服务</li>
+        <li class="H-effective">智能设备学习</li>
+        <li class="H-effective">及时响应管家服务</li>
+    </div>
     
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['zepto'], function($){
+    G.use(['zepto', 'widget/Hselect/js/Hselect.js'], function($, Hselect){
 
-
+        $('.ser-name').click(function(){
+            var hse = new Hselect({
+                title : '选择服务',
+                selectTplId : 'k-box',
+                defaultSelect : 0,  // 默认初始选项
+                completeFn : function($elem){
+                    $('.ser-name').html($elem.html());
+                }
+            });
+        });
 
     });
     </script>
