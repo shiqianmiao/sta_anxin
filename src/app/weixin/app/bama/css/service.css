@@ -179,3 +179,65 @@
 	background-size: 100% 100%;
 }
 /* 优惠活动页面样式 结束 */
+/* 优秀人员页面样式 */
+.per-peo{
+	min-height: 117px;
+	padding: 0 4%;
+	overflow: hidden;
+	border-bottom: 1px solid #dbdbdb;
+	position: relative;
+}
+.peo-head-pic-wrap{
+	position: absolute;
+	width: 93px;
+	height: 100%;
+	top: 0;
+	left: 4%;
+}
+.peo-head-pic{
+	width: 93px;
+	height: 93px;
+}
+.peo-intr{
+	margin-left: 93px;
+	height: 100%;
+	padding-left: 13px;
+	overflow: hidden;
+}
+.peo-name{
+	height: 15px;
+	color: #333;
+	line-height: 15px;
+	font-size: 15px;
+	margin-top: 17px;
+}
+.peo-name em{
+	font-size: 13px;
+	color: #999;
+}
+.peo-main{
+	font-size: 14px;
+	min-height: 14px;
+	line-height: 24px;
+	color: #333;
+	margin-top: 10px;
+}
+.peo-tel{
+	font-size: 14px;
+	height: 14px;
+	line-height: 14px;
+	color: #999;
+	margin-top: 10px;
+}
+.peo-id{
+	height: 14px;
+	line-height: 14px;
+	color: #999;
+	font-size: 14px;
+	margin-top: 8px;
+	margin-bottom: 12px;
+	text-indent: 25px;
+	background: url(../imgs/id.jpg) no-repeat left center;
+	background-size: 18px 13px;
+}
+/* 优秀人员页面样式 结束 */
