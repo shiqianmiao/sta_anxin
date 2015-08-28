@@ -36,15 +36,18 @@ html{
 	background: url(../imgs/strip.png) no-repeat right center;
 	background-size: 9px 17px;
 	position: relative;
+	display: block;
 }
 .ser-name{
 	position: absolute;
 	height: 44px;
 	line-height: 44px;
-	right: 20px;
+	right: 5%;
 	top: 0;
 	font-size: 16px;
 	color: #333333;
+	width: 95%;
+	text-align: right;
 }
 .input-wrap{
 	height: 44px;
