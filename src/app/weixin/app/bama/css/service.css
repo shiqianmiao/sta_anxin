@@ -68,6 +68,13 @@
 	color: #333;
 	line-height: 24px;
 }
+.about-title{
+	font-size: 17px;
+	font-weight: bold;
+}
+.about-end{
+	text-align: right;
+}
 /* 关于我们页面样式 结束 */
 /* 服务详情页面样式 */
 .det-title{
