@@ -131,7 +131,13 @@
 	color: #ff3600;
 	text-align: center;
 	margin-top: 11px;
-	margin-bottom: 40px;
+	margin-bottom: 16px;
+}
+.det-top-pic{
+	display: block;
+	width: 92%;
+	margin: 0 auto;
+	margin-bottom: 36px;
 }
 .det-p-wrap{
 	padding: 0 4%;
@@ -167,7 +173,7 @@
 	font-size: 16px;
 	display: block;
 	width: 92%;
-	margin: 52px auto 0;
+	margin: 52px auto 20px;
 }
 /* 服务详情页面样式 结束 */
 /* 优惠活动页面样式 */
