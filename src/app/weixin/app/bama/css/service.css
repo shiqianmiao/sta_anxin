@@ -176,27 +176,36 @@
 	background: url(../imgs/youhui.jpg) no-repeat;
 	background-size: 100% 100%;
 }
-.yh-intr{
-	height: 218px;
+.yh-wrap{
 	background: #fff;
+	padding: 0 20px;
+	overflow: hidden;
+	padding-bottom: 38px;
 }
-@media all and (max-width: 320px){
-	.yh-intr{
-		height: 198px;
-	}
-}
-@media all and (max-width: 320px) and (max-height: 480px){
-	.yh-intr{
-		height: 168px;
-	}
-}
-.yh-intr p{
-	font-size: 23px;
+.yh-title{
+	font-size: 15px;
+	font-weight: bold;
 	color: #ffad0f;
+	height: 17px;
+	line-height: 17px;
+	text-indent: 26px;
+	background: url(../imgs/1.png) no-repeat 0 center;
+	background-size: 17px 16px;
+	margin-top: 25px;
+	margin-bottom: 6px;
 }
-.yh-intr h2{
-	font-size: 45px;
-	color: #ffad0f;
+.yh-title:nth-of-type(2){
+	background: url(../imgs/2.png) no-repeat 0 center;
+	background-size: 17px 16px;
+}
+.yh-title:nth-of-type(3){
+	background: url(../imgs/3.png) no-repeat 0 center;
+	background-size: 17px 16px;
+}
+.yh-p{
+	font-size: 15px;
+	color: #999;
+	line-height: 24px;
 }
 .yh-tel-txt{
 	font-size: 23px;
@@ -223,6 +232,7 @@
 	margin: 0 auto 20px;
 	background: url(../imgs/btn-bg.png) no-repeat;
 	background-size: 100% 100%;
+	margin-bottom: 60px;
 }
 /* 优惠活动页面样式 结束 */
 /* 优秀人员页面样式 */
