@@ -94,6 +94,14 @@
 	color: #fff;
 }
 /* 关于我们页面样式 */
+.about-h1{
+	height: 56px;
+	line-height: 56px;
+	color: #333;
+	font-size: 19px;
+	text-align: center;
+	font-weight: bold;
+}
 .about-pic{
 	height: 194px;
 	background: url(../imgs/ad.jpg) no-repeat;
