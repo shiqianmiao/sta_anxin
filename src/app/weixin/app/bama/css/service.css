@@ -187,64 +187,77 @@
 }
 /* 优惠活动页面样式 结束 */
 /* 优秀人员页面样式 */
-.per-peo{
-	min-height: 117px;
-	padding: 0 4%;
-	overflow: hidden;
-	border-bottom: 1px solid #dbdbdb;
-	position: relative;
+.peo-body{
+	background: #e9e9ee;
 }
-.peo-head-pic-wrap{
-	position: absolute;
-	width: 93px;
-	height: 100%;
-	top: 0;
-	left: 4%;
+.peo-list{
+	padding: 0 4% 15px;
+}
+.per-peo{
+	background: #fff;
+	padding: 9px 15px 13px;
+	margin-top: 15px;
 }
 .peo-head-pic{
-	width: 93px;
-	height: 93px;
+	float: left;
+	width: 87px;
+	height: 87px;
 }
-.peo-intr{
-	margin-left: 93px;
-	height: 100%;
-	padding-left: 13px;
-	overflow: hidden;
+.peo-content{
+	margin-left: 87px;
+	padding-left: 18px;
 }
 .peo-name{
+	font-size: 16px;
 	height: 15px;
-	color: #333;
 	line-height: 15px;
-	font-size: 15px;
-	margin-top: 17px;
+	color: #333;
+	padding-top: 5px;
 }
 .peo-name em{
-	font-size: 13px;
+	font-size: 14px;
 	color: #999;
 }
-.peo-main{
+.peo-intr{
 	font-size: 14px;
-	min-height: 14px;
-	line-height: 24px;
 	color: #333;
+	line-height: 13px;
+	min-height: 13px;
 	margin-top: 10px;
 }
-.peo-tel{
+@media all and (max-width: 320px){
+	.peo-intr-true{
+		line-height: 15px;
+	}
+}
+.peo-tel-s,.peo-id-s{
 	font-size: 14px;
-	height: 14px;
-	line-height: 14px;
 	color: #999;
+	line-height: 13px;
+	min-height: 13px;
 	margin-top: 10px;
 }
-.peo-id{
-	height: 14px;
-	line-height: 14px;
-	color: #999;
+.peo-id-s{
+	padding-left: 22px;
+	background: url(../imgs/id.jpg) no-repeat;
+	background-size: 18px 18px;
+}
+.peo-txt{
 	font-size: 14px;
+	color: #999;
+	line-height: 23px;
 	margin-top: 8px;
-	margin-bottom: 12px;
-	text-indent: 25px;
-	background: url(../imgs/id.jpg) no-repeat left center;
-	background-size: 18px 13px;
+	clear: both;
+}
+@media all and (min-width: 375px){
+	.peo-tel-s,.peo-id-s{
+		float: left;
+	}
+	.peo-tel-s{
+		margin-left: 11px;
+	}
+	.peo-txt{
+		padding-top: 8px;
+	}
 }
 /* 优秀人员页面样式 结束 */
