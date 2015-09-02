@@ -2,7 +2,7 @@
 	background: #efeff3;
 }
 .top{
-	height: 180px;
+	height: 150px;
 	background: url(../imgs/top.jpg) no-repeat;
 	background-size: 100% 100%;
 }
@@ -93,6 +93,12 @@
 		font-size: 15px;
 		letter-spacing: -1px;
 	}
+    .ser-intr-1{
+        font-size: 12px;
+    }
+    .ser-1 {
+        padding-left: 110px;
+    }
 }
 .ser-price{
 	font-size: 13px;
