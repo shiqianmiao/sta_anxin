@@ -17,9 +17,7 @@ html{
 	height: 44px;
 	border-bottom: 1px solid #dddddd;
 }
-.per-input:last-of-type{
-	border-bottom: none;
-}
+
 .per-input h2{
 	float: left;
 	font-size: 16px;
@@ -30,7 +28,7 @@ html{
 .letter-spacing{
 	letter-spacing: 1px;
 }
-.select-project{
+.select-project, .select-time{
 	margin-left: 64px;
 	height: 44px;
 	background: url(../imgs/strip.png) no-repeat right center;
@@ -38,7 +36,7 @@ html{
 	position: relative;
 	display: block;
 }
-.ser-name{
+.ser-name, .ser-time{
 	position: absolute;
 	height: 44px;
 	line-height: 44px;

@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="./css/public.css" />
     <link rel="stylesheet" type="text/css" href="./css/Hselect.css">
     <link rel="stylesheet" type="text/css" href="./css/reservation.css" />
+    <link rel="stylesheet" type="text/css" href="./css/date.css" />
 </head>
 <body>
 
@@ -34,6 +35,10 @@
                 <input type="text" value="13520008223" />
             </div>
         </li>
+        <li class="per-input clear time-input">
+            <h2>上门时间</h2>
+            <div class="select-time"><a href="javascript:;" class="ser-time">2015-08-15 11:30</a></div>
+        </li>
     </ul>
 
     <a href="#" class="global-btn borR-3">提交</a>
@@ -46,10 +51,20 @@
         <li class="H-effective">及时响应管家服务</li>
     </div>
     
+    <section class="select-date-window alert-mark">
+        <ul class="date-title">
+        <!-- js动态创建 -->
+        </ul>
+
+        <table class="time-table">
+        <!-- js动态创建 -->
+        </table>
+    </section>
+
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['zepto', 'widget/Hselect/js/Hselect.js'], function($, Hselect){
+    G.use(['zepto', 'widget/Hselect/js/Hselect.js', 'widget/Optionaltime/js/Optionaltime.js'], function($, Hselect, Optionaltime){
 
         $('.ser-name').click(function(){
             var hse = new Hselect({
@@ -61,6 +76,150 @@
                 }
             });
         });
+
+
+        // 实例化下面的对象后，就给定了只有在 startTime ~ endTime 之间的时间是可用的
+        var a = Optionaltime({
+            startTime : "2015/08/15 09:30", // 时间下限
+            endTime : "2015/08/21 20:00" // 时间上限
+        });
+
+
+        // 计算title 日期
+        var dateTitleArr = [];
+        var startHours = 0;
+        var label = 0; // 标志明天后天的
+        // 获取可用的年
+        var y = a.getYear();
+        for(var oy = y.min; oy <= y.max; oy++){
+            // 根据年获取可用的月
+            var m = a.getMonth(oy);
+            for(var om = m.min; om <= m.max; om++){
+                // 获取可用的天
+                var d = a.getDay(oy, om);
+                console.log(d);
+                for(var od = d.min; od <= d.max; od++){
+                    // 根据年月日获取星期几
+                    var weeks = a.getWeekByDay(oy + '-' + om + '-' + od);
+                    var omm = om < 10 ? '0' + om : om;
+                    var odd = od < 10 ? '0' + od : od;
+                    switch(label){
+                        case 0 :
+                        weeksNum = '明天';
+                        h = a.getHour(oy, om, od);
+                        var min = a.getMin(oy, om, od, h.min);
+                        startHours = min.min == 30 ? h.min + 0.5 : h.min;
+                        break;
+                        case 1 : 
+                        weeksNum = '后天';
+                        break;
+                        default :
+                        weeksNum = weeks;
+                        break;
+                    }
+                    // omm + '/' + odd + '...' + weeks
+                    dateTitleArr.push({
+                        year : oy,
+                        month : omm,
+                        day : odd,
+                        date : omm + '/' + odd,
+                        week : weeksNum
+                    });
+
+                    label++;
+                }
+            }
+        }
+
+        // console.log(dateTitleArr);
+        // 动态创建title
+        var titleDomStr = '';
+        for(var i = 0; i < dateTitleArr.length; i++){
+            if(i == 0){
+                titleDomStr += '<li data-one="true" class="active" data-year="' + dateTitleArr[i].year + '" data-month="' + dateTitleArr[i].month + '" data-day="' + dateTitleArr[i].day + '">'
++                            '<h2>' + dateTitleArr[i].week + '</h2>'
++                            '<p>' + dateTitleArr[i].date + '</p>'
++                        '</li>';
+            }else{
+                titleDomStr += '<li data-one="false" data-year="' + dateTitleArr[i].year + '" data-month="' + dateTitleArr[i].month + '" data-day="' + dateTitleArr[i].day + '">'
++                            '<h2>' + dateTitleArr[i].week + '</h2>'
++                            '<p>' + dateTitleArr[i].date + '</p>'
++                        '</li>';
+            }
+            
+        }
+        $('.date-title').html(titleDomStr);
+
+        
+        // 创建小时
+        function createHours(startHours, endHours){
+            // $('.time-table').empty();
+            var str = '<tr>';
+            var smallhour;
+            for(var i = startHours * 60, k = 1; i <= endHours * 60; i += 30, k++){
+                // console.log(k % 6);
+                (function(k){
+                    if(i % 60 == 30){
+                        smallhour = parseInt(i / 60);
+                        smallhour = smallhour < 10 ? '0' + smallhour + ':30' : smallhour + ':30';
+                    }else{
+                        smallhour = parseInt(i / 60);
+                        smallhour = smallhour < 10 ? '0' + smallhour + ':00' : smallhour + ':00';
+                    }
+
+                    if(k % 6){
+                        
+                        str += '<td>' + smallhour + '</td>';
+
+                    }else{
+                        
+                        str += '<td>' + smallhour + '</td>';
+                        str += '</tr><tr>';
+                        
+                    }
+                })(k);
+                
+            }
+
+            $('.time-table').html(str);
+
+            // 点击时间
+            $('.time-table td').on('tap', function(){
+                // 拼接字符串
+                var $li = $('.date-title li.active');
+                $('.ser-time').html($li.data('year') + '-' + $li.data('month') + '-' + $li.data('day') + ' ' + $(this).html());
+                $('.select-date-window').css({left:'100%'});
+            });
+        }
+
+        
+        createHours(startHours, 20);
+        // 点击标题日期的时候
+        $('.date-title li').on('tap', function(){
+            $('.date-title li').removeClass('active');
+            $(this).addClass('active');
+
+            if($(this).data('one') == true){
+                createHours(10, 20);
+            }else{
+                createHours(8, 20);
+            }
+
+            // 设置td的高
+            $('.time-table td').css({height: $('.time-table td').width() + 'px'});
+            
+        });
+
+        // 设置td的高
+        $('.time-table td').css({height: $('.time-table td').width() + 'px'});
+        
+
+
+        $('.time-input').on('tap', function(){
+            $('.select-date-window').css({left:0});
+        });
+
+
 
     });
     </script>
