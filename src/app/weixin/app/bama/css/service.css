@@ -2,7 +2,7 @@
 	background: #efeff3;
 }
 .top{
-	height: 141px;
+	height: 150px;
 	background: url(../imgs/top.jpg) no-repeat;
 	background-size: 100% 100%;
 }
@@ -10,7 +10,7 @@
 	padding: 0 4%;
 }
 .ser-1{
-	height: 174px;
+	height: 250px;
 	background: url(../imgs/c.png) no-repeat 16px center, #ff9ab2;
 	background-size: 90px 103px,0 0;
 	margin-top: 15px;
@@ -23,7 +23,7 @@
 	line-height: 26px;
 	color: #fff;
 	font-weight: bold;
-	margin-top: 22px;
+	margin-top: 45px;
 }
 .ser-price-1{
 	font-size: 18px;
@@ -36,12 +36,12 @@
 }
 .ser-intr-1{
 	font-size: 13px;
-	line-height: 20px;
+	line-height: 30px;
 	color: #fff
 }
 .ser-list{
 	padding: 0 4%;
-	height: 111px;
+	height: 150px;
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
@@ -55,6 +55,8 @@
     box-pack: justify;
 
     margin-top: 6px;
+    margin-bottom: 15px;
+
 }
 .per-ser{
 	width: 32%;
@@ -83,7 +85,7 @@
 	color: #fff;
 	font-weight: bold;
 	text-align: center;
-	margin-top: 25px;
+	margin-top: 45px;
 	letter-spacing: -2px;
 }
 @media all and (max-width: 320px){
@@ -91,13 +93,19 @@
 		font-size: 15px;
 		letter-spacing: -1px;
 	}
+    .ser-intr-1{
+        font-size: 12px;
+    }
+    .ser-1 {
+        padding-left: 110px;
+    }
 }
 .ser-price{
 	font-size: 13px;
 	height: 13px;
 	line-height: 13px;
 	text-align: center;
-	margin-top: 8px;
+	margin-top: 25px;
 	color: #fff;
 }
 /* 关于我们页面样式 */
