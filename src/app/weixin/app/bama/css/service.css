@@ -187,6 +187,9 @@
 	left: 3px;
 	top: 7px;
 }
+.det-p-wrap p.no-point:before{
+	background: #fff;
+}
 .det-btn{
 	background: #ffad0f;
 	color: #fff;
