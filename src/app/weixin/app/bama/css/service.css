@@ -9,15 +9,20 @@
 	background: url(../imgs/top.jpg) no-repeat;
 	background-size: 100% 100%;
 }
+.two-wrap{
+	height: 78%;
+	padding: 3px;
+	box-sizing: border-box;
+}
 .ser-sec-wrap{
-	padding: 0 4%;
-	height: 42%;
+	padding: 3px;
+	height: 62%;
+	box-sizing: border-box;
 }
 .ser-1{
 	height: 100%;
 	background: url(../imgs/c.png) no-repeat 16px center, #ff9ab2;
 	background-size: 90px 103px,0 0;
-	margin-top: 15px;
 	padding-left: 122px;
 	overflow: hidden;
 	display: -webkit-box;
@@ -60,8 +65,9 @@
 	color: #fff
 }
 .ser-list{
-	height: 31%;
-	padding: 0 4%;
+	height: 38%;
+	box-sizing: border-box;
+	padding: 3px;
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
@@ -73,8 +79,6 @@
     -ms-flex-pack: justify;
     -o-box-pack: justify;
     box-pack: justify;
-
-    margin-top: 6px;
 
 }
 .one-content{
@@ -89,27 +93,11 @@
 	height: 100%;
 	overflow: hidden;
 
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -o-box;
-	display: box;
-
-	-webkit-box-pack: center;
-    -moz-box-pack: center;
-    -ms-flex-pack: center;
-    -o-box-pack: center;
-    box-pack: center;
-
-    -webkit-box-align: center;
-    -moz-box-align: center;
-    -ms-flex-align: center;
-    -o-box-align: center;
-    box-align: center;
 }
 .ser-content{
 	width: 100%;
 	height: 56px;
+	margin-top: 40%;
 }
 .per-ser:nth-of-type(1){
 	background: #31c6cc;
