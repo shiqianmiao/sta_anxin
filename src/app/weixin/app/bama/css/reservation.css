@@ -86,3 +86,9 @@ html{
 	text-align: center;
 	margin-top: 22px;
 }
+.pai h2{
+	width: 80px;
+}
+.pai div{
+	margin-left: 80px;
+}
