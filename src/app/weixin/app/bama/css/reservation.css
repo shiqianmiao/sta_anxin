@@ -28,7 +28,7 @@ html{
 .letter-spacing{
 	letter-spacing: 1px;
 }
-.select-project, .select-time{
+.select-project, .select-time, .select-addr{
 	margin-left: 64px;
 	height: 44px;
 	background: url(../imgs/strip.png) no-repeat right center;
@@ -36,7 +36,10 @@ html{
 	position: relative;
 	display: block;
 }
-.ser-name, .ser-time{
+.select-addr{
+	margin-left: 80px;
+}
+.ser-name, .ser-time, .ser-addr{
 	position: absolute;
 	height: 44px;
 	line-height: 44px;
@@ -50,6 +53,9 @@ html{
 .input-wrap{
 	height: 44px;
 	margin-left: 64px;
+}
+.addr-input h2{
+	width: 80px;
 }
 .input-wrap input{
 	display: block;

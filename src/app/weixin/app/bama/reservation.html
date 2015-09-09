@@ -9,10 +9,11 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no" />
 
-    <link rel="stylesheet" type="text/css" href="./css/public.css" />
-    <link rel="stylesheet" type="text/css" href="./css/Hselect.css">
-    <link rel="stylesheet" type="text/css" href="./css/reservation.css" />
-    <link rel="stylesheet" type="text/css" href="./css/date.css" />
+    <link rel="stylesheet" href="./css/public.css" />
+    <link rel="stylesheet" href="./css/Hselect.css">
+    <link rel="stylesheet" href="./css/reservation.css" />
+    <link rel="stylesheet" href="./css/date.css" />
+    <link rel="stylesheet" href="css/Hmap.css">
 </head>
 <body>
 
@@ -39,6 +40,10 @@
             <h2>上门时间</h2>
             <div class="select-time"><a href="javascript:;" class="ser-time">2015-08-15 11:30</a></div>
         </li>
+        <li class="per-input clear addr-input">
+            <h2>详细门牌号</h2>
+            <div class="select-addr"><a href="javascript:;" class="ser-addr">哈尔滨</a></div>
+        </li>
     </ul>
 
     <a href="#" class="global-btn borR-3">提交</a>
@@ -64,7 +69,7 @@
     <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['zepto', 'widget/Hselect/js/Hselect.js', 'widget/Optionaltime/js/Optionaltime.js'], function($, Hselect, Optionaltime){
+    G.use(['zepto', 'widget/Hselect/js/Hselect.js', 'widget/Optionaltime/js/Optionaltime.js', 'com/mobile/widget/Hmap/js/Hmaphp.js'], function($, Hselect, Optionaltime, Hmaphp){
 
         $('.ser-name').click(function(){
             var hse = new Hselect({
@@ -217,6 +222,22 @@
 
         $('.time-input').on('tap', function(){
             $('.select-date-window').css({left:0});
+        });
+
+
+        var Hmaphp = new Hmaphp({
+            perAddrOnclick: function(liObj, latitude, longitude, business, results){
+                console.log(latitude);
+                console.log(longitude);
+                console.log(business);
+                console.log(results);
+
+                Hmaphp.hide();
+            }
+        });
+
+        $('.select-addr').on('click', function(){
+            Hmaphp.show();
         });
 
 
