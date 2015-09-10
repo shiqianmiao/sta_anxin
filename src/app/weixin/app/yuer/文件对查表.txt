@@ -1,1 +1,2 @@
 join.html			加入我们
+signin.html			注册

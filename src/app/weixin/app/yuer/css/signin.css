@@ -1,0 +1,149 @@
+html,body{
+	background: #efeff3;
+}
+.signin-logo{
+	display: block;
+	margin: 36px auto 30px;
+	width: 72px;
+	height: 92px;
+}
+.reg-body{
+	background: #f1f1f1;
+}
+.reg-top{
+	height: 44px;
+	box-shadow: 0 0 2px #d8d7d8;
+	background: #fff;
+	text-align: center;
+	color: #ffad0f;
+	font-size: 19px;
+	line-height: 44px;
+	position: relative;
+}
+.phone-call{
+	width: 45px;
+	height: 44px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: url(../imgs/tel.png) no-repeat center center;
+	background-size: 15px 18px;
+}
+.a-text{
+	position: absolute;
+	font-size: 14px;
+	color: #ffad0f;
+	line-height: 44px;
+	right: 4%;
+}
+.back{
+	position: absolute;
+	width: 44px;
+	height: 44px;
+	left: 0;
+	top: 0;
+	background: url(../imgs/return.png) no-repeat 15px center;
+	background-size: 9px 17px;
+}
+.reg-form-list{
+	margin-top: 16px;
+	background: #fff;
+}
+.reg-per-input-wrap{
+	border-bottom: 1px solid #efefef;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 4%;
+}
+.reg-per-input-wrap:last-of-type{
+	border: none;
+}
+.reg-per-input-wrap h4{
+	float: left;
+	font-weight: normal;
+	font-size: 16px;
+	color: #999999;
+	width: 20%;
+}
+input[type=number] {    
+	-moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button {    
+	-webkit-appearance: none;    margin: 0;
+}
+.addWidth h4{
+	width: 33%;
+}
+.reg-per-input-wrap input{
+	float: left;
+	width: 80%;
+	height: 50px;
+	border: none;
+	font-size: 16px;
+}
+.addWidth input{
+	width: 67%;
+}
+@media all and (max-width: 320px){
+	.reg-per-input-wrap h4{
+		width: 22%
+	}
+	.reg-per-input-wrap input{
+		width: 78%;
+	}
+	.addWidth h4{
+		width: 36%;
+	}
+	.addWidth input{
+		width: 64%;
+	}
+}
+.reg-per-input-wrap input.reg-code{
+	width: 40%;
+}
+.getCode{
+	width: 30%;
+	float: right;
+	height: 32px;
+	margin-top: 9px;
+	background: #47bba9;
+	color: #fff;
+	font-size: 14px;
+	line-height: 32px;
+	text-align: center;
+}
+.getCodeing{
+	background: no-repeat;
+	border: 1px solid #47bba9;
+	color: #47bba9;
+}
+.reg-btn{
+	display: block;
+	height: 44px;
+	background: #ffad0f;
+	color: #fff;
+	font-size: 18px;
+	line-height: 44px;
+	text-align: center;
+	width: 92%;
+	margin: 17px auto 8px;
+}
+.tel-change-list{
+	margin-top: 15px;
+}
+.reg-tip{
+	height: 49px;
+	line-height: 49px;
+	font-size: 14px;
+	color: #999999;
+	text-indent: 4%;
+}
+.public-tip-p{
+	line-height: 24px;
+	text-align: center;
+	font-size: 14px;
+	color: #999;
+}
+.signin-btn{
+	margin: 25px auto 0;
+}
