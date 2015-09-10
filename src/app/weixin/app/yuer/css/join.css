@@ -1,0 +1,111 @@
+html, body{
+	background: #efeff3;
+}
+.join-top-title{
+	font-size: 14px;
+	color: #999999;
+	line-height: 19px;
+	padding: 8px 4%;
+	background: #efeff3;
+}
+.join-item-wrap{
+	background: #fff;
+	height: 45px;
+	border-bottom: 1px solid #dddddd;
+	padding: 0 4%;
+	position: relative;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -o-box;
+	display: box;
+}
+.join-proj{
+	width: 27%;
+}
+@media all and (max-width: 320px){
+	.join-proj{
+		width: 34%;
+	}
+}
+.join-input{
+	width: 73%;
+}
+@media all and (max-width: 320px){
+	.join-input{
+		width: 66%;
+	}
+}
+.join-proj-job{
+	width: 40%;
+}
+.job-label{
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.job-select{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+.join-proj span{
+	display: inline-block;
+	height: 45px;
+	line-height: 45px;
+	float: left;
+	color: #999;
+	margin-left: 8px;
+	font-size: 15px;
+}
+.join-job-txt{
+	width: 60%;
+	height: 100%;
+	text-align: right;
+	line-height: 45px;
+	font-size: 16px;
+	color: #333;
+}
+.yuer-join-name, .yuer-join-tel, .yuer-join-job, .yuer-join-specialty{
+	width: 25px;
+	height: 25px;
+	margin-top: 10px;
+	float: left;
+}
+.yuer-join-name{
+	background-position: 0 0;
+}
+.yuer-join-tel{
+	background-position: -25px 0;
+}
+.yuer-join-job{
+	background-position: -50px 0;
+}
+.yuer-join-specialty{
+	background-position: -75px 0;
+}
+.join-input input{
+	display: block;
+	width: 100%;
+	height: 45px;
+	border: none;
+	text-align: right;
+	color: #333333;
+	font-size: 16px;
+	line-height: 45px;
+}
+.job-item{
+	border-bottom: none;
+}
+.specialty-item{
+	margin-top: 15px;
+	border-bottom: none;
+}
+.join-btn{
+	margin: 35px auto 0;
+}

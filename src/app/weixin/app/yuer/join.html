@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>加入我们</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" type="text/css" href="./css/join.css" />
+</head>
+<body>
+
+	<header class="join-top-title">如果您是月嫂，如果您认可阿福的企业文化，请加入阿福宝宝大家庭吧~</header>
+	<section class="join-item-wrap">
+		<h3 class="join-proj">
+			<i class="yuer yuer-join-name"></i>
+			<span>姓名</span>
+		</h3>
+		<div class="join-input">
+			<input type="text" value="杨明静" />
+		</div>
+	</section>
+	<section class="join-item-wrap">
+		<h3 class="join-proj">
+			<i class="yuer yuer-join-tel"></i>
+			<span>手机</span>
+		</h3>
+		<div class="join-input">
+			<input type="text" value="13520008223" />
+		</div>
+	</section>
+	<section class="join-item-wrap job-item">
+		<h3 class="join-proj join-proj-job">
+			<i class="yuer yuer-join-job"></i>
+			<span>工作经验</span>
+		</h3>
+		<div class="join-job-txt">1-3年</div>
+		<select id="join-job" class="job-select">
+			<option>1-3年</option>
+			<option>3-5年</option>
+			<option>5-8年</option>
+			<option>8年以上</option>
+		</select>
+	</section>
+	<section class="join-item-wrap specialty-item">
+		<h3 class="join-proj join-proj-specialty">
+			<i class="yuer yuer-join-specialty"></i>
+			<span>个人特长</span>
+		</h3>
+		<div class="join-input join-specialty-input">
+			<input type="text" value="头发特长，指甲特长" />
+		</div>
+	</section>
+
+	<a href="#" class="yuer-btn borR-3 join-btn">提交</a>
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['zepto'], function($){
+
+    	// 当工作经验的select表单选择发生变化时
+    	$('#join-job').on('change', function(){
+    		$('.join-job-txt').html($(this).val());
+    	});
+        
+    });
+    </script>
+</body>
+</html>
