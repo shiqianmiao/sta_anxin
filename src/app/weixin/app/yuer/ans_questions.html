@@ -71,7 +71,8 @@
 	        <i class="data-next-icon"><span class="yuer"></span></i>
 	    </div>
 	    <ul class="page2-date-list clear">
-	    	<li class="active">1号</li>
+	    	<!-- <li class="active">1号</li> -->
+	    	<li>1号</li>
 	    	<li>2号</li>
 	    	<li>3号</li>
 	    	<li>14号</li>
@@ -104,8 +105,8 @@
 	    </ul>
 
 	    <footer class="page2-foot">
-	    	<a href="#" class="page2-prev borR-3">上一步</a>
-	    	<a href="#" class="page2-next borR-3">下一步</a>
+	    	<a href="javascript:;" class="page2-prev borR-3">上一步</a>
+	    	<a href="javascript:;" class="page2-next borR-3">下一步</a>
 	    </footer>
 	</article>
 	<!-- page2 end -->
@@ -130,6 +131,75 @@
 	    </footer>
 	</article>
 	<!-- page3 end -->
+	<!-- page4 -->
+	<article id="page4" data-num="4">
+		<header class="page4-header">请您至少选择3个感兴趣的问题</header>
+		<ul class="page4-sel-list clear">
+			<li class="active">
+				<i class="yuer yuer-page4-1"></i>
+				<h3>月子餐</h3>
+			</li>
+			<li>
+				<i class="yuer yuer-page4-2"></i>
+				<h3>宝宝健康</h3>
+			</li>
+			<li>
+				<i class="yuer yuer-page4-3"></i>
+				<h3>产后恢复</h3>
+			</li>
+			<li>
+				<i class="yuer yuer-page4-4"></i>
+				<h3>母乳喂养</h3>
+			</li>
+			<li>
+				<i class="yuer yuer-page4-5"></i>
+				<h3>产后情绪</h3>
+			</li>
+			<li>
+				<i class="yuer yuer-page4-6"></i>
+				<h3>早期教育</h3>
+			</li>
+			<li>
+				<i class="yuer yuer-page4-7"></i>
+				<h3>乳房护理</h3>
+			</li>
+			<li>
+				<i class="yuer yuer-page4-8"></i>
+				<h3>家庭关系</h3>
+			</li>
+		</ul>
+		<footer class="page4-foot">
+	    	<a href="#" class="page4-prev borR-3">上一步</a>
+	    	<a href="#" class="page4-next borR-3">下一步</a>
+	    </footer>
+	</article>
+	<!-- page4 end -->
+
+	<!-- page5 -->
+	<article id="page5" data-num="5">
+		<header class="page5-header">请您留下联系方式，我们的客服会根据您的需求尽快给您推荐合适的月嫂。</header>
+		<ul class="reg-form-list tel-change-list">
+			<li class="reg-per-input-wrap clear">
+				<h4>姓名</h4>
+				<input type="text" class="reg-tel"/>
+			</li>
+			<li class="reg-per-input-wrap clear">
+				<h4>手机</h4>
+				<input type="number" class="reg-tel"/>
+			</li>
+			<li class="reg-per-input-wrap clear">
+				<h4>验证码</h4>
+				<input type="number" class="reg-code"/>
+				<span class="getCode borR-3">获取验证码</span>
+			</li>
+		</ul>
+		<footer class="page5-foot">
+	    	<a href="#" class="page5-prev borR-3">上一步</a>
+	    	<a href="#" class="page5-next borR-3">下一步</a>
+	    </footer>
+	</article>
+	
+	<!-- page5 end -->
 
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
@@ -187,8 +257,144 @@
 	            freeMode: true
 	        });
     	}
+
+    	// 点击上一步
+    	$('.page2-prev').on('tap', function(){
+    		// 获取题目article标签
+    		var quesArt = $(this).parents('article');
+    		// 获取题目号
+    		var quesNum = $(this).parents('article').data('num');
+    		// 显示上一题
+    		$(quesArt).removeClass('show').hide();	// 隐藏当前题目
+    		$('article[data-num="' + (quesNum - 1) + '"]').show().addClass('show');	// 显示上一题目
+    	});
+
+    	// 点击下一步
+    	$('.page2-next').on('tap', function(){
+    		// 获取题目article标签
+    		var quesArt = $(this).parents('article');
+    		// 获取题目号
+    		var quesNum = $(this).parents('article').data('num');
+    		// 检查该题目是否选择
+    		if($('.page2-date-list li.active').length == 3){
+    			alert('请选择该题目');
+    		}else{
+    			// 显示下一题
+    			$(quesArt).removeClass('show').hide();	// 隐藏当前题目
+    			$('article[data-num="' + (quesNum + 1) + '"]').show().addClass('show');	// 显示上一题目
+    		}
+    	});
     	
     	// page2 js end ****************************************************************
+
+    	// page3 js ********************************************************************
+
+    	// 点击上一步
+    	$('.page3-prev').on('tap', function(){
+    		// 获取题目article标签
+    		var quesArt = $(this).parents('article');
+    		// 获取题目号
+    		var quesNum = $(this).parents('article').data('num');
+    		// 显示上一题
+    		$(quesArt).removeClass('show').hide();	// 隐藏当前题目
+    		$('article[data-num="' + (quesNum - 1) + '"]').show().addClass('show');	// 显示上一题目
+    	});
+
+    	// 点击下一步
+    	$('.page3-next').on('tap', function(){
+    		// 获取题目article标签
+    		var quesArt = $(this).parents('article');
+    		// 获取题目号
+    		var quesNum = $(this).parents('article').data('num');
+    		// 检查该题目是否选择
+    		if($('.page3-addr-list li.active').length == 3){
+    			alert('请选择该题目');
+    		}else{
+    			// 显示下一题
+    			$(quesArt).removeClass('show').hide();	// 隐藏当前题目
+    			$('article[data-num="' + (quesNum + 1) + '"]').show().addClass('show');	// 显示上一题目
+    		}
+    	});
+
+    	// page3 js end ****************************************************************
+
+    	// page4 js ********************************************************************
+
+    	// 点击上一步
+    	$('.page4-prev').on('tap', function(){
+    		// 获取题目article标签
+    		var quesArt = $(this).parents('article');
+    		// 获取题目号
+    		var quesNum = $(this).parents('article').data('num');
+    		// 显示上一题
+    		$(quesArt).removeClass('show').hide();	// 隐藏当前题目
+    		$('article[data-num="' + (quesNum - 1) + '"]').show().addClass('show');	// 显示上一题目
+    	});
+
+    	// 点击下一步
+    	$('.page4-next').on('tap', function(){
+    		// 获取题目article标签
+    		var quesArt = $(this).parents('article');
+    		// 获取题目号
+    		var quesNum = $(this).parents('article').data('num');
+    		// 检查该题目是否选择
+    		if($('.page4-sel-list li.active').length == 0){
+    			alert('请选择该题目');
+    		}else{
+    			// 显示下一题
+    			$(quesArt).removeClass('show').hide();	// 隐藏当前题目
+    			$('article[data-num="' + (quesNum + 1) + '"]').show().addClass('show');	// 显示上一题目
+    		}
+    	});
+
+    	// page4 js end ****************************************************************
+
+    	// page5 js ********************************************************************
+    	// 点击获取验证码
+		$('.getCode').on('tap', getCodeFn);
+
+		// 获取验证码的函数
+		function getCodeFn(){
+			var sec = 60,
+				self = this,
+				timer = null;
+			$(this).addClass('getCodeing');
+			$(this).off('tap');
+			$(this).html(sec + '秒');
+
+			timer = setInterval(function(){
+				if(sec != 0){
+					sec--;
+					$(self).html(sec + '秒');
+				}else{
+					clearInterval(timer);
+					$(self).removeClass('getCodeing');
+					$(self).on('tap', getCodeFn);
+					$(self).html('重新获取');
+				}
+				
+			}, 1000);
+
+			// 在这里发送ajax请求
+
+		}
+
+		// 点击上一步
+    	$('.page5-prev').on('tap', function(){
+    		// 获取题目article标签
+    		var quesArt = $(this).parents('article');
+    		// 获取题目号
+    		var quesNum = $(this).parents('article').data('num');
+    		// 显示上一题
+    		$(quesArt).removeClass('show').hide();	// 隐藏当前题目
+    		$('article[data-num="' + (quesNum - 1) + '"]').show().addClass('show');	// 显示上一题目
+    	});
+
+    	// 点击完成
+    	$('.page5-next').on('tap', function(){
+    		alert('提交数据');
+    	});
+    	// page5 js end ****************************************************************
 
     	
         

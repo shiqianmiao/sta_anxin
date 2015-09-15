@@ -1,5 +1,5 @@
 html, body{height: 100%;}
-#page2, #page3{
+#page2, #page3, #page4, #page5{
 	display: none;
 }
 /* 页面一的样式 */
@@ -271,7 +271,7 @@ html, body{height: 100%;}
 	background: #ff7f58;
 	float: right;
 }
-@media all and (max-width: 320px){
+@media all and (max-width: 345px){
 	.page2-foot{
 		margin: 18px auto;
 	}
@@ -365,7 +365,7 @@ html, body{height: 100%;}
 	background: #ff7f58;
 	float: right;
 }
-@media all and (max-width: 320px){
+@media all and (max-width: 345px){
 	.page3-foot{
 		margin: 100px auto;
 	}
@@ -374,3 +374,264 @@ html, body{height: 100%;}
 	}
 }
 /* 页面三的样式 结束 */
+/* 页面四的样式 */
+#page4{
+	background: #efeff3;
+	min-height: 100%;
+}
+.page4-header{
+	height: 57px;
+	line-height: 57px;
+	text-align: center;
+	font-size: 18px;
+	color: #47bba9;
+	font-weight: bold;
+}
+.page4-sel-list{
+	width: 92%;
+	margin: 0 auto;
+}
+.page4-sel-list li{
+	float: left;
+	width: 30%;
+	margin-right: 5%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #e0e5eb;
+	height: 102px;
+	background: #fff;
+	margin-bottom: 5%;
+	position: relative;
+}
+.page4-sel-list li:nth-of-type(3n){
+	margin-right: 0;
+}
+.page4-sel-list li.active{
+	border: 1px solid #47bba9;
+}
+.page4-sel-list li.active:after{
+	content: "";
+	position: absolute;
+	right: -1px;
+	bottom: -1px;
+	width: 31px;
+	height: 30px;
+	background: url(../imgs/yuer.png) no-repeat;
+	background-size: 200px 400px;
+	background-position: -169px -20px;
+	z-index: 0;
+}
+.page4-sel-list i{
+	display: block;
+	margin: 12px auto 0;
+	width: 47px;
+	height: 51px;
+}
+.yuer-page4-1{
+	background-position: 0 -282px;
+}
+.yuer-page4-1 + h3{
+	color: #ffb017;
+}
+.yuer-page4-2{
+	background-position: -48px -282px;
+}
+.yuer-page4-2 + h3{
+	color: #ff91a8;
+}
+.yuer-page4-3{
+	background-position: -96px -282px;
+}
+.yuer-page4-3 + h3{
+	color: #a1cbff;
+}
+.yuer-page4-4{
+	background-position: -144px -282px;
+}
+.yuer-page4-4 + h3{
+	color: #ff998b;
+}
+.yuer-page4-5{
+	background-position: 0 -333px;
+}
+.yuer-page4-5 + h3{
+	color: #41c5eb;
+}
+.yuer-page4-6{
+	background-position: -48px -333px;
+}
+.yuer-page4-6 + h3{
+	color: #86ac00;
+}
+.yuer-page4-7{
+	background-position: -96px -333px;
+}
+.yuer-page4-7 + h3{
+	color: #ff9650;
+}
+.yuer-page4-8{
+	background-position: -144px -333px;
+}
+.yuer-page4-8 + h3{
+	color: #ff7474;;
+}
+.page4-sel-list h3{
+	height: 16px;
+	font-size: 16px;
+	line-height: 16px;
+	text-align: center;
+	margin-top: 10px;
+	position: relative;
+	z-index: 3;
+}
+.page4-foot{
+	height: 40px;
+	width: 92%;
+	margin: 83px auto 0;
+}
+.page4-prev, .page4-next{
+	float: left;
+	width: 158px;
+	height: 40px;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	font-size: 16px;
+}
+.page4-prev{
+	background: #47bba9;
+}
+.page4-next{
+	background: #ff7f58;
+	float: right;
+}
+@media all and (max-width: 345px){
+	.page4-foot{
+		margin: 38px auto;
+	}
+	.page4-prev, .page4-next{
+		width: 130px;
+	}
+}
+/* 页面四的样式 结束 */
+/* 页面五的样式 */
+#page5{
+	background: #efeff3;
+	min-height: 100%;
+}
+.page5-header{
+	padding: 7px 4%;
+	line-height: 20px;
+	font-size: 14px;
+	color: #999999;
+}
+.reg-form-list{
+	background: #fff;
+}
+.reg-per-input-wrap{
+	border-bottom: 1px solid #efefef;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 4%;
+}
+.reg-per-input-wrap:last-of-type{
+	border: none;
+}
+.reg-per-input-wrap h4{
+	float: left;
+	font-weight: normal;
+	font-size: 16px;
+	color: #999999;
+	width: 20%;
+}
+input[type=number] {    
+	-moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button {    
+	-webkit-appearance: none;    margin: 0;
+}
+.addWidth h4{
+	width: 33%;
+}
+.reg-per-input-wrap input{
+	float: left;
+	width: 80%;
+	height: 50px;
+	border: none;
+	font-size: 16px;
+	text-align: right;
+}
+.addWidth input{
+	width: 67%;
+}
+@media all and (max-width: 320px){
+	.reg-per-input-wrap h4{
+		width: 22%
+	}
+	.reg-per-input-wrap input{
+		width: 78%;
+	}
+	.addWidth h4{
+		width: 36%;
+	}
+	.addWidth input{
+		width: 64%;
+	}
+}
+.reg-per-input-wrap input.reg-code{
+	width: 40%;
+}
+.getCode{
+	width: 30%;
+	float: right;
+	height: 32px;
+	margin-top: 9px;
+	background: #47bba9;
+	color: #fff;
+	font-size: 14px;
+	line-height: 32px;
+	text-align: center;
+}
+.getCodeing{
+	background: no-repeat;
+	border: 1px solid #47bba9;
+	color: #47bba9;
+}
+.page5-foot{
+	height: 40px;
+	width: 92%;
+	margin: 83px auto 0;
+}
+.page5-prev, .page5-next{
+	float: left;
+	width: 158px;
+	height: 40px;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	font-size: 16px;
+}
+.page5-prev{
+	background: #47bba9;
+}
+.page5-next{
+	background: #ff7f58;
+	float: right;
+}
+@media all and (max-width: 345px){
+	.page5-foot{
+		margin: 38px auto;
+	}
+	.page5-prev, .page5-next{
+		width: 130px;
+	}
+}
+/* 页面五的样式 结束 */
