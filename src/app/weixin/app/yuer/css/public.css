@@ -65,11 +65,11 @@ a,button,input,textarea{-webkit-tap-highlight-color: rgba(255,0,0,0);}
 .yuer{
 	display: inline-block;
 	background: url(../imgs/yuer.png) no-repeat;
-	-webkit-background-size: 200px 200px;
-	-moz-background-size: 200px 200px;
-	-ms-background-size: 200px 200px;
-	-o-background-size: 200px 200px;
-	background-size: 200px 200px;
+	-webkit-background-size: 200px 400px;
+	-moz-background-size: 200px 400px;
+	-ms-background-size: 200px 400px;
+	-o-background-size: 200px 400px;
+	background-size: 200px 400px;
 }
 .yuer-btn{
 	width: 92%;

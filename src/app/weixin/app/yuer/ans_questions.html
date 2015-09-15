@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>加入我们</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no" />
+
+    <link rel="stylesheet" type="text/css" href="./css/public.css" />
+    <link rel="stylesheet" href="./css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/ans_questions.css" />
+</head>
+<body>
+
+	<!-- page1 -->
+	<article id="page1" data-num="1">
+		<section class="page1-sec1">
+			<header class="page1-top flex-center"><p>您正在使用阿福宝宝预约月嫂服务，请回答以下几 个问题，我们能更准确的为您推荐月嫂。</p></header>
+		</section>
+		<section class="page1-sec2">
+			<p>您的宝宝是头胎还是二胎？</p>
+		</section>
+		<section class="page1-sec3 flex-center">
+			<div class="page1-select-wrap">
+				<div class="page-select-1" data-ans="1">
+					<i class="yuer first-child"></i>
+					<h2>头胎</h2>
+				</div>
+				<div class="page-select-2" data-ans="2">
+					<i class="yuer sec-child"></i>
+					<h2>二胎</h2>
+				</div>
+			</div>
+		</section>
+	</article>
+	<!-- page1 end -->
+
+	<!-- page2 -->
+	<article id="page2" data-num="2">
+		<header class="page2-head">您的预产期</header>
+		<div class="swiper-container page2-swiper-container">
+	        <div class="swiper-wrapper page2-swiper-wrapper">
+	            <div class="swiper-slide page2-swiper-slide">
+	                <ul class="clear page2-swiper-ul">
+		                <li class="active">
+		                	<h3>5月</h3>
+		                	<p>2015年</p>
+		                </li>
+		                <li>
+		                	<h3>6月</h3>
+		                	<p>2015年</p>
+		                </li>
+		                <li>
+		                	<h3>7月</h3>
+		                	<p>2015年</p>
+		                </li>
+		                <li>
+		                	<h3>8月</h3>
+		                	<p>2015年</p>
+		                </li>
+		                <li>
+		                	<h3>9月</h3>
+		                	<p>2015年</p>
+		                </li>
+	                </ul>
+	            </div>
+	        </div>
+	        <i class="data-prev-icon"><span class="yuer"></span></i>
+	        <i class="data-next-icon"><span class="yuer"></span></i>
+	    </div>
+	    <ul class="page2-date-list clear">
+	    	<li class="active">1号</li>
+	    	<li>2号</li>
+	    	<li>3号</li>
+	    	<li>14号</li>
+	    	<li>16号</li>
+	    	<li>1号</li>
+	    	<li>2号</li>
+	    	<li>3号</li>
+	    	<li>14号</li>
+	    	<li>16号</li>
+	    	<li>1号</li>
+	    	<li>2号</li>
+	    	<li>3号</li>
+	    	<li>14号</li>
+	    	<li>16号</li>
+	    	<li>1号</li>
+	    	<li>2号</li>
+	    	<li>3号</li>
+	    	<li>14号</li>
+	    	<li>16号</li>
+	    	<li>1号</li>
+	    	<li>2号</li>
+	    	<li>3号</li>
+	    	<li>14号</li>
+	    	<li>16号</li>
+	    	<li>1号</li>
+	    	<li>2号</li>
+	    	<li>3号</li>
+	    	<li>14号</li>
+	    	<li>16号</li>
+	    </ul>
+
+	    <footer class="page2-foot">
+	    	<a href="#" class="page2-prev borR-3">上一步</a>
+	    	<a href="#" class="page2-next borR-3">下一步</a>
+	    </footer>
+	</article>
+	<!-- page2 end -->
+
+	<!-- page3 -->
+	<article id="page3" data-num="3">
+		<header class="page3-head">您希望月嫂是哪里人</header>
+		<section class="page3-content">
+			<ul class="page3-addr-list clear">
+				<li class="active"><span></span>东北</li>
+				<li><span></span>西北</li>
+				<li><span></span>河北</li>
+				<li><span></span>华中</li>
+				<li><span></span>华东</li>
+				<li><span></span>华南</li>
+				<li><span></span>华西</li>
+			</ul>
+		</section>
+		<footer class="page3-foot">
+	    	<a href="#" class="page3-prev borR-3">上一步</a>
+	    	<a href="#" class="page3-next borR-3">下一步</a>
+	    </footer>
+	</article>
+	<!-- page3 end -->
+
+	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['zepto', 'lib/swiper/swiper.min.js'], function($, Swiper){
+
+    	// 全局数据存储
+    	var ansNum = $('article[data-num]').length,
+    		globalData = {};
+    	for(var i = 1; i <= ansNum; i++){
+    		globalData[i] = 0;
+    	}
+    	console.log(globalData);
+
+    	// page1 js ********************************************************************
+
+    	// 点选区域触碰是的样式
+    	$('.page1-select-wrap div').on('touchstart', function(){
+    		$(this).addClass('active');
+    	});
+    	$('.page1-select-wrap div').on('touchend', function(){
+    		$(this).removeClass('active');
+    	});
+
+    	// 点选选项
+    	$('.page1-select-wrap div').on('tap', function(){
+    		var quesArt = $(this).parents('article');
+    		var quesNum = $(this).parents('article').data('num');
+    		globalData[quesNum] = $(this).data('ans');
+    		
+    		// 显示下一题目
+    		$(quesArt).hide();
+    		$('article[data-num="' + (quesNum + 1) + '"]').show().addClass('show');
+    		page2DateWidth(); // 当，page2显示时，计算日期宽度
+
+    		console.log(globalData);
+    	});
+
+    	// page1 js end ****************************************************************
+
+    	// page2 js ********************************************************************
+
+    	// 计算日期ul的宽度
+    	function page2DateWidth(){
+    		var paddingWidth = parseInt($('.page2-swiper-ul').css('padding').split(' ')[1]) * 2;
+    		$('.page2-swiper-slide').css({width: $('.page2-swiper-ul li').width() * $('.page2-swiper-ul li').length - 1 + paddingWidth + 'px'});
+	    	// 日期滑动
+	        var swiper = new Swiper('.swiper-container', {
+	            direction: 'horizontal',
+	            slidesPerView: 'auto',
+	            mousewheelControl: true,
+	            freeMode: true
+	        });
+    	}
+    	
+    	// page2 js end ****************************************************************
+
+    	
+        
+    });
+    </script>
+</body>
+</html>

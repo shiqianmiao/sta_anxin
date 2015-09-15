@@ -372,3 +372,48 @@
 	}
 }
 /* 优秀人员页面样式 结束 */
+/* 取药去报告新 */
+.qy-top{
+	height: 225px;
+	background: #fff;
+	text-align: center;
+}
+.qy-top img{
+	max-width: 100%;
+	max-height: 225px;
+}
+.quyao-body{
+	background: #ecf2df;
+}
+.qy-intr, .qy-order{
+	display: block;
+	margin: 30px auto 0;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-o-border-radius: 15px;
+	border-radius: 15px;
+	background: #009944;
+	border: 3px solid #fff;
+	height: 80px;
+	width: 84%;
+	color: #fff;
+	text-align: center;
+	line-height: 80px;
+	font-size: 15px;
+}
+.qy-order{
+	background: #f2ab5e;
+}
+.qy-intr img, .qy-order img{
+	vertical-align: middle;
+	width: 36px;
+	height: 35px;
+	margin-right: 16px;
+}
+.qy-order img{
+	width: 31px;
+	height: 31px;
+	margin-right: 19px;
+}
+/* 取药去报告新 结束 */
