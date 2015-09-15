@@ -36,6 +36,9 @@ html{
 	position: relative;
 	display: block;
 }
+.no-bg{
+	background: none;
+}
 .select-addr{
 	margin-left: 80px;
 }

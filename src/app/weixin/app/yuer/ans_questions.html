@@ -156,13 +156,16 @@
 
     	// 点选选项
     	$('.page1-select-wrap div').on('tap', function(){
+    		// 获取题目article标签
     		var quesArt = $(this).parents('article');
+    		// 获取题目号
     		var quesNum = $(this).parents('article').data('num');
+    		// 写入数据
     		globalData[quesNum] = $(this).data('ans');
     		
     		// 显示下一题目
-    		$(quesArt).hide();
-    		$('article[data-num="' + (quesNum + 1) + '"]').show().addClass('show');
+    		$(quesArt).hide();	// 隐藏当前题目
+    		$('article[data-num="' + (quesNum + 1) + '"]').show().addClass('show');	// 显示下一题目
     		page2DateWidth(); // 当，page2显示时，计算日期宽度
 
     		console.log(globalData);
