@@ -22,21 +22,13 @@ html, body{
 	display: box;
 }
 .join-proj{
-	width: 27%;
+	width: 34%;
 }
-@media all and (max-width: 320px){
-	.join-proj{
-		width: 34%;
-	}
-}
+
 .join-input{
-	width: 73%;
+	width: 66%;
 }
-@media all and (max-width: 320px){
-	.join-input{
-		width: 66%;
-	}
-}
+
 .join-proj-job{
 	width: 40%;
 }
