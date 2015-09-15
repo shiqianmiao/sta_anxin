@@ -374,7 +374,7 @@
 /* 优秀人员页面样式 结束 */
 /* 取药去报告新 */
 .qy-top{
-	height: 225px;
+	max-height: 225px;
 	background: #fff;
 	text-align: center;
 }
