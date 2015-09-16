@@ -147,10 +147,9 @@
 	text-align: center;
 	font-weight: bold;
 }
-.about-pic{
-	height: 194px;
-	background: url(../imgs/ad.jpg) no-repeat;
-	background-size: 100% 100%;
+.about-pic img{
+	width: 100%;
+	display: block;
 }
 .about-intr-wrap{
 	padding: 26px 4%;
