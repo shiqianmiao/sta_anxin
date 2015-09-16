@@ -435,3 +435,65 @@
 	width: 100%;
 }
 /* 取药去报告新 结束 */
+/* 取药详情 */
+.qydet-body{
+	background: #d0def2;
+}
+.qydet-top{
+	position: relative;
+}
+.qydet-top img{
+	width: 100%;
+}
+.qydet-top a{
+	position: absolute;
+	height: 17%;
+	width: 36%;
+	background: rgba(0,0,0,0);
+	bottom: 0;
+	left: 32%;
+}
+.qydet-intr-txt{
+	width: 95.2%;
+	text-align: center;
+	margin: 10px auto 0;
+	-webkit-border-radius: 13px;
+	-moz-border-radius: 13px;
+	-ms-border-radius: 13px;
+	-o-border-radius: 13px;
+	border-radius: 13px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 2px solid #bcd0ec;
+	background: #fff
+}
+.qydet-intr-txt img{
+	width: 199px;
+	height: 268px;
+}
+.qydet-img{
+	display: block;
+	width: 95.2%;
+	margin: 14px auto 0;
+}
+.to-order{
+	width: 125px;
+	height: 35px;
+	background: #efaf52;
+	color: #fff;
+	font-size: 15px;
+	line-height: 35px;
+	text-align: center;
+	border: 3px solid #fff;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
+	display: block;
+	margin: 20px auto;
+}
+/* 取药详情 结束 */
