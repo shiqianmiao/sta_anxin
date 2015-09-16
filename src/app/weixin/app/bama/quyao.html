@@ -16,11 +16,27 @@
 
     <section class="qy-top"><img src="imgs/quyaotop.jpg"></section>
 
-    <a href="#" class="qy-intr">
-        <img src="imgs/qya.png">服务介绍
-    </a>
-    <a href="#" class="qy-order">
-        <img src="imgs/qyb.png">一键预订
-    </a>
+    <section class="bottom-sec flex-center">
+        <div>
+            <a href="#" class="qy-intr">
+                <img src="imgs/qya.png">服务介绍
+            </a>
+            <a href="#" class="qy-order">
+                <img src="imgs/qyb.png">一键预订
+            </a>
+        </div>
+    </section>
+
+    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
+    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
+    <script>
+    G.use(['zepto'], function($){
+        var allHeight = $(window).height();
+        var topHeight = $('.qy-top').height();
+        var bottomHeight = allHeight - topHeight;
+
+        $('.bottom-sec').height(bottomHeight);
+    });
+    </script>
 </body>
 </html>
