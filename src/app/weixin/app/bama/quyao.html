@@ -16,7 +16,7 @@
 
     <section class="qy-top"><img src="imgs/quyaotop.jpg"></section>
 
-    <section class="bottom-sec flex-center">
+    <section class="bottom-sec">
         <div>
             <a href="#" class="qy-intr">
                 <img src="imgs/qya.png">服务介绍
@@ -27,16 +27,5 @@
         </div>
     </section>
 
-    <script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
-    <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
-    <script>
-    G.use(['zepto'], function($){
-        var allHeight = $(window).height();
-        var topHeight = $('.qy-top').height();
-        var bottomHeight = allHeight - topHeight;
-
-        $('.bottom-sec').height(bottomHeight);
-    });
-    </script>
 </body>
 </html>
