@@ -1,0 +1,43 @@
+.yslist{
+	padding: 0 4%;
+}
+.yslist li{
+	min-height: 103px;
+	border-bottom: 1px solid #e2e2e8;
+	overflow: hidden;
+}
+.head-pic{
+	float: left;
+	width: 83px;
+	margin-top: 10px;
+}
+.content-wrap{
+	margin-left: 83px;
+	padding-left: 13px;
+	min-height: 103px;
+	overflow: hidden;
+}
+.content-wrap h3{
+	font-size: 18px;
+	color: #333;
+	height: 18px;
+	line-height: 18px;
+	margin-top: 19px;
+}
+.content-wrap p{
+	font-size: 14px;
+	height: 14px;
+	line-height: 14px;
+	color: #999;
+	margin-top: 12px;
+}
+.content-wrap p:last-of-type{
+	margin-top: 10px;
+}
+.content-wrap p:last-of-type span{
+	float: right;
+}
+.content-wrap p:last-of-type span em{
+	color: #ff4614;
+	font-size: 18px;
+}
