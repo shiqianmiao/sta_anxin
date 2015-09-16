@@ -116,13 +116,13 @@
 		<header class="page3-head">您希望月嫂是哪里人</header>
 		<section class="page3-content">
 			<ul class="page3-addr-list clear">
-				<li class="active"><span></span>东北</li>
-				<li><span></span>西北</li>
-				<li><span></span>河北</li>
-				<li><span></span>华中</li>
-				<li><span></span>华东</li>
-				<li><span></span>华南</li>
-				<li><span></span>华西</li>
+				<li data-p3ansnum="1"><span></span><em>东北</em></li>
+				<li data-p3ansnum="2"><span></span><em>西北</em></li>
+				<li data-p3ansnum="3"><span></span><em>河北</em></li>
+				<li data-p3ansnum="4"><span></span><em>华中</em></li>
+				<li data-p3ansnum="5"><span></span><em>华东</em></li>
+				<li data-p3ansnum="6"><span></span><em>华南</em></li>
+				<li data-p3ansnum="7"><span></span><em>华西</em></li>
 			</ul>
 		</section>
 		<footer class="page3-foot">
@@ -135,35 +135,35 @@
 	<article id="page4" data-num="4">
 		<header class="page4-header">请您至少选择3个感兴趣的问题</header>
 		<ul class="page4-sel-list clear">
-			<li class="active">
+			<li data-p4ansnum="1">
 				<i class="yuer yuer-page4-1"></i>
 				<h3>月子餐</h3>
 			</li>
-			<li>
+			<li data-p4ansnum="2">
 				<i class="yuer yuer-page4-2"></i>
 				<h3>宝宝健康</h3>
 			</li>
-			<li>
+			<li data-p4ansnum="3">
 				<i class="yuer yuer-page4-3"></i>
 				<h3>产后恢复</h3>
 			</li>
-			<li>
+			<li data-p4ansnum="4">
 				<i class="yuer yuer-page4-4"></i>
 				<h3>母乳喂养</h3>
 			</li>
-			<li>
+			<li data-p4ansnum="5">
 				<i class="yuer yuer-page4-5"></i>
 				<h3>产后情绪</h3>
 			</li>
-			<li>
+			<li data-p4ansnum="6">
 				<i class="yuer yuer-page4-6"></i>
 				<h3>早期教育</h3>
 			</li>
-			<li>
+			<li data-p4ansnum="7">
 				<i class="yuer yuer-page4-7"></i>
 				<h3>乳房护理</h3>
 			</li>
-			<li>
+			<li data-p4ansnum="8">
 				<i class="yuer yuer-page4-8"></i>
 				<h3>家庭关系</h3>
 			</li>
@@ -181,21 +181,21 @@
 		<ul class="reg-form-list tel-change-list">
 			<li class="reg-per-input-wrap clear">
 				<h4>姓名</h4>
-				<input type="text" class="reg-tel"/>
+				<input type="text" class="reg-tel username"/>
 			</li>
 			<li class="reg-per-input-wrap clear">
 				<h4>手机</h4>
-				<input type="number" class="reg-tel"/>
+				<input type="text" class="reg-tel telnumber"/>
 			</li>
 			<li class="reg-per-input-wrap clear">
 				<h4>验证码</h4>
-				<input type="number" class="reg-code"/>
+				<input type="text" class="reg-code codenumber"/>
 				<span class="getCode borR-3">获取验证码</span>
 			</li>
 		</ul>
 		<footer class="page5-foot">
 	    	<a href="#" class="page5-prev borR-3">上一步</a>
-	    	<a href="#" class="page5-next borR-3">下一步</a>
+	    	<a href="#" class="page5-next borR-3">完成</a>
 	    </footer>
 	</article>
 	
@@ -204,14 +204,86 @@
 	<script src="http://s1.anxinsta.com/com/mobile/g.js"></script>
     <script src="http://s1.anxinsta.com/com/mobile/config.js"></script>
     <script>
-    G.use(['zepto', 'lib/swiper/swiper.min.js'], function($, Swiper){
+    G.use(['zepto', 'lib/swiper/swiper.min.js', 'widget/Optionaltime/js/Optionaltime.js', 'com/mobile/widget/Hmodel/js/Hmodel.js'], function($, Swiper, Optionaltime, Hmodel){
 
+    	// 实例化Hmodel
+    	var Hmodel = new Hmodel({
+			showTime : 2000
+		});
+
+		// 实例化下面的对象后，就给定了只有在 startTime ~ endTime 之间的时间是可用的
+		var a = Optionaltime({
+			startTime : "2015/09/15", // 时间下限
+			endTime : "2016/06/30"	// 时间上限
+		});
+
+		var y = a.getYear();	// 获取可用的年份，返回的是json数据，包含min和max两个属性，分别表示最小的可用年份和最大的可用年份
+		var m = a.getMonth(y.min);	// 根据年份获取可用的月份，返回的是json数据，包含min和max两个属性，分别表示最小的可用月份和最大的可用月份
+		var d = a.getDay(y.min, m.min);	// 根据年份、月份获取可用的天，返回的是json数据，包含min和max两个属性，分别表示最小的可用天（即几号）和最大的可用天（即几号）
+
+// localStorage.removeItem('answer');
     	// 全局数据存储
-    	var ansNum = $('article[data-num]').length,
-    		globalData = {};
-    	for(var i = 1; i <= ansNum; i++){
-    		globalData[i] = 0;
+
+    	if(localStorage.getItem('answer')){
+    		globalData = JSON.parse(localStorage.getItem('answer'));
+    	}else{
+    		var ansNum = $('article[data-num]').length,
+	    		globalData = {};
+	    	for(var i = 1; i < ansNum; i++){
+	    		globalData[i] = 0;
+	    	}
     	}
+
+    	if(globalData.username){
+    		// 全部初始化
+    		// 显示第5个页面
+    		showPage('#page5');
+
+    		// 初始化页面5
+    		initPage('#page5');
+    		// 初始化页面4
+    		initPage('#page4');
+    		// 初始化页面3
+    		initPage('#page3');
+    		// 初始化页面2
+    		initPage('#page2');
+    	}else if(globalData[4]){
+    		// 初始化前4个
+    		// 显示第4个页面
+    		showPage('#page4');
+
+    		// 初始化页面4
+    		initPage('#page4');
+    		// 初始化页面3
+    		initPage('#page3');
+    		// 初始化页面2
+    		initPage('#page2');
+    	}else if(globalData[3]){
+    		// 初始化前3个
+    		// 显示第3个页面, 并初始化选项
+    		showPage('#page3');
+
+    		console.log(globalData[3]);
+
+    		// 初始化页面3
+    		initPage('#page3');
+    		// 初始化页面2
+    		initPage('#page2');
+
+    	}else if(globalData[2]){
+    		// 初始化前2个
+    		// 显示第2个页面, 并初始化选项
+    		showPage('#page2');
+			initPage('#page2');
+    	}else if(globalData[1]){
+    		// 初始化前1个
+    		createDateTitle(y.min, m.min); // 调用
+			createDay(y.min, m.min);
+    	}else{
+    		createDateTitle(y.min, m.min); // 调用
+			createDay(y.min, m.min);
+    	}
+    	
     	console.log(globalData);
 
     	// page1 js ********************************************************************
@@ -232,31 +304,102 @@
     		var quesNum = $(this).parents('article').data('num');
     		// 写入数据
     		globalData[quesNum] = $(this).data('ans');
+    		// 写入localstorage
+    		localStorage.setItem('answer', JSON.stringify(globalData));
     		
     		// 显示下一题目
     		$(quesArt).hide();	// 隐藏当前题目
-    		$('article[data-num="' + (quesNum + 1) + '"]').show().addClass('show');	// 显示下一题目
-    		page2DateWidth(); // 当，page2显示时，计算日期宽度
+    		$('article[data-num="' + (quesNum + 1) + '"]').css({left: '0'}).addClass('show');	// 显示下一题目
 
-    		console.log(globalData);
+    		// 设置hash
+    		// location.hash = 'page2';
+
+    		console.log(localStorage.getItem('answer'));
     	});
 
     	// page1 js end ****************************************************************
 
     	// page2 js ********************************************************************
+		
+		// 创建标题日期
+		function createDateTitle(yOpa, mOpa){
+			var dateTitleStr = '',
+	  			start = true;
+			for(var i = y.min; i <= y.max; i++){
+				var m = a.getMonth(i);
+				for(var k = m.min; k <= m.max; k++){
+					// console.log(i + '-' + k);
 
-    	// 计算日期ul的宽度
-    	function page2DateWidth(){
-    		var paddingWidth = parseInt($('.page2-swiper-ul').css('padding').split(' ')[1]) * 2;
-    		$('.page2-swiper-slide').css({width: $('.page2-swiper-ul li').width() * $('.page2-swiper-ul li').length - 1 + paddingWidth + 'px'});
-	    	// 日期滑动
-	        var swiper = new Swiper('.swiper-container', {
-	            direction: 'horizontal',
-	            slidesPerView: 'auto',
-	            mousewheelControl: true,
-	            freeMode: true
-	        });
-    	}
+					if(yOpa == i && mOpa == k){
+						dateTitleStr += '<li class="active" data-date="' + i + '-' + k + '">'
+		+						        	'<h3>' + k + '月</h3>'
+		+						        	'<p>' + i + '年</p>'
+		+						        '</li>';
+					}else{
+						dateTitleStr += '<li data-date="' + i + '-' + k + '">'
+		+						        	'<h3>' + k + '月</h3>'
+		+						        	'<p>' + i + '年</p>'
+		+						        '</li>';
+					}
+					
+				}
+			}
+			$('.page2-swiper-ul').html(dateTitleStr);
+
+			// 添加点击事件
+			$('.page2-swiper-ul li').on('click', function(){
+				var y = $(this).data('date').split('-')[0];
+				var m = $(this).data('date').split('-')[1];
+				// 样式
+				$('.page2-swiper-ul li').removeClass('active');
+				$(this).addClass('active');
+
+				createDay(y, m);	// 创建可用天
+			});
+		}
+		
+
+		// 创建该月的可用天
+		function createDay(y, m){
+			// 清空
+			$('.page2-date-list').html(' ');
+			// 创建
+			var d = a.getDay(y, m),
+				dayStr = '';
+			for(var i = d.min; i <= d.max; i++){
+				dayStr += '<li data-pushdate="' + y + '-' + m + '-' + i + '" data-curday="' + i + '">' + i + '号</li>';
+			}
+			$('.page2-date-list').html(dayStr);
+			// 点击事件
+			$('.page2-date-list li').on('tap', function(){
+				$('.page2-date-list li').removeClass('active');
+				$(this).addClass('active');
+
+				// 获取题目article标签
+	    		var quesArt = $(this).parents('article');
+	    		// 获取题目号
+	    		var quesNum = $(this).parents('article').data('num');
+	    		// 写入数据
+	    		globalData[quesNum] = $(this).data('pushdate');
+	    		// 写入localstorage
+    			localStorage.setItem('answer', JSON.stringify(globalData));
+
+	    		console.log(localStorage.getItem('answer'));
+
+			});
+		}
+  		
+
+    	// 计算日期ul的宽度,计算日期
+    	var paddingWidth = parseInt($('.page2-swiper-ul').css('padding').split(' ')[1]) * 2;
+		$('.page2-swiper-slide').css({width: $('.page2-swiper-ul li').width() * $('.page2-swiper-ul li').length - 1 + paddingWidth + 'px'});
+    	// 日期滑动
+        var swiper = new Swiper('.swiper-container', {
+            direction: 'horizontal',
+            slidesPerView: 'auto',
+            mousewheelControl: true,
+            freeMode: true
+        });
 
     	// 点击上一步
     	$('.page2-prev').on('tap', function(){
@@ -265,8 +408,11 @@
     		// 获取题目号
     		var quesNum = $(this).parents('article').data('num');
     		// 显示上一题
-    		$(quesArt).removeClass('show').hide();	// 隐藏当前题目
+    		$(quesArt).removeClass('show').css({left: '100%'});	// 隐藏当前题目
     		$('article[data-num="' + (quesNum - 1) + '"]').show().addClass('show');	// 显示上一题目
+
+    		// 设置hash
+    		// location.hash = '';
     	});
 
     	// 点击下一步
@@ -276,18 +422,39 @@
     		// 获取题目号
     		var quesNum = $(this).parents('article').data('num');
     		// 检查该题目是否选择
-    		if($('.page2-date-list li.active').length == 3){
-    			alert('请选择该题目');
+    		if($('.page2-date-list li.active').length == 0){
+    			Hmodel.show('请选择一个日期');
     		}else{
     			// 显示下一题
-    			$(quesArt).removeClass('show').hide();	// 隐藏当前题目
+    			$(quesArt).removeClass('show').css({left: '100%'});	// 隐藏当前题目
     			$('article[data-num="' + (quesNum + 1) + '"]').show().addClass('show');	// 显示上一题目
+
+    			// 设置hash
+    			// location.hash = 'page3';
     		}
     	});
     	
     	// page2 js end ****************************************************************
 
     	// page3 js ********************************************************************
+
+    	// 点击选项的时
+    	$('.page3-addr-list li').on('tap', function(){
+    		// 样式
+    		$('.page3-addr-list li').removeClass('active');
+    		$(this).addClass('active');
+
+    		// 获取题目article标签
+    		var quesArt = $(this).parents('article');
+    		// 获取题目号
+    		var quesNum = $(this).parents('article').data('num');
+    		// 写入数据
+    		globalData[quesNum] = $(this).data('p3ansnum');
+    		// 写入localstorage
+    		localStorage.setItem('answer', JSON.stringify(globalData));
+
+    		console.log(localStorage.getItem('answer'));
+    	});
 
     	// 点击上一步
     	$('.page3-prev').on('tap', function(){
@@ -297,7 +464,10 @@
     		var quesNum = $(this).parents('article').data('num');
     		// 显示上一题
     		$(quesArt).removeClass('show').hide();	// 隐藏当前题目
-    		$('article[data-num="' + (quesNum - 1) + '"]').show().addClass('show');	// 显示上一题目
+    		$('article[data-num="' + (quesNum - 1) + '"]').css({left: '0'}).addClass('show');	// 显示上一题目
+
+    		// 设置hash
+    		// location.hash = 'page2';
     	});
 
     	// 点击下一步
@@ -307,18 +477,38 @@
     		// 获取题目号
     		var quesNum = $(this).parents('article').data('num');
     		// 检查该题目是否选择
-    		if($('.page3-addr-list li.active').length == 3){
-    			alert('请选择该题目');
+    		if($('.page3-addr-list li.active').length == 0){
+    			Hmodel.show('请选择一个地区');
     		}else{
     			// 显示下一题
     			$(quesArt).removeClass('show').hide();	// 隐藏当前题目
     			$('article[data-num="' + (quesNum + 1) + '"]').show().addClass('show');	// 显示上一题目
+    			// 设置hash
+    			// location.hash = 'page4';
     		}
     	});
 
     	// page3 js end ****************************************************************
 
     	// page4 js ********************************************************************
+
+    	// 点击选项的时
+    	$('.page4-sel-list li').on('tap', function(){
+    		// 样式
+    		$('.page4-sel-list li').removeClass('active');
+    		$(this).addClass('active');
+
+    		// 获取题目article标签
+    		var quesArt = $(this).parents('article');
+    		// 获取题目号
+    		var quesNum = $(this).parents('article').data('num');
+    		// 写入数据
+    		globalData[quesNum] = $(this).data('p4ansnum');
+    		// 写入localstorage
+    		localStorage.setItem('answer', JSON.stringify(globalData));
+
+    		console.log(localStorage.getItem('answer'));
+    	});
 
     	// 点击上一步
     	$('.page4-prev').on('tap', function(){
@@ -329,6 +519,9 @@
     		// 显示上一题
     		$(quesArt).removeClass('show').hide();	// 隐藏当前题目
     		$('article[data-num="' + (quesNum - 1) + '"]').show().addClass('show');	// 显示上一题目
+
+    		// 设置hash
+    		// location.hash = 'page3';
     	});
 
     	// 点击下一步
@@ -339,11 +532,13 @@
     		var quesNum = $(this).parents('article').data('num');
     		// 检查该题目是否选择
     		if($('.page4-sel-list li.active').length == 0){
-    			alert('请选择该题目');
+    			Hmodel.show('请选择一个您感兴趣的问题');
     		}else{
     			// 显示下一题
     			$(quesArt).removeClass('show').hide();	// 隐藏当前题目
     			$('article[data-num="' + (quesNum + 1) + '"]').show().addClass('show');	// 显示上一题目
+    			// 设置hash
+    			// location.hash = 'page5';
     		}
     	});
 
@@ -388,15 +583,122 @@
     		// 显示上一题
     		$(quesArt).removeClass('show').hide();	// 隐藏当前题目
     		$('article[data-num="' + (quesNum - 1) + '"]').show().addClass('show');	// 显示上一题目
+    		// 设置hash
+    		// location.hash = 'page4';
     	});
 
     	// 点击完成
     	$('.page5-next').on('tap', function(){
-    		alert('提交数据');
+    		// 检查是否填写姓名
+    		if($.trim($('.username').val()) === ''){
+    			Hmodel.show('请填写姓名');
+    			return false;
+    		}
+    		// 检查是否填写手机号
+    		if($.trim($('.telnumber').val()) === ''){
+    			Hmodel.show('请填写手机号');
+    			return false;
+    		}
+    		// 检查是否填写验证码
+    		if($.trim($('.codenumber').val()) === ''){
+    			Hmodel.show('请填写验证码');
+    			return false;
+    		}
+    		// 其他检查
+
+    		// 检查通过后组装数据提交
+    		globalData['username'] = $.trim($('.username').val());
+    		globalData['telnumber'] = $.trim($('.telnumber').val());
+    		globalData['codenumber'] = $.trim($('.codenumber').val());
+
+    		// 写入localstorage
+    		localStorage.setItem('answer', JSON.stringify(globalData));
+
+    		// 发送数据
+
+    		console.log(localStorage.getItem('answer'));
     	});
     	// page5 js end ****************************************************************
 
-    	
+		// 显示页面的函数
+		function showPage(id){
+			switch(id){
+    			case '' :
+    				$('#page1').show();
+    				$('#page2').css({left: '100%'});
+    				$('#page3').hide();
+    				$('#page4').hide();
+    				$('#page5').hide();
+    			break;
+    			case '#page2' :
+    				$('#page1').hide();
+    				$('#page2').css({left: '0'});
+    				$('#page3').hide();
+    				$('#page4').hide();
+    				$('#page5').hide();
+    			break;
+    			case '#page3' :
+    				$('#page1').hide();
+    				$('#page2').css({left: '100%'});
+    				$('#page3').show();
+    				$('#page4').hide();
+    				$('#page5').hide();
+    			break;
+    			case '#page4' :
+    				$('#page1').hide();
+    				$('#page2').css({left: '100%'});
+    				$('#page3').hide();
+    				$('#page4').show();
+    				$('#page5').hide();
+    			break;
+    			case '#page5' :
+    				$('#page1').hide();
+    				$('#page2').css({left: '100%'});
+    				$('#page3').hide();
+    				$('#page4').hide();
+    				$('#page5').show();
+    			break;
+    			default :
+    				$('#page1').show();
+    				$('#page2').css({left: '100%'});
+    				$('#page3').hide();
+    				$('#page4').hide();
+    				$('#page5').hide();
+    			break;
+    		}
+		}
+
+		// 初始化页面
+		function initPage(id){
+			switch(id){
+				case '':
+				break;
+				case '#page2' :
+					var p2InitY = globalData[2].split('-')[0];
+		    		var p2InitM = globalData[2].split('-')[1];
+		    		var p2InitD = globalData[2].split('-')[2];
+
+		    		createDateTitle(p2InitY, p2InitM); // 调用
+					createDay(p2InitY, p2InitM);
+
+					$('li[data-curday="' + p2InitD + '"]').addClass('active');
+				break;
+				case '#page3' :
+					$('li[data-p3ansnum="' + globalData[3] + '"]').addClass('active');
+				break;
+				case '#page4' :
+					$('li[data-p4ansnum="' + globalData[4] + '"]').addClass('active');
+				break;
+				case '#page5' :
+					$('.username').val(globalData.username);
+					$('.telnumber').val(globalData.telnumber);
+					$('.codenumber').val(globalData.codenumber);
+				break;
+				default :
+    			break;
+
+			}
+		}
         
     });
     </script>

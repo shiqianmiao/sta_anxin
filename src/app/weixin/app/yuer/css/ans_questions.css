@@ -1,5 +1,5 @@
-html, body{height: 100%;}
-#page2, #page3, #page4, #page5{
+html, body{height: 100%; position: relative; overflow-x: hidden;}
+#page3, #page4, #page5{
 	display: none;
 }
 /* 页面一的样式 */
@@ -99,6 +99,10 @@ html, body{height: 100%;}
 #page2{
 	min-height: 100%;
 	background: #efeff3;
+	width: 100%;
+	position: absolute;
+	left: 100%;
+	top: 0;
 }
 .page2-head{
 	height: 55px;
