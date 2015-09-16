@@ -430,6 +430,7 @@
 }
 .bottom-sec{
 	overflow: hidden;
+	height: 336px;
 }
 .bottom-sec div{
 	width: 100%;
