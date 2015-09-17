@@ -25,11 +25,11 @@
 		<section class="page1-sec3 flex-center">
 			<div class="page1-select-wrap">
 				<div class="page-select-1" data-ans="1">
-					<i class="yuer first-child"></i>
+					<i class="yuer first-child borR-50"></i>
 					<h2>头胎</h2>
 				</div>
 				<div class="page-select-2" data-ans="2">
-					<i class="yuer sec-child"></i>
+					<i class="yuer sec-child borR-50"></i>
 					<h2>二胎</h2>
 				</div>
 			</div>
@@ -230,11 +230,22 @@
     		var ansNum = $('article[data-num]').length,
 	    		globalData = {};
 	    	for(var i = 1; i < ansNum; i++){
-	    		globalData[i] = 0;
+	    		(function(i){
+	    			if(i == 3 || i == 4){
+		    			globalData[i] = [];
+		    		}else if(i == 2){
+		    			globalData[i] = "";	
+		    		}else{
+		    			globalData[i] = 0;
+		    		}
+	    		})(i);
 	    	}
     	}
 
-    	if(globalData.username){
+    	// 从第一题向后检查，哪个为空定位到哪个页面（第一道定位）
+
+    	// 经过了第一道定位后，从最后一题检查，哪个
+    	if(globalData.username && globalData[4].length && globalData[3].length && globalData[2] && globalData[1]){
     		// 全部初始化
     		// 显示第5个页面
     		showPage('#page5');
@@ -247,7 +258,7 @@
     		initPage('#page3');
     		// 初始化页面2
     		initPage('#page2');
-    	}else if(globalData[4]){
+    	}else if(globalData[4].length && globalData[3].length && globalData[2] && globalData[1]){
     		// 初始化前4个
     		// 显示第4个页面
     		showPage('#page4');
@@ -258,7 +269,7 @@
     		initPage('#page3');
     		// 初始化页面2
     		initPage('#page2');
-    	}else if(globalData[3]){
+    	}else if(globalData[3].length && globalData[2] && globalData[1]){
     		// 初始化前3个
     		// 显示第3个页面, 并初始化选项
     		showPage('#page3');
@@ -270,7 +281,7 @@
     		// 初始化页面2
     		initPage('#page2');
 
-    	}else if(globalData[2]){
+    	}else if(globalData[2] && globalData[1]){
     		// 初始化前2个
     		// 显示第2个页面, 并初始化选项
     		showPage('#page2');
@@ -283,7 +294,6 @@
     		createDateTitle(y.min, m.min); // 调用
 			createDay(y.min, m.min);
     	}
-    	
     	console.log(globalData);
 
     	// page1 js ********************************************************************
@@ -438,18 +448,24 @@
 
     	// page3 js ********************************************************************
 
+    	var page3ItemArr = [];
     	// 点击选项的时
     	$('.page3-addr-list li').on('tap', function(){
     		// 样式
-    		$('.page3-addr-list li').removeClass('active');
-    		$(this).addClass('active');
+    		$(this).toggleClass('active');
 
     		// 获取题目article标签
     		var quesArt = $(this).parents('article');
     		// 获取题目号
     		var quesNum = $(this).parents('article').data('num');
+
+    		// 存储选项
+    		page3ItemArr = [];
+    		$('.page3-addr-list li.active').each(function(i, obj){
+    			page3ItemArr.push($(obj).data('p3ansnum'))
+    		});
     		// 写入数据
-    		globalData[quesNum] = $(this).data('p3ansnum');
+    		globalData[quesNum] = page3ItemArr;
     		// 写入localstorage
     		localStorage.setItem('answer', JSON.stringify(globalData));
 
@@ -492,18 +508,24 @@
 
     	// page4 js ********************************************************************
 
+    	var page4ItemArr = [];
     	// 点击选项的时
     	$('.page4-sel-list li').on('tap', function(){
     		// 样式
-    		$('.page4-sel-list li').removeClass('active');
-    		$(this).addClass('active');
+    		$(this).toggleClass('active');
 
     		// 获取题目article标签
     		var quesArt = $(this).parents('article');
     		// 获取题目号
     		var quesNum = $(this).parents('article').data('num');
+
+    		// 存储选项
+    		page4ItemArr = [];
+    		$('.page4-sel-list li.active').each(function(i, obj){
+    			page4ItemArr.push($(obj).data('p4ansnum'))
+    		});
     		// 写入数据
-    		globalData[quesNum] = $(this).data('p4ansnum');
+    		globalData[quesNum] = page4ItemArr;
     		// 写入localstorage
     		localStorage.setItem('answer', JSON.stringify(globalData));
 
@@ -531,8 +553,8 @@
     		// 获取题目号
     		var quesNum = $(this).parents('article').data('num');
     		// 检查该题目是否选择
-    		if($('.page4-sel-list li.active').length == 0){
-    			Hmodel.show('请选择一个您感兴趣的问题');
+    		if($('.page4-sel-list li.active').length < 3){
+    			Hmodel.show('请您至少选择3个感兴趣的问题');
     		}else{
     			// 显示下一题
     			$(quesArt).removeClass('show').hide();	// 隐藏当前题目
@@ -684,10 +706,18 @@
 					$('li[data-curday="' + p2InitD + '"]').addClass('active');
 				break;
 				case '#page3' :
-					$('li[data-p3ansnum="' + globalData[3] + '"]').addClass('active');
+
+					for(var i = 0; i < globalData[3].length; i++){
+						$('li[data-p3ansnum="' + globalData[3][i] + '"]').addClass('active');
+					}
+					
 				break;
 				case '#page4' :
-					$('li[data-p4ansnum="' + globalData[4] + '"]').addClass('active');
+
+					for(var i = 0; i < globalData[4].length; i++){
+						$('li[data-p4ansnum="' + globalData[4][i] + '"]').addClass('active');
+					}
+
 				break;
 				case '#page5' :
 					$('.username').val(globalData.username);

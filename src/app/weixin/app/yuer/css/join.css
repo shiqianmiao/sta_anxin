@@ -27,6 +27,7 @@ html, body{
 
 .join-input{
 	width: 66%;
+	line-height: 45px;
 }
 
 .join-proj-job{
@@ -81,9 +82,9 @@ html, body{
 .yuer-join-specialty{
 	background-position: -75px 0;
 }
-.join-input input{
+.join-input{
+	width: 66%;
 	display: block;
-	width: 100%;
 	height: 45px;
 	border: none;
 	text-align: right;
