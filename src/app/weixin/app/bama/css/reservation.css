@@ -2,12 +2,13 @@ html{
 	background: #efeff3;
 }
 .title{
-	height: 33px;
+	height: 41px;
 	background: #efeff3;
-	font-size: 14px;
-	color: #999999;
-	line-height: 33px;
+	font-size: 15px;
+	color: #333;
+	line-height: 52px;
 	padding: 0 16px;
+	border-bottom: 2px solid #e5e5e5;
 }
 .form-list{
 	background: #fff;
@@ -85,9 +86,11 @@ html{
 	display: block;
 	color: #ffad0f;
 	font-size: 16px;
-	text-decoration: underline;
 	text-align: center;
 	margin-top: 22px;
+}
+.tel em{
+	color: #959595;
 }
 .pai h2{
 	width: 80px;
