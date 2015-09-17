@@ -1,0 +1,98 @@
+.body{
+	background-color: #f9f9f9;
+}
+
+li{
+	list-style: none;
+	display: list-item;
+	position: relative;
+	color: #a0a0a0;
+}
+ul{
+	text-indent: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+.footer{
+	width:100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 48px;
+	line-height:48px;
+	text-align: center;
+	border-radius:3px;
+	color:#fff;
+	background: #fff;
+	border-top: 1px solid #dadada;
+}
+.find{
+	width: 30%;
+	display: block;
+	float: left;
+	height:46px;
+	border-radius:3px;
+}
+.myCenter{
+	width: 33%;
+	position: absolute;
+	left: 32%;
+	height:46px;
+	display: block;
+}
+.sell{
+	width: 30%;
+	display: block;
+	float: right;
+	height:46px;
+
+}
+.content{
+	background-color: #fff;
+	min-height: 100%;
+}
+
+.li-content{
+	width:100%;
+	height:300px;
+	border:1px solid #dadada;
+	border-radius: 3px;
+	margin-bottom: 10px;
+}
+
+.li-content img{
+	width:80%;
+	height: 250px;
+	display: block;
+	float: left;
+	position: absolute;
+	left:10%;
+}
+.content-b {
+	top:250px;
+	width: 100%;
+	height: 48px;
+	background-color: #fff;
+	float:left;
+	position: relative;
+	border-top: 1px solid #dadada;
+	margin-bottom: 100px;
+}
+
+.content-b-l{
+	width: 50%;
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	border-right: 1px solid #dadada;
+	display: block;
+	float: left;
+}
+.content-b-r{
+	width: 49%;
+	height: 48px;
+	text-align: center;
+	line-height: 48px;
+	background-color: #fff;
+	float: right;
+}
