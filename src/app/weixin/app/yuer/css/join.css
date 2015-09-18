@@ -27,7 +27,7 @@ html, body{
 }
 
 .join-proj-job{
-	width: 40%;
+	width: 34%;
 }
 .job-label{
 	display: block;
@@ -53,9 +53,9 @@ html, body{
 	font-size: 15px;
 }
 .join-job-txt{
-	width: 60%;
+	width: 66%;
 	height: 100%;
-	text-align: right;
+	text-align: left;
 	line-height: 45px;
 	font-size: 16px;
 	color: #333;
@@ -85,7 +85,7 @@ html, body{
 	height: 25px;
 	line-height: 25px;
 	border: none;
-	text-align: right;
+	text-align: left;
 	color: #333333;
 	font-size: 16px;
 	margin: 10px 0;
