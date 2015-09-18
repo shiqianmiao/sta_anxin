@@ -1,0 +1,76 @@
+.order-list{
+	width: 100%;
+	min-height: 100%;
+	background-color: #f1f1f1;
+}
+.order-detail{
+	width: 100%;
+	height: 123px;
+	padding: 19px 0 0 21px;
+	font-size: 15px;
+	background-color: #fff;
+	border-bottom: 2px solid #e5e5e5;
+	border-top: 2px solid #e5e5e5;
+	margin-bottom: 10px;
+	color: #9d9d9d;
+}
+.img-head{
+	width: 62px;
+	height: 62px;
+	float: left;
+}
+.order-right{
+	width: 62%;
+	height: 62px;
+	float: left;
+	margin-left: 15px;
+}
+
+.order-name{
+	margin-bottom: 6px;
+}
+
+.order-name em{
+	color:#3d3d3d;
+	margin-left: 17px;
+}
+.order-price{
+	margin-bottom: 7px;
+
+}
+.into-detail{
+	display: block;
+	float: right;
+}
+.order-price em{
+	color:#3d3d3d;
+	margin-left: 17px;
+}
+.order-time{
+	margin-bottom: 11px;
+	font-size: 15px;
+}
+
+.order-status{
+	float: left;
+}
+.order-trading {
+	color:#ff9900;
+}
+.order-op{
+	float : right;
+}
+
+.order-op a {
+	color: #9d9d9d;
+	padding-left: 50px;
+}
+.finish-img{
+	display: block;
+	float: left;
+	width: 40px;
+	height: 40px;
+	background-image: url("img/finish.png") no-repeat;
+}
+
+
