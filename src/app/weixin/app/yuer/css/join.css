@@ -15,14 +15,10 @@ html, body{
 	padding: 0 4%;
 	position: relative;
 
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -o-box;
-	display: box;
 }
 .join-proj{
 	width: 34%;
+	float: left;
 }
 
 .join-input{
@@ -63,6 +59,7 @@ html, body{
 	line-height: 45px;
 	font-size: 16px;
 	color: #333;
+	float: left;
 }
 .yuer-join-name, .yuer-join-tel, .yuer-join-job, .yuer-join-specialty{
 	width: 25px;
@@ -83,14 +80,15 @@ html, body{
 	background-position: -75px 0;
 }
 .join-input{
+	float: left;
 	width: 66%;
-	display: block;
-	height: 45px;
+	height: 25px;
+	line-height: 25px;
 	border: none;
 	text-align: right;
 	color: #333333;
 	font-size: 16px;
-	line-height: 45px;
+	margin: 10px 0;
 }
 .job-item{
 	border-bottom: none;
